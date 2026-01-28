@@ -1,0 +1,16 @@
+{
+  "name": "doctrine-site",
+  "version": "1.0.0",
+  "description": "Doctrine site structural shell - bilingual static website",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "start": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

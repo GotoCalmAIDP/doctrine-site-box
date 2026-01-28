@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} — Doctrine Site</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="site-brand">
+                <a href="/{{ lang }}/">Doctrine</a>
+            </div>
+            
+            <nav class="language-switcher">
+                {% if lang == "en" %}
+                <span class="lang-active">EN</span>
+                <span class="lang-separator">|</span>
+                <a href="{{ page.url | langUrl(lang) }}" class="lang-link">UA</a>
+                {% else %}
+                <a href="{{ page.url | langUrl(lang) }}" class="lang-link">EN</a>
+                <span class="lang-separator">|</span>
+                <span class="lang-active">UA</span>
+                {% endif %}
+            </nav>
+        </div>
+        
+        <nav class="primary-nav">
+            <ul>
+                {% for item in navigation[lang] %}
+                <li{% if page.url == item.url %} class="active"{% endif %}>
+                    <a href="{{ item.url }}">{{ item.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </header>
+
+    <main class="site-main">
+        <article class="content">
+            {{ content | safe }}
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>
+                {% if lang == "en" %}
+                Doctrine Site — Structural Shell
+                {% else %}
+                Doctrine Site — Структурна оболонка
+                {% endif %}
+            </p>
+            <nav class="footer-nav">
+                <a href="/{{ lang }}/">
+                    {% if lang == "en" %}Home{% else %}Головна{% endif %}
+                </a>
+                <a href="/{{ lang }}/contact/">
+                    {% if lang == "en" %}Contact{% else %}Контакти{% endif %}
+                </a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

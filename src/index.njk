@@ -1,0 +1,53 @@
+---
+title: Doctrine Site
+permalink: /index.html
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctrine Site — Choose Language</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .language-select {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            gap: 2rem;
+        }
+        .language-select h1 {
+            margin-bottom: 1rem;
+        }
+        .language-buttons {
+            display: flex;
+            gap: 2rem;
+        }
+        .language-buttons a {
+            display: inline-block;
+            padding: 1rem 3rem;
+            font-size: 1.25rem;
+            text-decoration: none;
+            border: 2px solid #333;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        .language-buttons a:hover {
+            background: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <main class="language-select">
+        <h1>Doctrine Site</h1>
+        <p>Select your language / Оберіть мову</p>
+        <div class="language-buttons">
+            <a href="/en/">English</a>
+            <a href="/ua/">Українська</a>
+        </div>
+    </main>
+</body>
+</html>

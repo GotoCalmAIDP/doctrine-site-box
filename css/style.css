@@ -1,0 +1,250 @@
+/* Doctrine Site — Minimal Clean CSS */
+
+/* Reset and Base */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: #333;
+    background: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; margin-top: 2rem; }
+h3 { font-size: 1.25rem; }
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 1.5rem 0;
+}
+
+blockquote {
+    border-left: 4px solid #0066cc;
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    color: #555;
+    background: #f8f9fa;
+    padding: 1rem;
+}
+
+strong {
+    font-weight: 600;
+}
+
+/* Header */
+.site-header {
+    background: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-brand a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    text-decoration: none;
+}
+
+.site-brand a:hover {
+    color: #0066cc;
+}
+
+/* Language Switcher */
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.lang-active {
+    font-weight: 700;
+    color: #333;
+}
+
+.lang-link {
+    color: #666;
+}
+
+.lang-link:hover {
+    color: #0066cc;
+}
+
+.lang-separator {
+    color: #ccc;
+}
+
+/* Primary Navigation */
+.primary-nav {
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.primary-nav ul {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+}
+
+.primary-nav li {
+    margin: 0;
+}
+
+.primary-nav a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: #555;
+    font-size: 0.9375rem;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.primary-nav a:hover {
+    color: #0066cc;
+    text-decoration: none;
+    background: #f8f9fa;
+}
+
+.primary-nav li.active a {
+    color: #0066cc;
+    border-bottom-color: #0066cc;
+    font-weight: 600;
+}
+
+/* Main Content */
+.site-main {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 100%;
+}
+
+.content {
+    max-width: 800px;
+}
+
+/* Footer */
+.site-footer {
+    background: #f8f9fa;
+    border-top: 1px solid #e0e0e0;
+    padding: 1.5rem 0;
+    margin-top: auto;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-container p {
+    margin: 0;
+    color: #666;
+    font-size: 0.875rem;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-nav a {
+    color: #666;
+    font-size: 0.875rem;
+}
+
+.footer-nav a:hover {
+    color: #0066cc;
+}
+
+/* Placeholder Styling */
+.content p:has(code),
+.content p code {
+    background: #fff3cd;
+    padding: 0.125rem 0.25rem;
+    border-radius: 2px;
+    font-size: 0.875rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .primary-nav ul {
+        justify-content: center;
+        padding: 0 1rem;
+    }
+    
+    .primary-nav a {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.875rem;
+    }
+    
+    .site-main {
+        padding: 1.5rem 1rem;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.25rem; }
+}

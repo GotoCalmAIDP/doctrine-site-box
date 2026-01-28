@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PAGE_TITLE}} — Doctrine Site</title>
+    <link rel="stylesheet" href="/assets/styles/main.css">
+</head>
+<body>
+    <header>
+        <!-- LANGUAGE SWITCHER PLACEHOLDER -->
+        <nav class="language-switcher">
+            <a href="/en/{{PAGE_SLUG}}" class="lang-link" data-lang="en">EN</a>
+            <span class="lang-separator">|</span>
+            <a href="/ua/{{PAGE_SLUG}}" class="lang-link" data-lang="ua">UA</a>
+        </nav>
+        <!-- END LANGUAGE SWITCHER -->
+
+        <!-- PRIMARY NAVIGATION -->
+        <nav class="primary-nav">
+            <ul>
+                <li><a href="/{{LANG}}/">{{NAV_HOME}}</a></li>
+                <li><a href="/{{LANG}}/about.html">{{NAV_ABOUT}}</a></li>
+                <li><a href="/{{LANG}}/doctrine.html">{{NAV_DOCTRINE}}</a></li>
+                <li><a href="/{{LANG}}/cases.html">{{NAV_CASES}}</a></li>
+                <li><a href="/{{LANG}}/method.html">{{NAV_METHOD}}</a></li>
+                <li><a href="/{{LANG}}/boundaries.html">{{NAV_BOUNDARIES}}</a></li>
+                <li><a href="/{{LANG}}/contact.html">{{NAV_CONTACT}}</a></li>
+            </ul>
+        </nav>
+        <!-- END PRIMARY NAVIGATION -->
+    </header>
+
+    <main>
+        {{CONTENT}}
+    </main>
+
+    <footer>
+        <p>[FOOTER CONTENT WILL BE ADDED LATER]</p>
+    </footer>
+
+    <script src="/assets/scripts/main.js"></script>
+</body>
+</html>
+
+<!--
+TEMPLATE VARIABLES:
+- {{LANG}} — Current language code (en/ua)
+- {{PAGE_TITLE}} — Page title
+- {{PAGE_SLUG}} — Page filename (e.g., about.html)
+- {{CONTENT}} — Page content from Markdown
+- {{NAV_*}} — Localized navigation labels
+
+IMPLEMENTATION NOTES:
+- This is a structural template only
+- Actual implementation depends on chosen static site generator
+- Language switcher requires JavaScript for dynamic behavior
+- CSS styling not included — add to /assets/styles/main.css
+-->
