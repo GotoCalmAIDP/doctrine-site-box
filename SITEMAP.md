@@ -5,17 +5,19 @@
 
 ---
 
-## URL Structure
+## Canonical URL Structure
 
 | Page | English URL | Ukrainian URL | Status |
 |------|-------------|---------------|--------|
-| Home | `/en/index.html` | `/ua/index.html` | Shell |
-| About the Project | `/en/about.html` | `/ua/about.html` | Shell |
-| Doctrine | `/en/doctrine.html` | `/ua/doctrine.html` | **PLACEHOLDER** |
-| Case Studies | `/en/cases.html` | `/ua/cases.html` | **PLACEHOLDER** |
-| Method | `/en/method.html` | `/ua/method.html` | Shell |
-| Boundaries | `/en/boundaries.html` | `/ua/boundaries.html` | Shell |
-| Contact | `/en/contact.html` | `/ua/contact.html` | Shell |
+| Home | `/en/` | `/ua/` | Shell |
+| About the Project | `/en/about/` | `/ua/about/` | Shell |
+| Doctrine | `/en/doctrine/` | `/ua/doctrine/` | **PLACEHOLDER** |
+| Case Studies | `/en/cases/` | `/ua/cases/` | **PLACEHOLDER** |
+| Method | `/en/method/` | `/ua/method/` | Shell |
+| Boundaries | `/en/boundaries/` | `/ua/boundaries/` | Shell |
+| Contact | `/en/contact/` | `/ua/contact/` | Shell |
+
+> **Note:** The route `/case-studies/` is **not used**. The canonical route for Case Studies is `/cases/`. Tests and links should follow `/en/cases/` and `/ua/cases/`.
 
 ---
 
@@ -30,7 +32,7 @@ PRIMARY NAVIGATION
     ├── Home
     ├── About
     ├── Doctrine [PLACEHOLDER]
-    ├── Case Studies [PLACEHOLDER]
+    ├── Case Studies [PLACEHOLDER] → /cases/
     ├── Method
     ├── Boundaries
     └── Contact
@@ -42,7 +44,7 @@ PRIMARY NAVIGATION
 
 - All pages exist as structural shells only
 - "Doctrine" and "Case Studies" are explicitly marked as content placeholders
-- Language switcher is structurally defined but not implemented
+- Language switcher is implemented and functional
 - Content will be added in future phases
 
 ---
@@ -50,6 +52,6 @@ PRIMARY NAVIGATION
 ## Extension Points
 
 When adding content:
-1. Edit corresponding files in `/_content/en/` and `/_content/ua/`
+1. Edit corresponding files in `/src/en/` and `/src/ua/`
 2. Maintain parallel structure between languages
 3. Update this sitemap when adding new pages

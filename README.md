@@ -12,22 +12,45 @@ This repository contains the structural foundation for a doctrine-based website.
 
 ---
 
+## Live Site
+
+**URL:** https://gotocalmaidp.github.io/doctrine-site-box/
+
+---
+
+## Canonical Routes
+
+| Page | English | Ukrainian |
+|------|---------|-----------|
+| Home | `/en/` | `/ua/` |
+| About | `/en/about/` | `/ua/about/` |
+| Doctrine | `/en/doctrine/` | `/ua/doctrine/` |
+| Case Studies | `/en/cases/` | `/ua/cases/` |
+| Method | `/en/method/` | `/ua/method/` |
+| Boundaries | `/en/boundaries/` | `/ua/boundaries/` |
+| Contact | `/en/contact/` | `/ua/contact/` |
+
+> **Note:** The route `/case-studies/` is **not used**. Tests should follow `/cases/`.
+
+---
+
 ## Folder Structure
 
 ```
-doctrine-site/
+doctrine-site-box/
 ├── README.md              ← You are here
 ├── SITEMAP.md             ← Site navigation map
-├── _site/                 ← Compiled output (empty)
-├── _content/              ← Source content files
+├── .eleventy.js           ← Eleventy configuration
+├── package.json           ← Node.js dependencies
+├── src/                   ← Source content files
 │   ├── en/                ← English pages
-│   └── ua/                ← Ukrainian pages
+│   ├── ua/                ← Ukrainian pages
+│   └── _includes/         ← Templates
+├── css/                   ← Stylesheets
+├── _site/                 ← Compiled output (generated)
 ├── _cases/                ← Future case studies (EMPTY)
 ├── _doctrine/             ← Future doctrine texts (EMPTY)
 └── _assets/               ← Static resources
-    ├── images/
-    ├── styles/
-    └── scripts/
 ```
 
 ---
@@ -36,7 +59,8 @@ doctrine-site/
 
 - **Page skeletons:** All 7 public pages in both languages with placeholder blocks
 - **Sitemap:** Navigation structure and URL patterns
-- **Folder structure:** Ready for static site generator integration
+- **Build configuration:** Eleventy static site generator
+- **GitHub Actions:** Automated deployment to GitHub Pages
 
 ---
 
@@ -44,9 +68,6 @@ doctrine-site/
 
 - ❌ Doctrine content, theory, or claims
 - ❌ Case study materials
-- ❌ Implemented language switcher
-- ❌ CSS/JS styling
-- ❌ Build configuration
 
 ---
 
@@ -54,7 +75,7 @@ doctrine-site/
 
 ### Adding Content
 
-1. Navigate to `/_content/en/` or `/_content/ua/`
+1. Navigate to `/src/en/` or `/src/ua/`
 2. Open the relevant `.md` file
 3. Replace `[PLACEHOLDER]` blocks with actual content
 4. Ensure both language versions are updated in parallel
@@ -63,26 +84,26 @@ doctrine-site/
 
 1. Place source documents in `/_doctrine/`
 2. Reference them when writing `doctrine.md` content
-3. See `/_doctrine/README.md` for guidelines
 
 ### Adding Case Studies
 
 1. Place case materials in `/_cases/`
-2. Update the Case Index in `cases.md`
-3. See `/_cases/README.md` for guidelines
+2. Update the Case Index in `src/en/cases.md` and `src/ua/cases.md`
 
-### Building the Site
+### Building Locally
 
-This structure is compatible with static site generators:
-- Jekyll
-- Hugo
-- Eleventy
-- Astro
+```bash
+npm ci
+npm run build
+```
 
-Configure your chosen generator to:
-- Read from `/_content/`
-- Output to `/_site/`
-- Process both `/en/` and `/ua/` language folders
+Output will be generated in `/_site/`.
+
+---
+
+## Deployment
+
+The site is automatically deployed to GitHub Pages via GitHub Actions when changes are pushed to the `main` branch.
 
 ---
 
