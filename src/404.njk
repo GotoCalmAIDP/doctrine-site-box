@@ -1,0 +1,85 @@
+---
+permalink: /404.html
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found — Doctrine Site</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .error-page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            text-align: center;
+            padding: 2rem;
+        }
+        .error-code {
+            font-size: 6rem;
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+            line-height: 1;
+        }
+        .error-message {
+            font-size: 1.5rem;
+            color: #666;
+            margin: 1rem 0 2rem;
+        }
+        .error-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .error-links a {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        .error-links a:hover {
+            background: #555;
+        }
+        .error-subtitle {
+            color: #999;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="site-brand">
+                <a href="/">Doctrine</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main">
+        <div class="error-page">
+            <p class="error-code">404</p>
+            <p class="error-message">Page Not Found / Сторінку не знайдено</p>
+            <div class="error-links">
+                <a href="/en/">English Home</a>
+                <a href="/ua/">Українська Головна</a>
+            </div>
+            <p class="error-subtitle">The page you are looking for does not exist or has been moved.</p>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>Doctrine Site — Structural Shell</p>
+        </div>
+    </footer>
+</body>
+</html>
