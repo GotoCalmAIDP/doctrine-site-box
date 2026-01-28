@@ -1,33 +1,38 @@
 ---
 title: Method
+description: Documentation method — five-step approach to structured technical explanation.
 ---
 
-# Method / How We Work
+# Method
 
-**Language:** English  
-**Page:** Method  
-**Status:** Structural shell — no content
-
----
-
-## Approach Overview
-
-[CONTENT WILL BE ADDED LATER]
+This page outlines the approach used for documentation on this site.
 
 ---
 
-## Process Description
+## 1. Scope & Object
 
-[CONTENT WILL BE ADDED LATER]
-
----
-
-## Tools and Frameworks
-
-[CONTENT WILL BE ADDED LATER]
+Define what is being documented and what falls outside the scope.
 
 ---
 
-## Quality Standards
+## 2. Assumptions (Explicit)
 
-[CONTENT WILL BE ADDED LATER]
+State all assumptions clearly before proceeding with explanation.
+
+---
+
+## 3. Boundaries
+
+Identify where the explanation ends and what it does not cover.
+
+---
+
+## 4. Evidence-First Documentation
+
+Base explanations on observable evidence and documented sources.
+
+---
+
+## 5. Updates Over Time
+
+Revise documentation as new information becomes available.

@@ -1,16 +1,11 @@
 ---
 title: Case Studies
+description: Case studies — structural placeholder for applied examples and documentation.
 ---
 
 # Case Studies
 
-**Language:** English  
-**Page:** Case Studies  
-**Status:** PLACEHOLDER — awaiting case materials
-
----
-
-> **NOTICE:** This page is a structural placeholder. No case studies have been written. All sections below are empty shells awaiting future content.
+This page will list case studies. For now it is a structural placeholder.
 
 ---
 
@@ -23,8 +18,6 @@ title: Case Studies
 ## Case Index
 
 [CASE MATERIAL PLACEHOLDER]
-
-*No cases have been added yet. This index will be populated when case materials are approved and published.*
 
 ---
 

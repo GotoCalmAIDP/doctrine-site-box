@@ -1,16 +1,11 @@
 ---
 title: Doctrine
+description: Doctrine materials — structural placeholder for core explanatory content.
 ---
 
 # Doctrine
 
-**Language:** English  
-**Page:** Doctrine  
-**Status:** PLACEHOLDER — awaiting doctrine content
-
----
-
-> **NOTICE:** This page is a structural placeholder. No doctrine content has been written. All sections below are empty shells awaiting future content.
+This page will contain doctrine materials. For now it is a structural placeholder.
 
 ---
 

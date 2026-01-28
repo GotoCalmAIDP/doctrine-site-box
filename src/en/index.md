@@ -1,33 +1,22 @@
 ---
 title: Home
+description: Doctrine Site is a bilingual documentation resource for structured technical explanations.
 ---
 
-# Home
+# Doctrine Site
 
-**Language:** English  
-**Page:** Home / Landing  
-**Status:** Structural shell — no content
-
----
-
-## Hero Section
-
-[CONTENT WILL BE ADDED LATER]
+A structured documentation resource for technical explanations.
 
 ---
 
-## Introduction
+This site provides organized documentation materials focused on clarity and precision. It serves as a reference point for understanding specific technical domains through structured explanation.
 
-[CONTENT WILL BE ADDED LATER]
+**What you can find here:**
 
----
-
-## Navigation Overview
-
-[CONTENT WILL BE ADDED LATER]
+- **Doctrine** — Core explanatory materials (placeholder)
+- **Case Studies** — Applied examples and documentation (placeholder)
+- **Boundaries** — Clear scope of what is and is not covered
 
 ---
 
-## Call to Action
-
-[CONTENT WILL BE ADDED LATER]
+**Status:** Structural shell. Content is being added progressively.

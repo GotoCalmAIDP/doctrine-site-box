@@ -1,27 +1,32 @@
 ---
 title: Boundaries
+description: Scope boundaries — what this site explains and where explanation ends.
 ---
 
-# Boundaries & Applicability
-
-**Language:** English  
-**Page:** Boundaries  
-**Status:** Structural shell — no content
+# Boundaries
 
 ---
 
 ## What This Site Can Explain
 
-[CONTENT WILL BE ADDED LATER]
+This site provides structured documentation and explanatory materials for specific technical domains. It aims to clarify concepts, describe methods, and present information in an organized format.
+
+The documentation is intended as a reference resource for understanding, not as a guide for action.
 
 ---
 
 ## Where Explanation Ends
 
-[CONTENT WILL BE ADDED LATER]
+Explanation has limits. This site does not extend into areas that require professional judgment, regulatory compliance, or operational decision-making.
+
+**This site does not provide:**
+
+- Certification or accreditation services
+- Legal, financial, or regulatory advice
+- Operational instructions or implementation guides
 
 ---
 
-## Transition to Advisory / Analysis
+## Next Steps
 
-[CONTENT WILL BE ADDED LATER]
+For formal engagements, professional consultations, or specific inquiries beyond the scope of this documentation, please [contact us](/en/contact/).

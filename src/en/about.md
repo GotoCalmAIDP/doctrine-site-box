@@ -1,33 +1,37 @@
 ---
 title: About the Project
+description: About Doctrine Site — purpose, scope, and bilingual documentation approach.
 ---
 
 # About the Project
 
-**Language:** English  
-**Page:** About  
-**Status:** Structural shell — no content
+---
+
+## Purpose
+
+This project exists to provide structured technical documentation in a clear, accessible format. The goal is to create a reference resource that explains specific domains without marketing language or promotional intent.
+
+The site prioritizes precision over persuasion, and explanation over advocacy.
 
 ---
 
-## Project Overview
+## Why Bilingual
 
-[CONTENT WILL BE ADDED LATER]
-
----
-
-## Mission
-
-[CONTENT WILL BE ADDED LATER]
+Content is provided in both English and Ukrainian to serve a broader audience and ensure accessibility across language boundaries.
 
 ---
 
-## Team / Authors
+## Current Scope
 
-[CONTENT WILL BE ADDED LATER]
+**Available now:**
 
----
+- Site structure and navigation
+- Method outline
+- Boundaries definition
+- Contact information
 
-## History
+**Coming later:**
 
-[CONTENT WILL BE ADDED LATER]
+- Doctrine materials
+- Case studies
+- Expanded documentation

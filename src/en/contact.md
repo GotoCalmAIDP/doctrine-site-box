@@ -1,30 +1,21 @@
 ---
 title: Contact
+description: Contact information for inquiries and formal engagements.
 ---
 
 # Contact
 
-**Language:** English  
-**Page:** Contact  
-**Status:** Structural shell — no content
+For questions, feedback, or formal inquiries, please use the contact information below.
 
 ---
 
-## Contact Information
+## Contact Channels
 
-[CONTENT WILL BE ADDED LATER]
+**Email:** [ADD EMAIL LATER]
 
----
+**Telegram:** [ADD LINK LATER]
 
-## Contact Form
-
-[CONTENT WILL BE ADDED LATER]
-
----
-
-## Response Policy
-
-[CONTENT WILL BE ADDED LATER]
+**WhatsApp:** [ADD LINK LATER]
 
 ---
 
@@ -35,3 +26,4 @@ For legal information, please see:
 - [Terms of Use](/en/terms/)
 - [Privacy Policy](/en/privacy/)
 - [Cookie Policy](/en/cookies/)
+- [Disclaimer](/en/disclaimer/)
