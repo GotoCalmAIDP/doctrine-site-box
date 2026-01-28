@@ -60,6 +60,17 @@
                     {% if lang == "en" %}Contact{% else %}Контакти{% endif %}
                 </a>
             </nav>
+            <nav class="footer-legal">
+                <a href="/{{ lang }}/terms/">
+                    {% if lang == "en" %}Terms{% else %}Умови{% endif %}
+                </a>
+                <span class="legal-separator">|</span>
+                <a href="/{{ lang }}/privacy/">
+                    {% if lang == "en" %}Privacy{% else %}Конфіденційність{% endif %}
+                </a>
+                <span class="legal-separator">|</span>
+                <a href="/{{ lang }}/cookies/">Cookies</a>
+            </nav>
         </div>
     </footer>
 </body>

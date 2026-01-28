@@ -25,3 +25,13 @@ title: Contact
 ## Response Policy
 
 [CONTENT WILL BE ADDED LATER]
+
+---
+
+## Legal Pages
+
+For legal information, please see:
+
+- [Terms of Use](/en/terms/)
+- [Privacy Policy](/en/privacy/)
+- [Cookie Policy](/en/cookies/)

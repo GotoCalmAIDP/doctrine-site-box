@@ -1,11 +1,13 @@
 # SITEMAP — Doctrine Site
 
-**Version:** 1.0 (Structural Shell)  
+**Version:** 1.1 (Structural Shell)  
 **Status:** Placeholder structure only — no content
 
 ---
 
 ## Canonical URL Structure
+
+### Main Pages
 
 | Page | English URL | Ukrainian URL | Status |
 |------|-------------|---------------|--------|
@@ -18,6 +20,14 @@
 | Contact | `/en/contact/` | `/ua/contact/` | Shell |
 
 > **Note:** The route `/case-studies/` is **not used**. The canonical route for Case Studies is `/cases/`. Tests and links should follow `/en/cases/` and `/ua/cases/`.
+
+### Legal Pages
+
+| Page | English URL | Ukrainian URL | Status |
+|------|-------------|---------------|--------|
+| Terms of Use | `/en/terms/` | `/ua/terms/` | Shell |
+| Privacy Policy | `/en/privacy/` | `/ua/privacy/` | Shell |
+| Cookie Policy | `/en/cookies/` | `/ua/cookies/` | Shell |
 
 ---
 
@@ -36,6 +46,11 @@ PRIMARY NAVIGATION
     ├── Method
     ├── Boundaries
     └── Contact
+
+FOOTER NAVIGATION
+    ├── Home
+    ├── Contact
+    └── Legal: Terms | Privacy | Cookies
 ```
 
 ---
@@ -45,6 +60,7 @@ PRIMARY NAVIGATION
 - All pages exist as structural shells only
 - "Doctrine" and "Case Studies" are explicitly marked as content placeholders
 - Language switcher is implemented and functional
+- Legal pages are linked in the footer across all pages
 - Content will be added in future phases
 
 ---
