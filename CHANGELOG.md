@@ -9,9 +9,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [v0.4.0] - 2026-01-29
+
+**Commit:** `3b95f0f`
+
+### Added
+- Case 002: Explanatory Boundary in Operational Context (EN/UA)
+- Detailed non-claim case demonstrating explanatory applicability limits in project environment
+- Full 7-section structure: Context, What Can Be Explained, Where Explanation Ends, Why No Further Claim, Illustrative Status, Links, Classification
+
+### Changed
+- Cases index: added Case 002 to case listing
+
+### Notes
+- Case is illustrative only — no causation, prediction, or recommendations
+- Maintains paragraph-level EN/UA parity
+- Suitable for audit-facing doctrinal repository
+
+---
+
 ## [v0.3.0] - 2026-01-29
 
-**Commit:** `TBD`
+**Commit:** `b657fe9`
 
 ### Added
 - First illustrative case: Case 001 — Applicability Boundary (EN/UA)

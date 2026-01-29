@@ -30,6 +30,7 @@ Cases are examples of how to document boundaries, not evidence of outcomes.
 | Case | Title | Status |
 |------|-------|--------|
 | [Case 001](/en/cases/case-001/) | Applicability Boundary | Illustrative |
+| [Case 002](/en/cases/case-002/) | Explanatory Boundary in Operational Context | Illustrative |
 
 ---
 
