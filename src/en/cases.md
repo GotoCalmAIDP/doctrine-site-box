@@ -30,6 +30,7 @@ Cases are examples of how to document boundaries, not evidence of outcomes.
 | Case | Title | Status |
 |------|-------|--------|
 | [Case 001](/en/cases/case-001/) | Illustrative Non-Claim Case | Illustrative |
+| [Case 002](/en/cases/case-002/) | Trajectory Boundary | Illustrative |
 
 ---
 
