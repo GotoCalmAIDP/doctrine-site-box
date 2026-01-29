@@ -9,6 +9,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [v0.5.0] - 2026-01-29
+
+**Commit:** `b84fbe6`
+
+### Changed
+- Case 001: replaced with canonical verbatim text (EN)
+- Case 001: structural UA translation created
+- Full 7-section structure preserved: Context, What Can Be Explained, Where Explanation Ends, Why No Further Claim, Illustrative Status, Links, Classification
+
+### Removed
+- Case 002: removed (erroneous)
+- Case 003: removed (erroneous)
+
+### Notes
+- Only Case 001 remains as the single canonical illustrative case
+- EN text is verbatim from provided source
+- UA is strict structural translation only
+- No content generation or paraphrasing
+
+---
+
 ## [v0.4.0] - 2026-01-29
 
 **Commit:** `3b95f0f`
@@ -25,6 +46,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Case is illustrative only — no causation, prediction, or recommendations
 - Maintains paragraph-level EN/UA parity
 - Suitable for audit-facing doctrinal repository
+
+### Superseded
+- This release was superseded by v0.5.0 which removed erroneous cases
 
 ---
 
