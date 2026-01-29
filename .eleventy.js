@@ -1,4 +1,10 @@
 module.exports = function(eleventyConfig) {
+  // Site base path for GitHub Pages
+  const pathPrefix = "/doctrine-site-box";
+  
+  // Add pathPrefix as global data
+  eleventyConfig.addGlobalData("baseurl", pathPrefix);
+  
   // Pass through static assets
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("_assets/images");
@@ -10,29 +16,30 @@ module.exports = function(eleventyConfig) {
     return url.replace(`/${lang}/`, `/${otherLang}/`);
   });
 
-  // Add navigation data
+  // Add navigation data with pathPrefix
   eleventyConfig.addGlobalData("navigation", {
     en: [
-      { title: "Home", url: "/en/" },
-      { title: "About", url: "/en/about/" },
-      { title: "Doctrine", url: "/en/doctrine/" },
-      { title: "Case Studies", url: "/en/cases/" },
-      { title: "Method", url: "/en/method/" },
-      { title: "Boundaries", url: "/en/boundaries/" },
-      { title: "Contact", url: "/en/contact/" }
+      { title: "Home", url: pathPrefix + "/en/" },
+      { title: "About", url: pathPrefix + "/en/about/" },
+      { title: "Doctrine", url: pathPrefix + "/en/doctrine/" },
+      { title: "Case Studies", url: pathPrefix + "/en/cases/" },
+      { title: "Method", url: pathPrefix + "/en/method/" },
+      { title: "Boundaries", url: pathPrefix + "/en/boundaries/" },
+      { title: "Contact", url: pathPrefix + "/en/contact/" }
     ],
     ua: [
-      { title: "Головна", url: "/ua/" },
-      { title: "Про проєкт", url: "/ua/about/" },
-      { title: "Доктрина", url: "/ua/doctrine/" },
-      { title: "Кейси", url: "/ua/cases/" },
-      { title: "Метод", url: "/ua/method/" },
-      { title: "Межі", url: "/ua/boundaries/" },
-      { title: "Контакти", url: "/ua/contact/" }
+      { title: "Головна", url: pathPrefix + "/ua/" },
+      { title: "Про проєкт", url: pathPrefix + "/ua/about/" },
+      { title: "Доктрина", url: pathPrefix + "/ua/doctrine/" },
+      { title: "Кейси", url: pathPrefix + "/ua/cases/" },
+      { title: "Метод", url: pathPrefix + "/ua/method/" },
+      { title: "Межі", url: pathPrefix + "/ua/boundaries/" },
+      { title: "Контакти", url: pathPrefix + "/ua/contact/" }
     ]
   });
 
   return {
+    pathPrefix: pathPrefix,
     dir: {
       input: "src",
       output: "_site",

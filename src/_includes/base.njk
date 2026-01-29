@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} — Doctrine Site</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="{{ baseurl }}/css/style.css">
 </head>
 <body>
     <header class="site-header">
         <div class="header-container">
             <div class="site-brand">
-                <a href="/{{ lang }}/">Doctrine</a>
+                <a href="{{ baseurl }}/{{ lang }}/">Doctrine</a>
             </div>
             
             <nav class="language-switcher">
                 {% if lang == "en" %}
                 <span class="lang-active">EN</span>
                 <span class="lang-separator">|</span>
-                <a href="{{ page.url | langUrl(lang) }}" class="lang-link">UA</a>
+                <a href="{{ baseurl }}{{ page.url | langUrl(lang) }}" class="lang-link">UA</a>
                 {% else %}
-                <a href="{{ page.url | langUrl(lang) }}" class="lang-link">EN</a>
+                <a href="{{ baseurl }}{{ page.url | langUrl(lang) }}" class="lang-link">EN</a>
                 <span class="lang-separator">|</span>
                 <span class="lang-active">UA</span>
                 {% endif %}
@@ -53,38 +53,38 @@
                 {% endif %}
             </p>
             <nav class="footer-nav">
-                <a href="/{{ lang }}/">
+                <a href="{{ baseurl }}/{{ lang }}/">
                     {% if lang == "en" %}Home{% else %}Головна{% endif %}
                 </a>
-                <a href="/{{ lang }}/contact/">
+                <a href="{{ baseurl }}/{{ lang }}/contact/">
                     {% if lang == "en" %}Contact{% else %}Контакти{% endif %}
                 </a>
             </nav>
             <nav class="footer-governance">
-                <a href="/{{ lang }}/scope/">
+                <a href="{{ baseurl }}/{{ lang }}/scope/">
                     {% if lang == "en" %}Scope{% else %}Межі застосування{% endif %}
                 </a>
                 <span class="legal-separator">|</span>
-                <a href="/{{ lang }}/evidence/">
+                <a href="{{ baseurl }}/{{ lang }}/evidence/">
                     {% if lang == "en" %}Evidence{% else %}Доказовість{% endif %}
                 </a>
                 <span class="legal-separator">|</span>
-                <a href="/{{ lang }}/change-log/">
+                <a href="{{ baseurl }}/{{ lang }}/change-log/">
                     {% if lang == "en" %}Change Log{% else %}Журнал змін{% endif %}
                 </a>
             </nav>
             <nav class="footer-legal">
-                <a href="/{{ lang }}/terms/">
+                <a href="{{ baseurl }}/{{ lang }}/terms/">
                     {% if lang == "en" %}Terms{% else %}Умови{% endif %}
                 </a>
                 <span class="legal-separator">|</span>
-                <a href="/{{ lang }}/privacy/">
+                <a href="{{ baseurl }}/{{ lang }}/privacy/">
                     {% if lang == "en" %}Privacy{% else %}Конфіденційність{% endif %}
                 </a>
                 <span class="legal-separator">|</span>
-                <a href="/{{ lang }}/cookies/">Cookies</a>
+                <a href="{{ baseurl }}/{{ lang }}/cookies/">Cookies</a>
                 <span class="legal-separator">|</span>
-                <a href="/{{ lang }}/disclaimer/">
+                <a href="{{ baseurl }}/{{ lang }}/disclaimer/">
                     {% if lang == "en" %}Disclaimer{% else %}Дисклеймер{% endif %}
                 </a>
             </nav>
