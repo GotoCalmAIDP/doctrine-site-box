@@ -58,6 +58,16 @@ Cases assume this scope and do not restate it.
 
 ---
 
+## Cases Overview Before Individual Cases
+
+The Cases Overview Note should be read before individual cases.
+
+It provides a structural overview of how cases relate and what boundary each case documents.
+
+Individual cases assume this overview and do not restate it.
+
+---
+
 ## Cases Are Illustrative Only
 
 Cases are not conclusions.
