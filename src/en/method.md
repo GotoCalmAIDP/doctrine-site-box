@@ -7,6 +7,8 @@ description: Documentation method — five-step approach to structured technical
 
 This page outlines the approach used for documentation on this site.
 
+**Note:** This is documentation of applicability boundaries, not operational recommendations.
+
 ---
 
 ## 1. Scope & Object

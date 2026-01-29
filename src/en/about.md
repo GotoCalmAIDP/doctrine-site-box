@@ -13,6 +13,8 @@ This project exists to provide structured technical documentation in a clear, ac
 
 The site prioritizes precision over persuasion, and explanation over advocacy.
 
+**Non-claims:** This site does not provide certification, compliance assessment, or professional advice. For explicit scope boundaries, see [Scope & Non-Claims](/en/scope/).
+
 ---
 
 ## Why Bilingual

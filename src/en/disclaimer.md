@@ -1,12 +1,11 @@
 ---
 title: Disclaimer
+description: Disclaimer — informational purpose only, no certification or conformity assessment.
 ---
 
 # Disclaimer
 
-**Language:** English  
-**Page:** Disclaimer  
-**Status:** Structural shell — legal placeholder
+**Nothing on this site constitutes certification or conformity assessment.**
 
 ---
 
