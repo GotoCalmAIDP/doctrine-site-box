@@ -9,6 +9,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [v0.3.0] - 2026-01-29
+
+**Commit:** `TBD`
+
+### Added
+- First illustrative case: Case 001 — Applicability Boundary (EN/UA)
+- Case index page with methodology notes
+- Internal links to Boundaries and Scope pages from case
+
+### Changed
+- Cases page: updated from placeholder to structured index with Case 001
+
+### Notes
+- Case is illustrative only — no conclusions, recommendations, or claims
+- Demonstrates non-claim documentation structure
+
+---
+
 ## [v0.2.0] - 2026-01-29
 
 **Commit:** `ecec57a`
