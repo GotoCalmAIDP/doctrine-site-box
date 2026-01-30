@@ -75,4 +75,9 @@ Any use of this site that treats it as guidance, instruction, or justification i
 
 ---
 
+Version status:
+v1.4.3 is designated as the canonical stable release and reference point for restoration.
+
+---
+
 End of Index Note

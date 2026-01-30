@@ -115,6 +115,12 @@ The site is automatically deployed to GitHub Pages via GitHub Actions when chang
 
 ---
 
+## Version Status
+
+v1.4.3 is the canonical stable release and rollback reference.
+
+---
+
 ## Contact
 
 [CONTENT WILL BE ADDED LATER]

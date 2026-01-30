@@ -9,6 +9,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [v1.4.3] - 2026-01-30
+
+**Commit:** `6f3a44d`
+
+### Status
+
+v1.4.3 is designated as the canonical stable release and reference restoration point.
+
+### Summary
+
+- Index Note v1.0 published (EN/UA)
+- Cases 001-004 published (illustrative, non-claim)
+- Conceptual notes complete: Boundary, Evidence, Scope, Reading Order, Cases Overview, Glossary
+- Navigation semantics corrected (non-prescriptive)
+- Contact placeholders normalized
+- Footer and navigation baseurl-aware
+
+---
+
 ## [v0.5.0] - 2026-01-29
 
 **Commit:** `b84fbe6`
