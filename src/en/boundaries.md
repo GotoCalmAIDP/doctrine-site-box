@@ -29,6 +29,8 @@ Explanation has limits. This site does not extend into areas that require profes
 
 ## Related Conceptual Notes
 
+These links provide conceptual orientation only. They do not prescribe actions.
+
 For formal engagements, professional consultations, or specific inquiries beyond the scope of this documentation, please [contact us](/en/contact/).
 
 ---
