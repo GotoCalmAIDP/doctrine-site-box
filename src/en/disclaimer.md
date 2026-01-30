@@ -37,4 +37,4 @@ All decisions based on information from this website remain solely with the user
 
 For formal consultations, professional services, or specific inquiries, please contact us directly.
 
-**Email:** [CONTACT EMAIL PLACEHOLDER]
+**Email:** admin@gotocalm.com

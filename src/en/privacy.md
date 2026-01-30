@@ -71,4 +71,4 @@ We may update this Privacy Policy from time to time. Any changes will be posted 
 
 For privacy-related inquiries, please contact:
 
-**Email:** [CONTACT EMAIL PLACEHOLDER]
+**Email:** admin@gotocalm.com

@@ -52,4 +52,4 @@ We may update this Cookie Policy from time to time. Any changes will be posted o
 
 For questions about our cookie practices, please contact:
 
-**Email:** [CONTACT EMAIL PLACEHOLDER]
+**Email:** admin@gotocalm.com

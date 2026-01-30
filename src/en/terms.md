@@ -62,4 +62,4 @@ We reserve the right to modify these Terms of Use at any time. Changes will be e
 
 For questions regarding these Terms of Use, please contact:
 
-**Email:** [CONTACT EMAIL PLACEHOLDER]
+**Email:** admin@gotocalm.com
