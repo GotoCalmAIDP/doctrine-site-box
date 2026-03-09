@@ -89,6 +89,13 @@
                 </a>
             </nav>
             <p class="footer-contact">Contact: <a href="mailto:admin@gotocalm.com">admin@gotocalm.com</a></p>
+            <p class="footer-ip">
+                {% if lang == "en" %}
+                This site describes conceptual doctrine and terminology. Implementation architectures, detection mechanisms, and operational protocols remain proprietary.
+                {% else %}
+                Цей сайт описує концептуальну доктрину та термінологію. Архітектури реалізації, механізми виявлення та операційні протоколи залишаються власністю.
+                {% endif %}
+            </p>
         </div>
     </footer>
 </body>
