@@ -89,6 +89,13 @@
                 </a>
             </nav>
             <p class="footer-contact">Contact: <a href="mailto:admin@gotocalm.com">admin@gotocalm.com</a></p>
+            <p class="footer-scope">
+                {% if lang == "en" %}
+                This site presents a conceptual doctrine for analysing complex automated and safety-critical systems. It does not prescribe operational procedures and does not replace regulatory safety investigations.
+                {% else %}
+                Цей сайт представляє концептуальну доктрину для аналізу складних автоматизованих та критично важливих для безпеки систем. Він не визначає операційних процедур та не замінює регуляторних розслідувань безпеки.
+                {% endif %}
+            </p>
             <p class="footer-ip">
                 {% if lang == "en" %}
                 This site describes conceptual doctrine and terminology. Implementation architectures, detection mechanisms, and operational protocols remain proprietary.
