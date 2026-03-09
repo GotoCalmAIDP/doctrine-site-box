@@ -152,10 +152,15 @@ The set of conditions that must hold for a system's operational mode to remain w
 
 ---
 
+### Related Conceptual Pages
+
+- [Terminology Authority](/doctrine-site-box/en/terminology-authority/) — Canonical terminology reference within the Applicability Boundary Doctrine.
+
+---
+
 ## Canonical Status
 
 This glossary is canonical.
-
 If a term is used with a different meaning, that usage is invalid within the doctrine.
 
 ---

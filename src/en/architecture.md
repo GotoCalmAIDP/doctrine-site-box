@@ -68,6 +68,12 @@ The distinction is between authority (governance) and validity (applicability).
 
 ---
 
+## Related Conceptual Pages
+
+- [Applicability Failure Map](/doctrine-site-box/en/applicability-failure-map/) — Conceptual diagnostic framework for identifying applicability boundary failures.
+
+---
+
 ## Non-Claim Integrity
 
 This page is non-claim. It does not prescribe actions, recommend implementations, or define technical requirements.
