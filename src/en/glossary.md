@@ -116,6 +116,42 @@ Published exactly as written, without alteration.
 
 ---
 
+## Operational Mode
+
+A defined configuration of system behaviour that determines how the system operates within its environment at a given time.
+
+---
+
+## Applicability Boundary
+
+The limit beyond which a system's operational mode can no longer be considered valid under its stated assumptions.
+
+---
+
+## Invalid Operational Mode
+
+A state in which a system continues to function but operates outside the conditions under which its behaviour can be considered legitimate.
+
+---
+
+## Behaviour Governance
+
+The set of conditions, rules, and constraints that define the legitimate operational boundaries of a system.
+
+---
+
+## System Legitimacy
+
+The condition under which a system's operational mode is recognized as valid within its defined governance framework.
+
+---
+
+## Operational Assumptions
+
+The set of conditions that must hold for a system's operational mode to remain within its applicability boundary.
+
+---
+
 ## Canonical Status
 
 This glossary is canonical.
