@@ -20,3 +20,4 @@ lang: ua
 
 - [Випадок 001 — Дрейф валідності режиму](/doctrine-site-box/ua/case-001-mode-validity-drift/)
 - [Випадок 002 — Затримка авторизації та дрейф валідності об'єкта](/doctrine-site-box/ua/case-002-authorization-delay-and-object-validity-drift/)
+- [Випадок 003 — Затримка спостережуваності у виконанні маршруту](/doctrine-site-box/ua/case-003-observability-lag-in-route-execution/)
