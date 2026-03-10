@@ -44,6 +44,15 @@ The canonical doctrine is maintained in the repository with versioned releases t
 
 The canonical baseline is **v1.4.3**. Subsequent versions extend the conceptual framework without modifying the canonical doctrine.
 
+### Canonical Definition of Applicability Boundary
+
+> GotoCalm AI-DP Doctrine Repository.
+> Version v1.12.
+>
+> Canonical Definition — Applicability Boundary.
+> Available at:
+> [Canonical Definition](/doctrine-site-box/en/definition/)
+
 Release history is available at:
 [https://github.com/GotoCalmAIDP/doctrine-site-box/releases](https://github.com/GotoCalmAIDP/doctrine-site-box/releases)
 
@@ -60,6 +69,13 @@ When citing this doctrine, the citation refers to the conceptual framework only.
 Citation of the Applicability Boundary Doctrine refers to conceptual doctrine material.
 
 Citation does not grant rights to proprietary implementation technology.
+
+---
+
+## Related Pages
+
+- [Canonical Definition](/doctrine-site-box/en/definition/) — Applicability Boundary.
+- [Doctrine](/doctrine-site-box/en/doctrine/) — Doctrine statement and conceptual entry point.
 
 ---
 
