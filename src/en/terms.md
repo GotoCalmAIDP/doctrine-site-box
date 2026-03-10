@@ -78,10 +78,22 @@ It does not publish implementation technology or operational system designs.
 
 ## No Operational Reliance
 
-The doctrine and conceptual frameworks presented on this site
-are not operational procedures and should not be relied upon
-as a substitute for professional engineering judgement,
-regulatory compliance, or safety investigation processes.
+The doctrine and conceptual frameworks presented
+on this site describe structural properties of
+complex systems.
+
+They do not constitute engineering procedures,
+operational guidance, certification requirements,
+or regulatory advice.
+
+The content must not be relied upon as a substitute
+for professional engineering judgement,
+formal safety assessment,
+classification society rules,
+or regulatory compliance processes.
+
+Any operational decisions remain the responsibility
+of system operators, engineers, and governing authorities.
 
 ---
 
