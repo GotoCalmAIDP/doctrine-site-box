@@ -70,7 +70,11 @@ The distinction is between authority (governance) and validity (applicability).
 
 ## Related Conceptual Pages
 
+- [Applicability Boundary — Definition](/doctrine-site-box/en/applicability-boundary-definition/) — Concept definition of the Applicability Boundary.
 - [Applicability Failure Map](/doctrine-site-box/en/applicability-failure-map/) — Conceptual diagnostic framework for identifying applicability boundary failures.
+- [For Operators](/doctrine-site-box/en/for-operators/) — Applicability boundaries in operational contexts.
+- [For Regulators](/doctrine-site-box/en/for-regulators/) — Applicability boundaries and regulatory context.
+- [For System Architects](/doctrine-site-box/en/for-architects/) — Applicability boundaries in system architecture.
 
 ---
 

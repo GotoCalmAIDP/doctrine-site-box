@@ -26,6 +26,9 @@ module.exports = function(eleventyConfig) {
       { title: "Case Studies", url: pathPrefix + "/en/cases/" },
       { title: "Method", url: pathPrefix + "/en/method/" },
       { title: "Boundaries", url: pathPrefix + "/en/boundaries/" },
+      { title: "For Operators", url: pathPrefix + "/en/for-operators/" },
+      { title: "For Regulators", url: pathPrefix + "/en/for-regulators/" },
+      { title: "For Architects", url: pathPrefix + "/en/for-architects/" },
       { title: "Contact", url: pathPrefix + "/en/contact/" }
     ],
     ua: [
@@ -36,6 +39,9 @@ module.exports = function(eleventyConfig) {
       { title: "Кейси", url: pathPrefix + "/ua/cases/" },
       { title: "Метод", url: pathPrefix + "/ua/method/" },
       { title: "Межі", url: pathPrefix + "/ua/boundaries/" },
+      { title: "Для операторів", url: pathPrefix + "/ua/for-operators/" },
+      { title: "Для регуляторів", url: pathPrefix + "/ua/for-regulators/" },
+      { title: "Для архітекторів", url: pathPrefix + "/ua/for-architects/" },
       { title: "Контакти", url: pathPrefix + "/ua/contact/" }
     ]
   });
