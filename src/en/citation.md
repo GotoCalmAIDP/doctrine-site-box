@@ -119,6 +119,9 @@ This site serves as the canonical public reference for the conceptual formulatio
 
 Future academic discussion, interpretation, and application of the concept may extend beyond this publication.
 
+This attribution refers to the conceptual formulation
+of the Applicability Boundary Doctrine presented on this site.
+
 ---
 
 End of Citation Page

@@ -5,6 +5,8 @@ description: A conceptual reference framework describing structural limits of op
 
 # Applicability Boundary Doctrine
 
+A conceptual reference framework for structural limits of operational validity in complex systems.
+
 The Applicability Boundary Doctrine describes structural limits of operational validity in complex systems.
 
 In safety-critical and automated environments, systems may continue to execute correctly even after the assumptions that justified their operational mode have ceased to hold.
@@ -16,6 +18,12 @@ This site provides a conceptual reference framework including the canonical defi
 The doctrine does not prescribe engineering implementations or operational procedures.
 
 Its purpose is to clarify the conditions under which formally correct system behaviour may diverge from operational legitimacy.
+
+The doctrine does not replace statutory laws,
+regulatory requirements,
+classification society rules,
+or formal safety assurance processes
+applicable in safety-critical domains.
 
 The framework may be relevant across domains including:
 

@@ -16,6 +16,12 @@ These questions are not prescriptive engineering guidance.
 They clarify structural conditions frequently encountered
 in safety-critical and autonomous systems.
 
+The questions below illustrate typical structural issues
+that arise around applicability boundaries.
+
+They are intended as examples and do not represent
+a complete or exhaustive list.
+
 Examples include:
 
 – Where is the definition of what counts as an action in the first place?

@@ -14,6 +14,14 @@ They are simplified examples designed to illustrate structural situations in whi
 
 Such conditions represent Applicability Boundaries.
 
+These cases are simplified conceptual illustrations
+of structural patterns observed in complex systems.
+
+They are not incident investigations
+and should not be interpreted as operational guidance,
+engineering instructions,
+or safety procedures.
+
 Selected cases illustrate typical structural patterns observed in complex systems.
 
 ## Cases
