@@ -109,4 +109,16 @@ Citation does not grant rights to proprietary implementation technology.
 
 ---
 
+## Authorship and Terminology
+
+The term Applicability Boundary and the Applicability Boundary Doctrine are used on this site to describe structural limits of operational validity in complex systems.
+
+Within the context of this framework, the terminology and conceptual structure presented here originate from the work of Vadym Partasyuk.
+
+This site serves as the canonical public reference for the conceptual formulation of the doctrine.
+
+Future academic discussion, interpretation, and application of the concept may extend beyond this publication.
+
+---
+
 End of Citation Page
