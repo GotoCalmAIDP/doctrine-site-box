@@ -7,6 +7,8 @@ description: Doctrine materials — structural placeholder for core explanatory 
 
 This page serves as the conceptual entry point for the Applicability Boundary Doctrine.
 
+The Applicability Boundary Doctrine is presented as a conceptual analytical framework. It is not intended to replace engineering methods, regulatory requirements, or formal safety assurance processes. The framework may complement existing approaches where structural limits of operational validity become relevant.
+
 ---
 
 ## Purpose of the Doctrine

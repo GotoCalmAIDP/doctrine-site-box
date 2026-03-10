@@ -5,6 +5,8 @@ layout: base.njk
 
 # Case 004 — Alarm Suppression and Safety Envelope Drift
 
+Note: This case is a simplified conceptual illustration intended to demonstrate structural patterns related to applicability boundaries. It does not represent an incident investigation or operational guidance.
+
 ## Context
 
 A complex industrial or operational system is supervised through an alarm management framework.

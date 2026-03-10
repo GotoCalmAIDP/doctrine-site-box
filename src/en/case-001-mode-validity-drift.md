@@ -6,6 +6,8 @@ lang: en
 
 # Case 001 — Mode Validity Drift
 
+Note: This case is a simplified conceptual illustration intended to demonstrate structural patterns related to applicability boundaries. It does not represent an incident investigation or operational guidance.
+
 ## Context
 
 An automated chemical production process operates in a predefined production mode.

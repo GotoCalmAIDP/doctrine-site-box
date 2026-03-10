@@ -5,6 +5,8 @@ layout: base.njk
 
 # Case 003 — Observability Lag in Route Execution
 
+Note: This case is a simplified conceptual illustration intended to demonstrate structural patterns related to applicability boundaries. It does not represent an incident investigation or operational guidance.
+
 ## Context
 
 An automated navigation system plans and executes routes based on periodically updated traffic and infrastructure data.

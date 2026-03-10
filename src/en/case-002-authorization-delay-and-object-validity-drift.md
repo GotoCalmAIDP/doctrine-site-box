@@ -5,6 +5,8 @@ layout: base.njk
 
 # Case 002 — Authorization Delay and Object Validity Drift
 
+Note: This case is a simplified conceptual illustration intended to demonstrate structural patterns related to applicability boundaries. It does not represent an incident investigation or operational guidance.
+
 ## Context
 
 Two AI-enabled purchasing systems operate under different authorization models.
