@@ -18,7 +18,7 @@ lang: en
 
 The following terminology is defined within the Applicability Boundary Doctrine.
 
-These terms describe structural properties of complex automated and safety-critical systems.
+These terms describe structural properties of complex automated, AI-enabled and safety-critical systems, including systems operating in regulated or high-consequence environments.
 
 ---
 
@@ -51,6 +51,14 @@ The conditions that must hold for an operational mode to remain valid. When oper
 ### Applicability Architecture
 
 A conceptual framework that describes systems defining boundaries of operational legitimacy. Applicability Architecture concerns validity of operational modes rather than behavioural correctness.
+
+---
+
+## Terminology Notice
+
+The terminology used in this doctrine, including the terms Applicability Boundary, Operational Mode, Invalid Operational Mode, Behaviour Governance and Applicability Architecture, forms part of the conceptual framework known as the Applicability Boundary Doctrine.
+
+These terms are used to describe structural properties of complex automated, AI-enabled and safety-critical systems, including systems operating in regulated or high-consequence environments.
 
 ---
 
