@@ -71,6 +71,15 @@ The canonical baseline is **v1.4.3**. Subsequent versions extend the conceptual 
 > Available at:
 > [Concept Lineage](/doctrine-site-box/en/concept-lineage/)
 
+### Structural Properties of Applicability Boundaries
+
+> GotoCalm AI-DP Doctrine Repository.
+> Version v1.16.
+>
+> Structural Properties of Applicability Boundaries.
+> Available at:
+> [Structural Properties](/doctrine-site-box/en/doctrine-theorems/)
+
 Release history is available at:
 [https://github.com/GotoCalmAIDP/doctrine-site-box/releases](https://github.com/GotoCalmAIDP/doctrine-site-box/releases)
 
@@ -95,6 +104,7 @@ Citation does not grant rights to proprietary implementation technology.
 - [Canonical Definition](/doctrine-site-box/en/definition/) — Applicability Boundary.
 - [Concept Context](/doctrine-site-box/en/applicability-boundary-context/) — Conceptual context of the Applicability Boundary.
 - [Concept Lineage](/doctrine-site-box/en/concept-lineage/) — Intellectual origin and development of the Applicability Boundary concept.
+- [Structural Properties](/doctrine-site-box/en/doctrine-theorems/) — Structural properties and theorems of Applicability Boundaries.
 - [Doctrine](/doctrine-site-box/en/doctrine/) — Doctrine statement and conceptual entry point.
 
 ---

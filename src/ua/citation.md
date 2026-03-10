@@ -71,6 +71,15 @@ lang: ua
 > Доступно за адресою:
 > [Походження концепції](/doctrine-site-box/ua/concept-lineage/)
 
+### Структурні властивості Меж застосовності
+
+> Репозиторій доктрини GotoCalm AI-DP.
+> Версія v1.16.
+>
+> Структурні властивості Меж застосовності.
+> Доступно за адресою:
+> [Структурні властивості](/doctrine-site-box/ua/doctrine-theorems/)
+
 Історія випусків доступна за адресою:
 [https://github.com/GotoCalmAIDP/doctrine-site-box/releases](https://github.com/GotoCalmAIDP/doctrine-site-box/releases)
 
@@ -95,6 +104,7 @@ lang: ua
 - [Канонічне визначення](/doctrine-site-box/ua/definition/) — Межа застосовності.
 - [Концептуальний контекст](/doctrine-site-box/ua/applicability-boundary-context/) — Концептуальний контекст Межі застосовності.
 - [Походження концепції](/doctrine-site-box/ua/concept-lineage/) — Інтелектуальне походження та розвиток концепції Межі застосовності.
+- [Структурні властивості](/doctrine-site-box/ua/doctrine-theorems/) — Структурні властивості та теореми Меж застосовності.
 - [Доктрина](/doctrine-site-box/ua/doctrine/) — Положення доктрини та концептуальна точка входу.
 
 ---

@@ -48,6 +48,18 @@ has become structurally misaligned with its environment.
 
 ---
 
+## Constraint Pressure
+
+Applicability boundaries are rarely caused by a single violation.
+
+They often emerge from the gradual accumulation of constraints that compress the space of operationally valid interpretations.
+
+As constraints accumulate, the system's ability to sustain a coherent operational model decreases.
+
+When this compression exceeds a structural limit, the operational mode can no longer remain a valid explanation of system conditions.
+
+---
+
 ## Related Concepts
 
 The Applicability Boundary relates to several foundational ideas
