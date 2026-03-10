@@ -101,4 +101,11 @@ This page is non-claim. It does not prescribe actions, recommend implementations
 
 ---
 
+## Related Conceptual Pages
+
+- [Applicability Incident Lens](/doctrine-site-box/en/applicability-incident-lens/) — Conceptual framework for incident interpretation through applicability boundaries.
+- [Annex — Failure Archetypes](/doctrine-site-box/en/annex-failure-archetypes/) — Archetypal failure patterns.
+
+---
+
 **End of Applicability Failure Map**

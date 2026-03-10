@@ -36,6 +36,8 @@ This page will contain doctrine materials. For now it is a structural placeholde
 ## Related Conceptual Pages
 
 - [Applicability Architecture](/doctrine-site-box/en/architecture/) — Conceptual architecture of operational applicability boundaries.
+- [Citation](/doctrine-site-box/en/citation/) — How to cite the Applicability Boundary Doctrine.
+- [Framework Overview](/doctrine-site-box/en/framework-overview/) — Overview of the complete conceptual framework.
 
 ---
 

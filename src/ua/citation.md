@@ -1,0 +1,58 @@
+---
+layout: base.njk
+title: "Цитування"
+lang: ua
+---
+
+# Як цитувати Доктрину межі застосовності
+
+**Статус:** Довідка з цитування (без тверджень)
+
+---
+
+## Рекомендоване цитування
+
+> Партасюк, В.
+> *Доктрина межі застосовності.*
+> Канонічна версія v1.4.3.
+>
+> Репозиторій доктрини GotoCalm AI-DP.
+>
+> Доступно за адресою:
+> [https://gotocalmaidp.github.io/doctrine-site-box/](https://gotocalmaidp.github.io/doctrine-site-box/)
+
+---
+
+## Формат BibTeX
+
+```
+@misc{partasyuk2025applicability,
+  author       = {Partasyuk, Vadym},
+  title        = {Applicability Boundary Doctrine},
+  year         = {2025},
+  note         = {Canonical Version v1.4.3},
+  howpublished = {GotoCalm AI-DP Doctrine Repository},
+  url          = {https://gotocalmaidp.github.io/doctrine-site-box/}
+}
+```
+
+---
+
+## Посилання на версію
+
+Канонічна доктрина підтримується в репозиторії з версійними випусками для збереження концептуальної безперервності.
+
+Канонічна базова лінія — **v1.4.3**. Наступні версії розширюють концептуальну рамку без зміни канонічної доктрини.
+
+Історія випусків доступна за адресою:
+[https://github.com/GotoCalmAIDP/doctrine-site-box/releases](https://github.com/GotoCalmAIDP/doctrine-site-box/releases)
+
+---
+
+## Обсяг цитування
+
+При цитуванні цієї доктрини цитата стосується лише концептуальної рамки. Вона не передбачає схвалення, валідації або операційної застосовності будь-якої конкретної реалізації.
+
+---
+
+Кінець сторінки цитування

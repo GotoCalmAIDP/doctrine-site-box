@@ -1,0 +1,58 @@
+---
+layout: base.njk
+title: "Citation"
+lang: en
+---
+
+# How to Cite the Applicability Boundary Doctrine
+
+**Status:** Citation reference (non-claim)
+
+---
+
+## Recommended Citation
+
+> Partasyuk, V.
+> *Applicability Boundary Doctrine.*
+> Canonical Version v1.4.3.
+>
+> GotoCalm AI-DP Doctrine Repository.
+>
+> Available at:
+> [https://gotocalmaidp.github.io/doctrine-site-box/](https://gotocalmaidp.github.io/doctrine-site-box/)
+
+---
+
+## BibTeX Format
+
+```
+@misc{partasyuk2025applicability,
+  author       = {Partasyuk, Vadym},
+  title        = {Applicability Boundary Doctrine},
+  year         = {2025},
+  note         = {Canonical Version v1.4.3},
+  howpublished = {GotoCalm AI-DP Doctrine Repository},
+  url          = {https://gotocalmaidp.github.io/doctrine-site-box/}
+}
+```
+
+---
+
+## Version Reference
+
+The canonical doctrine is maintained in the repository with versioned releases to preserve conceptual continuity.
+
+The canonical baseline is **v1.4.3**. Subsequent versions extend the conceptual framework without modifying the canonical doctrine.
+
+Release history is available at:
+[https://github.com/GotoCalmAIDP/doctrine-site-box/releases](https://github.com/GotoCalmAIDP/doctrine-site-box/releases)
+
+---
+
+## Scope of Citation
+
+When citing this doctrine, the citation refers to the conceptual framework only. It does not imply endorsement, validation, or operational applicability of any specific implementation.
+
+---
+
+End of Citation Page
