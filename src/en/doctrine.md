@@ -67,10 +67,7 @@ This boundary is referred to as the Applicability Boundary.
 The doctrine does not propose fixes or control mechanisms.
 It identifies the structural limit at which operational legitimacy ends.
 
----
-
-Detailed conceptual framework is developed in:
-
-- [Terminology Authority](/doctrine-site-box/en/terminology-authority/) — Canonical terminology reference.
-- [Conceptual Architecture](/doctrine-site-box/en/architecture/) — Structural framework for applicability analysis.
-- [Diagnostic Framework](/doctrine-site-box/en/applicability-failure-map/) — Failure analysis and incident interpretation.
+Further conceptual development of the doctrine
+is presented in the [Terminology Authority](/doctrine-site-box/en/terminology-authority/),
+[Conceptual Architecture](/doctrine-site-box/en/architecture/),
+and [Diagnostic Framework](/doctrine-site-box/en/applicability-failure-map/) sections.
