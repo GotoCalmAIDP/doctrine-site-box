@@ -86,6 +86,8 @@ lang: ua
 - [Для операторів](/doctrine-site-box/ua/for-operators/) — Операційна перспектива.
 - [Для регуляторів](/doctrine-site-box/ua/for-regulators/) — Регуляторна перспектива.
 - [Для архітекторів систем](/doctrine-site-box/ua/for-architects/) — Архітектурна перспектива.
+- [Для інженерів](/doctrine-site-box/ua/for-engineers/) — Інженерна перспектива.
+- [Для аудиторів](/doctrine-site-box/ua/for-auditors/) — Перспектива гарантування якості.
 - [Для інвесторів](/doctrine-site-box/ua/for-investors/) — Перспектива інвестиційного ризику.
 - [Для страховиків](/doctrine-site-box/ua/for-insurers/) — Перспектива системного ризику.
 
