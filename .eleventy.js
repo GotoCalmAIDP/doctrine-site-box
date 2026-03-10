@@ -29,6 +29,8 @@ module.exports = function(eleventyConfig) {
       { title: "For Operators", url: pathPrefix + "/en/for-operators/" },
       { title: "For Regulators", url: pathPrefix + "/en/for-regulators/" },
       { title: "For Architects", url: pathPrefix + "/en/for-architects/" },
+      { title: "For Investors", url: pathPrefix + "/en/for-investors/" },
+      { title: "For Insurers", url: pathPrefix + "/en/for-insurers/" },
       { title: "Contact", url: pathPrefix + "/en/contact/" }
     ],
     ua: [
@@ -42,6 +44,8 @@ module.exports = function(eleventyConfig) {
       { title: "Для операторів", url: pathPrefix + "/ua/for-operators/" },
       { title: "Для регуляторів", url: pathPrefix + "/ua/for-regulators/" },
       { title: "Для архітекторів", url: pathPrefix + "/ua/for-architects/" },
+      { title: "Для інвесторів", url: pathPrefix + "/ua/for-investors/" },
+      { title: "Для страховиків", url: pathPrefix + "/ua/for-insurers/" },
       { title: "Контакти", url: pathPrefix + "/ua/contact/" }
     ]
   });
