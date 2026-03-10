@@ -5,31 +5,31 @@ description: Doctrine materials — structural placeholder for core explanatory 
 
 # Doctrine
 
-This page will contain doctrine materials. For now it is a structural placeholder.
+This page serves as the conceptual entry point for the Applicability Boundary Doctrine.
 
 ---
 
 ## Purpose of the Doctrine
 
-[DOCTRINE CONTENT PLACEHOLDER]
+The purpose of the doctrine is to provide a conceptual framework and terminology for identifying, describing, and analyzing conditions where system logic remains formally correct but ceases to validly govern its operational reality.
 
 ---
 
-## Scope
+## Doctrine Scope
 
-[DOCTRINE CONTENT PLACEHOLDER]
+The Applicability Boundary Doctrine is strictly conceptual and non-prescriptive. It does not provide operational instructions, engineering algorithms, or detection mechanisms. Instead, it describes the structural conditions under which system legitimacy may degrade, providing a vocabulary for analysis rather than a manual for implementation.
 
 ---
 
 ## Applicability Boundaries
 
-[DOCTRINE CONTENT PLACEHOLDER]
+An Applicability Boundary is not a physical limit or a simple error state. It is the structural limit of a system's valid governance. Beyond this boundary, the assumptions underlying the system's control logic no longer align with the operational environment.
 
 ---
 
 ## Status
 
-[DOCTRINE CONTENT PLACEHOLDER]
+The doctrine is maintained as a stable conceptual baseline. Its core principles are preserved through versioned releases, ensuring that the foundational concepts remain consistent while explanatory layers may expand.
 
 ---
 
