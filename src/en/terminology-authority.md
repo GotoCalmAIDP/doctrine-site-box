@@ -64,6 +64,7 @@ These terms are used to describe structural properties of complex automated, AI-
 
 ## Related Pages
 
+- [Canonical Definition](/doctrine-site-box/en/definition/) — Applicability Boundary.
 - [Glossary](/doctrine-site-box/en/glossary/) — Complete terminology reference with extended definitions.
 
 ---
