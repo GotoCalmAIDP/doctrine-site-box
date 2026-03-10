@@ -8,6 +8,7 @@ module.exports = function(eleventyConfig) {
   // Pass through static assets
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("_assets/images");
+  eleventyConfig.addPassthroughCopy({"src/assets": "assets"});
   
   // Add language filter
   eleventyConfig.addFilter("langUrl", function(url, lang) {
@@ -24,6 +25,7 @@ module.exports = function(eleventyConfig) {
       { title: "About", url: pathPrefix + "/en/about/" },
       { title: "Doctrine", url: pathPrefix + "/en/doctrine/" },
       { title: "Canonical Definition", url: pathPrefix + "/en/definition/" },
+      { title: "Concept Context", url: pathPrefix + "/en/applicability-boundary-context/" },
       { title: "Case Studies", url: pathPrefix + "/en/cases/" },
       { title: "Method", url: pathPrefix + "/en/method/" },
       { title: "Boundaries", url: pathPrefix + "/en/boundaries/" },
@@ -42,6 +44,7 @@ module.exports = function(eleventyConfig) {
       { title: "Про проєкт", url: pathPrefix + "/ua/about/" },
       { title: "Доктрина", url: pathPrefix + "/ua/doctrine/" },
       { title: "Канонічне визначення", url: pathPrefix + "/ua/definition/" },
+      { title: "Концептуальний контекст", url: pathPrefix + "/ua/applicability-boundary-context/" },
       { title: "Кейси", url: pathPrefix + "/ua/cases/" },
       { title: "Метод", url: pathPrefix + "/ua/method/" },
       { title: "Межі", url: pathPrefix + "/ua/boundaries/" },

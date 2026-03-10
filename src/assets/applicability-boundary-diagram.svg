@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" width="400" height="520">
+  <style>
+    text { font-family: 'Segoe UI', Arial, sans-serif; fill: #1a1a1a; }
+    .box { fill: none; stroke: #1a1a1a; stroke-width: 1.5; rx: 6; ry: 6; }
+    .box-boundary { fill: none; stroke: #1a1a1a; stroke-width: 2.5; rx: 6; ry: 6; stroke-dasharray: 8,4; }
+    .arrow { stroke: #1a1a1a; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+    .label { font-size: 14px; text-anchor: middle; font-weight: 600; }
+    .sublabel { font-size: 11px; text-anchor: middle; fill: #555; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1a1a1a"/>
+    </marker>
+  </defs>
+
+  <!-- Box 1: Operational Mode -->
+  <rect class="box" x="100" y="30" width="200" height="60"/>
+  <text class="label" x="200" y="57">Operational Mode</text>
+  <text class="sublabel" x="200" y="73">System functions as designed</text>
+
+  <!-- Arrow 1→2 -->
+  <line class="arrow" x1="200" y1="90" x2="200" y2="140"/>
+
+  <!-- Box 2: Applicability Boundary (dashed, emphasized) -->
+  <rect class="box-boundary" x="75" y="140" width="250" height="70"/>
+  <text class="label" x="200" y="170" style="font-size:15px;">Applicability Boundary</text>
+  <text class="sublabel" x="200" y="190">Structural limit of valid governance</text>
+
+  <!-- Arrow 2→3 -->
+  <line class="arrow" x1="200" y1="210" x2="200" y2="270"/>
+
+  <!-- Box 3: Invalid Operational Mode -->
+  <rect class="box" x="75" y="270" width="250" height="70"/>
+  <text class="label" x="200" y="297">Invalid Operational Mode</text>
+  <text class="sublabel" x="200" y="315">Logic correct, reality misaligned</text>
+
+  <!-- Arrow 3→4 -->
+  <line class="arrow" x1="200" y1="340" x2="200" y2="400"/>
+
+  <!-- Box 4: Failure Potential -->
+  <rect class="box" x="100" y="400" width="200" height="60"/>
+  <text class="label" x="200" y="427">Failure Potential</text>
+  <text class="sublabel" x="200" y="443">Undetected structural risk</text>
+
+  <!-- Footer -->
+  <text x="200" y="495" style="font-size:10px; text-anchor:middle; fill:#888;">Applicability Boundary Doctrine — Canonical Concept Diagram — v1.13</text>
+</svg>

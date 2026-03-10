@@ -53,6 +53,15 @@ lang: ua
 > Доступно за адресою:
 > [Канонічне визначення](/doctrine-site-box/ua/definition/)
 
+### Межа застосовності — Концептуальна діаграма
+
+> Репозиторій доктрини GotoCalm AI-DP.
+> Версія v1.13.
+>
+> Межа застосовності — Концептуальна діаграма.
+> Доступно за адресою:
+> [Концептуальна діаграма](/doctrine-site-box/assets/applicability-boundary-diagram.svg)
+
 Історія випусків доступна за адресою:
 [https://github.com/GotoCalmAIDP/doctrine-site-box/releases](https://github.com/GotoCalmAIDP/doctrine-site-box/releases)
 
@@ -75,6 +84,7 @@ lang: ua
 ## Пов'язані сторінки
 
 - [Канонічне визначення](/doctrine-site-box/ua/definition/) — Межа застосовності.
+- [Концептуальний контекст](/doctrine-site-box/ua/applicability-boundary-context/) — Концептуальний контекст Межі застосовності.
 - [Доктрина](/doctrine-site-box/ua/doctrine/) — Положення доктрини та концептуальна точка входу.
 
 ---

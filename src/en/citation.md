@@ -53,6 +53,15 @@ The canonical baseline is **v1.4.3**. Subsequent versions extend the conceptual 
 > Available at:
 > [Canonical Definition](/doctrine-site-box/en/definition/)
 
+### Applicability Boundary — Concept Diagram
+
+> GotoCalm AI-DP Doctrine Repository.
+> Version v1.13.
+>
+> Applicability Boundary — Concept Diagram.
+> Available at:
+> [Concept Diagram](/doctrine-site-box/assets/applicability-boundary-diagram.svg)
+
 Release history is available at:
 [https://github.com/GotoCalmAIDP/doctrine-site-box/releases](https://github.com/GotoCalmAIDP/doctrine-site-box/releases)
 
@@ -75,6 +84,7 @@ Citation does not grant rights to proprietary implementation technology.
 ## Related Pages
 
 - [Canonical Definition](/doctrine-site-box/en/definition/) — Applicability Boundary.
+- [Concept Context](/doctrine-site-box/en/applicability-boundary-context/) — Conceptual context of the Applicability Boundary.
 - [Doctrine](/doctrine-site-box/en/doctrine/) — Doctrine statement and conceptual entry point.
 
 ---
