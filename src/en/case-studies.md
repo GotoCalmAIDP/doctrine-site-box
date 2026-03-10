@@ -19,3 +19,4 @@ Selected cases illustrate typical structural patterns observed in complex system
 ## Cases
 
 - [Case 001 — Mode Validity Drift](/doctrine-site-box/en/case-001-mode-validity-drift/)
+- [Case 002 — Authorization Delay and Object Validity Drift](/doctrine-site-box/en/case-002-authorization-delay-and-object-validity-drift/)
