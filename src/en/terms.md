@@ -6,7 +6,7 @@ title: Terms of Use
 
 **Language:** English  
 **Page:** Terms of Use  
-**Status:** Structural shell — legal placeholder
+**Status:** Legal Notice
 
 ---
 
@@ -55,6 +55,24 @@ This website may contain links to third-party websites. We are not responsible f
 ## Changes to Terms
 
 We reserve the right to modify these Terms of Use at any time. Changes will be effective immediately upon posting to this page. Your continued use of the site constitutes acceptance of the modified terms.
+
+---
+
+## Intellectual Property Notice
+
+The conceptual materials presented on this site form part of the Applicability Boundary Doctrine.
+
+Publication of conceptual material does not grant permission to reproduce proprietary technologies, implementation architectures, or operational mechanisms related to the doctrine.
+
+All implementation technologies remain proprietary.
+
+---
+
+## Conceptual Publication Scope
+
+This repository publishes conceptual doctrine, terminology, and analytical frameworks.
+
+It does not publish implementation technology or operational system designs.
 
 ---
 

@@ -12,7 +12,9 @@ This page defines what this site is, what it is not, and the boundaries of its a
 
 ## What This Site Is
 
-This site is a **structural shell** containing evolving documentation. It provides organized explanatory materials for reference purposes. Content is added progressively and subject to revision.
+This site presents a versioned conceptual doctrine together with analytical and interpretive materials.
+
+Conceptual publications are released in versioned form to preserve doctrinal continuity.
 
 ---
 
@@ -39,4 +41,4 @@ For formal inquiries, professional consultations, or questions beyond the scope 
 
 ---
 
-**See also:** [Evidence & Traceability](/en/evidence/) | [Change Log](/en/change-log/)
+**See also:** [Evidence & Traceability](/doctrine-site-box/en/evidence/) | [Change Log](/doctrine-site-box/en/change-log/)

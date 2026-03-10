@@ -55,4 +55,12 @@ When citing this doctrine, the citation refers to the conceptual framework only.
 
 ---
 
+## Citation and Conceptual Reference
+
+Citation of the Applicability Boundary Doctrine refers to conceptual doctrine material.
+
+Citation does not grant rights to proprietary implementation technology.
+
+---
+
 End of Citation Page

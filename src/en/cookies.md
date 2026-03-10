@@ -6,7 +6,7 @@ title: Cookie Policy
 
 **Language:** English  
 **Page:** Cookie Policy  
-**Status:** Structural shell — legal placeholder
+**Status:** Informational Notice
 
 ---
 
@@ -18,9 +18,9 @@ Cookies are small text files that are stored on your device when you visit a web
 
 ## Our Use of Cookies
 
-**We do not use tracking cookies or analytics cookies on this website.**
+This site does not intentionally deploy tracking cookies.
 
-Only essential cookies may be used by the hosting platform (GitHub Pages) for basic site functionality and security purposes. These are necessary for the proper operation of the website and cannot be disabled.
+Operational cookies may be used by the hosting platform (GitHub Pages) for infrastructure purposes.
 
 ---
 
