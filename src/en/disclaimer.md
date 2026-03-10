@@ -9,6 +9,17 @@ description: Disclaimer — informational purpose only, no certification or conf
 
 ---
 
+## Conceptual Framework Notice
+
+The content of this site describes a conceptual doctrine
+and analytical framework for understanding complex systems.
+
+It is provided for educational and analytical purposes
+and does not constitute engineering, regulatory,
+or operational advice.
+
+---
+
 ## Informational Purpose Only
 
 The content on this website is provided for informational purposes only. It is not intended to constitute legal, engineering, regulatory, or certification advice.

@@ -76,6 +76,15 @@ It does not publish implementation technology or operational system designs.
 
 ---
 
+## No Operational Reliance
+
+The doctrine and conceptual frameworks presented on this site
+are not operational procedures and should not be relied upon
+as a substitute for professional engineering judgement,
+regulatory compliance, or safety investigation processes.
+
+---
+
 ## Contact
 
 For questions regarding these Terms of Use, please contact:
