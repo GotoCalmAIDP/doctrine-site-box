@@ -86,6 +86,8 @@ The stakeholder layer provides conceptual orientation for different audiences. T
 - [For Operators](/doctrine-site-box/en/for-operators/) — Operational perspective.
 - [For Regulators](/doctrine-site-box/en/for-regulators/) — Regulatory perspective.
 - [For System Architects](/doctrine-site-box/en/for-architects/) — Architectural perspective.
+- [For Engineers](/doctrine-site-box/en/for-engineers/) — Engineering perspective.
+- [For Auditors](/doctrine-site-box/en/for-auditors/) — Assurance perspective.
 - [For Investors](/doctrine-site-box/en/for-investors/) — Investment risk perspective.
 - [For Insurers](/doctrine-site-box/en/for-insurers/) — Systemic risk perspective.
 

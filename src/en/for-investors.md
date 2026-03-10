@@ -16,11 +16,20 @@ lang: en
 
 ## The Problem of Invisible Deterioration
 
-Complex automated and AI-enabled systems may remain fully compliant with their design specifications, regulatory requirements, and operational procedures while the assumptions underlying their behaviour silently deteriorate.
+Investors evaluating emerging technologies
+in autonomy, artificial intelligence, robotics,
+energy infrastructure, aerospace, and large-scale
+digital systems increasingly face systemic risk
+that originates not from component failure,
+but from incorrect assumptions about system validity.
 
-Compliance does not guarantee that a system continues to operate within the conditions for which its behaviour was originally validated.
+The Applicability Boundary Doctrine provides
+a conceptual framework for identifying structural
+limits of operational models.
 
-A system may pass every audit, satisfy every regulatory check, and meet every contractual benchmark — yet operate beyond the boundary where its operational assumptions remain valid.
+Understanding these limits is essential when assessing
+technology resilience, long-term operational viability,
+and systemic risk exposure across industries.
 
 ---
 
