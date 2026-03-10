@@ -8,21 +8,23 @@ lang: en
 
 ## Context
 
-An automated industrial process operates in a predefined production mode.
+An automated chemical production process operates in a predefined production mode.
 
-Control systems regulate the process using stable feedback loops and predefined operational targets.
+The control system regulates temperature, pressure, and feed rate using stable feedback control loops and predefined setpoints.
+
+The operating mode was selected based on an assumed composition of incoming raw materials.
 
 ## Situation
 
-A change occurs upstream in the production environment.
+An upstream supplier changes the composition of the raw material within specification limits.
 
-Input conditions affecting the process change, but remain within measurable system limits.
+Sensors continue to report values within acceptable ranges.
 
-Controllers continue to execute correctly.
+Control loops remain stable and the process continues operating within configured setpoints.
 
-Operators observe stable system behaviour.
+Operators observe no alarms and system behaviour appears nominal.
 
-However, the assumptions that originally justified the selected operating mode are no longer valid.
+However, the original operating mode was selected under assumptions about raw material composition that no longer hold.
 
 ## Boundary
 
