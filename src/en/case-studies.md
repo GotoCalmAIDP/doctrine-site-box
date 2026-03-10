@@ -1,0 +1,21 @@
+---
+layout: base.njk
+title: "Case Studies"
+lang: en
+---
+
+# Case Studies
+
+The Applicability Boundary Doctrine can be illustrated through conceptual cases.
+
+These cases are not incident investigations and do not describe operational procedures.
+
+They are simplified examples designed to illustrate structural situations in which a system may continue executing correctly while the assumptions that justified its operational mode have ceased to hold.
+
+Such conditions represent Applicability Boundaries.
+
+Selected cases illustrate typical structural patterns observed in complex systems.
+
+## Cases
+
+- [Case 001 — Mode Validity Drift](/doctrine-site-box/en/case-001-mode-validity-drift/)
