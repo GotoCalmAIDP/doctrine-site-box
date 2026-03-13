@@ -37,7 +37,7 @@ The term "boundaries" refers to the explicit limits of what this documentation c
 
 ## How to Engage Formally
 
-For formal inquiries, professional consultations, or questions beyond the scope of this documentation, please [contact us](/en/contact/).
+For formal inquiries, professional consultations, or questions beyond the scope of this documentation, please [contact us](/doctrine-site-box/en/contact/).
 
 ---
 

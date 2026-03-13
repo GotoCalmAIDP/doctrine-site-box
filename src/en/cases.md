@@ -29,10 +29,10 @@ Cases are examples of how to document boundaries, not evidence of outcomes.
 
 | Case | Title | Status |
 |------|-------|--------|
-| [Case 001](/en/cases/case-001/) | Illustrative Non-Claim Case | Illustrative |
-| [Case 002](/en/cases/case-002/) | Trajectory Boundary | Illustrative |
-| [Case 003](/en/cases/case-003/) | Authority Boundary | Illustrative |
-| [Case 004](/en/cases/case-004/) | Update / Change Boundary | Illustrative |
+| [Case 001](/doctrine-site-box/en/cases/case-001/) | Illustrative Non-Claim Case | Illustrative |
+| [Case 002](/doctrine-site-box/en/cases/case-002/) | Trajectory Boundary | Illustrative |
+| [Case 003](/doctrine-site-box/en/cases/case-003/) | Authority Boundary | Illustrative |
+| [Case 004](/doctrine-site-box/en/cases/case-004/) | Update / Change Boundary | Illustrative |
 
 ---
 
@@ -45,4 +45,4 @@ All cases follow the same structure:
 3. **Where explanation ends** — The explicit boundaries
 4. **Why no further claim is made** — The reasoning for limits
 
-This structure ensures that each case remains within the site's [Scope](/en/scope/) and respects the [Boundaries](/en/boundaries/) defined for all content.
+This structure ensures that each case remains within the site's [Scope](/doctrine-site-box/en/scope/) and respects the [Boundaries](/doctrine-site-box/en/boundaries/) defined for all content.

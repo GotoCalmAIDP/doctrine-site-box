@@ -35,10 +35,10 @@ translationKey: evidence
 - **Коміти** — Кожна зміна записується з унікальним ідентифікатором.
 - **Теги** — Релізи можуть бути позначені тегами версій для довідки.
 - **Відкат** — Попередні версії можуть бути відновлені з історії Git.
-- **Публічний журнал** — Див. [Журнал змін](/ua/change-log/) для підсумку.
+- **Публічний журнал** — Див. [Журнал змін](/doctrine-site-box/ua/change-log/) для підсумку.
 
 **Репозиторій:** [github.com/GotoCalmAIDP/doctrine-site-box](https://github.com/GotoCalmAIDP/doctrine-site-box)
 
 ---
 
-**Див. також:** [Межі застосування](/ua/scope/) | [Журнал змін](/ua/change-log/)
+**Див. також:** [Межі застосування](/doctrine-site-box/ua/scope/) | [Журнал змін](/doctrine-site-box/ua/change-log/)

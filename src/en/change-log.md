@@ -49,4 +49,4 @@ Full commit history is available at:
 
 ---
 
-**See also:** [Scope & Non-Claims](/en/scope/) | [Evidence & Traceability](/en/evidence/)
+**See also:** [Scope & Non-Claims](/doctrine-site-box/en/scope/) | [Evidence & Traceability](/doctrine-site-box/en/evidence/)

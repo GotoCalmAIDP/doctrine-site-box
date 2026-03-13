@@ -49,4 +49,4 @@ translationKey: change-log
 
 ---
 
-**Див. також:** [Межі застосування](/ua/scope/) | [Доказовість](/ua/evidence/)
+**Див. також:** [Межі застосування](/doctrine-site-box/ua/scope/) | [Доказовість](/doctrine-site-box/ua/evidence/)
