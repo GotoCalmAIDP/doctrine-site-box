@@ -31,8 +31,8 @@ Explanation has limits. This site does not extend into areas that require profes
 
 These links provide conceptual orientation only. They do not prescribe actions.
 
-For formal engagements, professional consultations, or specific inquiries beyond the scope of this documentation, please [contact us](/en/contact/).
+For formal engagements, professional consultations, or specific inquiries beyond the scope of this documentation, please [contact us](/doctrine-site-box/en/contact/).
 
 ---
 
-**See also:** [Scope & Non-Claims](/en/scope/) | [Evidence & Traceability](/en/evidence/)
+**See also:** [Scope & Non-Claims](/doctrine-site-box/en/scope/) | [Evidence & Traceability](/doctrine-site-box/en/evidence/)

@@ -35,10 +35,10 @@ All changes are managed through Git version control:
 - **Commits** — Each change is recorded with a unique identifier.
 - **Tags** — Releases may be marked with version tags for reference.
 - **Rollback** — Previous versions can be restored from Git history.
-- **Public log** — See the [Change Log](/en/change-log/) for a summary.
+- **Public log** — See the [Change Log](/doctrine-site-box/en/change-log/) for a summary.
 
 **Repository:** [github.com/GotoCalmAIDP/doctrine-site-box](https://github.com/GotoCalmAIDP/doctrine-site-box)
 
 ---
 
-**See also:** [Scope & Non-Claims](/en/scope/) | [Change Log](/en/change-log/)
+**See also:** [Scope & Non-Claims](/doctrine-site-box/en/scope/) | [Change Log](/doctrine-site-box/en/change-log/)
