@@ -30,6 +30,34 @@ They may be added selectively where public material illustrates structural recur
 
 ## Entry Status
 
-No external evidence entries are included in this initial release.
+Entries are added selectively where publicly documented material provides a neutral and non-claim illustration of structural conditions described by the doctrine.
 
-Entries may be added later where publicly documented material provides a neutral and non-claim illustration of structural conditions described by the doctrine.
+---
+
+## EEN-01 — Model Validity Outside Training Context
+
+### Source
+
+Publicly documented discussions in machine learning literature describing how AI systems may continue producing outputs when operating outside the domain represented in their training data.
+
+These observations are widely referenced in research discussions concerning model generalization and distribution shift.
+
+### Observed Condition
+
+Machine learning systems may continue generating outputs even when input conditions differ significantly from those represented during training.
+
+In such situations the system remains operational and continues producing responses, while the assumptions that originally justified the model's interpretive validity may no longer hold.
+
+### Doctrinal Interpretation
+
+Within the Applicability Boundary Doctrine, situations of this kind can illustrate a structural condition where a system continues operating after leaving the domain in which the interpretive assumptions of the operational model remain valid.
+
+The example is included only as an illustration of a recurring structural phenomenon.
+
+### Non-Claim Statement
+
+This note does not assign responsibility, reinterpret research findings, or introduce causal explanations.
+
+It provides a conceptual illustration of conditions discussed within the Applicability Boundary Doctrine.
+
+---
