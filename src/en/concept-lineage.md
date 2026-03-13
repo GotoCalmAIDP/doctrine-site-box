@@ -40,4 +40,12 @@ This page is non-claim. It does not prescribe actions, recommend implementations
 
 ---
 
+## Doctrine Origin Marker
+
+The Applicability Boundary Doctrine was developed as an independent conceptual framework derived from operational observations of complex control environments.
+
+External references and examples presented in this repository serve only as illustrations of structural phenomena described by the doctrine and should not be interpreted as sources from which the doctrine was derived.
+
+---
+
 **End of Concept Lineage**
