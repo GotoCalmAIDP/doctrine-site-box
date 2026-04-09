@@ -124,4 +124,53 @@ lang: ua
 
 ---
 
+## Пов'язані публікації на Zenodo
+
+Наступні публікації формують доктринальний ланцюг публікацій, архівованих на Zenodo.
+Вони перелічені в порядку їхньої концептуальної позиції в рамках доктрини.
+
+Публікації 1–6 складають послідовний доктринальний ланцюг,
+що охоплює структурні умови на стороні машини та на стороні наслідків.
+
+Публікації 7–8 стосуються окремих ортогональних вимірів допустимості,
+пов'язаних з людсько-інституційними та управлінськими структурами.
+
+Публікація 9 є окремим доктринальним оцінювальним модулем (додатком)
+у межах існуючої рамки.
+
+### Доктринальний ланцюг
+
+1. **Applicability Boundary Doctrine**
+   DOI: [10.5281/zenodo.19425317](https://doi.org/10.5281/zenodo.19425317)
+
+2. **Applicability Boundary Doctrine – Extension**
+   DOI: [10.5281/zenodo.19443895](https://doi.org/10.5281/zenodo.19443895)
+
+3. **Epistemic Applicability Layer**
+   DOI: [10.5281/zenodo.19447536](https://doi.org/10.5281/zenodo.19447536)
+
+4. **Reality Verification**
+   DOI: [10.5281/zenodo.19457414](https://doi.org/10.5281/zenodo.19457414)
+
+5. **Approval Is Not Execution**
+   DOI: [10.5281/zenodo.19462291](https://doi.org/10.5281/zenodo.19462291)
+
+6. **Substrate Integrity**
+   DOI: [10.5281/zenodo.19463230](https://doi.org/10.5281/zenodo.19463230)
+
+### Ортогональні виміри допустимості
+
+7. **Human–Institutional Responsibility**
+   DOI: [10.5281/zenodo.19476910](https://doi.org/10.5281/zenodo.19476910)
+
+8. **Decorative Governance**
+   DOI: [10.5281/zenodo.19478004](https://doi.org/10.5281/zenodo.19478004)
+
+### Оцінювальний модуль
+
+9. **Applicability-First Evaluation Module 01: Vendor Claim Admissibility for AI Security and Agentic Systems**
+   DOI: [10.5281/zenodo.19487979](https://doi.org/10.5281/zenodo.19487979)
+
+---
+
 Кінець сторінки цитування
