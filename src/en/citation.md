@@ -135,7 +135,7 @@ covering machine-side and consequence-side structural conditions.
 Publications 7–8 address separate orthogonal admissibility dimensions
 related to human-institutional and governance structures.
 
-Publication 9 is a separate doctrinal evaluation module (annex)
+Publications 9–10 are separate doctrinal evaluation modules (annexes)
 within the existing framework.
 
 ### Doctrinal Chain
@@ -166,10 +166,13 @@ within the existing framework.
 8. **Decorative Governance**
    DOI: [10.5281/zenodo.19478004](https://doi.org/10.5281/zenodo.19478004)
 
-### Evaluation Module
+### Evaluation Modules
 
 9. **Applicability-First Evaluation Module 01: Vendor Claim Admissibility for AI Security and Agentic Systems**
    DOI: [10.5281/zenodo.19487979](https://doi.org/10.5281/zenodo.19487979)
+
+10. **Applicability-First Evaluation Module 02: Memory, Context, Delegation, and Manual Boundary Integrity in AI Agents**
+    DOI: [10.5281/zenodo.19502406](https://doi.org/10.5281/zenodo.19502406)
 
 ---
 
