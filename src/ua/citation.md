@@ -135,7 +135,7 @@ lang: ua
 Публікації 7–8 стосуються окремих ортогональних вимірів допустимості,
 пов'язаних з людсько-інституційними та управлінськими структурами.
 
-Публікація 9 є окремим доктринальним оцінювальним модулем (додатком)
+Публікації 9–10 є окремими доктринальними оцінювальними модулями (додатками)
 у межах існуючої рамки.
 
 ### Доктринальний ланцюг
@@ -166,10 +166,13 @@ lang: ua
 8. **Decorative Governance**
    DOI: [10.5281/zenodo.19478004](https://doi.org/10.5281/zenodo.19478004)
 
-### Оцінювальний модуль
+### Оцінювальні модулі
 
 9. **Applicability-First Evaluation Module 01: Vendor Claim Admissibility for AI Security and Agentic Systems**
    DOI: [10.5281/zenodo.19487979](https://doi.org/10.5281/zenodo.19487979)
+
+10. **Applicability-First Evaluation Module 02: Memory, Context, Delegation, and Manual Boundary Integrity in AI Agents**
+    DOI: [10.5281/zenodo.19502406](https://doi.org/10.5281/zenodo.19502406)
 
 ---
 
