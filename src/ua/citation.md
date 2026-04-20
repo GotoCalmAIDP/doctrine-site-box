@@ -126,25 +126,19 @@ lang: ua
 
 ## Пов'язані публікації на Zenodo
 
-Наступні публікації формують доктринальний ланцюг публікацій, архівованих на Zenodo.
-Вони перелічені в порядку їхньої концептуальної позиції в рамках доктрини.
+Наступні публікації формують доктринальну лінію публікацій, архівованих на Zenodo.
+Вони перелічені в порядку їхньої концептуальної позиції в рамках доктрини
+та згруповані за структурною роллю.
 
-Публікації 1–6 складають послідовний доктринальний ланцюг,
-що охоплює структурні умови на стороні машини та на стороні наслідків.
-
-Публікації 7–8 стосуються окремих ортогональних вимірів допустимості,
-пов'язаних з людсько-інституційними та управлінськими структурами.
-
-Публікації 9–10 є окремими доктринальними оцінювальними модулями (додатками)
-у межах існуючої рамки.
-
-### Доктринальний ланцюг
+### Фундаментальна доктрина
 
 1. **Applicability Boundary Doctrine**
    DOI: [10.5281/zenodo.19425317](https://doi.org/10.5281/zenodo.19425317)
 
 2. **Applicability Boundary Doctrine – Extension**
    DOI: [10.5281/zenodo.19443895](https://doi.org/10.5281/zenodo.19443895)
+
+### Доктринальні специфікації
 
 3. **Epistemic Applicability Layer**
    DOI: [10.5281/zenodo.19447536](https://doi.org/10.5281/zenodo.19447536)
@@ -158,13 +152,20 @@ lang: ua
 6. **Substrate Integrity**
    DOI: [10.5281/zenodo.19463230](https://doi.org/10.5281/zenodo.19463230)
 
-### Ортогональні виміри допустимості
-
 7. **Human–Institutional Responsibility**
    DOI: [10.5281/zenodo.19476910](https://doi.org/10.5281/zenodo.19476910)
 
 8. **Decorative Governance**
    DOI: [10.5281/zenodo.19478004](https://doi.org/10.5281/zenodo.19478004)
+
+11. **Formal Conditions of Standing and Re-Sanctioning**
+    DOI: [10.5281/zenodo.19599888](https://doi.org/10.5281/zenodo.19599888)
+
+13. **Irreversibility Posture and the Boundary of Governance Automation**
+    DOI: [10.5281/zenodo.19636475](https://doi.org/10.5281/zenodo.19636475)
+
+14. **Deterministic Liability, Pressure Isolation, and Mission Invalidation in High-Consequence and Decision-Bearing Systems**
+    DOI: [10.5281/zenodo.19655615](https://doi.org/10.5281/zenodo.19655615)
 
 ### Оцінювальні модулі
 
@@ -173,6 +174,14 @@ lang: ua
 
 10. **Applicability-First Evaluation Module 02: Memory, Context, Delegation, and Manual Boundary Integrity in AI Agents**
     DOI: [10.5281/zenodo.19502406](https://doi.org/10.5281/zenodo.19502406)
+
+12. **Applicability-First Evaluation Module 03: Update-Rule Admissibility and Standing Preservation in Evolving and Self-Modifying AI Systems**
+    DOI: [10.5281/zenodo.19616417](https://doi.org/10.5281/zenodo.19616417)
+
+### Комерційні супровідні нотатки
+
+15. **Deterministic Liability and Insurer Readability in High-Consequence AI Systems**
+    DOI: [10.5281/zenodo.19657625](https://doi.org/10.5281/zenodo.19657625)
 
 ---
 
