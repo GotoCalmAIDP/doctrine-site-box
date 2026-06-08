@@ -126,7 +126,7 @@ lang: ua
 
 ## Пов'язані публікації на Zenodo
 
-Наступні публікації формують доктринальну лінію публікацій, архівованих на Zenodo.
+Наступні публікації (1–22) формують доктринальну лінію публікацій, архівованих на Zenodo.
 Вони перелічені в порядку їхньої концептуальної позиції в рамках доктрини
 та згруповані за структурною роллю.
 
@@ -177,6 +177,29 @@ lang: ua
 
 12. **Applicability-First Evaluation Module 03: Update-Rule Admissibility and Standing Preservation in Evolving and Self-Modifying AI Systems**
     DOI: [10.5281/zenodo.19616417](https://doi.org/10.5281/zenodo.19616417)
+
+### Поверхні правоздатності та оперативної спроможності
+
+16. **Evidence Standing Envelope: Claim Standing Under Interval Evidence in Consequence-Bearing AI Systems**
+    DOI: [10.5281/zenodo.20276203](https://doi.org/10.5281/zenodo.20276203)
+
+17. **Decorative Isolation: Non-Burden-Bearing Separation Claims in Consequence-Bearing AI Systems**
+    DOI: [10.5281/zenodo.20369228](https://doi.org/10.5281/zenodo.20369228)
+
+18. **Pressure-Claim Standing: Measurable Boundary Claims and Residual Transfer in Consequence-Bearing AI Systems**
+    DOI: [10.5281/zenodo.20417363](https://doi.org/10.5281/zenodo.20417363)
+
+19. **Unified Claim Standing Record Layer: Evidence, Isolation, Pressure, Authority, and Commit in Consequence-Bearing AI Systems**
+    DOI: [10.5281/zenodo.20479042](https://doi.org/10.5281/zenodo.20479042)
+
+20. **Authority Standing and Commit Standing: Current Execution Authority, Scoped Mandate, Non-Revocation, and Commit-Time Proof in Consequence-Bearing AI Systems**
+    DOI: [10.5281/zenodo.20561344](https://doi.org/10.5281/zenodo.20561344)
+
+21. **Post-Consequence Proof Standing and Durable Reconstructability: Proof Survival, Narrative Resistance, and Reviewable Standing Basis in Consequence-Bearing AI Systems**
+    DOI: [10.5281/zenodo.20573235](https://doi.org/10.5281/zenodo.20573235)
+
+22. **Operative Capacity Adjunct and Mission Temporal Validity: Rollback Capacity, Resource Residual, and Graceful Degradation in Consequence-Bearing AI Systems**
+    DOI: [10.5281/zenodo.20583953](https://doi.org/10.5281/zenodo.20583953)
 
 ### Комерційні супровідні нотатки
 

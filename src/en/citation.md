@@ -126,7 +126,7 @@ of the Applicability Boundary Doctrine presented on this site.
 
 ## Related Zenodo Publications
 
-The following publications form the doctrinal publication line archived on Zenodo.
+The following publications (1–22) form the doctrinal publication line archived on Zenodo.
 They are listed in the order of their conceptual position within the framework
 and grouped by structural role.
 
@@ -177,6 +177,29 @@ and grouped by structural role.
 
 12. **Applicability-First Evaluation Module 03: Update-Rule Admissibility and Standing Preservation in Evolving and Self-Modifying AI Systems**
     DOI: [10.5281/zenodo.19616417](https://doi.org/10.5281/zenodo.19616417)
+
+### Standing and Operative Capacity Surfaces
+
+16. **Evidence Standing Envelope: Claim Standing Under Interval Evidence in Consequence-Bearing AI Systems**
+    DOI: [10.5281/zenodo.20276203](https://doi.org/10.5281/zenodo.20276203)
+
+17. **Decorative Isolation: Non-Burden-Bearing Separation Claims in Consequence-Bearing AI Systems**
+    DOI: [10.5281/zenodo.20369228](https://doi.org/10.5281/zenodo.20369228)
+
+18. **Pressure-Claim Standing: Measurable Boundary Claims and Residual Transfer in Consequence-Bearing AI Systems**
+    DOI: [10.5281/zenodo.20417363](https://doi.org/10.5281/zenodo.20417363)
+
+19. **Unified Claim Standing Record Layer: Evidence, Isolation, Pressure, Authority, and Commit in Consequence-Bearing AI Systems**
+    DOI: [10.5281/zenodo.20479042](https://doi.org/10.5281/zenodo.20479042)
+
+20. **Authority Standing and Commit Standing: Current Execution Authority, Scoped Mandate, Non-Revocation, and Commit-Time Proof in Consequence-Bearing AI Systems**
+    DOI: [10.5281/zenodo.20561344](https://doi.org/10.5281/zenodo.20561344)
+
+21. **Post-Consequence Proof Standing and Durable Reconstructability: Proof Survival, Narrative Resistance, and Reviewable Standing Basis in Consequence-Bearing AI Systems**
+    DOI: [10.5281/zenodo.20573235](https://doi.org/10.5281/zenodo.20573235)
+
+22. **Operative Capacity Adjunct and Mission Temporal Validity: Rollback Capacity, Resource Residual, and Graceful Degradation in Consequence-Bearing AI Systems**
+    DOI: [10.5281/zenodo.20583953](https://doi.org/10.5281/zenodo.20583953)
 
 ### Commercial Companion Notes
 
