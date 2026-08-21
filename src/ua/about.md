@@ -23,25 +23,26 @@ description: Про Doctrine Site — мета, обсяг та двомовни
 
 ---
 
-## Поточний обсяг
+## Поточна публічна структура
 
-**Доступно зараз:**
+Наразі доступні такі публічні матеріали:
 
-- Структура сайту та навігація
-- Опис методу
-- Визначення меж
-- Контактна інформація
-
-**Буде пізніше:**
-
-- Матеріали доктрини
-- Кейси
-- Розширена документація
+- [Вступ](/doctrine-site-box/ua/index-note/)
+- [Доктрина](/doctrine-site-box/ua/doctrine/)
+- [Канонічне визначення](/doctrine-site-box/ua/definition/)
+- [Обсяг та обмеження](/doctrine-site-box/ua/scope-and-limitations/)
+- [Концептуальний контекст](/doctrine-site-box/ua/applicability-boundary-context/) і [Походження концепції](/doctrine-site-box/ua/concept-lineage/)
+- [Структурні властивості](/doctrine-site-box/ua/doctrine-theorems/)
+- [Метод](/doctrine-site-box/ua/method/) і [Межі](/doctrine-site-box/ua/boundaries/)
+- Орієнтовані на аудиторії сторінки для [Операторів](/doctrine-site-box/ua/for-operators/), [Регуляторів](/doctrine-site-box/ua/for-regulators/), [Архітекторів](/doctrine-site-box/ua/for-architects/), [Інженерів](/doctrine-site-box/ua/for-engineers/), [Аудиторів](/doctrine-site-box/ua/for-auditors/), [Інвесторів](/doctrine-site-box/ua/for-investors/) і [Страховиків](/doctrine-site-box/ua/for-insurers/)
+- [Концептуальні кейси](/doctrine-site-box/ua/case-studies/)
+- [Ілюстративна бібліотека кейсів без тверджень](/doctrine-site-box/ua/cases/)
+- [Цитування та лінія публікацій](/doctrine-site-box/ua/citation/)
 
 ---
 
 ## Пов'язана професійна поверхня
 
-Для інформації про професійний контекст та прикладні послуги, пов'язані з Доктриною межі застосовності, див. [gotocalm.com](https://gotocalm.com).
+Щодо окремого професійного контексту цієї роботи див. [gotocalm.com](https://gotocalm.com). Сайт Доктрини залишається некомерційною довідковою поверхнею без тверджень.
 
 Це посилання надано лише для довідки. Воно не передбачає сертифікації, схвалення, операційного дозволу або повноважень на надання послуг.

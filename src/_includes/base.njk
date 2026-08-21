@@ -3,7 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} — Doctrine Site</title>
+    {% set metadata = pageMetadata | metadataFor(page.url) %}
+    <title>{{ metadata.title | default(title) }} — Doctrine Site</title>
+    <meta name="description" content="{{ metadata.description | default(title) | escape }}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Doctrine Site">
+    <meta property="og:title" content="{{ metadata.og_title | default(title) | escape }}">
+    <meta property="og:description" content="{{ metadata.og_description | default(title) | escape }}">
+    <meta property="og:url" content="https://gotocalmaidp.github.io{{ baseurl }}{{ page.url }}">
+    <meta property="og:image" content="https://gotocalmaidp.github.io{{ baseurl }}/assets/applicability-boundary-social.png">
+    <meta property="og:image:alt" content="{% if lang == 'en' %}Applicability Boundary Doctrine concept diagram{% else %}Концептуальна діаграма Доктрини межі застосовності{% endif %}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ metadata.twitter_title | default(title) | escape }}">
+    <meta name="twitter:description" content="{{ metadata.twitter_description | default(title) | escape }}">
+    <meta name="twitter:image" content="https://gotocalmaidp.github.io{{ baseurl }}/assets/applicability-boundary-social.png">
+    <meta name="twitter:image:alt" content="{% if lang == 'en' %}Applicability Boundary Doctrine concept diagram{% else %}Концептуальна діаграма Доктрини межі застосовності{% endif %}">
     <link rel="stylesheet" href="{{ baseurl }}/css/style.css">
     <link rel="canonical" href="https://gotocalmaidp.github.io{{ baseurl }}{{ page.url }}">
     {% if lang == 'en' %}
@@ -12,6 +26,34 @@
     {% elif lang == 'ua' %}
     <link rel="alternate" hreflang="uk" href="https://gotocalmaidp.github.io{{ baseurl }}{{ page.url }}">
     <link rel="alternate" hreflang="en" href="https://gotocalmaidp.github.io{{ baseurl }}{{ page.url | langUrl(lang) }}">
+    {% endif %}
+    {% if page.url == '/en/citation/' or page.url == '/ua/citation/' %}
+    <meta name="citation_title" content="Applicability Boundary Doctrine">
+    <meta name="citation_author" content="Partasyuk, Vadym">
+    <meta name="citation_publication_date" content="2025">
+    <meta name="citation_technical_report_institution" content="GotoCalm AI-DP Doctrine Repository">
+    <meta name="citation_url" content="https://gotocalmaidp.github.io/doctrine-site-box/">
+    <meta name="citation_language" content="{% if lang == 'en' %}en{% else %}uk{% endif %}">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Applicability Boundary Doctrine",
+      "author": {
+        "@type": "Person",
+        "familyName": "Partasyuk",
+        "givenName": "Vadym"
+      },
+      "datePublished": "2025",
+      "version": "1.4.3",
+      "publisher": {
+        "@type": "Organization",
+        "name": "GotoCalm AI-DP Doctrine Repository"
+      },
+      "url": "https://gotocalmaidp.github.io/doctrine-site-box/",
+      "inLanguage": "{% if lang == 'en' %}en{% else %}uk{% endif %}"
+    }
+    </script>
     {% endif %}
 </head>
 <body>

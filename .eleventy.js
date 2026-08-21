@@ -17,6 +17,11 @@ module.exports = function(eleventyConfig) {
     return url.replace(`/${lang}/`, `/${otherLang}/`);
   });
 
+  // Resolve generated page metadata by a page URL without exposing a fallback map.
+  eleventyConfig.addFilter("metadataFor", function(metadata, url) {
+    return metadata && metadata[url] ? metadata[url] : {};
+  });
+
   // Add navigation data with pathPrefix
   eleventyConfig.addGlobalData("navigation", {
     en: [
