@@ -46,7 +46,7 @@ jobs:
         run: python scripts/audit-routes.py _site
 
   build:
-    if: github.event_name != 'pull_request'
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     needs: integrity
     runs-on: ubuntu-latest
     steps:
@@ -75,7 +75,7 @@ jobs:
           path: ./_site
 
   deploy:
-    if: github.event_name != 'pull_request'
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
