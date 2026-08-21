@@ -1,0 +1,5 @@
+Partasyuk, V.
+Applicability Boundary Doctrine.
+Canonical Version v1.4.3.
+GotoCalm AI-DP Doctrine Repository.
+Available at: https://gotocalmaidp.github.io/doctrine-site-box/

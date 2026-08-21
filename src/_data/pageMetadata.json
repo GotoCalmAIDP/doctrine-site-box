@@ -1,0 +1,1028 @@
+{
+  "/en/about/": {
+    "title": "About the Project",
+    "description": "About Doctrine Site — purpose, scope, and bilingual documentation approach.",
+    "og_title": "About the Project | Applicability Boundary Doctrine",
+    "og_description": "About Doctrine Site — purpose, scope, and bilingual documentation approach.",
+    "twitter_title": "About the Project | Applicability Boundary Doctrine",
+    "twitter_description": "About Doctrine Site — purpose, scope, and bilingual documentation approach.",
+    "source": "front matter description"
+  },
+  "/en/annex-failure-archetypes/": {
+    "title": "Annex — Failure Archetypes",
+    "description": "Conceptual archetypes of applicability failure modes.",
+    "og_title": "Annex — Failure Archetypes | Applicability Boundary Doctrine",
+    "og_description": "Conceptual archetypes of applicability failure modes.",
+    "twitter_title": "Annex — Failure Archetypes | Applicability Boundary Doctrine",
+    "twitter_description": "Conceptual archetypes of applicability failure modes.",
+    "source": "front matter description"
+  },
+  "/en/applicability-architecture/": {
+    "title": "Applicability Architecture — Terminology",
+    "description": "Definition and scope of the term Applicability Architecture.",
+    "og_title": "Applicability Architecture — Terminology | Applicability Boundary Doctrine",
+    "og_description": "Definition and scope of the term Applicability Architecture.",
+    "twitter_title": "Applicability Architecture — Terminology | Applicability Boundary Doctrine",
+    "twitter_description": "Definition and scope of the term Applicability Architecture.",
+    "source": "front matter description"
+  },
+  "/en/applicability-boundary-context/": {
+    "title": "Applicability Boundary — Conceptual Context",
+    "description": "Conceptual context of the Applicability Boundary within the doctrine framework.",
+    "og_title": "Applicability Boundary — Conceptual Context | Applicability Boundary Doctrine",
+    "og_description": "Conceptual context of the Applicability Boundary within the doctrine framework.",
+    "twitter_title": "Applicability Boundary — Conceptual Context | Applicability Boundary Doctrine",
+    "twitter_description": "Conceptual context of the Applicability Boundary within the doctrine framework.",
+    "source": "front matter description"
+  },
+  "/en/applicability-boundary-definition/": {
+    "title": "Applicability Boundary — Definition",
+    "description": "Concept definition of the Applicability Boundary within the doctrine.",
+    "og_title": "Applicability Boundary — Definition | Applicability Boundary Doctrine",
+    "og_description": "Concept definition of the Applicability Boundary within the doctrine.",
+    "twitter_title": "Applicability Boundary — Definition | Applicability Boundary Doctrine",
+    "twitter_description": "Concept definition of the Applicability Boundary within the doctrine.",
+    "source": "front matter description"
+  },
+  "/en/applicability-failure-map/": {
+    "title": "Applicability Failure Map",
+    "description": "Conceptual diagnostic framework for identifying applicability boundary failures in complex systems.",
+    "og_title": "Applicability Failure Map | Applicability Boundary Doctrine",
+    "og_description": "Conceptual diagnostic framework for identifying applicability boundary failures in complex systems.",
+    "twitter_title": "Applicability Failure Map | Applicability Boundary Doctrine",
+    "twitter_description": "Conceptual diagnostic framework for identifying applicability boundary failures in complex systems.",
+    "source": "front matter description"
+  },
+  "/en/applicability-incident-lens/": {
+    "title": "Applicability Incident Lens",
+    "description": "The Applicability Incident Lens is a conceptual framework for analysing incidents in complex automated, AI-enabled and safety-critical systems, including systems operating in regulated…",
+    "og_title": "Applicability Incident Lens | Applicability Boundary Doctrine",
+    "og_description": "The Applicability Incident Lens is a conceptual framework for analysing incidents in complex automated, AI-enabled and safety-critical systems, including systems operating in regulated…",
+    "twitter_title": "Applicability Incident Lens | Applicability Boundary Doctrine",
+    "twitter_description": "The Applicability Incident Lens is a conceptual framework for analysing incidents in complex automated, AI-enabled and safety-critical systems, including systems operating in regulated…",
+    "source": "first visible paragraph"
+  },
+  "/en/architectural-questions/": {
+    "title": "Architectural Questions",
+    "description": "The Applicability Boundary Doctrine identifies structural limits of operational validity.",
+    "og_title": "Architectural Questions | Applicability Boundary Doctrine",
+    "og_description": "The Applicability Boundary Doctrine identifies structural limits of operational validity.",
+    "twitter_title": "Architectural Questions | Applicability Boundary Doctrine",
+    "twitter_description": "The Applicability Boundary Doctrine identifies structural limits of operational validity.",
+    "source": "first visible paragraph"
+  },
+  "/en/architecture/": {
+    "title": "Applicability Architecture",
+    "description": "Conceptual architecture of operational applicability boundaries.",
+    "og_title": "Applicability Architecture | Applicability Boundary Doctrine",
+    "og_description": "Conceptual architecture of operational applicability boundaries.",
+    "twitter_title": "Applicability Architecture | Applicability Boundary Doctrine",
+    "twitter_description": "Conceptual architecture of operational applicability boundaries.",
+    "source": "front matter description"
+  },
+  "/en/boundaries/": {
+    "title": "Boundaries",
+    "description": "Scope boundaries — what this site explains and where explanation ends.",
+    "og_title": "Boundaries | Applicability Boundary Doctrine",
+    "og_description": "Scope boundaries — what this site explains and where explanation ends.",
+    "twitter_title": "Boundaries | Applicability Boundary Doctrine",
+    "twitter_description": "Scope boundaries — what this site explains and where explanation ends.",
+    "source": "front matter description"
+  },
+  "/en/boundary-note/": {
+    "title": "Boundary Note — Applicability and Explanation Limits",
+    "description": "Conceptual note defining what is meant by a boundary of applicability within the doctrine. Non-claim status.",
+    "og_title": "Boundary Note — Applicability and Explanation Limits | Applicability Boundary Doctrine",
+    "og_description": "Conceptual note defining what is meant by a boundary of applicability within the doctrine. Non-claim status.",
+    "twitter_title": "Boundary Note — Applicability and Explanation Limits | Applicability Boundary Doctrine",
+    "twitter_description": "Conceptual note defining what is meant by a boundary of applicability within the doctrine. Non-claim status.",
+    "source": "front matter description"
+  },
+  "/en/case-001-mode-validity-drift/": {
+    "title": "Case 001 — Mode Validity Drift",
+    "description": "Note: This case is a simplified conceptual illustration intended to demonstrate structural patterns related to applicability boundaries.",
+    "og_title": "Case 001 — Mode Validity Drift | Applicability Boundary Doctrine",
+    "og_description": "Note: This case is a simplified conceptual illustration intended to demonstrate structural patterns related to applicability boundaries.",
+    "twitter_title": "Case 001 — Mode Validity Drift | Applicability Boundary Doctrine",
+    "twitter_description": "Note: This case is a simplified conceptual illustration intended to demonstrate structural patterns related to applicability boundaries.",
+    "source": "first visible paragraph"
+  },
+  "/en/case-002-authorization-delay-and-object-validity-drift/": {
+    "title": "Case 002 — Authorization Delay and Object Validity Drift",
+    "description": "Note: This case is a simplified conceptual illustration intended to demonstrate structural patterns related to applicability boundaries.",
+    "og_title": "Case 002 — Authorization Delay and Object Validity Drift | Applicability Boundary Doctrine",
+    "og_description": "Note: This case is a simplified conceptual illustration intended to demonstrate structural patterns related to applicability boundaries.",
+    "twitter_title": "Case 002 — Authorization Delay and Object Validity Drift | Applicability Boundary Doctrine",
+    "twitter_description": "Note: This case is a simplified conceptual illustration intended to demonstrate structural patterns related to applicability boundaries.",
+    "source": "first visible paragraph"
+  },
+  "/en/case-003-observability-lag-in-route-execution/": {
+    "title": "Case 003 — Observability Lag in Route Execution",
+    "description": "Note: This case is a simplified conceptual illustration intended to demonstrate structural patterns related to applicability boundaries.",
+    "og_title": "Case 003 — Observability Lag in Route Execution | Applicability Boundary Doctrine",
+    "og_description": "Note: This case is a simplified conceptual illustration intended to demonstrate structural patterns related to applicability boundaries.",
+    "twitter_title": "Case 003 — Observability Lag in Route Execution | Applicability Boundary Doctrine",
+    "twitter_description": "Note: This case is a simplified conceptual illustration intended to demonstrate structural patterns related to applicability boundaries.",
+    "source": "first visible paragraph"
+  },
+  "/en/case-004-alarm-suppression-and-safety-envelope-drift/": {
+    "title": "Case 004 — Alarm Suppression and Safety Envelope Drift",
+    "description": "Note: This case is a simplified conceptual illustration intended to demonstrate structural patterns related to applicability boundaries.",
+    "og_title": "Case 004 — Alarm Suppression and Safety Envelope Drift | Applicability Boundary Doctrine",
+    "og_description": "Note: This case is a simplified conceptual illustration intended to demonstrate structural patterns related to applicability boundaries.",
+    "twitter_title": "Case 004 — Alarm Suppression and Safety Envelope Drift | Applicability Boundary Doctrine",
+    "twitter_description": "Note: This case is a simplified conceptual illustration intended to demonstrate structural patterns related to applicability boundaries.",
+    "source": "first visible paragraph"
+  },
+  "/en/case-studies/": {
+    "title": "Case Studies",
+    "description": "The Applicability Boundary Doctrine can be illustrated through conceptual cases.",
+    "og_title": "Case Studies | Applicability Boundary Doctrine",
+    "og_description": "The Applicability Boundary Doctrine can be illustrated through conceptual cases.",
+    "twitter_title": "Case Studies | Applicability Boundary Doctrine",
+    "twitter_description": "The Applicability Boundary Doctrine can be illustrated through conceptual cases.",
+    "source": "first visible paragraph"
+  },
+  "/en/case-template/": {
+    "title": "Case Template v1.0",
+    "description": "Canonical structural template for non-claim illustrative cases. No content — structure only.",
+    "og_title": "Case Template v1.0 | Applicability Boundary Doctrine",
+    "og_description": "Canonical structural template for non-claim illustrative cases. No content — structure only.",
+    "twitter_title": "Case Template v1.0 | Applicability Boundary Doctrine",
+    "twitter_description": "Canonical structural template for non-claim illustrative cases. No content — structure only.",
+    "source": "front matter description"
+  },
+  "/en/cases/case-001/": {
+    "title": "Case 001 — Illustrative Non-Claim Case",
+    "description": "An illustrative non-claim case demonstrating the boundary of explanatory applicability. No causation, prediction, or recommendations.",
+    "og_title": "Case 001 — Illustrative Non-Claim Case | Applicability Boundary Doctrine",
+    "og_description": "An illustrative non-claim case demonstrating the boundary of explanatory applicability. No causation, prediction, or recommendations.",
+    "twitter_title": "Case 001 — Illustrative Non-Claim Case | Applicability Boundary Doctrine",
+    "twitter_description": "An illustrative non-claim case demonstrating the boundary of explanatory applicability. No causation, prediction, or recommendations.",
+    "source": "front matter description"
+  },
+  "/en/cases/case-002/": {
+    "title": "Case 002 — Illustrative Non-Claim Case (Trajectory Boundary)",
+    "description": "Purpose: This case documents a situation in which individual actions and states remain explainable in isolation, while the overall sequence of actions forms a trajectory that can no…",
+    "og_title": "Case 002 — Illustrative Non-Claim Case (Trajectory Boundary) | Applicability Boundary Doctrine",
+    "og_description": "Purpose: This case documents a situation in which individual actions and states remain explainable in isolation, while the overall sequence of actions forms a trajectory that can no…",
+    "twitter_title": "Case 002 — Illustrative Non-Claim Case (Trajectory Boundary) | Applicability Boundary Doctrine",
+    "twitter_description": "Purpose: This case documents a situation in which individual actions and states remain explainable in isolation, while the overall sequence of actions forms a trajectory that can no…",
+    "source": "first visible paragraph"
+  },
+  "/en/cases/case-003/": {
+    "title": "Case 003 — Illustrative Non-Claim Case (Authority Boundary)",
+    "description": "Purpose: This case documents a situation in which formal authority, approval, or human-in-the-loop confirmation is present, while the explanatory basis for that authority is…",
+    "og_title": "Case 003 — Illustrative Non-Claim Case (Authority Boundary) | Applicability Boundary Doctrine",
+    "og_description": "Purpose: This case documents a situation in which formal authority, approval, or human-in-the-loop confirmation is present, while the explanatory basis for that authority is…",
+    "twitter_title": "Case 003 — Illustrative Non-Claim Case (Authority Boundary) | Applicability Boundary Doctrine",
+    "twitter_description": "Purpose: This case documents a situation in which formal authority, approval, or human-in-the-loop confirmation is present, while the explanatory basis for that authority is…",
+    "source": "first visible paragraph"
+  },
+  "/en/cases/case-004/": {
+    "title": "Case 004 — Illustrative Non-Claim Case (Update / Change Boundary)",
+    "description": "Purpose: This case documents a situation in which an explanatory model was initially applicable, but a change in conditions, configuration, or version causes that applicability to no…",
+    "og_title": "Case 004 — Illustrative Non-Claim Case (Update / Change Boundary) | Applicability Boundary Doctrine",
+    "og_description": "Purpose: This case documents a situation in which an explanatory model was initially applicable, but a change in conditions, configuration, or version causes that applicability to no…",
+    "twitter_title": "Case 004 — Illustrative Non-Claim Case (Update / Change Boundary) | Applicability Boundary Doctrine",
+    "twitter_description": "Purpose: This case documents a situation in which an explanatory model was initially applicable, but a change in conditions, configuration, or version causes that applicability to no…",
+    "source": "first visible paragraph"
+  },
+  "/en/cases-overview-note/": {
+    "title": "Cases Overview Note — How the Cases Relate",
+    "description": "Purpose: This note provides a structural overview of the illustrative cases published within the doctrine.",
+    "og_title": "Cases Overview Note — How the Cases Relate | Applicability Boundary Doctrine",
+    "og_description": "Purpose: This note provides a structural overview of the illustrative cases published within the doctrine.",
+    "twitter_title": "Cases Overview Note — How the Cases Relate | Applicability Boundary Doctrine",
+    "twitter_description": "Purpose: This note provides a structural overview of the illustrative cases published within the doctrine.",
+    "source": "first visible paragraph"
+  },
+  "/en/cases/": {
+    "title": "Illustrative Non-Claim Case Library",
+    "description": "Illustrative non-claim case materials documenting applicability boundaries without conclusions, recommendations, or certification claims.",
+    "og_title": "Illustrative Non-Claim Case Library | Applicability Boundary Doctrine",
+    "og_description": "Illustrative non-claim case materials documenting applicability boundaries without conclusions, recommendations, or certification claims.",
+    "twitter_title": "Illustrative Non-Claim Case Library | Applicability Boundary Doctrine",
+    "twitter_description": "Illustrative non-claim case materials documenting applicability boundaries without conclusions, recommendations, or certification claims.",
+    "source": "front matter description"
+  },
+  "/en/change-log/": {
+    "title": "Change Log",
+    "description": "Public change log — human-readable list of releases and modifications.",
+    "og_title": "Change Log | Applicability Boundary Doctrine",
+    "og_description": "Public change log — human-readable list of releases and modifications.",
+    "twitter_title": "Change Log | Applicability Boundary Doctrine",
+    "twitter_description": "Public change log — human-readable list of releases and modifications.",
+    "source": "front matter description"
+  },
+  "/en/citation/": {
+    "title": "Citation",
+    "description": "Partasyuk, V. Applicability Boundary Doctrine. Canonical Version v1.4.3. GotoCalm AI-DP Doctrine Repository. Available at: https://gotocalmaidp.github.io/doctrine-site-box/",
+    "og_title": "Citation | Applicability Boundary Doctrine",
+    "og_description": "Partasyuk, V. Applicability Boundary Doctrine. Canonical Version v1.4.3. GotoCalm AI-DP Doctrine Repository. Available at: https://gotocalmaidp.github.io/doctrine-site-box/",
+    "twitter_title": "Citation | Applicability Boundary Doctrine",
+    "twitter_description": "Partasyuk, V. Applicability Boundary Doctrine. Canonical Version v1.4.3. GotoCalm AI-DP Doctrine Repository. Available at: https://gotocalmaidp.github.io/doctrine-site-box/",
+    "source": "first visible paragraph"
+  },
+  "/en/concept-lineage/": {
+    "title": "Concept Lineage",
+    "description": "Intellectual origin and development of the Applicability Boundary concept.",
+    "og_title": "Concept Lineage | Applicability Boundary Doctrine",
+    "og_description": "Intellectual origin and development of the Applicability Boundary concept.",
+    "twitter_title": "Concept Lineage | Applicability Boundary Doctrine",
+    "twitter_description": "Intellectual origin and development of the Applicability Boundary concept.",
+    "source": "front matter description"
+  },
+  "/en/contact/": {
+    "title": "Contact",
+    "description": "Email: admin@gotocalm.com",
+    "og_title": "Contact | Applicability Boundary Doctrine",
+    "og_description": "Email: admin@gotocalm.com",
+    "twitter_title": "Contact | Applicability Boundary Doctrine",
+    "twitter_description": "Email: admin@gotocalm.com",
+    "source": "first visible paragraph"
+  },
+  "/en/cookies/": {
+    "title": "Cookie Policy",
+    "description": "Language: English Page: Cookie Policy Status: Informational Notice",
+    "og_title": "Cookie Policy | Applicability Boundary Doctrine",
+    "og_description": "Language: English Page: Cookie Policy Status: Informational Notice",
+    "twitter_title": "Cookie Policy | Applicability Boundary Doctrine",
+    "twitter_description": "Language: English Page: Cookie Policy Status: Informational Notice",
+    "source": "first visible paragraph"
+  },
+  "/en/definition/": {
+    "title": "Canonical Definition",
+    "description": "Canonical definition of the Applicability Boundary within the Applicability Boundary Doctrine.",
+    "og_title": "Canonical Definition | Applicability Boundary Doctrine",
+    "og_description": "Canonical definition of the Applicability Boundary within the Applicability Boundary Doctrine.",
+    "twitter_title": "Canonical Definition | Applicability Boundary Doctrine",
+    "twitter_description": "Canonical definition of the Applicability Boundary within the Applicability Boundary Doctrine.",
+    "source": "front matter description"
+  },
+  "/en/disclaimer/": {
+    "title": "Disclaimer",
+    "description": "Disclaimer — informational purpose only, no certification or conformity assessment.",
+    "og_title": "Disclaimer | Applicability Boundary Doctrine",
+    "og_description": "Disclaimer — informational purpose only, no certification or conformity assessment.",
+    "twitter_title": "Disclaimer | Applicability Boundary Doctrine",
+    "twitter_description": "Disclaimer — informational purpose only, no certification or conformity assessment.",
+    "source": "front matter description"
+  },
+  "/en/doctrine-stability/": {
+    "title": "Doctrine Stability Declaration",
+    "description": "The Applicability Boundary Doctrine is published as a conceptual reference framework.",
+    "og_title": "Doctrine Stability Declaration | Applicability Boundary Doctrine",
+    "og_description": "The Applicability Boundary Doctrine is published as a conceptual reference framework.",
+    "twitter_title": "Doctrine Stability Declaration | Applicability Boundary Doctrine",
+    "twitter_description": "The Applicability Boundary Doctrine is published as a conceptual reference framework.",
+    "source": "first visible paragraph"
+  },
+  "/en/doctrine-theorems/": {
+    "title": "Structural Properties of Applicability Boundaries",
+    "description": "The Applicability Boundary Doctrine describes structural limits of operational validity in complex systems.",
+    "og_title": "Structural Properties of Applicability Boundaries | Applicability Boundary Doctrine",
+    "og_description": "The Applicability Boundary Doctrine describes structural limits of operational validity in complex systems.",
+    "twitter_title": "Structural Properties of Applicability Boundaries | Applicability Boundary Doctrine",
+    "twitter_description": "The Applicability Boundary Doctrine describes structural limits of operational validity in complex systems.",
+    "source": "first visible paragraph"
+  },
+  "/en/doctrine/": {
+    "title": "Doctrine",
+    "description": "Doctrine materials — structural placeholder for core explanatory content.",
+    "og_title": "Doctrine | Applicability Boundary Doctrine",
+    "og_description": "Doctrine materials — structural placeholder for core explanatory content.",
+    "twitter_title": "Doctrine | Applicability Boundary Doctrine",
+    "twitter_description": "Doctrine materials — structural placeholder for core explanatory content.",
+    "source": "front matter description"
+  },
+  "/en/evidence-note/": {
+    "title": "Evidence Note — What Counts as Evidence Here",
+    "description": "Conceptual note defining what counts as acceptable evidence within the doctrine. Non-claim status.",
+    "og_title": "Evidence Note — What Counts as Evidence Here | Applicability Boundary Doctrine",
+    "og_description": "Conceptual note defining what counts as acceptable evidence within the doctrine. Non-claim status.",
+    "twitter_title": "Evidence Note — What Counts as Evidence Here | Applicability Boundary Doctrine",
+    "twitter_description": "Conceptual note defining what counts as acceptable evidence within the doctrine. Non-claim status.",
+    "source": "front matter description"
+  },
+  "/en/evidence/": {
+    "title": "Evidence & Traceability",
+    "description": "What we record, what we do not claim, and how changes are tracked.",
+    "og_title": "Evidence & Traceability | Applicability Boundary Doctrine",
+    "og_description": "What we record, what we do not claim, and how changes are tracked.",
+    "twitter_title": "Evidence & Traceability | Applicability Boundary Doctrine",
+    "twitter_description": "What we record, what we do not claim, and how changes are tracked.",
+    "source": "front matter description"
+  },
+  "/en/external-evidence/": {
+    "title": "External Evidence Notes",
+    "description": "This section is reserved for publicly documented phenomena that may illustrate structural conditions described by the Applicability Boundary Doctrine.",
+    "og_title": "External Evidence Notes | Applicability Boundary Doctrine",
+    "og_description": "This section is reserved for publicly documented phenomena that may illustrate structural conditions described by the Applicability Boundary Doctrine.",
+    "twitter_title": "External Evidence Notes | Applicability Boundary Doctrine",
+    "twitter_description": "This section is reserved for publicly documented phenomena that may illustrate structural conditions described by the Applicability Boundary Doctrine.",
+    "source": "first visible paragraph"
+  },
+  "/en/for-architects/": {
+    "title": "Applicability Boundaries in System Architecture",
+    "description": "Stakeholder perspective: architectural relevance of applicability boundaries.",
+    "og_title": "Applicability Boundaries in System Architecture | Applicability Boundary Doctrine",
+    "og_description": "Stakeholder perspective: architectural relevance of applicability boundaries.",
+    "twitter_title": "Applicability Boundaries in System Architecture | Applicability Boundary Doctrine",
+    "twitter_description": "Stakeholder perspective: architectural relevance of applicability boundaries.",
+    "source": "front matter description"
+  },
+  "/en/for-auditors/": {
+    "title": "Applicability Boundaries in Assurance Contexts",
+    "description": "Stakeholder perspective: assurance and audit relevance of applicability boundaries.",
+    "og_title": "Applicability Boundaries in Assurance Contexts | Applicability Boundary Doctrine",
+    "og_description": "Stakeholder perspective: assurance and audit relevance of applicability boundaries.",
+    "twitter_title": "Applicability Boundaries in Assurance Contexts | Applicability Boundary Doctrine",
+    "twitter_description": "Stakeholder perspective: assurance and audit relevance of applicability boundaries.",
+    "source": "front matter description"
+  },
+  "/en/for-engineers/": {
+    "title": "Applicability Boundaries in Engineering Contexts",
+    "description": "Stakeholder perspective: engineering relevance of applicability boundaries.",
+    "og_title": "Applicability Boundaries in Engineering Contexts | Applicability Boundary Doctrine",
+    "og_description": "Stakeholder perspective: engineering relevance of applicability boundaries.",
+    "twitter_title": "Applicability Boundaries in Engineering Contexts | Applicability Boundary Doctrine",
+    "twitter_description": "Stakeholder perspective: engineering relevance of applicability boundaries.",
+    "source": "front matter description"
+  },
+  "/en/for-insurers/": {
+    "title": "Applicability Boundaries and Systemic Risk",
+    "description": "Stakeholder perspective: applicability boundaries and systemic risk.",
+    "og_title": "Applicability Boundaries and Systemic Risk | Applicability Boundary Doctrine",
+    "og_description": "Stakeholder perspective: applicability boundaries and systemic risk.",
+    "twitter_title": "Applicability Boundaries and Systemic Risk | Applicability Boundary Doctrine",
+    "twitter_description": "Stakeholder perspective: applicability boundaries and systemic risk.",
+    "source": "front matter description"
+  },
+  "/en/for-investors/": {
+    "title": "Applicability Boundaries and Technology Investment Risk",
+    "description": "Stakeholder perspective: applicability boundaries and technology investment risk.",
+    "og_title": "Applicability Boundaries and Technology Investment Risk | Applicability Boundary Doctrine",
+    "og_description": "Stakeholder perspective: applicability boundaries and technology investment risk.",
+    "twitter_title": "Applicability Boundaries and Technology Investment Risk | Applicability Boundary Doctrine",
+    "twitter_description": "Stakeholder perspective: applicability boundaries and technology investment risk.",
+    "source": "front matter description"
+  },
+  "/en/for-operators/": {
+    "title": "Applicability Boundaries in Operational Contexts",
+    "description": "Stakeholder perspective: operational relevance of applicability boundaries.",
+    "og_title": "Applicability Boundaries in Operational Contexts | Applicability Boundary Doctrine",
+    "og_description": "Stakeholder perspective: operational relevance of applicability boundaries.",
+    "twitter_title": "Applicability Boundaries in Operational Contexts | Applicability Boundary Doctrine",
+    "twitter_description": "Stakeholder perspective: operational relevance of applicability boundaries.",
+    "source": "front matter description"
+  },
+  "/en/for-regulators/": {
+    "title": "Applicability Boundaries and Regulatory Context",
+    "description": "Stakeholder perspective: regulatory relevance of applicability boundaries.",
+    "og_title": "Applicability Boundaries and Regulatory Context | Applicability Boundary Doctrine",
+    "og_description": "Stakeholder perspective: regulatory relevance of applicability boundaries.",
+    "twitter_title": "Applicability Boundaries and Regulatory Context | Applicability Boundary Doctrine",
+    "twitter_description": "Stakeholder perspective: regulatory relevance of applicability boundaries.",
+    "source": "front matter description"
+  },
+  "/en/framework-overview/": {
+    "title": "Framework Overview",
+    "description": "The Applicability Boundary Doctrine is a conceptual framework for observing and documenting the limits of explanation in complex automated, AI-enabled and safety-critical systems…",
+    "og_title": "Framework Overview | Applicability Boundary Doctrine",
+    "og_description": "The Applicability Boundary Doctrine is a conceptual framework for observing and documenting the limits of explanation in complex automated, AI-enabled and safety-critical systems…",
+    "twitter_title": "Framework Overview | Applicability Boundary Doctrine",
+    "twitter_description": "The Applicability Boundary Doctrine is a conceptual framework for observing and documenting the limits of explanation in complex automated, AI-enabled and safety-critical systems…",
+    "source": "first visible paragraph"
+  },
+  "/en/glossary/": {
+    "title": "Glossary v1.0",
+    "description": "Canonical definitions of key terms as used within the doctrine. Non-claim status.",
+    "og_title": "Glossary v1.0 | Applicability Boundary Doctrine",
+    "og_description": "Canonical definitions of key terms as used within the doctrine. Non-claim status.",
+    "twitter_title": "Glossary v1.0 | Applicability Boundary Doctrine",
+    "twitter_description": "Canonical definitions of key terms as used within the doctrine. Non-claim status.",
+    "source": "front matter description"
+  },
+  "/en/index-note/": {
+    "title": "Index Note — What This Site Is",
+    "description": "Purpose: This page defines what this site is, what it is not, and how it should be approached by a first-time reader.",
+    "og_title": "Index Note — What This Site Is | Applicability Boundary Doctrine",
+    "og_description": "Purpose: This page defines what this site is, what it is not, and how it should be approached by a first-time reader.",
+    "twitter_title": "Index Note — What This Site Is | Applicability Boundary Doctrine",
+    "twitter_description": "Purpose: This page defines what this site is, what it is not, and how it should be approached by a first-time reader.",
+    "source": "first visible paragraph"
+  },
+  "/en/": {
+    "title": "Applicability Boundary Doctrine",
+    "description": "A conceptual reference framework describing structural limits of operational validity in complex systems.",
+    "og_title": "Applicability Boundary Doctrine | Applicability Boundary Doctrine",
+    "og_description": "A conceptual reference framework describing structural limits of operational validity in complex systems.",
+    "twitter_title": "Applicability Boundary Doctrine | Applicability Boundary Doctrine",
+    "twitter_description": "A conceptual reference framework describing structural limits of operational validity in complex systems.",
+    "source": "front matter description"
+  },
+  "/en/method/": {
+    "title": "Method",
+    "description": "Documentation method — five-step approach to structured technical explanation.",
+    "og_title": "Method | Applicability Boundary Doctrine",
+    "og_description": "Documentation method — five-step approach to structured technical explanation.",
+    "twitter_title": "Method | Applicability Boundary Doctrine",
+    "twitter_description": "Documentation method — five-step approach to structured technical explanation.",
+    "source": "front matter description"
+  },
+  "/en/notes-applicability/": {
+    "title": "Interpretation Note — Applicability",
+    "description": "Interpretation note on the distinction between applicability and behaviour correctness.",
+    "og_title": "Interpretation Note — Applicability | Applicability Boundary Doctrine",
+    "og_description": "Interpretation note on the distinction between applicability and behaviour correctness.",
+    "twitter_title": "Interpretation Note — Applicability | Applicability Boundary Doctrine",
+    "twitter_description": "Interpretation note on the distinction between applicability and behaviour correctness.",
+    "source": "front matter description"
+  },
+  "/en/privacy/": {
+    "title": "Privacy Policy",
+    "description": "Language: English Page: Privacy Policy Status: Privacy Notice",
+    "og_title": "Privacy Policy | Applicability Boundary Doctrine",
+    "og_description": "Language: English Page: Privacy Policy Status: Privacy Notice",
+    "twitter_title": "Privacy Policy | Applicability Boundary Doctrine",
+    "twitter_description": "Language: English Page: Privacy Policy Status: Privacy Notice",
+    "source": "first visible paragraph"
+  },
+  "/en/reading-order-note/": {
+    "title": "Reading Order Note — How to Read This Doctrine",
+    "description": "Conceptual note defining the intended reading order of the site. Non-claim status.",
+    "og_title": "Reading Order Note — How to Read This Doctrine | Applicability Boundary Doctrine",
+    "og_description": "Conceptual note defining the intended reading order of the site. Non-claim status.",
+    "twitter_title": "Reading Order Note — How to Read This Doctrine | Applicability Boundary Doctrine",
+    "twitter_description": "Conceptual note defining the intended reading order of the site. Non-claim status.",
+    "source": "front matter description"
+  },
+  "/en/scope-and-limitations/": {
+    "title": "Scope and Limitations",
+    "description": "The Applicability Boundary Doctrine is presented as a conceptual analytical framework for examining structural limits of operational validity in complex systems.",
+    "og_title": "Scope and Limitations | Applicability Boundary Doctrine",
+    "og_description": "The Applicability Boundary Doctrine is presented as a conceptual analytical framework for examining structural limits of operational validity in complex systems.",
+    "twitter_title": "Scope and Limitations | Applicability Boundary Doctrine",
+    "twitter_description": "The Applicability Boundary Doctrine is presented as a conceptual analytical framework for examining structural limits of operational validity in complex systems.",
+    "source": "first visible paragraph"
+  },
+  "/en/scope-note/": {
+    "title": "Scope Note — Where This Doctrine Applies",
+    "description": "Conceptual note defining the scope within which the doctrine is applicable. Non-claim status.",
+    "og_title": "Scope Note — Where This Doctrine Applies | Applicability Boundary Doctrine",
+    "og_description": "Conceptual note defining the scope within which the doctrine is applicable. Non-claim status.",
+    "twitter_title": "Scope Note — Where This Doctrine Applies | Applicability Boundary Doctrine",
+    "twitter_description": "Conceptual note defining the scope within which the doctrine is applicable. Non-claim status.",
+    "source": "front matter description"
+  },
+  "/en/scope/": {
+    "title": "Scope & Non-Claims",
+    "description": "What this site is and is not — explicit scope boundaries and non-claims statement.",
+    "og_title": "Scope & Non-Claims | Applicability Boundary Doctrine",
+    "og_description": "What this site is and is not — explicit scope boundaries and non-claims statement.",
+    "twitter_title": "Scope & Non-Claims | Applicability Boundary Doctrine",
+    "twitter_description": "What this site is and is not — explicit scope boundaries and non-claims statement.",
+    "source": "front matter description"
+  },
+  "/en/terminology-applicability/": {
+    "title": "Applicability Terminology Reference",
+    "description": "Canonical terminology reference for operational applicability boundaries.",
+    "og_title": "Applicability Terminology Reference | Applicability Boundary Doctrine",
+    "og_description": "Canonical terminology reference for operational applicability boundaries.",
+    "twitter_title": "Applicability Terminology Reference | Applicability Boundary Doctrine",
+    "twitter_description": "Canonical terminology reference for operational applicability boundaries.",
+    "source": "front matter description"
+  },
+  "/en/terminology-authority/": {
+    "title": "Terminology Authority",
+    "description": "Canonical terminology reference within the Applicability Boundary Doctrine.",
+    "og_title": "Terminology Authority | Applicability Boundary Doctrine",
+    "og_description": "Canonical terminology reference within the Applicability Boundary Doctrine.",
+    "twitter_title": "Terminology Authority | Applicability Boundary Doctrine",
+    "twitter_description": "Canonical terminology reference within the Applicability Boundary Doctrine.",
+    "source": "front matter description"
+  },
+  "/en/terms/": {
+    "title": "Terms of Use",
+    "description": "Language: English Page: Terms of Use Status: Legal Notice",
+    "og_title": "Terms of Use | Applicability Boundary Doctrine",
+    "og_description": "Language: English Page: Terms of Use Status: Legal Notice",
+    "twitter_title": "Terms of Use | Applicability Boundary Doctrine",
+    "twitter_description": "Language: English Page: Terms of Use Status: Legal Notice",
+    "source": "first visible paragraph"
+  },
+  "/ua/about/": {
+    "title": "Про проєкт",
+    "description": "Про Doctrine Site — мета, обсяг та двомовний підхід до документації.",
+    "og_title": "Про проєкт | Доктрина межі застосовності",
+    "og_description": "Про Doctrine Site — мета, обсяг та двомовний підхід до документації.",
+    "twitter_title": "Про проєкт | Доктрина межі застосовності",
+    "twitter_description": "Про Doctrine Site — мета, обсяг та двомовний підхід до документації.",
+    "source": "front matter description"
+  },
+  "/ua/annex-failure-archetypes/": {
+    "title": "Додаток — Архетипи відмов",
+    "description": "Концептуальні архетипи режимів відмови застосовності.",
+    "og_title": "Додаток — Архетипи відмов | Доктрина межі застосовності",
+    "og_description": "Концептуальні архетипи режимів відмови застосовності.",
+    "twitter_title": "Додаток — Архетипи відмов | Доктрина межі застосовності",
+    "twitter_description": "Концептуальні архетипи режимів відмови застосовності.",
+    "source": "front matter description"
+  },
+  "/ua/applicability-architecture/": {
+    "title": "Архітектура застосовності — Термінологія",
+    "description": "Визначення та обсяг терміну Архітектура застосовності.",
+    "og_title": "Архітектура застосовності — Термінологія | Доктрина межі застосовності",
+    "og_description": "Визначення та обсяг терміну Архітектура застосовності.",
+    "twitter_title": "Архітектура застосовності — Термінологія | Доктрина межі застосовності",
+    "twitter_description": "Визначення та обсяг терміну Архітектура застосовності.",
+    "source": "front matter description"
+  },
+  "/ua/applicability-boundary-context/": {
+    "title": "Межа застосовності — Концептуальний контекст",
+    "description": "Концептуальний контекст Межі застосовності в рамках доктринальної структури.",
+    "og_title": "Межа застосовності — Концептуальний контекст | Доктрина межі застосовності",
+    "og_description": "Концептуальний контекст Межі застосовності в рамках доктринальної структури.",
+    "twitter_title": "Межа застосовності — Концептуальний контекст | Доктрина межі застосовності",
+    "twitter_description": "Концептуальний контекст Межі застосовності в рамках доктринальної структури.",
+    "source": "front matter description"
+  },
+  "/ua/applicability-boundary-definition/": {
+    "title": "Межа застосовності — визначення",
+    "description": "Концептуальне визначення Межі застосовності в межах доктрини.",
+    "og_title": "Межа застосовності — визначення | Доктрина межі застосовності",
+    "og_description": "Концептуальне визначення Межі застосовності в межах доктрини.",
+    "twitter_title": "Межа застосовності — визначення | Доктрина межі застосовності",
+    "twitter_description": "Концептуальне визначення Межі застосовності в межах доктрини.",
+    "source": "front matter description"
+  },
+  "/ua/applicability-failure-map/": {
+    "title": "Карта відмов застосовності",
+    "description": "Концептуальна діагностична структура для ідентифікації відмов меж застосовності в складних системах.",
+    "og_title": "Карта відмов застосовності | Доктрина межі застосовності",
+    "og_description": "Концептуальна діагностична структура для ідентифікації відмов меж застосовності в складних системах.",
+    "twitter_title": "Карта відмов застосовності | Доктрина межі застосовності",
+    "twitter_description": "Концептуальна діагностична структура для ідентифікації відмов меж застосовності в складних системах.",
+    "source": "front matter description"
+  },
+  "/ua/applicability-incident-lens/": {
+    "title": "Лінза інцидентів застосовності",
+    "description": "Лінза інцидентів застосовності — це концептуальна рамка для аналізу інцидентів у складних автоматизованих, з підтримкою ШІ та критично важливих для безпеки системах, включаючи системи…",
+    "og_title": "Лінза інцидентів застосовності | Доктрина межі застосовності",
+    "og_description": "Лінза інцидентів застосовності — це концептуальна рамка для аналізу інцидентів у складних автоматизованих, з підтримкою ШІ та критично важливих для безпеки системах, включаючи системи…",
+    "twitter_title": "Лінза інцидентів застосовності | Доктрина межі застосовності",
+    "twitter_description": "Лінза інцидентів застосовності — це концептуальна рамка для аналізу інцидентів у складних автоматизованих, з підтримкою ШІ та критично важливих для безпеки системах, включаючи системи…",
+    "source": "first visible paragraph"
+  },
+  "/ua/architectural-questions/": {
+    "title": "Архітектурні питання",
+    "description": "Доктрина межі застосовності описує структурні межі операційної валідності складних систем.",
+    "og_title": "Архітектурні питання | Доктрина межі застосовності",
+    "og_description": "Доктрина межі застосовності описує структурні межі операційної валідності складних систем.",
+    "twitter_title": "Архітектурні питання | Доктрина межі застосовності",
+    "twitter_description": "Доктрина межі застосовності описує структурні межі операційної валідності складних систем.",
+    "source": "first visible paragraph"
+  },
+  "/ua/architecture/": {
+    "title": "Архітектура застосовності",
+    "description": "Концептуальна архітектура меж операційної застосовності.",
+    "og_title": "Архітектура застосовності | Доктрина межі застосовності",
+    "og_description": "Концептуальна архітектура меж операційної застосовності.",
+    "twitter_title": "Архітектура застосовності | Доктрина межі застосовності",
+    "twitter_description": "Концептуальна архітектура меж операційної застосовності.",
+    "source": "front matter description"
+  },
+  "/ua/boundaries/": {
+    "title": "Межі",
+    "description": "Межі обсягу — що пояснює цей сайт і де закінчується пояснення.",
+    "og_title": "Межі | Доктрина межі застосовності",
+    "og_description": "Межі обсягу — що пояснює цей сайт і де закінчується пояснення.",
+    "twitter_title": "Межі | Доктрина межі застосовності",
+    "twitter_description": "Межі обсягу — що пояснює цей сайт і де закінчується пояснення.",
+    "source": "front matter description"
+  },
+  "/ua/boundary-note/": {
+    "title": "Примітка про межі — Застосовність та межі пояснення",
+    "description": "Концептуальна примітка що визначає що означає межа застосовності в доктрині. Статус без тверджень.",
+    "og_title": "Примітка про межі — Застосовність та межі пояснення | Доктрина межі застосовності",
+    "og_description": "Концептуальна примітка що визначає що означає межа застосовності в доктрині. Статус без тверджень.",
+    "twitter_title": "Примітка про межі — Застосовність та межі пояснення | Доктрина межі застосовності",
+    "twitter_description": "Концептуальна примітка що визначає що означає межа застосовності в доктрині. Статус без тверджень.",
+    "source": "front matter description"
+  },
+  "/ua/case-001-mode-validity-drift/": {
+    "title": "Випадок 001 — Дрейф валідності режиму",
+    "description": "Примітка: Цей випадок є спрощеною концептуальною ілюстрацією, призначеною для демонстрації структурних патернів, пов’язаних з межами застосовності.",
+    "og_title": "Випадок 001 — Дрейф валідності режиму | Доктрина межі застосовності",
+    "og_description": "Примітка: Цей випадок є спрощеною концептуальною ілюстрацією, призначеною для демонстрації структурних патернів, пов’язаних з межами застосовності.",
+    "twitter_title": "Випадок 001 — Дрейф валідності режиму | Доктрина межі застосовності",
+    "twitter_description": "Примітка: Цей випадок є спрощеною концептуальною ілюстрацією, призначеною для демонстрації структурних патернів, пов’язаних з межами застосовності.",
+    "source": "first visible paragraph"
+  },
+  "/ua/case-002-authorization-delay-and-object-validity-drift/": {
+    "title": "Випадок 002 — Затримка авторизації та дрейф валідності об'єкта",
+    "description": "Примітка: Цей випадок є спрощеною концептуальною ілюстрацією, призначеною для демонстрації структурних патернів, пов’язаних з межами застосовності.",
+    "og_title": "Випадок 002 — Затримка авторизації та дрейф валідності об'єкта | Доктрина межі застосовності",
+    "og_description": "Примітка: Цей випадок є спрощеною концептуальною ілюстрацією, призначеною для демонстрації структурних патернів, пов’язаних з межами застосовності.",
+    "twitter_title": "Випадок 002 — Затримка авторизації та дрейф валідності об'єкта | Доктрина межі застосовності",
+    "twitter_description": "Примітка: Цей випадок є спрощеною концептуальною ілюстрацією, призначеною для демонстрації структурних патернів, пов’язаних з межами застосовності.",
+    "source": "first visible paragraph"
+  },
+  "/ua/case-003-observability-lag-in-route-execution/": {
+    "title": "Випадок 003 — Затримка спостережуваності у виконанні маршруту",
+    "description": "Примітка: Цей випадок є спрощеною концептуальною ілюстрацією, призначеною для демонстрації структурних патернів, пов’язаних з межами застосовності.",
+    "og_title": "Випадок 003 — Затримка спостережуваності у виконанні маршруту | Доктрина межі застосовності",
+    "og_description": "Примітка: Цей випадок є спрощеною концептуальною ілюстрацією, призначеною для демонстрації структурних патернів, пов’язаних з межами застосовності.",
+    "twitter_title": "Випадок 003 — Затримка спостережуваності у виконанні маршруту | Доктрина межі застосовності",
+    "twitter_description": "Примітка: Цей випадок є спрощеною концептуальною ілюстрацією, призначеною для демонстрації структурних патернів, пов’язаних з межами застосовності.",
+    "source": "first visible paragraph"
+  },
+  "/ua/case-004-alarm-suppression-and-safety-envelope-drift/": {
+    "title": "Випадок 004 — Придушення тривог та дрейф конверта безпеки",
+    "description": "Примітка: Цей випадок є спрощеною концептуальною ілюстрацією, призначеною для демонстрації структурних патернів, пов’язаних з межами застосовності.",
+    "og_title": "Випадок 004 — Придушення тривог та дрейф конверта безпеки | Доктрина межі застосовності",
+    "og_description": "Примітка: Цей випадок є спрощеною концептуальною ілюстрацією, призначеною для демонстрації структурних патернів, пов’язаних з межами застосовності.",
+    "twitter_title": "Випадок 004 — Придушення тривог та дрейф конверта безпеки | Доктрина межі застосовності",
+    "twitter_description": "Примітка: Цей випадок є спрощеною концептуальною ілюстрацією, призначеною для демонстрації структурних патернів, пов’язаних з межами застосовності.",
+    "source": "first visible paragraph"
+  },
+  "/ua/case-studies/": {
+    "title": "Клінічні випадки",
+    "description": "Доктрина межі застосовності може бути проілюстрована через концептуальні випадки.",
+    "og_title": "Клінічні випадки | Доктрина межі застосовності",
+    "og_description": "Доктрина межі застосовності може бути проілюстрована через концептуальні випадки.",
+    "twitter_title": "Клінічні випадки | Доктрина межі застосовності",
+    "twitter_description": "Доктрина межі застосовності може бути проілюстрована через концептуальні випадки.",
+    "source": "first visible paragraph"
+  },
+  "/ua/case-template/": {
+    "title": "Шаблон кейсу v1.0",
+    "description": "Канонічний структурний шаблон для ілюстративних кейсів без тверджень. Без контенту — лише структура.",
+    "og_title": "Шаблон кейсу v1.0 | Доктрина межі застосовності",
+    "og_description": "Канонічний структурний шаблон для ілюстративних кейсів без тверджень. Без контенту — лише структура.",
+    "twitter_title": "Шаблон кейсу v1.0 | Доктрина межі застосовності",
+    "twitter_description": "Канонічний структурний шаблон для ілюстративних кейсів без тверджень. Без контенту — лише структура.",
+    "source": "front matter description"
+  },
+  "/ua/cases/case-001/": {
+    "title": "Кейс 001 — Ілюстративний кейс без тверджень",
+    "description": "Ілюстративний кейс без тверджень, що демонструє межу пояснювальної застосовності. Без причинності, прогнозів чи рекомендацій.",
+    "og_title": "Кейс 001 — Ілюстративний кейс без тверджень | Доктрина межі застосовності",
+    "og_description": "Ілюстративний кейс без тверджень, що демонструє межу пояснювальної застосовності. Без причинності, прогнозів чи рекомендацій.",
+    "twitter_title": "Кейс 001 — Ілюстративний кейс без тверджень | Доктрина межі застосовності",
+    "twitter_description": "Ілюстративний кейс без тверджень, що демонструє межу пояснювальної застосовності. Без причинності, прогнозів чи рекомендацій.",
+    "source": "front matter description"
+  },
+  "/ua/cases/case-002/": {
+    "title": "Кейс 002 — Ілюстративний кейс без твердження (Межа траєкторії)",
+    "description": "Призначення: Цей кейс документує ситуацію, в якій окремі дії та стани залишаються пояснюваними ізольовано, тоді як загальна послідовність дій формує траєкторію, яку вже неможливо…",
+    "og_title": "Кейс 002 — Ілюстративний кейс без твердження (Межа траєкторії) | Доктрина межі застосовності",
+    "og_description": "Призначення: Цей кейс документує ситуацію, в якій окремі дії та стани залишаються пояснюваними ізольовано, тоді як загальна послідовність дій формує траєкторію, яку вже неможливо…",
+    "twitter_title": "Кейс 002 — Ілюстративний кейс без твердження (Межа траєкторії) | Доктрина межі застосовності",
+    "twitter_description": "Призначення: Цей кейс документує ситуацію, в якій окремі дії та стани залишаються пояснюваними ізольовано, тоді як загальна послідовність дій формує траєкторію, яку вже неможливо…",
+    "source": "first visible paragraph"
+  },
+  "/ua/cases/case-003/": {
+    "title": "Кейс 003 — Ілюстративний кейс без твердження (Межа повноважень)",
+    "description": "Призначення: Цей кейс документує ситуацію, в якій формальні повноваження, затвердження або підтвердження людиною-в-контурі присутні, тоді як пояснювальна основа для цих повноважень є…",
+    "og_title": "Кейс 003 — Ілюстративний кейс без твердження (Межа повноважень) | Доктрина межі застосовності",
+    "og_description": "Призначення: Цей кейс документує ситуацію, в якій формальні повноваження, затвердження або підтвердження людиною-в-контурі присутні, тоді як пояснювальна основа для цих повноважень є…",
+    "twitter_title": "Кейс 003 — Ілюстративний кейс без твердження (Межа повноважень) | Доктрина межі застосовності",
+    "twitter_description": "Призначення: Цей кейс документує ситуацію, в якій формальні повноваження, затвердження або підтвердження людиною-в-контурі присутні, тоді як пояснювальна основа для цих повноважень є…",
+    "source": "first visible paragraph"
+  },
+  "/ua/cases/case-004/": {
+    "title": "Кейс 004 — Ілюстративний кейс без твердження (Межа оновлення / зміни)",
+    "description": "Призначення: Цей кейс документує ситуацію, в якій пояснювальна модель спочатку була застосовною, але зміна умов, конфігурації або версії призводить до того, що ця застосовність більше…",
+    "og_title": "Кейс 004 — Ілюстративний кейс без твердження (Межа оновлення / зміни) | Доктрина межі застосовності",
+    "og_description": "Призначення: Цей кейс документує ситуацію, в якій пояснювальна модель спочатку була застосовною, але зміна умов, конфігурації або версії призводить до того, що ця застосовність більше…",
+    "twitter_title": "Кейс 004 — Ілюстративний кейс без твердження (Межа оновлення / зміни) | Доктрина межі застосовності",
+    "twitter_description": "Призначення: Цей кейс документує ситуацію, в якій пояснювальна модель спочатку була застосовною, але зміна умов, конфігурації або версії призводить до того, що ця застосовність більше…",
+    "source": "first visible paragraph"
+  },
+  "/ua/cases-overview-note/": {
+    "title": "Нотатка про огляд кейсів — Як кейси співвідносяться",
+    "description": "Призначення: Ця нотатка надає структурний огляд ілюстративних кейсів, опублікованих у межах доктрини.",
+    "og_title": "Нотатка про огляд кейсів — Як кейси співвідносяться | Доктрина межі застосовності",
+    "og_description": "Призначення: Ця нотатка надає структурний огляд ілюстративних кейсів, опублікованих у межах доктрини.",
+    "twitter_title": "Нотатка про огляд кейсів — Як кейси співвідносяться | Доктрина межі застосовності",
+    "twitter_description": "Призначення: Ця нотатка надає структурний огляд ілюстративних кейсів, опублікованих у межах доктрини.",
+    "source": "first visible paragraph"
+  },
+  "/ua/cases/": {
+    "title": "Ілюстративна бібліотека кейсів без тверджень",
+    "description": "Ілюстративні матеріали кейсів без тверджень, що документують межі застосовності без висновків, рекомендацій або претензій на сертифікацію.",
+    "og_title": "Ілюстративна бібліотека кейсів без тверджень | Доктрина межі застосовності",
+    "og_description": "Ілюстративні матеріали кейсів без тверджень, що документують межі застосовності без висновків, рекомендацій або претензій на сертифікацію.",
+    "twitter_title": "Ілюстративна бібліотека кейсів без тверджень | Доктрина межі застосовності",
+    "twitter_description": "Ілюстративні матеріали кейсів без тверджень, що документують межі застосовності без висновків, рекомендацій або претензій на сертифікацію.",
+    "source": "front matter description"
+  },
+  "/ua/change-log/": {
+    "title": "Журнал змін",
+    "description": "Публічний журнал змін — зрозумілий людині перелік релізів та модифікацій.",
+    "og_title": "Журнал змін | Доктрина межі застосовності",
+    "og_description": "Публічний журнал змін — зрозумілий людині перелік релізів та модифікацій.",
+    "twitter_title": "Журнал змін | Доктрина межі застосовності",
+    "twitter_description": "Публічний журнал змін — зрозумілий людині перелік релізів та модифікацій.",
+    "source": "front matter description"
+  },
+  "/ua/citation/": {
+    "title": "Цитування",
+    "description": "Партасюк, В. Доктрина межі застосовності. Канонічна версія v1.4.3. Репозиторій доктрини GotoCalm AI-DP. Доступно за адресою: https://gotocalmaidp.github.io/doctrine-site-box/",
+    "og_title": "Цитування | Доктрина межі застосовності",
+    "og_description": "Партасюк, В. Доктрина межі застосовності. Канонічна версія v1.4.3. Репозиторій доктрини GotoCalm AI-DP. Доступно за адресою: https://gotocalmaidp.github.io/doctrine-site-box/",
+    "twitter_title": "Цитування | Доктрина межі застосовності",
+    "twitter_description": "Партасюк, В. Доктрина межі застосовності. Канонічна версія v1.4.3. Репозиторій доктрини GotoCalm AI-DP. Доступно за адресою: https://gotocalmaidp.github.io/doctrine-site-box/",
+    "source": "first visible paragraph"
+  },
+  "/ua/concept-lineage/": {
+    "title": "Походження концепції",
+    "description": "Інтелектуальне походження та розвиток концепції Межі застосовності.",
+    "og_title": "Походження концепції | Доктрина межі застосовності",
+    "og_description": "Інтелектуальне походження та розвиток концепції Межі застосовності.",
+    "twitter_title": "Походження концепції | Доктрина межі застосовності",
+    "twitter_description": "Інтелектуальне походження та розвиток концепції Межі застосовності.",
+    "source": "front matter description"
+  },
+  "/ua/contact/": {
+    "title": "Контакти",
+    "description": "Email: admin@gotocalm.com",
+    "og_title": "Контакти | Доктрина межі застосовності",
+    "og_description": "Email: admin@gotocalm.com",
+    "twitter_title": "Контакти | Доктрина межі застосовності",
+    "twitter_description": "Email: admin@gotocalm.com",
+    "source": "first visible paragraph"
+  },
+  "/ua/cookies/": {
+    "title": "Політика щодо cookies",
+    "description": "Мова: Українська Сторінка: Політика щодо cookies Статус: Інформаційне повідомлення",
+    "og_title": "Політика щодо cookies | Доктрина межі застосовності",
+    "og_description": "Мова: Українська Сторінка: Політика щодо cookies Статус: Інформаційне повідомлення",
+    "twitter_title": "Політика щодо cookies | Доктрина межі застосовності",
+    "twitter_description": "Мова: Українська Сторінка: Політика щодо cookies Статус: Інформаційне повідомлення",
+    "source": "first visible paragraph"
+  },
+  "/ua/definition/": {
+    "title": "Канонічне визначення",
+    "description": "Канонічне визначення Межі застосовності в рамках Доктрини меж застосовності.",
+    "og_title": "Канонічне визначення | Доктрина межі застосовності",
+    "og_description": "Канонічне визначення Межі застосовності в рамках Доктрини меж застосовності.",
+    "twitter_title": "Канонічне визначення | Доктрина межі застосовності",
+    "twitter_description": "Канонічне визначення Межі застосовності в рамках Доктрини меж застосовності.",
+    "source": "front matter description"
+  },
+  "/ua/disclaimer/": {
+    "title": "Дисклеймер",
+    "description": "Дисклеймер — лише інформаційна мета, без сертифікації чи оцінки відповідності.",
+    "og_title": "Дисклеймер | Доктрина межі застосовності",
+    "og_description": "Дисклеймер — лише інформаційна мета, без сертифікації чи оцінки відповідності.",
+    "twitter_title": "Дисклеймер | Доктрина межі застосовності",
+    "twitter_description": "Дисклеймер — лише інформаційна мета, без сертифікації чи оцінки відповідності.",
+    "source": "front matter description"
+  },
+  "/ua/doctrine-stability/": {
+    "title": "Декларація стабільності доктрини",
+    "description": "Доктрина межі застосовності публікується як концептуальна довідкова структура.",
+    "og_title": "Декларація стабільності доктрини | Доктрина межі застосовності",
+    "og_description": "Доктрина межі застосовності публікується як концептуальна довідкова структура.",
+    "twitter_title": "Декларація стабільності доктрини | Доктрина межі застосовності",
+    "twitter_description": "Доктрина межі застосовності публікується як концептуальна довідкова структура.",
+    "source": "first visible paragraph"
+  },
+  "/ua/doctrine-theorems/": {
+    "title": "Структурні властивості Меж застосовності",
+    "description": "Доктрина межі застосовності описує структурні межі операційної валідності в складних системах.",
+    "og_title": "Структурні властивості Меж застосовності | Доктрина межі застосовності",
+    "og_description": "Доктрина межі застосовності описує структурні межі операційної валідності в складних системах.",
+    "twitter_title": "Структурні властивості Меж застосовності | Доктрина межі застосовності",
+    "twitter_description": "Доктрина межі застосовності описує структурні межі операційної валідності в складних системах.",
+    "source": "first visible paragraph"
+  },
+  "/ua/doctrine/": {
+    "title": "Доктрина",
+    "description": "Матеріали доктрини — структурний заповнювач для основного пояснювального контенту.",
+    "og_title": "Доктрина | Доктрина межі застосовності",
+    "og_description": "Матеріали доктрини — структурний заповнювач для основного пояснювального контенту.",
+    "twitter_title": "Доктрина | Доктрина межі застосовності",
+    "twitter_description": "Матеріали доктрини — структурний заповнювач для основного пояснювального контенту.",
+    "source": "front matter description"
+  },
+  "/ua/evidence-note/": {
+    "title": "Примітка про докази — Що вважається доказом тут",
+    "description": "Концептуальна примітка що визначає що вважається прийнятним доказом в доктрині. Статус без тверджень.",
+    "og_title": "Примітка про докази — Що вважається доказом тут | Доктрина межі застосовності",
+    "og_description": "Концептуальна примітка що визначає що вважається прийнятним доказом в доктрині. Статус без тверджень.",
+    "twitter_title": "Примітка про докази — Що вважається доказом тут | Доктрина межі застосовності",
+    "twitter_description": "Концептуальна примітка що визначає що вважається прийнятним доказом в доктрині. Статус без тверджень.",
+    "source": "front matter description"
+  },
+  "/ua/evidence/": {
+    "title": "Доказовість",
+    "description": "Що ми фіксуємо, чого не заявляємо, та як відстежуються зміни.",
+    "og_title": "Доказовість | Доктрина межі застосовності",
+    "og_description": "Що ми фіксуємо, чого не заявляємо, та як відстежуються зміни.",
+    "twitter_title": "Доказовість | Доктрина межі застосовності",
+    "twitter_description": "Що ми фіксуємо, чого не заявляємо, та як відстежуються зміни.",
+    "source": "front matter description"
+  },
+  "/ua/external-evidence/": {
+    "title": "Нотатки зовнішніх свідчень",
+    "description": "Цей розділ зарезервований для публічно задокументованих явищ, які можуть ілюструвати структурні умови, описані Доктриною межі застосовності.",
+    "og_title": "Нотатки зовнішніх свідчень | Доктрина межі застосовності",
+    "og_description": "Цей розділ зарезервований для публічно задокументованих явищ, які можуть ілюструвати структурні умови, описані Доктриною межі застосовності.",
+    "twitter_title": "Нотатки зовнішніх свідчень | Доктрина межі застосовності",
+    "twitter_description": "Цей розділ зарезервований для публічно задокументованих явищ, які можуть ілюструвати структурні умови, описані Доктриною межі застосовності.",
+    "source": "first visible paragraph"
+  },
+  "/ua/for-architects/": {
+    "title": "Межі застосовності в архітектурі систем",
+    "description": "Перспектива зацікавлених сторін: архітектурна релевантність меж застосовності.",
+    "og_title": "Межі застосовності в архітектурі систем | Доктрина межі застосовності",
+    "og_description": "Перспектива зацікавлених сторін: архітектурна релевантність меж застосовності.",
+    "twitter_title": "Межі застосовності в архітектурі систем | Доктрина межі застосовності",
+    "twitter_description": "Перспектива зацікавлених сторін: архітектурна релевантність меж застосовності.",
+    "source": "front matter description"
+  },
+  "/ua/for-auditors/": {
+    "title": "Межі застосовності в контекстах гарантування якості",
+    "description": "Перспектива зацікавлених сторін: релевантність меж застосовності для аудиту та гарантування якості.",
+    "og_title": "Межі застосовності в контекстах гарантування якості | Доктрина межі застосовності",
+    "og_description": "Перспектива зацікавлених сторін: релевантність меж застосовності для аудиту та гарантування якості.",
+    "twitter_title": "Межі застосовності в контекстах гарантування якості | Доктрина межі застосовності",
+    "twitter_description": "Перспектива зацікавлених сторін: релевантність меж застосовності для аудиту та гарантування якості.",
+    "source": "front matter description"
+  },
+  "/ua/for-engineers/": {
+    "title": "Межі застосовності в інженерних контекстах",
+    "description": "Перспектива зацікавлених сторін: інженерна релевантність меж застосовності.",
+    "og_title": "Межі застосовності в інженерних контекстах | Доктрина межі застосовності",
+    "og_description": "Перспектива зацікавлених сторін: інженерна релевантність меж застосовності.",
+    "twitter_title": "Межі застосовності в інженерних контекстах | Доктрина межі застосовності",
+    "twitter_description": "Перспектива зацікавлених сторін: інженерна релевантність меж застосовності.",
+    "source": "front matter description"
+  },
+  "/ua/for-insurers/": {
+    "title": "Межі застосовності та системний ризик",
+    "description": "Перспектива стейкхолдерів: межі застосовності та системний ризик.",
+    "og_title": "Межі застосовності та системний ризик | Доктрина межі застосовності",
+    "og_description": "Перспектива стейкхолдерів: межі застосовності та системний ризик.",
+    "twitter_title": "Межі застосовності та системний ризик | Доктрина межі застосовності",
+    "twitter_description": "Перспектива стейкхолдерів: межі застосовності та системний ризик.",
+    "source": "front matter description"
+  },
+  "/ua/for-investors/": {
+    "title": "Межі застосовності та ризики технологічних інвестицій",
+    "description": "Перспектива стейкхолдерів: межі застосовності та ризики технологічних інвестицій.",
+    "og_title": "Межі застосовності та ризики технологічних інвестицій | Доктрина межі застосовності",
+    "og_description": "Перспектива стейкхолдерів: межі застосовності та ризики технологічних інвестицій.",
+    "twitter_title": "Межі застосовності та ризики технологічних інвестицій | Доктрина межі застосовності",
+    "twitter_description": "Перспектива стейкхолдерів: межі застосовності та ризики технологічних інвестицій.",
+    "source": "front matter description"
+  },
+  "/ua/for-operators/": {
+    "title": "Межі застосовності в операційних контекстах",
+    "description": "Перспектива зацікавлених сторін: операційна релевантність меж застосовності.",
+    "og_title": "Межі застосовності в операційних контекстах | Доктрина межі застосовності",
+    "og_description": "Перспектива зацікавлених сторін: операційна релевантність меж застосовності.",
+    "twitter_title": "Межі застосовності в операційних контекстах | Доктрина межі застосовності",
+    "twitter_description": "Перспектива зацікавлених сторін: операційна релевантність меж застосовності.",
+    "source": "front matter description"
+  },
+  "/ua/for-regulators/": {
+    "title": "Межі застосовності та регуляторний контекст",
+    "description": "Перспектива зацікавлених сторін: регуляторна релевантність меж застосовності.",
+    "og_title": "Межі застосовності та регуляторний контекст | Доктрина межі застосовності",
+    "og_description": "Перспектива зацікавлених сторін: регуляторна релевантність меж застосовності.",
+    "twitter_title": "Межі застосовності та регуляторний контекст | Доктрина межі застосовності",
+    "twitter_description": "Перспектива зацікавлених сторін: регуляторна релевантність меж застосовності.",
+    "source": "front matter description"
+  },
+  "/ua/framework-overview/": {
+    "title": "Огляд рамки",
+    "description": "Доктрина межі застосовності — це концептуальна рамка для спостереження та документування меж пояснення у складних автоматизованих, з підтримкою ШІ та критично важливих для безпеки…",
+    "og_title": "Огляд рамки | Доктрина межі застосовності",
+    "og_description": "Доктрина межі застосовності — це концептуальна рамка для спостереження та документування меж пояснення у складних автоматизованих, з підтримкою ШІ та критично важливих для безпеки…",
+    "twitter_title": "Огляд рамки | Доктрина межі застосовності",
+    "twitter_description": "Доктрина межі застосовності — це концептуальна рамка для спостереження та документування меж пояснення у складних автоматизованих, з підтримкою ШІ та критично важливих для безпеки…",
+    "source": "first visible paragraph"
+  },
+  "/ua/glossary/": {
+    "title": "Глосарій v1.0",
+    "description": "Канонічні визначення ключових термінів як вони використовуються в доктрині. Статус без тверджень.",
+    "og_title": "Глосарій v1.0 | Доктрина межі застосовності",
+    "og_description": "Канонічні визначення ключових термінів як вони використовуються в доктрині. Статус без тверджень.",
+    "twitter_title": "Глосарій v1.0 | Доктрина межі застосовності",
+    "twitter_description": "Канонічні визначення ключових термінів як вони використовуються в доктрині. Статус без тверджень.",
+    "source": "front matter description"
+  },
+  "/ua/index-note/": {
+    "title": "Вступна нотатка — Що таке цей сайт",
+    "description": "Призначення: Ця сторінка визначає, що таке цей сайт, чим він не є, та як до нього слід підходити читачеві вперше.",
+    "og_title": "Вступна нотатка — Що таке цей сайт | Доктрина межі застосовності",
+    "og_description": "Призначення: Ця сторінка визначає, що таке цей сайт, чим він не є, та як до нього слід підходити читачеві вперше.",
+    "twitter_title": "Вступна нотатка — Що таке цей сайт | Доктрина межі застосовності",
+    "twitter_description": "Призначення: Ця сторінка визначає, що таке цей сайт, чим він не є, та як до нього слід підходити читачеві вперше.",
+    "source": "first visible paragraph"
+  },
+  "/ua/": {
+    "title": "Доктрина межі застосовності",
+    "description": "Концептуальна довідкова структура, що описує структурні межі операційної валідності у складних системах.",
+    "og_title": "Доктрина межі застосовності | Доктрина межі застосовності",
+    "og_description": "Концептуальна довідкова структура, що описує структурні межі операційної валідності у складних системах.",
+    "twitter_title": "Доктрина межі застосовності | Доктрина межі застосовності",
+    "twitter_description": "Концептуальна довідкова структура, що описує структурні межі операційної валідності у складних системах.",
+    "source": "front matter description"
+  },
+  "/ua/method/": {
+    "title": "Метод",
+    "description": "Метод документації — п’ятикроковий підхід до структурованого технічного пояснення.",
+    "og_title": "Метод | Доктрина межі застосовності",
+    "og_description": "Метод документації — п’ятикроковий підхід до структурованого технічного пояснення.",
+    "twitter_title": "Метод | Доктрина межі застосовності",
+    "twitter_description": "Метод документації — п’ятикроковий підхід до структурованого технічного пояснення.",
+    "source": "front matter description"
+  },
+  "/ua/notes-applicability/": {
+    "title": "Інтерпретаційна примітка — Застосовність",
+    "description": "Інтерпретаційна примітка про відмінність між застосовністю та коректністю поведінки.",
+    "og_title": "Інтерпретаційна примітка — Застосовність | Доктрина межі застосовності",
+    "og_description": "Інтерпретаційна примітка про відмінність між застосовністю та коректністю поведінки.",
+    "twitter_title": "Інтерпретаційна примітка — Застосовність | Доктрина межі застосовності",
+    "twitter_description": "Інтерпретаційна примітка про відмінність між застосовністю та коректністю поведінки.",
+    "source": "front matter description"
+  },
+  "/ua/privacy/": {
+    "title": "Політика конфіденційності",
+    "description": "Мова: Українська Сторінка: Політика конфіденційності Статус: Повідомлення про конфіденційність",
+    "og_title": "Політика конфіденційності | Доктрина межі застосовності",
+    "og_description": "Мова: Українська Сторінка: Політика конфіденційності Статус: Повідомлення про конфіденційність",
+    "twitter_title": "Політика конфіденційності | Доктрина межі застосовності",
+    "twitter_description": "Мова: Українська Сторінка: Політика конфіденційності Статус: Повідомлення про конфіденційність",
+    "source": "first visible paragraph"
+  },
+  "/ua/reading-order-note/": {
+    "title": "Примітка про порядок читання — Як читати цю доктрину",
+    "description": "Концептуальна примітка що визначає призначений порядок читання сайту. Статус без тверджень.",
+    "og_title": "Примітка про порядок читання — Як читати цю доктрину | Доктрина межі застосовності",
+    "og_description": "Концептуальна примітка що визначає призначений порядок читання сайту. Статус без тверджень.",
+    "twitter_title": "Примітка про порядок читання — Як читати цю доктрину | Доктрина межі застосовності",
+    "twitter_description": "Концептуальна примітка що визначає призначений порядок читання сайту. Статус без тверджень.",
+    "source": "front matter description"
+  },
+  "/ua/scope-and-limitations/": {
+    "title": "Обсяг та обмеження",
+    "description": "Доктрина межі застосовності представлена як концептуальна аналітична структура для дослідження структурних меж операційної валідності у складних системах.",
+    "og_title": "Обсяг та обмеження | Доктрина межі застосовності",
+    "og_description": "Доктрина межі застосовності представлена як концептуальна аналітична структура для дослідження структурних меж операційної валідності у складних системах.",
+    "twitter_title": "Обсяг та обмеження | Доктрина межі застосовності",
+    "twitter_description": "Доктрина межі застосовності представлена як концептуальна аналітична структура для дослідження структурних меж операційної валідності у складних системах.",
+    "source": "first visible paragraph"
+  },
+  "/ua/scope-note/": {
+    "title": "Примітка про обсяг — Де застосовується ця доктрина",
+    "description": "Концептуальна примітка що визначає обсяг в якому доктрина застосовна. Статус без тверджень.",
+    "og_title": "Примітка про обсяг — Де застосовується ця доктрина | Доктрина межі застосовності",
+    "og_description": "Концептуальна примітка що визначає обсяг в якому доктрина застосовна. Статус без тверджень.",
+    "twitter_title": "Примітка про обсяг — Де застосовується ця доктрина | Доктрина межі застосовності",
+    "twitter_description": "Концептуальна примітка що визначає обсяг в якому доктрина застосовна. Статус без тверджень.",
+    "source": "front matter description"
+  },
+  "/ua/scope/": {
+    "title": "Межі застосування",
+    "description": "Що являє собою цей сайт і чим він не є — явні межі обсягу та заява про невизнання претензій.",
+    "og_title": "Межі застосування | Доктрина межі застосовності",
+    "og_description": "Що являє собою цей сайт і чим він не є — явні межі обсягу та заява про невизнання претензій.",
+    "twitter_title": "Межі застосування | Доктрина межі застосовності",
+    "twitter_description": "Що являє собою цей сайт і чим він не є — явні межі обсягу та заява про невизнання претензій.",
+    "source": "front matter description"
+  },
+  "/ua/terminology-applicability/": {
+    "title": "Довідник термінології застосовності",
+    "description": "Канонічний довідник термінології для меж операційної застосовності.",
+    "og_title": "Довідник термінології застосовності | Доктрина межі застосовності",
+    "og_description": "Канонічний довідник термінології для меж операційної застосовності.",
+    "twitter_title": "Довідник термінології застосовності | Доктрина межі застосовності",
+    "twitter_description": "Канонічний довідник термінології для меж операційної застосовності.",
+    "source": "front matter description"
+  },
+  "/ua/terminology-authority/": {
+    "title": "Авторитет термінології",
+    "description": "Канонічний довідник термінології в межах Доктрини меж застосовності.",
+    "og_title": "Авторитет термінології | Доктрина межі застосовності",
+    "og_description": "Канонічний довідник термінології в межах Доктрини меж застосовності.",
+    "twitter_title": "Авторитет термінології | Доктрина межі застосовності",
+    "twitter_description": "Канонічний довідник термінології в межах Доктрини меж застосовності.",
+    "source": "front matter description"
+  },
+  "/ua/terms/": {
+    "title": "Умови використання",
+    "description": "Мова: Українська Сторінка: Умови використання Статус: Юридичне повідомлення",
+    "og_title": "Умови використання | Доктрина межі застосовності",
+    "og_description": "Мова: Українська Сторінка: Умови використання Статус: Юридичне повідомлення",
+    "twitter_title": "Умови використання | Доктрина межі застосовності",
+    "twitter_description": "Мова: Українська Сторінка: Умови використання Статус: Юридичне повідомлення",
+    "source": "first visible paragraph"
+  }
+}

@@ -1,0 +1,448 @@
+{
+  "schema_version": "1.0",
+  "derived": true,
+  "authoritative_source": {
+    "en": "https://gotocalmaidp.github.io/doctrine-site-box/en/citation/",
+    "ua": "https://gotocalmaidp.github.io/doctrine-site-box/ua/citation/"
+  },
+  "non_authoritative_notice": "This derived artifact does not modify or replace the canonical doctrine or Zenodo records.",
+  "records": [
+    {
+      "record_number": 1,
+      "title": "Applicability Boundary Doctrine",
+      "structural_group": {
+        "en": "Foundational Doctrine",
+        "ua": "Фундаментальна доктрина"
+      },
+      "version_doi": "10.5281/zenodo.19425317",
+      "canonical_zenodo_url": "https://zenodo.org/records/19425317",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 2,
+      "title": "Applicability Boundary Doctrine – Extension",
+      "structural_group": {
+        "en": "Foundational Doctrine",
+        "ua": "Фундаментальна доктрина"
+      },
+      "version_doi": "10.5281/zenodo.19443895",
+      "canonical_zenodo_url": "https://zenodo.org/records/19443895",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 3,
+      "title": "Epistemic Applicability Layer",
+      "structural_group": {
+        "en": "Doctrinal Specifications",
+        "ua": "Доктринальні специфікації"
+      },
+      "version_doi": "10.5281/zenodo.19447536",
+      "canonical_zenodo_url": "https://zenodo.org/records/19447536",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 4,
+      "title": "Reality Verification",
+      "structural_group": {
+        "en": "Doctrinal Specifications",
+        "ua": "Доктринальні специфікації"
+      },
+      "version_doi": "10.5281/zenodo.19457414",
+      "canonical_zenodo_url": "https://zenodo.org/records/19457414",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 5,
+      "title": "Approval Is Not Execution",
+      "structural_group": {
+        "en": "Doctrinal Specifications",
+        "ua": "Доктринальні специфікації"
+      },
+      "version_doi": "10.5281/zenodo.19462291",
+      "canonical_zenodo_url": "https://zenodo.org/records/19462291",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 6,
+      "title": "Substrate Integrity",
+      "structural_group": {
+        "en": "Doctrinal Specifications",
+        "ua": "Доктринальні специфікації"
+      },
+      "version_doi": "10.5281/zenodo.19463230",
+      "canonical_zenodo_url": "https://zenodo.org/records/19463230",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 7,
+      "title": "Human–Institutional Responsibility",
+      "structural_group": {
+        "en": "Doctrinal Specifications",
+        "ua": "Доктринальні специфікації"
+      },
+      "version_doi": "10.5281/zenodo.19476910",
+      "canonical_zenodo_url": "https://zenodo.org/records/19476910",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 8,
+      "title": "Decorative Governance",
+      "structural_group": {
+        "en": "Doctrinal Specifications",
+        "ua": "Доктринальні специфікації"
+      },
+      "version_doi": "10.5281/zenodo.19478004",
+      "canonical_zenodo_url": "https://zenodo.org/records/19478004",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 11,
+      "title": "Formal Conditions of Standing and Re-Sanctioning",
+      "structural_group": {
+        "en": "Doctrinal Specifications",
+        "ua": "Доктринальні специфікації"
+      },
+      "version_doi": "10.5281/zenodo.19599888",
+      "canonical_zenodo_url": "https://zenodo.org/records/19599888",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 13,
+      "title": "Irreversibility Posture and the Boundary of Governance Automation",
+      "structural_group": {
+        "en": "Doctrinal Specifications",
+        "ua": "Доктринальні специфікації"
+      },
+      "version_doi": "10.5281/zenodo.19636475",
+      "canonical_zenodo_url": "https://zenodo.org/records/19636475",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 14,
+      "title": "Deterministic Liability, Pressure Isolation, and Mission Invalidation in High-Consequence and Decision-Bearing Systems",
+      "structural_group": {
+        "en": "Doctrinal Specifications",
+        "ua": "Доктринальні специфікації"
+      },
+      "version_doi": "10.5281/zenodo.19655615",
+      "canonical_zenodo_url": "https://zenodo.org/records/19655615",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 9,
+      "title": "Applicability-First Evaluation Module 01: Vendor Claim Admissibility for AI Security and Agentic Systems",
+      "structural_group": {
+        "en": "Evaluation Modules",
+        "ua": "Оцінювальні модулі"
+      },
+      "version_doi": "10.5281/zenodo.19487979",
+      "canonical_zenodo_url": "https://zenodo.org/records/19487979",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 10,
+      "title": "Applicability-First Evaluation Module 02: Memory, Context, Delegation, and Manual Boundary Integrity in AI Agents",
+      "structural_group": {
+        "en": "Evaluation Modules",
+        "ua": "Оцінювальні модулі"
+      },
+      "version_doi": "10.5281/zenodo.19502406",
+      "canonical_zenodo_url": "https://zenodo.org/records/19502406",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 12,
+      "title": "Applicability-First Evaluation Module 03: Update-Rule Admissibility and Standing Preservation in Evolving and Self-Modifying AI Systems",
+      "structural_group": {
+        "en": "Evaluation Modules",
+        "ua": "Оцінювальні модулі"
+      },
+      "version_doi": "10.5281/zenodo.19616417",
+      "canonical_zenodo_url": "https://zenodo.org/records/19616417",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 16,
+      "title": "Evidence Standing Envelope: Claim Standing Under Interval Evidence in Consequence-Bearing AI Systems",
+      "structural_group": {
+        "en": "Standing and Operative Capacity Surfaces",
+        "ua": "Поверхні правоздатності та оперативної спроможності"
+      },
+      "version_doi": "10.5281/zenodo.20276203",
+      "canonical_zenodo_url": "https://zenodo.org/records/20276203",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 17,
+      "title": "Decorative Isolation: Non-Burden-Bearing Separation Claims in Consequence-Bearing AI Systems",
+      "structural_group": {
+        "en": "Standing and Operative Capacity Surfaces",
+        "ua": "Поверхні правоздатності та оперативної спроможності"
+      },
+      "version_doi": "10.5281/zenodo.20369228",
+      "canonical_zenodo_url": "https://zenodo.org/records/20369228",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 18,
+      "title": "Pressure-Claim Standing: Measurable Boundary Claims and Residual Transfer in Consequence-Bearing AI Systems",
+      "structural_group": {
+        "en": "Standing and Operative Capacity Surfaces",
+        "ua": "Поверхні правоздатності та оперативної спроможності"
+      },
+      "version_doi": "10.5281/zenodo.20417363",
+      "canonical_zenodo_url": "https://zenodo.org/records/20417363",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 19,
+      "title": "Unified Claim Standing Record Layer: Evidence, Isolation, Pressure, Authority, and Commit in Consequence-Bearing AI Systems",
+      "structural_group": {
+        "en": "Standing and Operative Capacity Surfaces",
+        "ua": "Поверхні правоздатності та оперативної спроможності"
+      },
+      "version_doi": "10.5281/zenodo.20479042",
+      "canonical_zenodo_url": "https://zenodo.org/records/20479042",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 20,
+      "title": "Authority Standing and Commit Standing: Current Execution Authority, Scoped Mandate, Non-Revocation, and Commit-Time Proof in Consequence-Bearing AI Systems",
+      "structural_group": {
+        "en": "Standing and Operative Capacity Surfaces",
+        "ua": "Поверхні правоздатності та оперативної спроможності"
+      },
+      "version_doi": "10.5281/zenodo.20561344",
+      "canonical_zenodo_url": "https://zenodo.org/records/20561344",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 21,
+      "title": "Post-Consequence Proof Standing and Durable Reconstructability: Proof Survival, Narrative Resistance, and Reviewable Standing Basis in Consequence-Bearing AI Systems",
+      "structural_group": {
+        "en": "Standing and Operative Capacity Surfaces",
+        "ua": "Поверхні правоздатності та оперативної спроможності"
+      },
+      "version_doi": "10.5281/zenodo.20573235",
+      "canonical_zenodo_url": "https://zenodo.org/records/20573235",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 22,
+      "title": "Operative Capacity Adjunct and Mission Temporal Validity: Rollback Capacity, Resource Residual, and Graceful Degradation in Consequence-Bearing AI Systems",
+      "structural_group": {
+        "en": "Standing and Operative Capacity Surfaces",
+        "ua": "Поверхні правоздатності та оперативної спроможності"
+      },
+      "version_doi": "10.5281/zenodo.20583953",
+      "canonical_zenodo_url": "https://zenodo.org/records/20583953",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 15,
+      "title": "Deterministic Liability and Insurer Readability in High-Consequence AI Systems",
+      "structural_group": {
+        "en": "Commercial Companion Notes",
+        "ua": "Комерційні супровідні нотатки"
+      },
+      "version_doi": "10.5281/zenodo.19657625",
+      "canonical_zenodo_url": "https://zenodo.org/records/19657625",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 23,
+      "title": "Corpus Continuity and Canon Policy Record: Channel Hierarchy, Version Mapping, Citation Spine, Deposit-Order Lock, and Claim Ladder in the Applicability Boundary Doctrine",
+      "structural_group": {
+        "en": "Corpus Governance and Canon Controls",
+        "ua": "Управління корпусом та канонічні фіксатори"
+      },
+      "version_doi": "10.5281/zenodo.21983371",
+      "canonical_zenodo_url": "https://zenodo.org/records/21983371",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 24,
+      "title": "Semantic Crosswalk and Type-Separation Canon Locks: Load-Bearing Terms, Phase Boundaries, and Non-Substitution Rules for the Applicability Boundary Doctrine",
+      "structural_group": {
+        "en": "Corpus Governance and Canon Controls",
+        "ua": "Управління корпусом та канонічні фіксатори"
+      },
+      "version_doi": "10.5281/zenodo.21985437",
+      "canonical_zenodo_url": "https://zenodo.org/records/21985437",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 25,
+      "title": "Commit-Time Admissibility Preconditions: Design-Basis Envelope Containment, Contemporaneous Grounds, Verification-Resource Allocation, and State-Action Admissibility",
+      "structural_group": {
+        "en": "Commit, Transition, Attribution, and Runtime Integrity",
+        "ua": "Фіксація, переходи, атрибуція та цілісність виконання"
+      },
+      "version_doi": "10.5281/zenodo.21987027",
+      "canonical_zenodo_url": "https://zenodo.org/records/21987027",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 26,
+      "title": "Reflexive Admissibility: Commit Controls for Doctrine, Policy, and Governance Publication Pipelines Using Parallel Human and AI Drafting Tracks",
+      "structural_group": {
+        "en": "Commit, Transition, Attribution, and Runtime Integrity",
+        "ua": "Фіксація, переходи, атрибуція та цілісність виконання"
+      },
+      "version_doi": "10.5281/zenodo.21987654",
+      "canonical_zenodo_url": "https://zenodo.org/records/21987654",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 27,
+      "title": "The Commit-Time Conjunction: A Cross-Domain Invariant for Admissible Basis, Operative Capacity, Claim-Specific Common-Cause Independence, and Durable Re-Provability",
+      "structural_group": {
+        "en": "Commit, Transition, Attribution, and Runtime Integrity",
+        "ua": "Фіксація, переходи, атрибуція та цілісність виконання"
+      },
+      "version_doi": "10.5281/zenodo.21988251",
+      "canonical_zenodo_url": "https://zenodo.org/records/21988251",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 28,
+      "title": "Consequence-Bearing Transition Phase Model and Closure Obligations: Commit, Attachment, Continuation, Interruption, Preservation, Compensation, and Durable Closure",
+      "structural_group": {
+        "en": "Commit, Transition, Attribution, and Runtime Integrity",
+        "ua": "Фіксація, переходи, атрибуція та цілісність виконання"
+      },
+      "version_doi": "10.5281/zenodo.21990123",
+      "canonical_zenodo_url": "https://zenodo.org/records/21990123",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 29,
+      "title": "The Ordered Attribution Chain for Applicability Decisions: Evidence, Boundary Classification, Assessment, ACE Declaration, Transition Authorization, Execution Permission, Enforcement, and Record",
+      "structural_group": {
+        "en": "Commit, Transition, Attribution, and Runtime Integrity",
+        "ua": "Фіксація, переходи, атрибуція та цілісність виконання"
+      },
+      "version_doi": "10.5281/zenodo.21991856",
+      "canonical_zenodo_url": "https://zenodo.org/records/21991856",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 30,
+      "title": "Runtime Verifiability and Anti-Simulation Layer: Evidence Obligations for Bounded Intervention, Predicate Standing, Suppression Debt, Resource Residual, and Systemic Enforcement",
+      "structural_group": {
+        "en": "Commit, Transition, Attribution, and Runtime Integrity",
+        "ua": "Фіксація, переходи, атрибуція та цілісність виконання"
+      },
+      "version_doi": "10.5281/zenodo.22003938",
+      "canonical_zenodo_url": "https://zenodo.org/records/22003938",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 31,
+      "title": "Fail-Safe Exhaustion: When Conformant Safety Controls Become Denial Mechanisms Through Verification Flooding, Human Saturation, Revocation Storms, Proof Overload, and Preservation Depletion",
+      "structural_group": {
+        "en": "Commit, Transition, Attribution, and Runtime Integrity",
+        "ua": "Фіксація, переходи, атрибуція та цілісність виконання"
+      },
+      "version_doi": "10.5281/zenodo.22009206",
+      "canonical_zenodo_url": "https://zenodo.org/records/22009206",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 32,
+      "title": "Boundary Events and Post-Market Applicability Monitoring: An Observational Taxonomy for Explanatory Loss, Green-State Illusions, and Evidence-Grade Detection without Control Substitution",
+      "structural_group": {
+        "en": "Boundary Discovery and Post-Market Monitoring",
+        "ua": "Виявлення меж та постринковий моніторинг"
+      },
+      "version_doi": "10.5281/zenodo.22012472",
+      "canonical_zenodo_url": "https://zenodo.org/records/22012472",
+      "displayed_publication_date": null,
+      "version": null,
+      "role_status": null
+    },
+    {
+      "record_number": 33,
+      "title": "Systematic Applicability Boundary Discovery and Coverage Accounting: Explanation-Unit Enumeration, Seam and Dependency Search, Evidence-Channel Mapping, Common-Cause Challenge, and Non-Completeness Discipline",
+      "structural_group": {
+        "en": "Boundary Discovery and Post-Market Monitoring",
+        "ua": "Виявлення меж та постринковий моніторинг"
+      },
+      "version_doi": "10.5281/zenodo.22016915",
+      "canonical_zenodo_url": "https://zenodo.org/records/22016915",
+      "displayed_publication_date": {
+        "en": "21 August 2026",
+        "ua": "21 серпня 2026"
+      },
+      "version": "1.0",
+      "role_status": {
+        "en": "Includes subordinate Commercial Companion Note 19; the companion has no independent DOI or doctrinal standing.",
+        "ua": "Включає підпорядковану Commercial Companion Note 19; супровідна нотатка не має незалежного DOI або доктринального статусу."
+      },
+      "all_versions_doi": "10.5281/zenodo.22016914",
+      "all_versions_canonical_zenodo_url": "https://zenodo.org/records/22016914"
+    }
+  ]
+}

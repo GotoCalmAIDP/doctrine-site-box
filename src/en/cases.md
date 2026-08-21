@@ -1,7 +1,7 @@
 ---
 layout: base.njk
-title: Case Studies
-description: Illustrative cases demonstrating applicability boundaries. No conclusions or recommendations.
+title: "Illustrative Non-Claim Case Library"
+description: Illustrative non-claim case materials documenting applicability boundaries without conclusions, recommendations, or certification claims.
 translationKey: "cases"
 lang: en
 ---

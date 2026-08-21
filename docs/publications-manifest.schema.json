@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gotocalmaidp.github.io/doctrine-site-box/assets/data/publications.schema.json",
+  "title": "Derived Doctrine Publication Manifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "derived",
+    "authoritative_source",
+    "non_authoritative_notice",
+    "records"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "derived": {
+      "type": "boolean",
+      "const": true
+    },
+    "authoritative_source": {
+      "type": "object",
+      "required": [
+        "en",
+        "ua"
+      ],
+      "properties": {
+        "en": {
+          "type": "string"
+        },
+        "ua": {
+          "type": "string"
+        }
+      }
+    },
+    "non_authoritative_notice": {
+      "type": "string"
+    },
+    "records": {
+      "type": "array",
+      "minItems": 33,
+      "maxItems": 33,
+      "items": {
+        "type": "object",
+        "required": [
+          "record_number",
+          "title",
+          "structural_group",
+          "version_doi",
+          "canonical_zenodo_url",
+          "displayed_publication_date",
+          "version",
+          "role_status"
+        ],
+        "properties": {
+          "record_number": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 33
+          },
+          "title": {
+            "type": "string"
+          },
+          "structural_group": {
+            "type": "object",
+            "required": [
+              "en",
+              "ua"
+            ],
+            "properties": {
+              "en": {
+                "type": "string"
+              },
+              "ua": {
+                "type": "string"
+              }
+            }
+          },
+          "version_doi": {
+            "type": "string",
+            "pattern": "^10\\.5281/zenodo\\.\\d+$"
+          },
+          "canonical_zenodo_url": {
+            "type": "string",
+            "pattern": "^https://zenodo\\.org/records/\\d+$"
+          },
+          "displayed_publication_date": {
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "version": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "role_status": {
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "all_versions_doi": {
+            "type": "string",
+            "pattern": "^10\\.5281/zenodo\\.\\d+$"
+          },
+          "all_versions_canonical_zenodo_url": {
+            "type": "string",
+            "pattern": "^https://zenodo\\.org/records/\\d+$"
+          }
+        }
+      }
+    }
+  }
+}

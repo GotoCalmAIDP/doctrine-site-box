@@ -1,0 +1,20 @@
+# Generated from the approved Citation page; do not hand-edit.
+cff-version: 1.2.0
+message: "If you use this conceptual reference, please cite it as below."
+title: "Applicability Boundary Doctrine"
+type: generic
+authors:
+  - family-names: "Partasyuk"
+    given-names: "Vadym"
+version: "v1.4.3"
+url: "https://gotocalmaidp.github.io/doctrine-site-box/"
+preferred-citation:
+  type: generic
+  authors:
+    - family-names: "Partasyuk"
+      given-names: "Vadym"
+  title: "Applicability Boundary Doctrine"
+  year: 2025
+  version: "v1.4.3"
+  publisher: "GotoCalm AI-DP Doctrine Repository"
+  url: "https://gotocalmaidp.github.io/doctrine-site-box/"
