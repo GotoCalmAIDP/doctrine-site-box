@@ -7,7 +7,6 @@
     "schema_version",
     "derived",
     "authoritative_source",
-    "generated_at",
     "non_authoritative_notice",
     "records"
   ],
@@ -34,10 +33,6 @@
           "type": "string"
         }
       }
-    },
-    "generated_at": {
-      "type": "string",
-      "format": "date-time"
     },
     "non_authoritative_notice": {
       "type": "string"

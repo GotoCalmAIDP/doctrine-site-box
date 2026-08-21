@@ -13,7 +13,6 @@ import json
 import os
 import re
 import sys
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -481,7 +480,6 @@ else:
     passed("Canonical baseline SHA-256")
 
 result = {
-    "timestamp": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
     "en_routes": en_count,
     "ua_routes": ua_count,
     "en_ua_parity": parity,

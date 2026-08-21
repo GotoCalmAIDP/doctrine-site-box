@@ -9,11 +9,8 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
 concurrency:
-  group: "pages"
+  group: ${{ github.event_name == 'pull_request' && format('integrity-pr-{0}', github.event.pull_request.number) || format('pages-production-{0}', github.ref) }}
   cancel-in-progress: false
 
 jobs:
@@ -44,6 +41,15 @@ jobs:
         run: npm run build
       - name: Run deterministic integrity audit
         run: python scripts/audit-routes.py _site
+      - name: Verify controlled generated artifacts are reproducible and committed
+        run: |
+          git diff --exit-code -- \
+            CITATION.cff \
+            docs/publications-manifest.schema.json \
+            scripts/audit-result.json \
+            src/_data/pageMetadata.json \
+            src/assets/citation \
+            src/assets/data/publications.json
 
   build:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
@@ -76,6 +82,9 @@ jobs:
 
   deploy:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

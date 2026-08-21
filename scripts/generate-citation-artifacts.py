@@ -7,15 +7,13 @@ Controlled sources:
 
 The script adds stable HTML anchors only, preserving every existing publication
 wording, number, title, DOI, group order, date, version statement, and role.
-All generated artifacts are overwritten deterministically except for the explicit
-UTC generation timestamp required in the manifest.
+All generated artifacts are overwritten deterministically from approved source pages.
 """
 
 from __future__ import annotations
 
 import json
 import re
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -169,7 +167,7 @@ def manifest_schema() -> dict[str, Any]:
         "$id": "https://gotocalmaidp.github.io/doctrine-site-box/assets/data/publications.schema.json",
         "title": "Derived Doctrine Publication Manifest",
         "type": "object",
-        "required": ["schema_version", "derived", "authoritative_source", "generated_at", "non_authoritative_notice", "records"],
+        "required": ["schema_version", "derived", "authoritative_source", "non_authoritative_notice", "records"],
         "properties": {
             "schema_version": {"type": "string", "const": "1.0"},
             "derived": {"type": "boolean", "const": True},
@@ -178,7 +176,6 @@ def manifest_schema() -> dict[str, Any]:
                 "required": ["en", "ua"],
                 "properties": {"en": {"type": "string"}, "ua": {"type": "string"}}
             },
-            "generated_at": {"type": "string", "format": "date-time"},
             "non_authoritative_notice": {"type": "string"},
             "records": {
                 "type": "array",
@@ -267,7 +264,6 @@ def main() -> None:
             "en": "https://gotocalmaidp.github.io/doctrine-site-box/en/citation/",
             "ua": "https://gotocalmaidp.github.io/doctrine-site-box/ua/citation/"
         },
-        "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
         "non_authoritative_notice": "This derived artifact does not modify or replace the canonical doctrine or Zenodo records.",
         "records": manifest_records,
     }
