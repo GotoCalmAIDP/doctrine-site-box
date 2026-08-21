@@ -126,7 +126,7 @@ lang: ua
 
 ## Пов'язані публікації на Zenodo
 
-Наступні публікації (1–22) формують доктринальну лінію публікацій, архівованих на Zenodo.
+Наступні публікації (1–33) формують доктринальну лінію публікацій, архівованих на Zenodo.
 Вони перелічені в порядку їхньої концептуальної позиції в рамках доктрини
 та згруповані за структурною роллю.
 
@@ -205,6 +205,48 @@ lang: ua
 
 15. **Deterministic Liability and Insurer Readability in High-Consequence AI Systems**
     DOI: [10.5281/zenodo.19657625](https://doi.org/10.5281/zenodo.19657625)
+
+### Управління корпусом та канонічні фіксатори
+
+23. **Corpus Continuity and Canon Policy Record: Channel Hierarchy, Version Mapping, Citation Spine, Deposit-Order Lock, and Claim Ladder in the Applicability Boundary Doctrine**
+    DOI: [10.5281/zenodo.21983371](https://doi.org/10.5281/zenodo.21983371)
+
+24. **Semantic Crosswalk and Type-Separation Canon Locks: Load-Bearing Terms, Phase Boundaries, and Non-Substitution Rules for the Applicability Boundary Doctrine**
+    DOI: [10.5281/zenodo.21985437](https://doi.org/10.5281/zenodo.21985437)
+
+### Фіксація, переходи, атрибуція та цілісність виконання
+
+25. **Commit-Time Admissibility Preconditions: Design-Basis Envelope Containment, Contemporaneous Grounds, Verification-Resource Allocation, and State-Action Admissibility**
+    DOI: [10.5281/zenodo.21987027](https://doi.org/10.5281/zenodo.21987027)
+
+26. **Reflexive Admissibility: Commit Controls for Doctrine, Policy, and Governance Publication Pipelines Using Parallel Human and AI Drafting Tracks**
+    DOI: [10.5281/zenodo.21987654](https://doi.org/10.5281/zenodo.21987654)
+
+27. **The Commit-Time Conjunction: A Cross-Domain Invariant for Admissible Basis, Operative Capacity, Claim-Specific Common-Cause Independence, and Durable Re-Provability**
+    DOI: [10.5281/zenodo.21988251](https://doi.org/10.5281/zenodo.21988251)
+
+28. **Consequence-Bearing Transition Phase Model and Closure Obligations: Commit, Attachment, Continuation, Interruption, Preservation, Compensation, and Durable Closure**
+    DOI: [10.5281/zenodo.21990123](https://doi.org/10.5281/zenodo.21990123)
+
+29. **The Ordered Attribution Chain for Applicability Decisions: Evidence, Boundary Classification, Assessment, ACE Declaration, Transition Authorization, Execution Permission, Enforcement, and Record**
+    DOI: [10.5281/zenodo.21991856](https://doi.org/10.5281/zenodo.21991856)
+
+30. **Runtime Verifiability and Anti-Simulation Layer: Evidence Obligations for Bounded Intervention, Predicate Standing, Suppression Debt, Resource Residual, and Systemic Enforcement**
+    DOI: [10.5281/zenodo.22003938](https://doi.org/10.5281/zenodo.22003938)
+
+31. **Fail-Safe Exhaustion: When Conformant Safety Controls Become Denial Mechanisms Through Verification Flooding, Human Saturation, Revocation Storms, Proof Overload, and Preservation Depletion**
+    DOI: [10.5281/zenodo.22009206](https://doi.org/10.5281/zenodo.22009206)
+
+### Виявлення меж та постринковий моніторинг
+
+32. **Boundary Events and Post-Market Applicability Monitoring: An Observational Taxonomy for Explanatory Loss, Green-State Illusions, and Evidence-Grade Detection without Control Substitution**
+    DOI: [10.5281/zenodo.22012472](https://doi.org/10.5281/zenodo.22012472)
+
+33. **Systematic Applicability Boundary Discovery and Coverage Accounting: Explanation-Unit Enumeration, Seam and Dependency Search, Evidence-Channel Mapping, Common-Cause Challenge, and Non-Completeness Discipline**
+    DOI: [10.5281/zenodo.22016915](https://doi.org/10.5281/zenodo.22016915)
+    *Опубліковано 21 серпня 2026, Версія 1.0. Включає підпорядковану Commercial Companion Note 19; супровідна нотатка не має незалежного DOI або доктринального статусу.*
+
+> **DOI всіх версій для запису 33:** [10.5281/zenodo.22016914](https://doi.org/10.5281/zenodo.22016914) — вказує на останню версію.
 
 ---
 
