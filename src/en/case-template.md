@@ -180,3 +180,7 @@ All cases created using this template MUST operate in **non-claim mode**:
 ---
 
 **End of Template**
+
+---
+
+Return to [Illustrative Case Library](/doctrine-site-box/en/cases/).

@@ -6,9 +6,13 @@ translationKey: "cases"
 lang: en
 ---
 
-# Case Studies
+# Illustrative Case Library
+
+**Status:** Illustrative non-claim materials
 
 This page lists illustrative cases that demonstrate how applicability boundaries are documented. Cases are observational and descriptive only — no conclusions, recommendations, or claims are made.
+
+These materials do not establish certification, validation, operational permission, applicability, or doctrinal standing. They are provided solely to demonstrate documentation structure within the Applicability Boundary Doctrine.
 
 ---
 
@@ -45,4 +49,15 @@ All cases follow the same structure:
 3. **Where explanation ends** — The explicit boundaries
 4. **Why no further claim is made** — The reasoning for limits
 
-This structure ensures that each case remains within the site's [Scope](/doctrine-site-box/en/scope/) and respects the [Boundaries](/doctrine-site-box/en/boundaries/) defined for all content.
+This structure ensures that each case remains within the site’s [Scope](/doctrine-site-box/en/scope/) and respects the [Boundaries](/doctrine-site-box/en/boundaries/) defined for all content.
+
+---
+
+## Supporting Materials
+
+- [Case Template v1.0](/doctrine-site-box/en/case-template/) — Canonical structural template for non-claim illustrative cases.
+- [Cases Overview Note](/doctrine-site-box/en/cases-overview-note/) — How the cases relate structurally.
+
+---
+
+Return to [Conceptual Case Studies](/doctrine-site-box/en/case-studies/).

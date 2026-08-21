@@ -80,3 +80,7 @@ If it is interpreted as analysis, instruction, or evaluation, that interpretatio
 ---
 
 End of Cases Overview Note
+
+---
+
+Return to [Illustrative Case Library](/doctrine-site-box/en/cases/).

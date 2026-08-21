@@ -58,7 +58,7 @@ module.exports = function(eleventyConfig) {
       { title: "Структурні властивості", url: pathPrefix + "/ua/doctrine-theorems/" },
       { title: "Нотатки зовнішніх свідчень", url: pathPrefix + "/ua/external-evidence/" },
       { title: "Архітектурні питання", url: pathPrefix + "/ua/architectural-questions/" },
-      { title: "Клінічні випадки", url: pathPrefix + "/ua/case-studies/" },
+      { title: "Концептуальні кейси", url: pathPrefix + "/ua/case-studies/" },
       { title: "Метод", url: pathPrefix + "/ua/method/" },
       { title: "Межі", url: pathPrefix + "/ua/boundaries/" },
       { title: "Для операторів", url: pathPrefix + "/ua/for-operators/" },
