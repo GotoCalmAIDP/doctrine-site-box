@@ -30,3 +30,11 @@ Selected cases illustrate typical structural patterns observed in complex system
 - [Case 002 — Authorization Delay and Object Validity Drift](/doctrine-site-box/en/case-002-authorization-delay-and-object-validity-drift/)
 - [Case 003 — Observability Lag in Route Execution](/doctrine-site-box/en/case-003-observability-lag-in-route-execution/)
 - [Case 004 — Alarm Suppression and Safety Envelope Drift](/doctrine-site-box/en/case-004-alarm-suppression-and-safety-envelope-drift/)
+
+---
+
+## Illustrative Non-Claim Case Library
+
+A separate collection of illustrative, non-claim case materials is available in the [Illustrative Case Library](/doctrine-site-box/en/cases/).
+
+These materials demonstrate documentation structure and do not establish certification, validation, operational permission, applicability, or doctrinal standing.

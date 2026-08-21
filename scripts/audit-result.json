@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-21T12:55:16Z",
+  "timestamp": "2026-08-21T15:03:22Z",
   "en_routes": 57,
   "ua_routes": 57,
   "en_ua_parity": true,
@@ -8,9 +8,18 @@
   "doi_order_match": true,
   "broken_internal_links": 0,
   "broken_link_details": [],
+  "public_html_routes": 116,
+  "reachable_routes": 115,
+  "orphan_routes": [],
+  "allowed_exclusions": [
+    "/404.html"
+  ],
   "sitemap_exists": true,
   "sitemap_url_count": 115,
   "robots_exists": true,
+  "canonical_errors": 0,
+  "hreflang_errors": 0,
+  "lang_errors": 0,
   "errors": 0,
   "result": "PASS"
 }
