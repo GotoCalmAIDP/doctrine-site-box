@@ -126,7 +126,7 @@ of the Applicability Boundary Doctrine presented on this site.
 
 ## Related Zenodo Publications
 
-The following publications (1–22) form the doctrinal publication line archived on Zenodo.
+The following publications (1–33) form the doctrinal publication line archived on Zenodo.
 They are listed in the order of their conceptual position within the framework
 and grouped by structural role.
 
@@ -205,6 +205,48 @@ and grouped by structural role.
 
 15. **Deterministic Liability and Insurer Readability in High-Consequence AI Systems**
     DOI: [10.5281/zenodo.19657625](https://doi.org/10.5281/zenodo.19657625)
+
+### Corpus Governance and Canon Controls
+
+23. **Corpus Continuity and Canon Policy Record: Channel Hierarchy, Version Mapping, Citation Spine, Deposit-Order Lock, and Claim Ladder in the Applicability Boundary Doctrine**
+    DOI: [10.5281/zenodo.21983371](https://doi.org/10.5281/zenodo.21983371)
+
+24. **Semantic Crosswalk and Type-Separation Canon Locks: Load-Bearing Terms, Phase Boundaries, and Non-Substitution Rules for the Applicability Boundary Doctrine**
+    DOI: [10.5281/zenodo.21985437](https://doi.org/10.5281/zenodo.21985437)
+
+### Commit, Transition, Attribution, and Runtime Integrity
+
+25. **Commit-Time Admissibility Preconditions: Design-Basis Envelope Containment, Contemporaneous Grounds, Verification-Resource Allocation, and State-Action Admissibility**
+    DOI: [10.5281/zenodo.21987027](https://doi.org/10.5281/zenodo.21987027)
+
+26. **Reflexive Admissibility: Commit Controls for Doctrine, Policy, and Governance Publication Pipelines Using Parallel Human and AI Drafting Tracks**
+    DOI: [10.5281/zenodo.21987654](https://doi.org/10.5281/zenodo.21987654)
+
+27. **The Commit-Time Conjunction: A Cross-Domain Invariant for Admissible Basis, Operative Capacity, Claim-Specific Common-Cause Independence, and Durable Re-Provability**
+    DOI: [10.5281/zenodo.21988251](https://doi.org/10.5281/zenodo.21988251)
+
+28. **Consequence-Bearing Transition Phase Model and Closure Obligations: Commit, Attachment, Continuation, Interruption, Preservation, Compensation, and Durable Closure**
+    DOI: [10.5281/zenodo.21990123](https://doi.org/10.5281/zenodo.21990123)
+
+29. **The Ordered Attribution Chain for Applicability Decisions: Evidence, Boundary Classification, Assessment, ACE Declaration, Transition Authorization, Execution Permission, Enforcement, and Record**
+    DOI: [10.5281/zenodo.21991856](https://doi.org/10.5281/zenodo.21991856)
+
+30. **Runtime Verifiability and Anti-Simulation Layer: Evidence Obligations for Bounded Intervention, Predicate Standing, Suppression Debt, Resource Residual, and Systemic Enforcement**
+    DOI: [10.5281/zenodo.22003938](https://doi.org/10.5281/zenodo.22003938)
+
+31. **Fail-Safe Exhaustion: When Conformant Safety Controls Become Denial Mechanisms Through Verification Flooding, Human Saturation, Revocation Storms, Proof Overload, and Preservation Depletion**
+    DOI: [10.5281/zenodo.22009206](https://doi.org/10.5281/zenodo.22009206)
+
+### Boundary Discovery and Post-Market Monitoring
+
+32. **Boundary Events and Post-Market Applicability Monitoring: An Observational Taxonomy for Explanatory Loss, Green-State Illusions, and Evidence-Grade Detection without Control Substitution**
+    DOI: [10.5281/zenodo.22012472](https://doi.org/10.5281/zenodo.22012472)
+
+33. **Systematic Applicability Boundary Discovery and Coverage Accounting: Explanation-Unit Enumeration, Seam and Dependency Search, Evidence-Channel Mapping, Common-Cause Challenge, and Non-Completeness Discipline**
+    DOI: [10.5281/zenodo.22016915](https://doi.org/10.5281/zenodo.22016915)
+    *Published 21 August 2026, Version 1.0. Includes subordinate Commercial Companion Note 19; the companion has no independent DOI or doctrinal standing.*
+
+> **All-versions DOI for record 33:** [10.5281/zenodo.22016914](https://doi.org/10.5281/zenodo.22016914) — resolves to the latest version.
 
 ---
 
