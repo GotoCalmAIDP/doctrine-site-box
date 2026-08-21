@@ -37,3 +37,11 @@ Content is provided in both English and Ukrainian to serve a broader audience an
 - Doctrine materials
 - Case studies
 - Expanded documentation
+
+---
+
+## Related Professional Surface
+
+For information about the professional context and applied services related to the Applicability Boundary Doctrine, see [gotocalm.com](https://gotocalm.com).
+
+This link is provided for reference only. It does not imply certification, endorsement, operational permission, or service authority.

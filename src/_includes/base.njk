@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="{{ lang }}">
+<html lang="{% if lang == 'ua' %}uk{% else %}{{ lang }}{% endif %}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} — Doctrine Site</title>
     <link rel="stylesheet" href="{{ baseurl }}/css/style.css">
+    <link rel="canonical" href="https://gotocalmaidp.github.io{{ baseurl }}{{ page.url }}">
+    {% if lang == 'en' %}
+    <link rel="alternate" hreflang="en" href="https://gotocalmaidp.github.io{{ baseurl }}{{ page.url }}">
+    <link rel="alternate" hreflang="uk" href="https://gotocalmaidp.github.io{{ baseurl }}{{ page.url | langUrl(lang) }}">
+    {% elif lang == 'ua' %}
+    <link rel="alternate" hreflang="uk" href="https://gotocalmaidp.github.io{{ baseurl }}{{ page.url }}">
+    <link rel="alternate" hreflang="en" href="https://gotocalmaidp.github.io{{ baseurl }}{{ page.url | langUrl(lang) }}">
+    {% endif %}
 </head>
 <body>
     <header class="site-header">

@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-08-21T12:55:16Z",
+  "en_routes": 57,
+  "ua_routes": 57,
+  "en_ua_parity": true,
+  "en_doi_count": 34,
+  "ua_doi_count": 34,
+  "doi_order_match": true,
+  "broken_internal_links": 0,
+  "broken_link_details": [],
+  "sitemap_exists": true,
+  "sitemap_url_count": 115,
+  "robots_exists": true,
+  "errors": 0,
+  "result": "PASS"
+}

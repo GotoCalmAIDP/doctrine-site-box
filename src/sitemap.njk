@@ -1,0 +1,25 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{%- set siteUrl = "https://gotocalmaidp.github.io/doctrine-site-box" -%}
+{%- for page in collections.all -%}
+{%- if page.url and page.url != "/404.html" and page.url != "/sitemap.xml" and page.url != "/robots.txt" -%}
+{%- set lang = "" -%}
+{%- if "/en/" in page.url %}{% set lang = "en" %}{% elif "/ua/" in page.url %}{% set lang = "ua" %}{% endif -%}
+  <url>
+    <loc>{{ siteUrl }}{{ page.url }}</loc>
+{%- if lang == "en" %}
+    <xhtml:link rel="alternate" hreflang="en" href="{{ siteUrl }}{{ page.url }}" />
+    <xhtml:link rel="alternate" hreflang="uk" href="{{ siteUrl }}{{ page.url | langUrl('en') }}" />
+{%- elif lang == "ua" %}
+    <xhtml:link rel="alternate" hreflang="uk" href="{{ siteUrl }}{{ page.url }}" />
+    <xhtml:link rel="alternate" hreflang="en" href="{{ siteUrl }}{{ page.url | langUrl('ua') }}" />
+{%- endif %}
+  </url>
+{%- endif -%}
+{%- endfor %}
+</urlset>
