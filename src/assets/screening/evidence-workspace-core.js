@@ -1,7 +1,14 @@
 import { AXES, QUESTIONS } from "./screening-core.js";
 
-export const EVIDENCE_WORKSPACE_VERSION = "evidence-readiness-workspace 0.1.0-alpha";
+export const EVIDENCE_WORKSPACE_VERSION = "evidence-readiness-workspace 0.1.1-alpha";
 export const EVIDENCE_WORKSPACE_SCHEMA = "goto-calm:evidence-readiness-workspace:0.1";
+
+const MAX_CONTEXT_LENGTH = 160;
+const MAX_LOCATOR_LENGTH = 320;
+const SOURCE_ANSWERS = new Set(["3", "2", "1", "0", "unknown", "out"]);
+const MATERIAL_CONSEQUENCES = new Set(["yes", "no", "unknown"]);
+const LIFECYCLE_CONTEXTS = new Set(["concept", "design", "pilot", "live"]);
+const SCREENING_OUTCOMES = new Set(["indeterminate", "review", "no-escalation"]);
 
 export const EVIDENCE_CLASSES = [
   { value: "unclassified", en: "Not classified", ua: "Не класифіковано" },
@@ -62,6 +69,12 @@ function assertOption(field, value) {
   if (!VALID[field].has(value)) {
     throw new Error(`Invalid ${field}: ${value}`);
   }
+}
+
+function boundedString(value, maxLength, field) {
+  if (typeof value !== "string") throw new Error(`Invalid ${field}`);
+  if (value.length > maxLength) throw new Error(`${field} is too long`);
+  return value;
 }
 
 export function createEvidenceRows(screeningAnswers = {}) {
@@ -203,5 +216,95 @@ export function buildEvidenceWorkspaceExport({ language, context, screening, row
       "This record cannot authorize execution, continuation, restoration or certification.",
       "The export contains record locators and user-entered labels; it should not contain raw evidence or confidential data."
     ]
+  };
+}
+
+export function parseEvidenceWorkspaceImport(payload) {
+  if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+    throw new Error("Snapshot must be a JSON object");
+  }
+  if (payload.schema !== EVIDENCE_WORKSPACE_SCHEMA) {
+    throw new Error(`Unsupported snapshot schema: ${String(payload.schema || "missing")}`);
+  }
+  if (!new Set(["en", "ua"]).has(payload.language)) {
+    throw new Error(`Unsupported language: ${String(payload.language || "missing")}`);
+  }
+  if (!payload.context || typeof payload.context !== "object") {
+    throw new Error("Snapshot context is missing");
+  }
+  if (!payload.screening || typeof payload.screening !== "object") {
+    throw new Error("Snapshot screening record is missing");
+  }
+  if (!Array.isArray(payload.evidenceRecords) || payload.evidenceRecords.length !== QUESTIONS.length) {
+    throw new Error(`Expected ${QUESTIONS.length} evidence records`);
+  }
+
+  const records = new Map();
+  for (const record of payload.evidenceRecords) {
+    if (!record || typeof record !== "object" || typeof record.questionId !== "string") {
+      throw new Error("Invalid evidence record");
+    }
+    if (records.has(record.questionId)) {
+      throw new Error(`Duplicate questionId: ${record.questionId}`);
+    }
+    records.set(record.questionId, record);
+  }
+
+  const rows = QUESTIONS.map((question) => {
+    const record = records.get(question.id);
+    if (!record) throw new Error(`Missing evidence record: ${question.id}`);
+    const sourceAnswer = String(record.sourceAnswer ?? "unknown");
+    if (!SOURCE_ANSWERS.has(sourceAnswer)) {
+      throw new Error(`Invalid sourceAnswer: ${sourceAnswer}`);
+    }
+    assertOption("evidenceStatus", record.evidenceStatus);
+    assertOption("evidenceClass", record.evidenceClass);
+    assertOption("freshness", record.freshness);
+    assertOption("conflict", record.conflict);
+    return {
+      questionId: question.id,
+      axis: question.axis,
+      critical: Boolean(question.critical),
+      sourceAnswer,
+      evidenceStatus: record.evidenceStatus,
+      evidenceClass: record.evidenceClass,
+      recordLocator: boundedString(record.recordLocator ?? "", MAX_LOCATOR_LENGTH, "recordLocator"),
+      freshness: record.freshness,
+      conflict: record.conflict
+    };
+  });
+
+  evaluateEvidenceReadiness(rows);
+  const materialConsequence = String(payload.screening.materialConsequence ?? "unknown");
+  const lifecycle = String(payload.screening.lifecycle ?? "concept");
+  const outcome = String(payload.screening.outcome ?? "indeterminate");
+  if (!MATERIAL_CONSEQUENCES.has(materialConsequence)) throw new Error(`Invalid materialConsequence: ${materialConsequence}`);
+  if (!LIFECYCLE_CONTEXTS.has(lifecycle)) throw new Error(`Invalid lifecycle: ${lifecycle}`);
+  if (!SCREENING_OUTCOMES.has(outcome)) throw new Error(`Invalid screening outcome: ${outcome}`);
+
+  const assessmentDate = boundedString(payload.context.assessmentDate ?? "", 10, "assessmentDate");
+  if (assessmentDate && !/^\d{4}-\d{2}-\d{2}$/.test(assessmentDate)) {
+    throw new Error("Invalid assessmentDate");
+  }
+
+  return {
+    context: {
+      referenceLabel: boundedString(payload.context.referenceLabel ?? "", MAX_CONTEXT_LENGTH, "referenceLabel"),
+      assessedVersion: boundedString(payload.context.assessedVersion ?? "", MAX_CONTEXT_LENGTH, "assessedVersion"),
+      assessmentDate,
+      contextLabel: boundedString(payload.context.contextLabel ?? "", MAX_CONTEXT_LENGTH, "contextLabel")
+    },
+    screening: {
+      materialConsequence,
+      lifecycle,
+      outcome,
+      version: boundedString(payload.screening.screeningVersion ?? "unknown", MAX_CONTEXT_LENGTH, "screeningVersion")
+    },
+    rows,
+    importedFrom: {
+      generatedAt: typeof payload.generatedAt === "string" ? payload.generatedAt : "",
+      language: payload.language,
+      version: typeof payload.version === "string" ? payload.version : ""
+    }
   };
 }

@@ -14,7 +14,8 @@ import {
   FRESHNESS_STATES,
   buildEvidenceWorkspaceExport,
   createEvidenceRows,
-  evaluateEvidenceReadiness
+  evaluateEvidenceReadiness,
+  parseEvidenceWorkspaceImport
 } from "./evidence-workspace-core.js";
 
 const root = document.querySelector("#gc-screening");
@@ -88,7 +89,7 @@ if (root) {
       workspace: {
         open: "Continue to evidence readiness workspace",
         openBlank: "Open blank evidence workspace",
-        eyebrow: "Tier 1 local alpha · structured working record",
+        eyebrow: "Tier 1.1 local alpha · structured working record",
         title: "Evidence Readiness Workspace",
         purpose: "Map where reviewable records exist and where the evidence basis remains open. This workspace does not review evidence and does not produce a pass, approval or conformance result.",
         privacy: "Nothing is sent or saved automatically. The working record exists only in this tab unless you export it. Use neutral references and do not enter raw evidence, personal data, credentials, client details or operationally sensitive information.",
@@ -118,6 +119,9 @@ if (root) {
         mappingState: "Mapping state",
         state: { mapped: "Mapped", open: "Open", excluded: "Scope boundary" },
         actionsTitle: "Open action register",
+        actionView: "Action view",
+        actionFilters: { all: "All unresolved", priority: "Priority only", scope: "Scope boundaries" },
+        noFilteredActions: "No actions match this view.",
         noOpenActions: "No mapping actions remain. Independent review is still required before any evidentiary or operational conclusion.",
         action: {
           "confirm-scope-boundary": "Confirm and justify the stated scope boundary",
@@ -132,7 +136,16 @@ if (root) {
           "check-for-conflict": "Check for conflicting records or observations"
         },
         export: "Export JSON snapshot",
-        print: "Print working record",
+        import: "Import JSON snapshot",
+        importHint: "The selected snapshot is validated and read only in this browser tab. Nothing is uploaded.",
+        importSuccess: "JSON snapshot restored locally",
+        importFailed: "Snapshot could not be restored",
+        importTooLarge: "Snapshot is larger than the 512 KB local limit",
+        replaceConfirm: "Replace the current Tier 1 workspace with the selected snapshot?",
+        example: "Load neutral example",
+        exampleConfirm: "Replace the current workspace with a clearly fictional training example?",
+        exampleLoaded: "Fictional training example loaded",
+        print: "Print review packet",
         back: "Back to screening result",
         clear: "Reset workspace",
         clearConfirm: "Reset every Tier 1 field in this tab? This cannot be undone unless you already exported a snapshot.",
@@ -209,7 +222,7 @@ if (root) {
       workspace: {
         open: "Перейти до робочого простору готовності свідчень",
         openBlank: "Відкрити порожній робочий простір свідчень",
-        eyebrow: "Локальна альфа Tier 1 · структурований робочий запис",
+        eyebrow: "Локальна альфа Tier 1.1 · структурований робочий запис",
         title: "Робочий простір готовності свідчень",
         purpose: "Позначте, де існують записи для перегляду, а де доказова підстава залишається відкритою. Цей простір не перевіряє свідчення і не видає результату про проходження, схвалення чи конформність.",
         privacy: "Нічого не надсилається і не зберігається автоматично. Робочий запис існує лише в цій вкладці, доки ви його не експортуєте. Використовуйте нейтральні посилання та не вводьте самі свідчення, персональні дані, облікові дані, відомості клієнта або операційно чутливу інформацію.",
@@ -239,6 +252,9 @@ if (root) {
         mappingState: "Стан картування",
         state: { mapped: "Картовано", open: "Відкрито", excluded: "Межа обсягу" },
         actionsTitle: "Реєстр відкритих дій",
+        actionView: "Подання дій",
+        actionFilters: { all: "Усі невирішені", priority: "Лише пріоритетні", scope: "Межі обсягу" },
+        noFilteredActions: "Для цього подання дій немає.",
         noOpenActions: "Дій з картування не залишилося. Незалежний перегляд однаково потрібен до будь-якого доказового або операційного висновку.",
         action: {
           "confirm-scope-boundary": "Підтвердити й обґрунтувати заявлену межу обсягу",
@@ -253,7 +269,16 @@ if (root) {
           "check-for-conflict": "Перевірити наявність суперечливих записів або спостережень"
         },
         export: "Експортувати знімок JSON",
-        print: "Друкувати робочий запис",
+        import: "Імпортувати знімок JSON",
+        importHint: "Обраний знімок перевіряється й читається лише в цій вкладці браузера. Нічого не завантажується на сервер.",
+        importSuccess: "Знімок JSON локально відновлено",
+        importFailed: "Не вдалося відновити знімок",
+        importTooLarge: "Розмір знімка перевищує локальне обмеження 512 КБ",
+        replaceConfirm: "Замінити поточний робочий простір Tier 1 обраним знімком?",
+        example: "Завантажити нейтральний приклад",
+        exampleConfirm: "Замінити поточний робочий простір явно вигаданим навчальним прикладом?",
+        exampleLoaded: "Вигаданий навчальний приклад завантажено",
+        print: "Друкувати пакет для перегляду",
         back: "Назад до результату скринінгу",
         clear: "Скинути робочий простір",
         clearConfirm: "Скинути всі поля Tier 1 у цій вкладці? Скасувати це неможливо, якщо знімок ще не експортовано.",
@@ -282,6 +307,7 @@ if (root) {
     answers: {}
   };
   let workspaceNotice = "";
+  let workspaceActionFilter = "all";
   let workspace = {
     context: {
       referenceLabel: "",
@@ -332,7 +358,10 @@ if (root) {
         <div class="gc-actions">
           <button class="gc-button gc-button-primary" type="button" data-action="start">${t.start}</button>
           <button class="gc-button gc-button-quiet" type="button" data-action="open-workspace-blank">${t.workspace.openBlank}</button>
+          <button class="gc-button gc-button-quiet" type="button" data-action="workspace-import">${t.workspace.import}</button>
+          <input type="file" accept="application/json,.json" data-workspace-import hidden>
         </div>
+        <p class="gc-live-status" aria-live="polite">${workspaceNotice}</p>
       </section>`;
   }
 
@@ -453,8 +482,83 @@ if (root) {
       rows: createEvidenceRows(state.answers)
     };
     workspaceNotice = "";
+    workspaceActionFilter = "all";
     state.phase = "workspace";
     render();
+  }
+
+  function loadNeutralExample() {
+    state.materialConsequence = "unknown";
+    state.lifecycle = "concept";
+    state.answers = Object.fromEntries(QUESTIONS.map((question) => [question.id, "unknown"]));
+    const rows = createEvidenceRows(state.answers);
+    Object.assign(rows[0], {
+      evidenceStatus: "documented",
+      evidenceClass: "documentary",
+      recordLocator: "REGISTER/DEMO/OBJECT",
+      freshness: "current",
+      conflict: "no"
+    });
+    Object.assign(rows[1], {
+      evidenceStatus: "partial",
+      evidenceClass: "documentary",
+      recordLocator: "REGISTER/DEMO/SCOPE",
+      freshness: "current",
+      conflict: "no"
+    });
+    Object.assign(rows[2], {
+      evidenceStatus: "documented",
+      evidenceClass: "observational",
+      recordLocator: "REGISTER/DEMO/BOUNDARY",
+      freshness: "stale",
+      conflict: "no"
+    });
+    workspace = {
+      context: {
+        referenceLabel: "DEMO-SYSTEM",
+        assessedVersion: "demo-v1",
+        assessmentDate: localDate(),
+        contextLabel: language === "ua" ? "навчальний приклад — вигаданий" : "training example — fictional"
+      },
+      screening: evaluateScreening(state),
+      rows
+    };
+    workspaceActionFilter = "all";
+    workspaceNotice = t.workspace.exampleLoaded;
+    state.phase = "workspace";
+    render();
+  }
+
+  function setWorkspaceNotice(message) {
+    workspaceNotice = message;
+    const status = root.querySelector(".gc-live-status");
+    if (status) status.textContent = workspaceNotice;
+  }
+
+  async function importWorkspaceFile(file) {
+    if (!file) return;
+    if (file.size > 512 * 1024) {
+      setWorkspaceNotice(t.workspace.importTooLarge);
+      return;
+    }
+    try {
+      const imported = parseEvidenceWorkspaceImport(JSON.parse(await file.text()));
+      if (state.phase === "workspace" && !window.confirm(t.workspace.replaceConfirm)) return;
+      workspace = {
+        context: imported.context,
+        screening: imported.screening,
+        rows: imported.rows
+      };
+      state.materialConsequence = imported.screening.materialConsequence;
+      state.lifecycle = imported.screening.lifecycle;
+      state.answers = Object.fromEntries(imported.rows.map((row) => [row.questionId, row.sourceAnswer]));
+      workspaceActionFilter = "all";
+      workspaceNotice = t.workspace.importSuccess;
+      state.phase = "workspace";
+      render();
+    } catch (error) {
+      setWorkspaceNotice(`${t.workspace.importFailed}: ${error.message}`);
+    }
   }
 
   function contextGaps() {
@@ -500,7 +604,7 @@ if (root) {
             </select>
           </label>
           <label class="gc-locator-field" for="${fieldId}-locator">${t.workspace.locator}
-            <input id="${fieldId}-locator" type="text" value="${escapeHtml(row.recordLocator)}" placeholder="${escapeHtml(t.workspace.locatorHint)}" data-workspace-row="${row.questionId}" data-workspace-field="recordLocator" autocomplete="off"${excluded ? " disabled" : ""}>
+            <input id="${fieldId}-locator" type="text" maxlength="320" value="${escapeHtml(row.recordLocator)}" placeholder="${escapeHtml(t.workspace.locatorHint)}" data-workspace-row="${row.questionId}" data-workspace-field="recordLocator" autocomplete="off"${excluded ? " disabled" : ""}>
           </label>
         </div>
         ${actions ? `<ul class="gc-row-actions">${actions}</ul>` : ""}
@@ -510,7 +614,12 @@ if (root) {
   function renderWorkspace() {
     const evaluation = evaluateEvidenceReadiness(workspace.rows);
     const gaps = contextGaps();
-    const openActions = evaluation.openActions
+    const filteredActions = evaluation.openActions.filter((item) => {
+      if (workspaceActionFilter === "priority") return item.priority;
+      if (workspaceActionFilter === "scope") return item.state === "excluded";
+      return true;
+    });
+    const openActions = filteredActions
       .slice()
       .sort((a, b) => Number(b.priority) - Number(a.priority))
       .map((item) => {
@@ -543,20 +652,30 @@ if (root) {
           <p class="gc-workspace-version">${t.workspace.version}: ${EVIDENCE_WORKSPACE_VERSION}</p>
         </header>
 
+        <section class="gc-panel gc-workspace-tools" aria-labelledby="gc-workspace-tools-title">
+          <h3 id="gc-workspace-tools-title">${t.workspace.import}</h3>
+          <p class="gc-hint">${t.workspace.importHint}</p>
+          <div class="gc-actions">
+            <button class="gc-button gc-button-primary" type="button" data-action="workspace-import">${t.workspace.import}</button>
+            <button class="gc-button gc-button-quiet" type="button" data-action="workspace-example">${t.workspace.example}</button>
+            <input type="file" accept="application/json,.json" data-workspace-import hidden>
+          </div>
+        </section>
+
         <section class="gc-panel gc-context" aria-labelledby="gc-context-title">
           <h3 id="gc-context-title">${t.workspace.contextTitle}</h3>
           <div class="gc-context-grid">
             <label>${t.workspace.referenceLabel}
-              <input type="text" value="${escapeHtml(workspace.context.referenceLabel)}" placeholder="${escapeHtml(t.workspace.referenceHint)}" data-context-field="referenceLabel" autocomplete="off">
+              <input type="text" maxlength="160" value="${escapeHtml(workspace.context.referenceLabel)}" placeholder="${escapeHtml(t.workspace.referenceHint)}" data-context-field="referenceLabel" autocomplete="off">
             </label>
             <label>${t.workspace.versionLabel}
-              <input type="text" value="${escapeHtml(workspace.context.assessedVersion)}" placeholder="${escapeHtml(t.workspace.versionHint)}" data-context-field="assessedVersion" autocomplete="off">
+              <input type="text" maxlength="160" value="${escapeHtml(workspace.context.assessedVersion)}" placeholder="${escapeHtml(t.workspace.versionHint)}" data-context-field="assessedVersion" autocomplete="off">
             </label>
             <label>${t.workspace.dateLabel}
               <input type="date" value="${escapeHtml(workspace.context.assessmentDate)}" data-context-field="assessmentDate">
             </label>
             <label>${t.workspace.contextLabel}
-              <input type="text" value="${escapeHtml(workspace.context.contextLabel)}" placeholder="${escapeHtml(t.workspace.contextHint)}" data-context-field="contextLabel" autocomplete="off">
+              <input type="text" maxlength="160" value="${escapeHtml(workspace.context.contextLabel)}" placeholder="${escapeHtml(t.workspace.contextHint)}" data-context-field="contextLabel" autocomplete="off">
             </label>
           </div>
         </section>
@@ -578,9 +697,14 @@ if (root) {
         </section>
 
         <details class="gc-panel gc-action-register" open>
-          <summary>${t.workspace.actionsTitle}</summary>
+          <summary>${t.workspace.actionsTitle} · ${filteredActions.length}/${evaluation.openActions.length}</summary>
+          <label class="gc-action-filter">${t.workspace.actionView}
+            <select data-workspace-action-filter>
+              ${Object.entries(t.workspace.actionFilters).map(([value, label]) => `<option value="${value}"${workspaceActionFilter === value ? " selected" : ""}>${label}</option>`).join("")}
+            </select>
+          </label>
           ${gaps.length ? `<p class="gc-context-warning">${gaps.length} ${t.workspace.contextOpen}</p>` : ""}
-          ${openActions ? `<ol>${openActions}</ol>` : `<p>${t.workspace.noOpenActions}</p>`}
+          ${openActions ? `<ol>${openActions}</ol>` : `<p>${evaluation.openActions.length ? t.workspace.noFilteredActions : t.workspace.noOpenActions}</p>`}
         </details>
 
         <section class="gc-boundary">
@@ -649,8 +773,14 @@ if (root) {
       render();
     }
     if (action === "print") window.print();
-    if (action === "workspace-print") window.print();
+    if (action === "workspace-print") {
+      workspaceActionFilter = "all";
+      renderWorkspace();
+      window.print();
+    }
     if (action === "workspace-export") exportWorkspace();
+    if (action === "workspace-import") root.querySelector("[data-workspace-import]")?.click();
+    if (action === "workspace-example" && window.confirm(t.workspace.exampleConfirm)) loadNeutralExample();
     if (action === "workspace-back") {
       state.phase = "results";
       render();
@@ -665,6 +795,7 @@ if (root) {
       state.materialConsequence = null;
       state.lifecycle = null;
       state.answers = {};
+      workspaceNotice = "";
       render();
     }
   });
@@ -693,7 +824,19 @@ if (root) {
     if (nextId) document.getElementById(nextId)?.focus({ preventScroll: true });
   });
 
-  root.addEventListener("change", (event) => {
+  root.addEventListener("change", async (event) => {
+    if (event.target.matches("[data-workspace-import]")) {
+      const [file] = event.target.files || [];
+      event.target.value = "";
+      await importWorkspaceFile(file);
+      return;
+    }
+    if (event.target.matches("[data-workspace-action-filter]")) {
+      workspaceActionFilter = event.target.value;
+      renderWorkspace();
+      root.querySelector("[data-workspace-action-filter]")?.focus({ preventScroll: true });
+      return;
+    }
     const contextField = event.target.dataset.contextField;
     if (contextField) {
       workspace.context[contextField] = event.target.value;

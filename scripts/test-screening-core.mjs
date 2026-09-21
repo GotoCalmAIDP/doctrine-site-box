@@ -4,7 +4,8 @@ import {
   EVIDENCE_WORKSPACE_SCHEMA,
   buildEvidenceWorkspaceExport,
   createEvidenceRows,
-  evaluateEvidenceReadiness
+  evaluateEvidenceReadiness,
+  parseEvidenceWorkspaceImport
 } from "../src/assets/screening/evidence-workspace-core.js";
 
 const answers = (value) => Object.fromEntries(QUESTIONS.map((question) => [question.id, value]));
@@ -95,4 +96,21 @@ assert.equal(exported.screening.evidenceReviewed, false);
 assert.equal(exported.summary.mapped, 1);
 assert.ok(exported.limitations.some((item) => item.includes("cannot authorize")));
 
-console.log("screening and evidence-workspace cores: 12 fixtures passed");
+const imported = parseEvidenceWorkspaceImport(exported);
+assert.equal(imported.context.referenceLabel, "SYSTEM-A");
+assert.equal(imported.rows.length, 17);
+assert.equal(evaluateEvidenceReadiness(imported.rows).summary.mapped, 1);
+assert.equal(imported.importedFrom.language, "en");
+
+assert.throws(() => parseEvidenceWorkspaceImport({ ...exported, schema: "unknown" }), /Unsupported snapshot schema/);
+assert.throws(() => parseEvidenceWorkspaceImport({ ...exported, evidenceRecords: exported.evidenceRecords.slice(1) }), /Expected 17 evidence records/);
+assert.throws(() => parseEvidenceWorkspaceImport({
+  ...exported,
+  evidenceRecords: [...exported.evidenceRecords.slice(0, -1), exported.evidenceRecords[0]]
+}), /Duplicate questionId/);
+assert.throws(() => parseEvidenceWorkspaceImport({
+  ...exported,
+  evidenceRecords: exported.evidenceRecords.map((record, index) => index === 0 ? { ...record, recordLocator: "x".repeat(321) } : record)
+}), /recordLocator is too long/);
+
+console.log("screening and evidence-workspace cores: 20 fixtures passed");
