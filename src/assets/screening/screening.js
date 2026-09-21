@@ -6,6 +6,16 @@ import {
   SCALE,
   evaluateScreening
 } from "./screening-core.js";
+import {
+  CONFLICT_STATES,
+  EVIDENCE_CLASSES,
+  EVIDENCE_STATUSES,
+  EVIDENCE_WORKSPACE_VERSION,
+  FRESHNESS_STATES,
+  buildEvidenceWorkspaceExport,
+  createEvidenceRows,
+  evaluateEvidenceReadiness
+} from "./evidence-workspace-core.js";
 
 const root = document.querySelector("#gc-screening");
 
@@ -74,7 +84,64 @@ if (root) {
       readScope: "Read Scope and Limitations",
       readEvidence: "Read Evidence",
       answerRequired: "Select one answer to continue.",
-      percentUnavailable: "Not bounded"
+      percentUnavailable: "Not bounded",
+      workspace: {
+        open: "Continue to evidence readiness workspace",
+        openBlank: "Open blank evidence workspace",
+        eyebrow: "Tier 1 local alpha · structured working record",
+        title: "Evidence Readiness Workspace",
+        purpose: "Map where reviewable records exist and where the evidence basis remains open. This workspace does not review evidence and does not produce a pass, approval or conformance result.",
+        privacy: "Nothing is sent or saved automatically. The working record exists only in this tab unless you export it. Use neutral references and do not enter raw evidence, personal data, credentials, client details or operationally sensitive information.",
+        contextTitle: "Assessment context",
+        referenceLabel: "Neutral object reference",
+        referenceHint: "Example: SYSTEM-A or CASE-014",
+        versionLabel: "Assessed version or configuration",
+        versionHint: "Example: v2.4 or config-2026-09",
+        dateLabel: "Assessment date",
+        contextLabel: "Neutral context label",
+        contextHint: "Example: pre-deployment review",
+        summaryTitle: "Readiness map",
+        mapped: "Mapped records",
+        openItems: "Open records",
+        excluded: "Outside stated scope",
+        priority: "Priority open records",
+        summaryBoundary: "Mapped means only that a current, classified record locator with no known conflict has been entered. It is not proof that the underlying claim is true or admissible.",
+        contextOpen: "assessment context field(s) remain incomplete",
+        mapTitle: "Evidence map by doctrine axis",
+        sourceAnswer: "Screening answer",
+        status: "Record status",
+        evidenceClass: "Evidence class",
+        locator: "Record locator",
+        locatorHint: "Identifier, register path or controlled reference — not the evidence itself",
+        freshness: "Currentness",
+        conflict: "Conflict check",
+        mappingState: "Mapping state",
+        state: { mapped: "Mapped", open: "Open", excluded: "Scope boundary" },
+        actionsTitle: "Open action register",
+        noOpenActions: "No mapping actions remain. Independent review is still required before any evidentiary or operational conclusion.",
+        action: {
+          "confirm-scope-boundary": "Confirm and justify the stated scope boundary",
+          "identify-record-status": "Identify whether a relevant record exists",
+          "locate-or-create-record": "Locate or create the required record",
+          "complete-record-basis": "Complete the partial or informal record basis",
+          "classify-evidence": "Classify the evidence source",
+          "add-record-locator": "Add a controlled record locator",
+          "recheck-currentness": "Recheck the record for the current context",
+          "establish-currentness": "Establish the record's currentness",
+          "resolve-evidence-conflict": "Resolve the identified evidence conflict",
+          "check-for-conflict": "Check for conflicting records or observations"
+        },
+        export: "Export JSON snapshot",
+        print: "Print working record",
+        back: "Back to screening result",
+        clear: "Reset workspace",
+        clearConfirm: "Reset every Tier 1 field in this tab? This cannot be undone unless you already exported a snapshot.",
+        exported: "JSON snapshot downloaded",
+        exportBoundary: "The JSON is a portable self-reported working record, not an audit artifact, proof package or authorization object.",
+        version: "Workspace version",
+        emptyOutcome: "Blank workspace",
+        current: "current mapping"
+      }
     },
     ua: {
       alpha: "Публічна альфа · самооцінка",
@@ -138,9 +205,73 @@ if (root) {
       readScope: "Читати «Обсяг та обмеження»",
       readEvidence: "Читати «Доказовість»",
       answerRequired: "Оберіть одну відповідь, щоб продовжити.",
-      percentUnavailable: "Не визначено"
+      percentUnavailable: "Не визначено",
+      workspace: {
+        open: "Перейти до робочого простору готовності свідчень",
+        openBlank: "Відкрити порожній робочий простір свідчень",
+        eyebrow: "Локальна альфа Tier 1 · структурований робочий запис",
+        title: "Робочий простір готовності свідчень",
+        purpose: "Позначте, де існують записи для перегляду, а де доказова підстава залишається відкритою. Цей простір не перевіряє свідчення і не видає результату про проходження, схвалення чи конформність.",
+        privacy: "Нічого не надсилається і не зберігається автоматично. Робочий запис існує лише в цій вкладці, доки ви його не експортуєте. Використовуйте нейтральні посилання та не вводьте самі свідчення, персональні дані, облікові дані, відомості клієнта або операційно чутливу інформацію.",
+        contextTitle: "Контекст оцінювання",
+        referenceLabel: "Нейтральне позначення об’єкта",
+        referenceHint: "Приклад: SYSTEM-A або CASE-014",
+        versionLabel: "Оцінювана версія або конфігурація",
+        versionHint: "Приклад: v2.4 або config-2026-09",
+        dateLabel: "Дата оцінювання",
+        contextLabel: "Нейтральна назва контексту",
+        contextHint: "Приклад: перегляд до розгортання",
+        summaryTitle: "Карта готовності",
+        mapped: "Картовані записи",
+        openItems: "Відкриті записи",
+        excluded: "Поза заявленим обсягом",
+        priority: "Пріоритетні відкриті записи",
+        summaryBoundary: "«Картовано» означає лише, що введено актуальний класифікований локатор запису без відомого конфлікту. Це не доводить істинність або допустимість відповідного твердження.",
+        contextOpen: "полів контексту оцінювання залишаються незаповненими",
+        mapTitle: "Карта свідчень за осями доктрини",
+        sourceAnswer: "Відповідь скринінгу",
+        status: "Стан запису",
+        evidenceClass: "Клас свідчення",
+        locator: "Локатор запису",
+        locatorHint: "Ідентифікатор, шлях у реєстрі або контрольоване посилання — не саме свідчення",
+        freshness: "Актуальність",
+        conflict: "Перевірка конфлікту",
+        mappingState: "Стан картування",
+        state: { mapped: "Картовано", open: "Відкрито", excluded: "Межа обсягу" },
+        actionsTitle: "Реєстр відкритих дій",
+        noOpenActions: "Дій з картування не залишилося. Незалежний перегляд однаково потрібен до будь-якого доказового або операційного висновку.",
+        action: {
+          "confirm-scope-boundary": "Підтвердити й обґрунтувати заявлену межу обсягу",
+          "identify-record-status": "Визначити, чи існує відповідний запис",
+          "locate-or-create-record": "Знайти або створити потрібний запис",
+          "complete-record-basis": "Доповнити часткову або неформальну підставу запису",
+          "classify-evidence": "Класифікувати джерело свідчення",
+          "add-record-locator": "Додати контрольований локатор запису",
+          "recheck-currentness": "Перевірити актуальність запису для поточного контексту",
+          "establish-currentness": "Встановити актуальність запису",
+          "resolve-evidence-conflict": "Усунути виявлений конфлікт свідчень",
+          "check-for-conflict": "Перевірити наявність суперечливих записів або спостережень"
+        },
+        export: "Експортувати знімок JSON",
+        print: "Друкувати робочий запис",
+        back: "Назад до результату скринінгу",
+        clear: "Скинути робочий простір",
+        clearConfirm: "Скинути всі поля Tier 1 у цій вкладці? Скасувати це неможливо, якщо знімок ще не експортовано.",
+        exported: "Знімок JSON завантажено",
+        exportBoundary: "JSON є переносним робочим записом самооцінки, а не аудиторським артефактом, пакетом доказів чи об’єктом авторизації.",
+        version: "Версія робочого простору",
+        emptyOutcome: "Порожній робочий простір",
+        current: "поточне картування"
+      }
     }
   }[language];
+
+  const localDate = (date = new Date()) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  };
 
   const state = {
     phase: "intro",
@@ -150,9 +281,30 @@ if (root) {
     lifecycle: null,
     answers: {}
   };
+  let workspaceNotice = "";
+  let workspace = {
+    context: {
+      referenceLabel: "",
+      assessedVersion: "",
+      assessmentDate: localDate(),
+      contextLabel: ""
+    },
+    screening: null,
+    rows: []
+  };
   const total = QUESTIONS.length + 2;
+  const questionById = Object.fromEntries(QUESTIONS.map((question) => [question.id, question]));
 
   const checked = (actual, expected) => actual === expected ? " checked" : "";
+  const escapeHtml = (value) => String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+  const selectOptions = (items, selected) => items.map((item) =>
+    `<option value="${item.value}"${item.value === selected ? " selected" : ""}>${item[language]}</option>`
+  ).join("");
   const progress = (current) => `
     <div class="gc-progress-block">
       <div class="gc-progress-copy"><span>${t.progress}</span><span>${current} ${t.of} ${total}</span></div>
@@ -177,7 +329,10 @@ if (root) {
         <div class="gc-privacy"><strong>${t.private}</strong><span>${t.privateText}</span></div>
         <h3>${t.before}</h3>
         <ul>${t.beforeItems.map((item) => `<li>${item}</li>`).join("")}</ul>
-        <button class="gc-button gc-button-primary" type="button" data-action="start">${t.start}</button>
+        <div class="gc-actions">
+          <button class="gc-button gc-button-primary" type="button" data-action="start">${t.start}</button>
+          <button class="gc-button gc-button-quiet" type="button" data-action="open-workspace-blank">${t.workspace.openBlank}</button>
+        </div>
       </section>`;
   }
 
@@ -271,6 +426,7 @@ if (root) {
           <p><strong>${t.urgent}</strong></p>
         </section>
         <div class="gc-actions gc-result-actions">
+          <button class="gc-button gc-button-primary" type="button" data-action="open-workspace">${t.workspace.open}</button>
           <button class="gc-button gc-button-primary" type="button" data-action="print">${t.print}</button>
           <button class="gc-button gc-button-quiet" type="button" data-action="restart">${t.restart}</button>
           <a class="gc-text-link" href="/doctrine-site-box/${scopePath}/">${t.readScope}</a>
@@ -279,12 +435,199 @@ if (root) {
       </section>`;
   }
 
+  function startWorkspace(blank = false) {
+    if (blank) {
+      state.materialConsequence = "unknown";
+      state.lifecycle = "concept";
+      state.answers = Object.fromEntries(QUESTIONS.map((question) => [question.id, "unknown"]));
+    }
+    const screeningResult = evaluateScreening(state);
+    workspace = {
+      context: {
+        referenceLabel: "",
+        assessedVersion: "",
+        assessmentDate: localDate(),
+        contextLabel: ""
+      },
+      screening: screeningResult,
+      rows: createEvidenceRows(state.answers)
+    };
+    workspaceNotice = "";
+    state.phase = "workspace";
+    render();
+  }
+
+  function contextGaps() {
+    return ["referenceLabel", "assessedVersion", "assessmentDate", "contextLabel"]
+      .filter((field) => !workspace.context[field].trim());
+  }
+
+  function renderWorkspaceRow(row, evaluatedRow, index) {
+    const question = questionById[row.questionId];
+    const source = SCALE.find((item) => item.value === row.sourceAnswer);
+    const excluded = row.evidenceStatus === "excluded";
+    const fieldId = `gc-evidence-${row.questionId}`;
+    const actions = evaluatedRow.actions.map((action) => `<li>${t.workspace.action[action]}</li>`).join("");
+    return `
+      <article class="gc-evidence-row gc-evidence-${evaluatedRow.state}" data-question-id="${row.questionId}">
+        <header class="gc-evidence-row-header">
+          <div>
+            <span class="gc-question-number">${index + 1}. ${AXES.find((axis) => axis.id === row.axis)[language]}</span>
+            <h4>${question[language]}</h4>
+          </div>
+          <span class="gc-state-chip gc-state-${evaluatedRow.state}">${t.workspace.state[evaluatedRow.state]}</span>
+        </header>
+        <p class="gc-source-answer"><strong>${t.workspace.sourceAnswer}:</strong> ${source ? source[language] : row.sourceAnswer}</p>
+        <div class="gc-evidence-fields">
+          <label for="${fieldId}-status">${t.workspace.status}
+            <select id="${fieldId}-status" data-workspace-row="${row.questionId}" data-workspace-field="evidenceStatus">
+              ${selectOptions(EVIDENCE_STATUSES, row.evidenceStatus)}
+            </select>
+          </label>
+          <label for="${fieldId}-class">${t.workspace.evidenceClass}
+            <select id="${fieldId}-class" data-workspace-row="${row.questionId}" data-workspace-field="evidenceClass"${excluded ? " disabled" : ""}>
+              ${selectOptions(EVIDENCE_CLASSES, row.evidenceClass)}
+            </select>
+          </label>
+          <label for="${fieldId}-freshness">${t.workspace.freshness}
+            <select id="${fieldId}-freshness" data-workspace-row="${row.questionId}" data-workspace-field="freshness"${excluded ? " disabled" : ""}>
+              ${selectOptions(FRESHNESS_STATES, row.freshness)}
+            </select>
+          </label>
+          <label for="${fieldId}-conflict">${t.workspace.conflict}
+            <select id="${fieldId}-conflict" data-workspace-row="${row.questionId}" data-workspace-field="conflict"${excluded ? " disabled" : ""}>
+              ${selectOptions(CONFLICT_STATES, row.conflict)}
+            </select>
+          </label>
+          <label class="gc-locator-field" for="${fieldId}-locator">${t.workspace.locator}
+            <input id="${fieldId}-locator" type="text" value="${escapeHtml(row.recordLocator)}" placeholder="${escapeHtml(t.workspace.locatorHint)}" data-workspace-row="${row.questionId}" data-workspace-field="recordLocator" autocomplete="off"${excluded ? " disabled" : ""}>
+          </label>
+        </div>
+        ${actions ? `<ul class="gc-row-actions">${actions}</ul>` : ""}
+      </article>`;
+  }
+
+  function renderWorkspace() {
+    const evaluation = evaluateEvidenceReadiness(workspace.rows);
+    const gaps = contextGaps();
+    const openActions = evaluation.openActions
+      .slice()
+      .sort((a, b) => Number(b.priority) - Number(a.priority))
+      .map((item) => {
+        const question = questionById[item.questionId];
+        return `<li${item.priority ? ' class="gc-priority-action"' : ""}><strong>${question[language]}</strong><span>${item.actions.map((action) => t.workspace.action[action]).join("; ")}</span></li>`;
+      }).join("");
+    const groups = AXES.map((axis) => {
+      const axisEvaluation = evaluation.byAxis.find((item) => item.id === axis.id);
+      const axisRows = workspace.rows.filter((row) => row.axis === axis.id);
+      const hasPriority = axisRows.some((row) => row.critical && evaluation.rows.find((item) => item.questionId === row.questionId)?.state === "open");
+      return `
+        <details class="gc-axis-group"${hasPriority ? " open" : ""}>
+          <summary>
+            <span>${axis[language]}</span>
+            <span>${t.workspace.mapped}: ${axisEvaluation.mapped} · ${t.workspace.openItems}: ${axisEvaluation.open} · ${t.workspace.excluded}: ${axisEvaluation.excluded}</span>
+          </summary>
+          <div class="gc-axis-group-body">
+            ${axisRows.map((row) => renderWorkspaceRow(row, evaluation.rows.find((item) => item.questionId === row.questionId), QUESTIONS.findIndex((question) => question.id === row.questionId))).join("")}
+          </div>
+        </details>`;
+    }).join("");
+
+    root.innerHTML = `
+      <section class="gc-workspace" aria-labelledby="gc-workspace-title">
+        <header class="gc-panel gc-workspace-header">
+          <p class="gc-eyebrow">${t.workspace.eyebrow}</p>
+          <h2 id="gc-workspace-title">${t.workspace.title}</h2>
+          <p class="gc-lead">${t.workspace.purpose}</p>
+          <p class="gc-workspace-privacy">${t.workspace.privacy}</p>
+          <p class="gc-workspace-version">${t.workspace.version}: ${EVIDENCE_WORKSPACE_VERSION}</p>
+        </header>
+
+        <section class="gc-panel gc-context" aria-labelledby="gc-context-title">
+          <h3 id="gc-context-title">${t.workspace.contextTitle}</h3>
+          <div class="gc-context-grid">
+            <label>${t.workspace.referenceLabel}
+              <input type="text" value="${escapeHtml(workspace.context.referenceLabel)}" placeholder="${escapeHtml(t.workspace.referenceHint)}" data-context-field="referenceLabel" autocomplete="off">
+            </label>
+            <label>${t.workspace.versionLabel}
+              <input type="text" value="${escapeHtml(workspace.context.assessedVersion)}" placeholder="${escapeHtml(t.workspace.versionHint)}" data-context-field="assessedVersion" autocomplete="off">
+            </label>
+            <label>${t.workspace.dateLabel}
+              <input type="date" value="${escapeHtml(workspace.context.assessmentDate)}" data-context-field="assessmentDate">
+            </label>
+            <label>${t.workspace.contextLabel}
+              <input type="text" value="${escapeHtml(workspace.context.contextLabel)}" placeholder="${escapeHtml(t.workspace.contextHint)}" data-context-field="contextLabel" autocomplete="off">
+            </label>
+          </div>
+        </section>
+
+        <section class="gc-panel gc-readiness" aria-labelledby="gc-readiness-title">
+          <h3 id="gc-readiness-title">${t.workspace.summaryTitle}</h3>
+          <div class="gc-readiness-grid">
+            <div><strong>${evaluation.summary.mapped}</strong><span>${t.workspace.mapped}</span></div>
+            <div><strong>${evaluation.summary.open}</strong><span>${t.workspace.openItems}</span></div>
+            <div><strong>${evaluation.summary.excluded}</strong><span>${t.workspace.excluded}</span></div>
+            <div><strong>${evaluation.summary.priorityOpen}</strong><span>${t.workspace.priority}</span></div>
+          </div>
+          <p class="gc-hint">${t.workspace.summaryBoundary}</p>
+        </section>
+
+        <section class="gc-evidence-map" aria-labelledby="gc-evidence-map-title">
+          <h3 id="gc-evidence-map-title">${t.workspace.mapTitle}</h3>
+          ${groups}
+        </section>
+
+        <details class="gc-panel gc-action-register" open>
+          <summary>${t.workspace.actionsTitle}</summary>
+          ${gaps.length ? `<p class="gc-context-warning">${gaps.length} ${t.workspace.contextOpen}</p>` : ""}
+          ${openActions ? `<ol>${openActions}</ol>` : `<p>${t.workspace.noOpenActions}</p>`}
+        </details>
+
+        <section class="gc-boundary">
+          <p>${t.workspace.exportBoundary}</p>
+        </section>
+        <p class="gc-live-status" aria-live="polite">${workspaceNotice}</p>
+        <div class="gc-actions gc-workspace-actions">
+          <button class="gc-button gc-button-primary" type="button" data-action="workspace-export">${t.workspace.export}</button>
+          <button class="gc-button gc-button-quiet" type="button" data-action="workspace-print">${t.workspace.print}</button>
+          <button class="gc-button gc-button-quiet" type="button" data-action="workspace-back">${t.workspace.back}</button>
+          <button class="gc-button gc-button-danger" type="button" data-action="workspace-clear">${t.workspace.clear}</button>
+        </div>
+      </section>`;
+  }
+
+  function exportWorkspace() {
+    const payload = buildEvidenceWorkspaceExport({
+      language,
+      context: workspace.context,
+      screening: workspace.screening,
+      rows: workspace.rows
+    });
+    const blob = new Blob([`${JSON.stringify(payload, null, 2)}\n`], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const safeLabel = (workspace.context.referenceLabel || "evidence-readiness")
+      .toLowerCase()
+      .replace(/[^a-z0-9-]+/g, "-")
+      .replace(/^-+|-+$/g, "") || "evidence-readiness";
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = `${safeLabel}-${workspace.context.assessmentDate || "undated"}.json`;
+    document.body.append(anchor);
+    anchor.click();
+    anchor.remove();
+    URL.revokeObjectURL(url);
+    workspaceNotice = t.workspace.exported;
+    const status = root.querySelector(".gc-live-status");
+    if (status) status.textContent = workspaceNotice;
+  }
+
   function render() {
     if (state.phase === "intro") renderIntro();
     if (state.phase === "routing") renderRouting();
     if (state.phase === "questions") renderQuestion();
     if (state.phase === "results") renderResults();
-    root.querySelector("button, input")?.focus({ preventScroll: true });
+    if (state.phase === "workspace") renderWorkspace();
+    root.querySelector("button, input, summary")?.focus({ preventScroll: true });
   }
 
   root.addEventListener("click", (event) => {
@@ -294,6 +637,8 @@ if (root) {
       state.phase = "routing";
       render();
     }
+    if (action === "open-workspace") startWorkspace(false);
+    if (action === "open-workspace-blank") startWorkspace(true);
     if (action === "back") {
       if (state.phase === "routing" && state.routingIndex === 0) state.phase = "intro";
       else if (state.phase === "routing") state.routingIndex -= 1;
@@ -304,6 +649,15 @@ if (root) {
       render();
     }
     if (action === "print") window.print();
+    if (action === "workspace-print") window.print();
+    if (action === "workspace-export") exportWorkspace();
+    if (action === "workspace-back") {
+      state.phase = "results";
+      render();
+    }
+    if (action === "workspace-clear" && window.confirm(t.workspace.clearConfirm)) {
+      startWorkspace(false);
+    }
     if (action === "restart") {
       state.phase = "intro";
       state.routingIndex = 0;
@@ -313,6 +667,45 @@ if (root) {
       state.answers = {};
       render();
     }
+  });
+
+  root.addEventListener("input", (event) => {
+    const contextField = event.target.dataset.contextField;
+    if (contextField) workspace.context[contextField] = event.target.value;
+    const rowId = event.target.dataset.workspaceRow;
+    const field = event.target.dataset.workspaceField;
+    if (rowId && field === "recordLocator") {
+      const row = workspace.rows.find((item) => item.questionId === rowId);
+      if (row) row.recordLocator = event.target.value;
+    }
+  });
+
+  root.addEventListener("change", (event) => {
+    const contextField = event.target.dataset.contextField;
+    if (contextField) {
+      workspace.context[contextField] = event.target.value;
+      return;
+    }
+    const rowId = event.target.dataset.workspaceRow;
+    const field = event.target.dataset.workspaceField;
+    if (!rowId || !field) return;
+    const row = workspace.rows.find((item) => item.questionId === rowId);
+    if (!row) return;
+    if (field === "recordLocator") {
+      row.recordLocator = event.target.value;
+      workspaceNotice = "";
+      renderWorkspace();
+      root.querySelector(`[data-workspace-row="${rowId}"][data-workspace-field="recordLocator"]`)?.focus({ preventScroll: true });
+      return;
+    }
+    row[field] = event.target.value;
+    if (field === "evidenceStatus" && event.target.value !== "excluded" && row.freshness === "not-applicable") {
+      row.freshness = "unknown";
+      row.conflict = "unknown";
+    }
+    workspaceNotice = "";
+    renderWorkspace();
+    root.querySelector(`[data-workspace-row="${rowId}"][data-workspace-field="${field}"]`)?.focus({ preventScroll: true });
   });
 
   root.addEventListener("submit", (event) => {
