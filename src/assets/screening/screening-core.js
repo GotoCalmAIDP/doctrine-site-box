@@ -1,5 +1,8 @@
-export const ASSESSMENT_VERSION = "screening-core 0.1.0-alpha";
+export const ASSESSMENT_VERSION = "screening-core 0.2.0-alpha";
 export const ASSESSMENT_DATE = "2026-09-21";
+
+export const CONSEQUENCE_CLASSES = ["informational", "limited", "enterprise", "high", "critical", "unknown"];
+export const SECTOR_CONTEXTS = ["general", "enterprise", "maritime", "critical-infrastructure", "unbounded"];
 
 export const AXES = [
   { id: "scope", en: "Scope and applicability basis", ua: "Обсяг і підстава застосовності" },
@@ -155,7 +158,16 @@ function normalizedAnswer(value) {
   return match || null;
 }
 
-export function evaluateScreening({ materialConsequence, lifecycle, answers }) {
+export function normalizeConsequenceClass(value) {
+  const normalized = String(value ?? "unknown");
+  if (normalized === "yes") return "enterprise";
+  if (normalized === "no") return "informational";
+  return CONSEQUENCE_CLASSES.includes(normalized) ? normalized : "unknown";
+}
+
+export function evaluateScreening({ consequenceClass, materialConsequence, sectorContext = "general", lifecycle, answers }) {
+  const resolvedConsequenceClass = normalizeConsequenceClass(consequenceClass ?? materialConsequence);
+  const resolvedSectorContext = SECTOR_CONTEXTS.includes(sectorContext) ? sectorContext : "unbounded";
   const axisState = Object.fromEntries(AXES.map((axis) => [axis.id, { earned: 0, possible: 0, unknown: 0, out: 0 }]));
   const priorityFlags = [];
   let unknownCount = 0;
@@ -203,9 +215,9 @@ export function evaluateScreening({ materialConsequence, lifecycle, answers }) {
   const materiallyLowAxis = axes.some((axis) => axis.score !== null && axis.score < 50);
 
   let outcome;
-  if (materialConsequence === "unknown" || weakScope || unknownCount >= 4 || outOfScopeCount > 0 || emptyAxis) {
+  if (resolvedConsequenceClass === "unknown" || resolvedSectorContext === "unbounded" || weakScope || unknownCount >= 4 || outOfScopeCount > 0 || emptyAxis) {
     outcome = "indeterminate";
-  } else if (materialConsequence === "yes" || priorityFlags.length > 0 || materiallyLowAxis) {
+  } else if (["enterprise", "high", "critical"].includes(resolvedConsequenceClass) || priorityFlags.length > 0 || materiallyLowAxis) {
     outcome = "review";
   } else {
     outcome = "no-escalation";
@@ -217,7 +229,8 @@ export function evaluateScreening({ materialConsequence, lifecycle, answers }) {
     priorityFlags,
     unknownCount,
     outOfScopeCount,
-    materialConsequence,
+    consequenceClass: resolvedConsequenceClass,
+    sectorContext: resolvedSectorContext,
     lifecycle,
     version: ASSESSMENT_VERSION,
     assessmentDate: ASSESSMENT_DATE
