@@ -1,13 +1,4 @@
 {
-  "/en/": {
-    "title": "Applicability Boundary Doctrine",
-    "description": "A conceptual reference framework describing structural limits of operational validity in complex systems.",
-    "og_title": "Applicability Boundary Doctrine | Applicability Boundary Doctrine",
-    "og_description": "A conceptual reference framework describing structural limits of operational validity in complex systems.",
-    "twitter_title": "Applicability Boundary Doctrine | Applicability Boundary Doctrine",
-    "twitter_description": "A conceptual reference framework describing structural limits of operational validity in complex systems.",
-    "source": "front matter description"
-  },
   "/en/about/": {
     "title": "About the Project",
     "description": "About Doctrine Site — purpose, scope, and bilingual documentation approach.",
@@ -161,24 +152,6 @@
     "twitter_description": "Canonical structural template for non-claim illustrative cases. No content — structure only.",
     "source": "front matter description"
   },
-  "/en/cases-overview-note/": {
-    "title": "Cases Overview Note — How the Cases Relate",
-    "description": "Purpose: This note provides a structural overview of the illustrative cases published within the doctrine.",
-    "og_title": "Cases Overview Note — How the Cases Relate | Applicability Boundary Doctrine",
-    "og_description": "Purpose: This note provides a structural overview of the illustrative cases published within the doctrine.",
-    "twitter_title": "Cases Overview Note — How the Cases Relate | Applicability Boundary Doctrine",
-    "twitter_description": "Purpose: This note provides a structural overview of the illustrative cases published within the doctrine.",
-    "source": "first visible paragraph"
-  },
-  "/en/cases/": {
-    "title": "Illustrative Non-Claim Case Library",
-    "description": "Illustrative non-claim case materials documenting applicability boundaries without conclusions, recommendations, or certification claims.",
-    "og_title": "Illustrative Non-Claim Case Library | Applicability Boundary Doctrine",
-    "og_description": "Illustrative non-claim case materials documenting applicability boundaries without conclusions, recommendations, or certification claims.",
-    "twitter_title": "Illustrative Non-Claim Case Library | Applicability Boundary Doctrine",
-    "twitter_description": "Illustrative non-claim case materials documenting applicability boundaries without conclusions, recommendations, or certification claims.",
-    "source": "front matter description"
-  },
   "/en/cases/case-001/": {
     "title": "Case 001 — Illustrative Non-Claim Case",
     "description": "An illustrative non-claim case demonstrating the boundary of explanatory applicability. No causation, prediction, or recommendations.",
@@ -214,6 +187,24 @@
     "twitter_title": "Case 004 — Illustrative Non-Claim Case (Update / Change Boundary) | Applicability Boundary Doctrine",
     "twitter_description": "Purpose: This case documents a situation in which an explanatory model was initially applicable, but a change in conditions, configuration, or version causes that applicability to no…",
     "source": "first visible paragraph"
+  },
+  "/en/cases-overview-note/": {
+    "title": "Cases Overview Note — How the Cases Relate",
+    "description": "Purpose: This note provides a structural overview of the illustrative cases published within the doctrine.",
+    "og_title": "Cases Overview Note — How the Cases Relate | Applicability Boundary Doctrine",
+    "og_description": "Purpose: This note provides a structural overview of the illustrative cases published within the doctrine.",
+    "twitter_title": "Cases Overview Note — How the Cases Relate | Applicability Boundary Doctrine",
+    "twitter_description": "Purpose: This note provides a structural overview of the illustrative cases published within the doctrine.",
+    "source": "first visible paragraph"
+  },
+  "/en/cases/": {
+    "title": "Illustrative Non-Claim Case Library",
+    "description": "Illustrative non-claim case materials documenting applicability boundaries without conclusions, recommendations, or certification claims.",
+    "og_title": "Illustrative Non-Claim Case Library | Applicability Boundary Doctrine",
+    "og_description": "Illustrative non-claim case materials documenting applicability boundaries without conclusions, recommendations, or certification claims.",
+    "twitter_title": "Illustrative Non-Claim Case Library | Applicability Boundary Doctrine",
+    "twitter_description": "Illustrative non-claim case materials documenting applicability boundaries without conclusions, recommendations, or certification claims.",
+    "source": "front matter description"
   },
   "/en/change-log/": {
     "title": "Change Log",
@@ -422,6 +413,15 @@
     "twitter_description": "Purpose: This page defines what this site is, what it is not, and how it should be approached by a first-time reader.",
     "source": "first visible paragraph"
   },
+  "/en/": {
+    "title": "Applicability Boundary Doctrine",
+    "description": "A conceptual reference framework describing structural limits of operational validity in complex systems.",
+    "og_title": "Applicability Boundary Doctrine | Applicability Boundary Doctrine",
+    "og_description": "A conceptual reference framework describing structural limits of operational validity in complex systems.",
+    "twitter_title": "Applicability Boundary Doctrine | Applicability Boundary Doctrine",
+    "twitter_description": "A conceptual reference framework describing structural limits of operational validity in complex systems.",
+    "source": "front matter description"
+  },
   "/en/method/": {
     "title": "Method",
     "description": "Documentation method — five-step approach to structured technical explanation.",
@@ -520,15 +520,6 @@
     "twitter_title": "Terms of Use | Applicability Boundary Doctrine",
     "twitter_description": "Language: English Page: Terms of Use Status: Legal Notice",
     "source": "first visible paragraph"
-  },
-  "/ua/": {
-    "title": "Доктрина межі застосовності",
-    "description": "Концептуальна довідкова структура, що описує структурні межі операційної валідності у складних системах.",
-    "og_title": "Доктрина межі застосовності | Доктрина межі застосовності",
-    "og_description": "Концептуальна довідкова структура, що описує структурні межі операційної валідності у складних системах.",
-    "twitter_title": "Доктрина межі застосовності | Доктрина межі застосовності",
-    "twitter_description": "Концептуальна довідкова структура, що описує структурні межі операційної валідності у складних системах.",
-    "source": "front matter description"
   },
   "/ua/about/": {
     "title": "Про проєкт",
@@ -683,24 +674,6 @@
     "twitter_description": "Канонічний структурний шаблон для ілюстративних кейсів без тверджень. Без контенту — лише структура.",
     "source": "front matter description"
   },
-  "/ua/cases-overview-note/": {
-    "title": "Нотатка про огляд кейсів — Як кейси співвідносяться",
-    "description": "Призначення: Ця нотатка надає структурний огляд ілюстративних кейсів, опублікованих у межах доктрини.",
-    "og_title": "Нотатка про огляд кейсів — Як кейси співвідносяться | Доктрина межі застосовності",
-    "og_description": "Призначення: Ця нотатка надає структурний огляд ілюстративних кейсів, опублікованих у межах доктрини.",
-    "twitter_title": "Нотатка про огляд кейсів — Як кейси співвідносяться | Доктрина межі застосовності",
-    "twitter_description": "Призначення: Ця нотатка надає структурний огляд ілюстративних кейсів, опублікованих у межах доктрини.",
-    "source": "first visible paragraph"
-  },
-  "/ua/cases/": {
-    "title": "Ілюстративна бібліотека кейсів без тверджень",
-    "description": "Ілюстративні матеріали кейсів без тверджень, що документують межі застосовності без висновків, рекомендацій або претензій на сертифікацію.",
-    "og_title": "Ілюстративна бібліотека кейсів без тверджень | Доктрина межі застосовності",
-    "og_description": "Ілюстративні матеріали кейсів без тверджень, що документують межі застосовності без висновків, рекомендацій або претензій на сертифікацію.",
-    "twitter_title": "Ілюстративна бібліотека кейсів без тверджень | Доктрина межі застосовності",
-    "twitter_description": "Ілюстративні матеріали кейсів без тверджень, що документують межі застосовності без висновків, рекомендацій або претензій на сертифікацію.",
-    "source": "front matter description"
-  },
   "/ua/cases/case-001/": {
     "title": "Кейс 001 — Ілюстративний кейс без тверджень",
     "description": "Ілюстративний кейс без тверджень, що демонструє межу пояснювальної застосовності. Без причинності, прогнозів чи рекомендацій.",
@@ -736,6 +709,24 @@
     "twitter_title": "Кейс 004 — Ілюстративний кейс без твердження (Межа оновлення / зміни) | Доктрина межі застосовності",
     "twitter_description": "Призначення: Цей кейс документує ситуацію, в якій пояснювальна модель спочатку була застосовною, але зміна умов, конфігурації або версії призводить до того, що ця застосовність більше…",
     "source": "first visible paragraph"
+  },
+  "/ua/cases-overview-note/": {
+    "title": "Нотатка про огляд кейсів — Як кейси співвідносяться",
+    "description": "Призначення: Ця нотатка надає структурний огляд ілюстративних кейсів, опублікованих у межах доктрини.",
+    "og_title": "Нотатка про огляд кейсів — Як кейси співвідносяться | Доктрина межі застосовності",
+    "og_description": "Призначення: Ця нотатка надає структурний огляд ілюстративних кейсів, опублікованих у межах доктрини.",
+    "twitter_title": "Нотатка про огляд кейсів — Як кейси співвідносяться | Доктрина межі застосовності",
+    "twitter_description": "Призначення: Ця нотатка надає структурний огляд ілюстративних кейсів, опублікованих у межах доктрини.",
+    "source": "first visible paragraph"
+  },
+  "/ua/cases/": {
+    "title": "Ілюстративна бібліотека кейсів без тверджень",
+    "description": "Ілюстративні матеріали кейсів без тверджень, що документують межі застосовності без висновків, рекомендацій або претензій на сертифікацію.",
+    "og_title": "Ілюстративна бібліотека кейсів без тверджень | Доктрина межі застосовності",
+    "og_description": "Ілюстративні матеріали кейсів без тверджень, що документують межі застосовності без висновків, рекомендацій або претензій на сертифікацію.",
+    "twitter_title": "Ілюстративна бібліотека кейсів без тверджень | Доктрина межі застосовності",
+    "twitter_description": "Ілюстративні матеріали кейсів без тверджень, що документують межі застосовності без висновків, рекомендацій або претензій на сертифікацію.",
+    "source": "front matter description"
   },
   "/ua/change-log/": {
     "title": "Журнал змін",
@@ -943,6 +934,15 @@
     "twitter_title": "Вступна нотатка — Що таке цей сайт | Доктрина межі застосовності",
     "twitter_description": "Призначення: Ця сторінка визначає, що таке цей сайт, чим він не є, та як до нього слід підходити читачеві вперше.",
     "source": "first visible paragraph"
+  },
+  "/ua/": {
+    "title": "Доктрина межі застосовності",
+    "description": "Концептуальна довідкова структура, що описує структурні межі операційної валідності у складних системах.",
+    "og_title": "Доктрина межі застосовності | Доктрина межі застосовності",
+    "og_description": "Концептуальна довідкова структура, що описує структурні межі операційної валідності у складних системах.",
+    "twitter_title": "Доктрина межі застосовності | Доктрина межі застосовності",
+    "twitter_description": "Концептуальна довідкова структура, що описує структурні межі операційної валідності у складних системах.",
+    "source": "front matter description"
   },
   "/ua/method/": {
     "title": "Метод",
