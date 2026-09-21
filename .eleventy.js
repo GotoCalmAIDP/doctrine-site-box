@@ -26,6 +26,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addGlobalData("navigation", {
     en: [
       { title: "Home", url: pathPrefix + "/en/" },
+      { title: "Screening", url: pathPrefix + "/en/screening/" },
       { title: "Index", url: pathPrefix + "/en/index-note/" },
       { title: "About", url: pathPrefix + "/en/about/" },
       { title: "Doctrine", url: pathPrefix + "/en/doctrine/" },
@@ -53,6 +54,7 @@ module.exports = function(eleventyConfig) {
     ],
     ua: [
       { title: "Головна", url: pathPrefix + "/ua/" },
+      { title: "Скринінг", url: pathPrefix + "/ua/screening/" },
       { title: "Вступ", url: pathPrefix + "/ua/index-note/" },
       { title: "Про проєкт", url: pathPrefix + "/ua/about/" },
       { title: "Доктрина", url: pathPrefix + "/ua/doctrine/" },

@@ -485,6 +485,15 @@
     "twitter_description": "What this site is and is not — explicit scope boundaries and non-claims statement.",
     "source": "front matter description"
   },
+  "/en/screening/": {
+    "title": "Applicability and Execution Boundary Screening",
+    "description": "A private-by-design self-assessment that identifies scope uncertainty and signals when deeper evidence review may be useful.",
+    "og_title": "Applicability and Execution Boundary Screening | Applicability Boundary Doctrine",
+    "og_description": "A private-by-design self-assessment that identifies scope uncertainty and signals when deeper evidence review may be useful.",
+    "twitter_title": "Applicability and Execution Boundary Screening | Applicability Boundary Doctrine",
+    "twitter_description": "A private-by-design self-assessment that identifies scope uncertainty and signals when deeper evidence review may be useful.",
+    "source": "front matter description"
+  },
   "/en/terminology-applicability/": {
     "title": "Applicability Terminology Reference",
     "description": "Canonical terminology reference for operational applicability boundaries.",
@@ -996,6 +1005,15 @@
     "og_description": "Що являє собою цей сайт і чим він не є — явні межі обсягу та заява про невизнання претензій.",
     "twitter_title": "Межі застосування | Доктрина межі застосовності",
     "twitter_description": "Що являє собою цей сайт і чим він не є — явні межі обсягу та заява про невизнання претензій.",
+    "source": "front matter description"
+  },
+  "/ua/screening/": {
+    "title": "Скринінг меж застосовності та виконання",
+    "description": "Приватна за задумом самооцінка, що виявляє невизначеність обсягу та сигналізує, коли може бути корисним глибший розгляд свідчень.",
+    "og_title": "Скринінг меж застосовності та виконання | Доктрина межі застосовності",
+    "og_description": "Приватна за задумом самооцінка, що виявляє невизначеність обсягу та сигналізує, коли може бути корисним глибший розгляд свідчень.",
+    "twitter_title": "Скринінг меж застосовності та виконання | Доктрина межі застосовності",
+    "twitter_description": "Приватна за задумом самооцінка, що виявляє невизначеність обсягу та сигналізує, коли може бути корисним глибший розгляд свідчень.",
     "source": "front matter description"
   },
   "/ua/terminology-applicability/": {
