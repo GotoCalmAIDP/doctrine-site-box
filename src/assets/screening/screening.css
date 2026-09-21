@@ -315,9 +315,14 @@
 }
 
 .gc-context h3,
+.gc-workspace-tools h3,
 .gc-readiness h3,
 .gc-evidence-map > h3 {
   margin-top: 0;
+}
+
+.gc-workspace-tools .gc-actions {
+  margin-top: 0.85rem;
 }
 
 .gc-context-grid,
@@ -516,6 +521,32 @@
   border-bottom: 1px solid var(--gc-line);
 }
 
+.gc-action-filter {
+  color: var(--gc-muted);
+  display: grid;
+  font-size: 0.88rem;
+  font-weight: 700;
+  gap: 0.35rem;
+  margin: 1rem 1rem 0;
+  max-width: 18rem;
+}
+
+.gc-action-filter select {
+  background: #fff;
+  border: 1px solid #aebbc4;
+  border-radius: 8px;
+  color: var(--gc-ink);
+  font: inherit;
+  min-height: 44px;
+  padding: 0.65rem 0.7rem;
+  width: 100%;
+}
+
+.gc-action-filter select:focus-visible {
+  outline: 3px solid #004c99;
+  outline-offset: 2px;
+}
+
 .gc-action-register ol,
 .gc-action-register > p {
   margin: 0;
@@ -594,7 +625,9 @@
   .site-header,
   .site-footer,
   .gc-result-actions,
+  .gc-workspace-tools,
   .gc-workspace-actions,
+  .gc-action-filter,
   .gc-live-status,
   .content > h1 {
     display: none !important;
