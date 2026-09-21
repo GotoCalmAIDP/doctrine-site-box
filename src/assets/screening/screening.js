@@ -27,9 +27,9 @@ if (root) {
       alpha: "Public alpha · self-reported",
       lead: "A short boundary screening for automated, AI-enabled and consequence-bearing systems.",
       purpose: "It helps identify where the stated scope is incomplete or where a deeper evidence review may be useful. It does not determine compliance, safety, certification, conformance or permission to operate.",
-      time: "19 selections · about 6–9 minutes",
+      time: "20 selections · about 6–9 minutes",
       private: "Private by design",
-      privateText: "The assessment runs in this browser. No account, uploads, names, free text or answer submission are used.",
+      privateText: "The assessment runs in this browser. No account, names, free text, answer submission or server upload is used.",
       before: "Before you begin",
       beforeItems: [
         "Choose one specific system or decision context and one current version.",
@@ -43,12 +43,24 @@ if (root) {
       back: "Back",
       next: "Continue",
       seeResult: "See screening result",
-      materialTitle: "Could this system or its output create a material consequence?",
-      materialHint: "Include physical, operational, legal, financial or durable recorded consequences. Choose unknown if the consequence path has not been mapped.",
-      materialOptions: [
-        ["yes", "Yes"],
-        ["no", "No, within the stated scope"],
-        ["unknown", "Unknown"]
+      consequenceTitle: "What is the highest credible consequence in the stated scope?",
+      consequenceHint: "Choose a public triage class, not a legal, regulatory, safety-integrity or DP equipment class. Use the highest credible path, including loss of control and delayed effects.",
+      consequenceOptions: [
+        ["informational", "0", "Informational", "No material consequence or independent reliance in the stated scope."],
+        ["limited", "1", "Limited", "Localized and timely reversible impact."],
+        ["enterprise", "2", "Enterprise", "Material organizational, legal, financial, workforce, customer or sustained operational impact."],
+        ["high", "3", "High consequence", "Regulated, safety-significant, environmental, critical-service or public-interest impact."],
+        ["critical", "4", "Critical execution", "Plausible loss of life, major pollution, critical-infrastructure harm, or vessel / industrial actuation."],
+        ["unknown", "?", "Unresolved", "The consequence path is not yet bounded."]
+      ],
+      sectorTitle: "Which context lens is most useful for this screening?",
+      sectorHint: "Context changes the evidence questions, but it does not determine consequence class, product tier or permission to operate.",
+      sectorOptions: [
+        ["general", "General / advisory"],
+        ["enterprise", "Enterprise organization"],
+        ["maritime", "Maritime / DP / remote operations"],
+        ["critical-infrastructure", "Critical infrastructure / industrial OT"],
+        ["unbounded", "Not yet bounded"]
       ],
       lifecycleTitle: "What is the closest current lifecycle context?",
       lifecycleHint: "Select the present context, not the intended future state.",
@@ -69,12 +81,30 @@ if (root) {
       profileHelp: "Percentages summarize selected answers within each axis. They are navigation aids, not grades, benchmarks or proof.",
       unknown: "Unknown answers",
       excluded: "Out-of-scope answers",
-      material: "Material consequence path",
+      consequenceClass: "Public triage class",
+      sector: "Context lens",
       lifecycle: "Lifecycle context",
-      yes: "Yes",
-      no: "No",
-      unknownValue: "Unknown",
+      consequenceBoundary: "This class selects review depth only. It is not a legal classification, DP equipment class, safety rating, risk acceptance or authorization.",
       contexts: { concept: "Concept / research", design: "Design / pre-deployment", pilot: "Pilot / test", live: "Live / production" },
+      sectors: { general: "General / advisory", enterprise: "Enterprise organization", maritime: "Maritime / DP / remote operations", "critical-infrastructure": "Critical infrastructure / industrial OT", unbounded: "Not bounded" },
+      routeTitle: "Suggested evidence route",
+      routeBoundary: "Consequence class increases expected evidence depth. Product tier, sector package and deployment profile remain separate choices.",
+      reviewPath: {
+        informational: ["Tier 0 · boundary screen", "Keep use advisory. Reclassify if independent reliance, durable commitment or actuation appears."],
+        limited: ["Tier 1 · evidence readiness", "Map scope, limitations, current records, human authority and rollback resources."],
+        enterprise: ["Tier 1 + scoped Tier 2 review", "Add obligation mapping, named authority, conflict checks and durable proof reconstruction."],
+        high: ["Tier 2 · independent evidence review", "Add dated regulatory posture, external corroboration and change-triggered reassessment."],
+        critical: ["Tier 3 · critical-systems / sector engagement", "Use sector specialists and formal safety, regulatory, class or flag processes. The public screen must not authorize operation."],
+        unknown: ["Bound the consequence path first", "No reliable review depth can be selected while the highest credible consequence remains unresolved."]
+      },
+      sectorFocusTitle: "Context-specific evidence focus",
+      sectorFocus: {
+        general: ["scope and exclusions", "authority at the point of use", "evidence freshness"],
+        enterprise: ["legal, financial and operational obligations", "organizational and authority boundaries", "durable review record"],
+        maritime: ["functional allocation and control locus", "connectivity, fallback and operative capacity", "evidence standing with separate class / flag review"],
+        "critical-infrastructure": ["commit and actuation boundary", "topology-wide stop and revocation", "safe degradation and post-consequence proof"],
+        unbounded: ["define the operating context before relying on this route"]
+      },
       method: "Assessment record",
       selfReported: "Self-reported; evidence not reviewed",
       disclaimerTitle: "Important boundary",
@@ -160,9 +190,9 @@ if (root) {
       alpha: "Публічна альфа · самооцінка",
       lead: "Короткий скринінг меж для автоматизованих, ШІ-підсилених систем і систем із наслідками.",
       purpose: "Допомагає виявити неповний заявлений обсяг або потребу в глибшому розгляді свідчень. Не визначає відповідність, безпеку, сертифікацію, конформність чи дозвіл на експлуатацію.",
-      time: "19 виборів · приблизно 6–9 хвилин",
+      time: "20 виборів · приблизно 6–9 хвилин",
       private: "Приватність за задумом",
-      privateText: "Оцінювання виконується в цьому браузері. Обліковий запис, завантаження, імена, вільний текст і надсилання відповідей не використовуються.",
+      privateText: "Оцінювання виконується в цьому браузері. Обліковий запис, імена, вільний текст, надсилання відповідей і серверне завантаження не використовуються.",
       before: "Перед початком",
       beforeItems: [
         "Оберіть одну конкретну систему або контекст рішення та одну актуальну версію.",
@@ -176,12 +206,24 @@ if (root) {
       back: "Назад",
       next: "Продовжити",
       seeResult: "Показати результат",
-      materialTitle: "Чи може ця система або її результат створити суттєвий наслідок?",
-      materialHint: "Враховуйте фізичні, операційні, правові, фінансові або довговічно зафіксовані наслідки. Оберіть «Невідомо», якщо шлях наслідків не картовано.",
-      materialOptions: [
-        ["yes", "Так"],
-        ["no", "Ні, у заявленому обсязі"],
-        ["unknown", "Невідомо"]
+      consequenceTitle: "Який найвищий достовірно можливий наслідок у заявленому обсязі?",
+      consequenceHint: "Оберіть публічний triage-клас, а не юридичний, регуляторний, safety-integrity чи DP equipment class. Врахуйте найтяжчий достовірний шлях, включно з втратою керування та відкладеними наслідками.",
+      consequenceOptions: [
+        ["informational", "0", "Інформаційний", "У заявленому обсязі немає суттєвого наслідку або незалежного покладання на результат."],
+        ["limited", "1", "Обмежений", "Локальний вплив, який можна вчасно й повністю повернути."],
+        ["enterprise", "2", "Enterprise", "Суттєвий організаційний, правовий, фінансовий, кадровий, клієнтський або тривалий операційний вплив."],
+        ["high", "3", "Високі наслідки", "Регульований, безпеково значущий, екологічний, суспільний вплив або вплив на критичну послугу."],
+        ["critical", "4", "Критичне виконання", "Можливі втрата життя, значне забруднення, шкода критичній інфраструктурі або керування судном / промисловим об’єктом."],
+        ["unknown", "?", "Не визначено", "Шлях наслідків ще не обмежено."]
+      ],
+      sectorTitle: "Яка контекстна лінза найкорисніша для цього скринінгу?",
+      sectorHint: "Контекст змінює питання до свідчень, але не визначає клас наслідків, рівень продукту чи дозвіл на експлуатацію.",
+      sectorOptions: [
+        ["general", "Загальний / консультативний"],
+        ["enterprise", "Enterprise-організація"],
+        ["maritime", "Maritime / DP / віддалені операції"],
+        ["critical-infrastructure", "Критична інфраструктура / промислова OT"],
+        ["unbounded", "Ще не визначено"]
       ],
       lifecycleTitle: "Який поточний контекст життєвого циклу є найближчим?",
       lifecycleHint: "Оберіть теперішній контекст, а не бажаний майбутній стан.",
@@ -202,12 +244,30 @@ if (root) {
       profileHelp: "Відсотки підсумовують обрані відповіді в межах кожної осі. Це навігаційні орієнтири, а не оцінки, еталони чи докази.",
       unknown: "Відповіді «Невідомо»",
       excluded: "Відповіді «Поза обсягом»",
-      material: "Шлях суттєвих наслідків",
+      consequenceClass: "Публічний triage-клас",
+      sector: "Контекстна лінза",
       lifecycle: "Контекст життєвого циклу",
-      yes: "Так",
-      no: "Ні",
-      unknownValue: "Невідомо",
+      consequenceBoundary: "Цей клас лише обирає глибину перегляду. Це не юридична класифікація, DP equipment class, рейтинг безпеки, прийняття ризику чи авторизація.",
       contexts: { concept: "Концепція / дослідження", design: "Проєктування / до розгортання", pilot: "Пілот / тест", live: "Діюча / виробнича" },
+      sectors: { general: "Загальний / консультативний", enterprise: "Enterprise-організація", maritime: "Maritime / DP / віддалені операції", "critical-infrastructure": "Критична інфраструктура / промислова OT", unbounded: "Не визначено" },
+      routeTitle: "Рекомендований доказовий маршрут",
+      routeBoundary: "Вищий клас наслідків підвищує очікувану глибину свідчень. Рівень продукту, галузевий пакет і профіль розгортання залишаються окремими виборами.",
+      reviewPath: {
+        informational: ["Tier 0 · скринінг меж", "Зберігайте використання консультативним. Перекласифікуйте, якщо з’являться незалежне покладання, тривале зобов’язання або виконання."],
+        limited: ["Tier 1 · готовність свідчень", "Картуйте обсяг, обмеження, актуальні записи, людські повноваження та ресурси відкату."],
+        enterprise: ["Tier 1 + обмежений перегляд Tier 2", "Додайте картування зобов’язань, названого носія повноважень, перевірку конфліктів і довговічне відтворення доказів."],
+        high: ["Tier 2 · незалежний перегляд свідчень", "Додайте датовану регуляторну позицію, зовнішнє підтвердження та повторне оцінювання після змін."],
+        critical: ["Tier 3 · critical-systems / sector engagement", "Залучайте галузевих фахівців і формальні safety, regulatory, class або flag процеси. Публічний скринінг не може дозволяти експлуатацію."],
+        unknown: ["Спочатку обмежте шлях наслідків", "Надійну глибину перегляду не можна обрати, доки найвищий достовірний наслідок не визначено."]
+      },
+      sectorFocusTitle: "Контекстний фокус свідчень",
+      sectorFocus: {
+        general: ["обсяг і виключення", "повноваження в точці використання", "актуальність свідчень"],
+        enterprise: ["правові, фінансові й операційні зобов’язання", "організаційні межі та межі повноважень", "довговічний запис перегляду"],
+        maritime: ["функціональний розподіл і locus керування", "зв’язність, fallback і operative capacity", "чинність свідчень з окремим class / flag review"],
+        "critical-infrastructure": ["межа commit і actuation", "зупинка та відкликання в усій топології", "безпечна деградація і доказ після наслідку"],
+        unbounded: ["визначте операційний контекст, перш ніж покладатися на цей маршрут"]
+      },
       method: "Запис оцінювання",
       selfReported: "Самооцінка; свідчення не перевірялися",
       disclaimerTitle: "Важлива межа",
@@ -302,7 +362,8 @@ if (root) {
     phase: "intro",
     routingIndex: 0,
     questionIndex: 0,
-    materialConsequence: null,
+    consequenceClass: null,
+    sectorContext: null,
     lifecycle: null,
     answers: {}
   };
@@ -318,7 +379,7 @@ if (root) {
     screening: null,
     rows: []
   };
-  const total = QUESTIONS.length + 2;
+  const total = QUESTIONS.length + 3;
   const questionById = Object.fromEntries(QUESTIONS.map((question) => [question.id, question]));
 
   const checked = (actual, expected) => actual === expected ? " checked" : "";
@@ -345,6 +406,13 @@ if (root) {
       <span>${label}</span>
     </label>`).join("");
 
+  const consequenceOptions = (items, selected) => items.map(([value, code, label, description]) => `
+    <label class="gc-option gc-consequence-option">
+      <input type="radio" name="answer" value="${value}"${checked(selected, value)}>
+      <span class="gc-class-code">${code}</span>
+      <span><strong>${label}</strong><small>${description}</small></span>
+    </label>`).join("");
+
   function renderIntro() {
     root.innerHTML = `
       <section class="gc-panel gc-intro" aria-labelledby="gc-intro-title">
@@ -366,18 +434,18 @@ if (root) {
   }
 
   function renderRouting() {
-    const isMaterial = state.routingIndex === 0;
-    const title = isMaterial ? t.materialTitle : t.lifecycleTitle;
-    const hint = isMaterial ? t.materialHint : t.lifecycleHint;
-    const choiceList = isMaterial ? t.materialOptions : t.lifecycleOptions;
-    const selected = isMaterial ? state.materialConsequence : state.lifecycle;
+    const route = [
+      { title: t.consequenceTitle, hint: t.consequenceHint, choiceList: t.consequenceOptions, selected: state.consequenceClass, rich: true },
+      { title: t.sectorTitle, hint: t.sectorHint, choiceList: t.sectorOptions, selected: state.sectorContext },
+      { title: t.lifecycleTitle, hint: t.lifecycleHint, choiceList: t.lifecycleOptions, selected: state.lifecycle }
+    ][state.routingIndex];
     root.innerHTML = `
       ${progress(state.routingIndex + 1)}
       <form class="gc-panel gc-question" data-form="routing">
         <fieldset>
-          <legend>${title}</legend>
-          <p class="gc-hint">${hint}</p>
-          <div class="gc-options">${options(choiceList, selected)}</div>
+          <legend>${route.title}</legend>
+          <p class="gc-hint">${route.hint}</p>
+          <div class="gc-options${route.rich ? " gc-consequence-options" : ""}">${route.rich ? consequenceOptions(route.choiceList, route.selected) : options(route.choiceList, route.selected)}</div>
           <p class="gc-form-error" role="alert" hidden>${t.answerRequired}</p>
         </fieldset>
         <div class="gc-actions">
@@ -389,7 +457,7 @@ if (root) {
 
   function renderQuestion() {
     const question = QUESTIONS[state.questionIndex];
-    const current = state.questionIndex + 3;
+    const current = state.questionIndex + 4;
     const scaleItems = SCALE.map((item) => [item.value, item[language]]);
     root.innerHTML = `
       ${progress(current)}
@@ -411,7 +479,10 @@ if (root) {
   function renderResults() {
     const result = evaluateScreening(state);
     const [title, description] = t.outcome[result.outcome];
-    const consequenceLabel = result.materialConsequence === "yes" ? t.yes : result.materialConsequence === "no" ? t.no : t.unknownValue;
+    const selectedConsequence = t.consequenceOptions.find(([value]) => value === result.consequenceClass) || t.consequenceOptions.at(-1);
+    const consequenceLabel = `${selectedConsequence[1]} · ${selectedConsequence[2]}`;
+    const [routeTitle, routeDescription] = t.reviewPath[result.consequenceClass];
+    const sectorFocus = t.sectorFocus[result.sectorContext] || t.sectorFocus.unbounded;
     const scopePath = language === "en" ? "en/scope-and-limitations" : "ua/scope-and-limitations";
     const evidencePath = language === "en" ? "en/evidence" : "ua/evidence";
     root.innerHTML = `
@@ -421,6 +492,32 @@ if (root) {
           <h2 id="gc-result-title">${title}</h2>
           <p class="gc-lead">${description}</p>
         </div>
+        <section class="gc-panel gc-consequence-map" aria-labelledby="gc-consequence-map-title">
+          <div class="gc-section-heading">
+            <div>
+              <p class="gc-eyebrow">${t.consequenceClass}</p>
+              <h3 id="gc-consequence-map-title">${consequenceLabel}</h3>
+            </div>
+            <span class="gc-selected-class">${t.sectors[result.sectorContext]}</span>
+          </div>
+          <div class="gc-consequence-ladder" role="list">
+            ${t.consequenceOptions.map(([value, code, label]) => `<div class="gc-consequence-step${value === result.consequenceClass ? " is-selected" : ""}${value === "unknown" ? " is-unresolved" : ""}" role="listitem"><span>${code}</span><strong>${label}</strong></div>`).join("")}
+          </div>
+          <p class="gc-hint">${t.consequenceBoundary}</p>
+        </section>
+        <section class="gc-route-grid" aria-label="${t.routeTitle}">
+          <div class="gc-panel gc-route-card">
+            <p class="gc-eyebrow">${t.routeTitle}</p>
+            <h3>${routeTitle}</h3>
+            <p>${routeDescription}</p>
+            <p class="gc-route-boundary">${t.routeBoundary}</p>
+          </div>
+          <div class="gc-panel gc-route-card">
+            <p class="gc-eyebrow">${t.sectorFocusTitle}</p>
+            <h3>${t.sectors[result.sectorContext]}</h3>
+            <ul>${sectorFocus.map((item) => `<li>${item}</li>`).join("")}</ul>
+          </div>
+        </section>
         <div class="gc-result-grid">
           <section class="gc-panel" aria-labelledby="gc-profile-title">
             <h3 id="gc-profile-title">${t.profile}</h3>
@@ -439,7 +536,8 @@ if (root) {
           <aside class="gc-panel gc-record" aria-labelledby="gc-record-title">
             <h3 id="gc-record-title">${t.method}</h3>
             <dl>
-              <div><dt>${t.material}</dt><dd>${consequenceLabel}</dd></div>
+              <div><dt>${t.consequenceClass}</dt><dd>${consequenceLabel}</dd></div>
+              <div><dt>${t.sector}</dt><dd>${t.sectors[result.sectorContext]}</dd></div>
               <div><dt>${t.lifecycle}</dt><dd>${t.contexts[result.lifecycle]}</dd></div>
               <div><dt>${t.unknown}</dt><dd>${result.unknownCount}</dd></div>
               <div><dt>${t.excluded}</dt><dd>${result.outOfScopeCount}</dd></div>
@@ -466,7 +564,8 @@ if (root) {
 
   function startWorkspace(blank = false) {
     if (blank) {
-      state.materialConsequence = "unknown";
+      state.consequenceClass = "unknown";
+      state.sectorContext = "general";
       state.lifecycle = "concept";
       state.answers = Object.fromEntries(QUESTIONS.map((question) => [question.id, "unknown"]));
     }
@@ -488,7 +587,8 @@ if (root) {
   }
 
   function loadNeutralExample() {
-    state.materialConsequence = "unknown";
+    state.consequenceClass = "unknown";
+    state.sectorContext = "general";
     state.lifecycle = "concept";
     state.answers = Object.fromEntries(QUESTIONS.map((question) => [question.id, "unknown"]));
     const rows = createEvidenceRows(state.answers);
@@ -549,7 +649,8 @@ if (root) {
         screening: imported.screening,
         rows: imported.rows
       };
-      state.materialConsequence = imported.screening.materialConsequence;
+      state.consequenceClass = imported.screening.consequenceClass;
+      state.sectorContext = imported.screening.sectorContext;
       state.lifecycle = imported.screening.lifecycle;
       state.answers = Object.fromEntries(imported.rows.map((row) => [row.questionId, row.sourceAnswer]));
       workspaceActionFilter = "all";
@@ -768,7 +869,7 @@ if (root) {
       else if (state.phase === "routing") state.routingIndex -= 1;
       else if (state.phase === "questions" && state.questionIndex === 0) {
         state.phase = "routing";
-        state.routingIndex = 1;
+        state.routingIndex = 2;
       } else if (state.phase === "questions") state.questionIndex -= 1;
       render();
     }
@@ -792,7 +893,8 @@ if (root) {
       state.phase = "intro";
       state.routingIndex = 0;
       state.questionIndex = 0;
-      state.materialConsequence = null;
+      state.consequenceClass = null;
+      state.sectorContext = null;
       state.lifecycle = null;
       state.answers = {};
       workspaceNotice = "";
@@ -868,8 +970,11 @@ if (root) {
     }
     if (event.target.dataset.form === "routing") {
       if (state.routingIndex === 0) {
-        state.materialConsequence = selected;
+        state.consequenceClass = selected;
         state.routingIndex = 1;
+      } else if (state.routingIndex === 1) {
+        state.sectorContext = selected;
+        state.routingIndex = 2;
       } else {
         state.lifecycle = selected;
         state.phase = "questions";
