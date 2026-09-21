@@ -94,7 +94,7 @@ def main() -> None:
 
     if len([key for key in metadata if key.startswith("/en/")]) != 58:
         raise SystemExit("Expected 58 EN metadata entries")
-    if len([key for key in metadata if key.startswith("/ua/")]) != 57:
+    if len([key for key in metadata if key.startswith("/ua/")]) != 58:
         raise SystemExit("Expected 58 UA metadata entries")
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
