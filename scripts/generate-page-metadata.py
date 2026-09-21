@@ -92,10 +92,10 @@ def main() -> None:
                 "source": "front matter description" if "description:" in path.read_text(encoding="utf-8").split("---\n", 2)[1] else "first visible paragraph",
             }
 
-    if len([key for key in metadata if key.startswith("/en/")]) != 57:
-        raise SystemExit("Expected 57 EN metadata entries")
+    if len([key for key in metadata if key.startswith("/en/")]) != 58:
+        raise SystemExit("Expected 58 EN metadata entries")
     if len([key for key in metadata if key.startswith("/ua/")]) != 57:
-        raise SystemExit("Expected 57 UA metadata entries")
+        raise SystemExit("Expected 58 UA metadata entries")
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(metadata, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

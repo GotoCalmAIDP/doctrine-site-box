@@ -31,6 +31,8 @@ jobs:
           python-version: "3.11"
       - name: Install Node dependencies
         run: npm ci
+      - name: Test public screening core
+        run: npm run test:screening
       - name: Install audit dependencies
         run: python -m pip install --upgrade pip pyyaml jsonschema pillow
       - name: Generate controlled metadata and citation artifacts

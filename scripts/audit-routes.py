@@ -131,14 +131,14 @@ all_routes = {route_from_file(path) for path in all_html_files}
 en_pages = sorted(str(p.relative_to(SITE / "en")) for p in (SITE / "en").rglob("index.html"))
 ua_pages = sorted(str(p.relative_to(SITE / "ua")) for p in (SITE / "ua").rglob("index.html"))
 en_count, ua_count = len(en_pages), len(ua_pages)
-if en_count != 57:
-    fail(f"Expected 57 EN routes, got {en_count}")
+if en_count != 58:
+    fail(f"Expected 58 EN routes, got {en_count}")
 else:
-    passed("EN routes = 57")
-if ua_count != 57:
-    fail(f"Expected 57 UA routes, got {ua_count}")
+    passed("EN routes = 58")
+if ua_count != 58:
+    fail(f"Expected 58 UA routes, got {ua_count}")
 else:
-    passed("UA routes = 57")
+    passed("UA routes = 58")
 parity = en_pages == ua_pages
 if not parity:
     fail("EN/UA slug parity differs")
@@ -156,7 +156,7 @@ try:
         for key in ("title", "description", "og_title", "og_description", "twitter_title", "twitter_description", "source"):
             if not item.get(key):
                 raise ValueError(f"metadata map entry {route} has empty {key}")
-    passed("Complete generated pageMetadata map (57 EN + 57 UA)")
+    passed("Complete generated pageMetadata map (58 EN + 58 UA)")
 except Exception as exc:
     metadata_map_errors += 1
     fail(f"Generated pageMetadata map validation: {exc}")
@@ -224,12 +224,12 @@ if not sitemap.exists():
 else:
     sitemap_text = sitemap.read_text(encoding="utf-8")
     sitemap_url_count = sitemap_text.count("<url>")
-    if sitemap_url_count != 115:
-        fail(f"Expected 115 sitemap URLs, got {sitemap_url_count}")
+    if sitemap_url_count != 117:
+        fail(f"Expected 117 sitemap URLs, got {sitemap_url_count}")
     elif "/404" in sitemap_text:
         fail("404 is present in sitemap")
     else:
-        passed("sitemap = 115 URLs; 404 excluded")
+        passed("sitemap = 117 URLs; 404 excluded")
 if not robots.exists() or "Sitemap: https://gotocalmaidp.github.io/doctrine-site-box/sitemap.xml" not in robots.read_text(encoding="utf-8"):
     fail("robots.txt missing or sitemap reference incorrect")
 else:
