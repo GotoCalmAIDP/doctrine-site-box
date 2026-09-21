@@ -680,6 +680,19 @@ if (root) {
     }
   });
 
+  root.addEventListener("focusout", (event) => {
+    const rowId = event.target.dataset.workspaceRow;
+    const field = event.target.dataset.workspaceField;
+    if (!rowId || field !== "recordLocator") return;
+    const row = workspace.rows.find((item) => item.questionId === rowId);
+    if (!row) return;
+    const nextId = event.relatedTarget?.id || "";
+    row.recordLocator = event.target.value;
+    workspaceNotice = "";
+    renderWorkspace();
+    if (nextId) document.getElementById(nextId)?.focus({ preventScroll: true });
+  });
+
   root.addEventListener("change", (event) => {
     const contextField = event.target.dataset.contextField;
     if (contextField) {
@@ -691,13 +704,7 @@ if (root) {
     if (!rowId || !field) return;
     const row = workspace.rows.find((item) => item.questionId === rowId);
     if (!row) return;
-    if (field === "recordLocator") {
-      row.recordLocator = event.target.value;
-      workspaceNotice = "";
-      renderWorkspace();
-      root.querySelector(`[data-workspace-row="${rowId}"][data-workspace-field="recordLocator"]`)?.focus({ preventScroll: true });
-      return;
-    }
+    if (field === "recordLocator") return;
     row[field] = event.target.value;
     if (field === "evidenceStatus" && event.target.value !== "excluded" && row.freshness === "not-applicable") {
       row.freshness = "unknown";
