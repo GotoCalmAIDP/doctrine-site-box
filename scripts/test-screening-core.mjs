@@ -10,6 +10,12 @@ import {
   evaluateEvidenceReadiness,
   parseEvidenceWorkspaceImport
 } from "../src/assets/screening/evidence-workspace-core.js";
+import {
+  MARITIME_BRIDGE_SCHEMA,
+  MARITIME_QUESTIONS,
+  buildMaritimeBridgeExport,
+  evaluateMaritimeBridge
+} from "../src/assets/screening/maritime-core.js";
 
 const answers = (value) => Object.fromEntries(QUESTIONS.map((question) => [question.id, value]));
 const evaluate = (input) => evaluateScreening({ responseBasis: "records", ...input });
@@ -226,4 +232,67 @@ assert.throws(() => parseEvidenceWorkspaceImport({
   evidenceRecords: exported.evidenceRecords.map((record, index) => index === 0 ? { ...record, recordLocator: "x".repeat(321) } : record)
 }), /recordLocator is too long/);
 
-console.log("screening and evidence-workspace cores: 42 checks passed");
+const maritimeAnswers = Object.fromEntries(MARITIME_QUESTIONS.map((question) => [question.id, "3"]));
+const maritimeAdvisory = evaluateMaritimeBridge({
+  consequenceClass: "limited",
+  responseBasis: "records",
+  relation: "advisory",
+  locus: "onboard",
+  answers: maritimeAnswers
+});
+assert.equal(maritimeAdvisory.route, "tier1-sector");
+assert.equal(maritimeAdvisory.priorityGapCount, 0);
+
+assert.equal(evaluateMaritimeBridge({
+  consequenceClass: "enterprise",
+  responseBasis: "records",
+  relation: "advisory",
+  locus: "hybrid",
+  answers: maritimeAnswers
+}).route, "tier2");
+
+assert.equal(evaluateMaritimeBridge({
+  consequenceClass: "limited",
+  responseBasis: "records",
+  relation: "commit-capable",
+  locus: "remote",
+  answers: maritimeAnswers
+}).route, "tier3");
+
+assert.equal(evaluateMaritimeBridge({
+  consequenceClass: "critical",
+  responseBasis: "exploratory",
+  relation: "commit-capable",
+  locus: "hybrid",
+  answers: maritimeAnswers
+}).route, "exploratory");
+
+const maritimeUnbounded = { ...maritimeAnswers, maritime_control_locus: "unknown" };
+assert.equal(evaluateMaritimeBridge({
+  consequenceClass: "limited",
+  responseBasis: "records",
+  relation: "advisory",
+  locus: "onboard",
+  answers: maritimeUnbounded
+}).route, "scope-first");
+
+const maritimeGap = { ...maritimeAnswers, maritime_authority_reachability: "1" };
+assert.equal(evaluateMaritimeBridge({
+  consequenceClass: "limited",
+  responseBasis: "records",
+  relation: "advisory",
+  locus: "onboard",
+  answers: maritimeGap
+}).route, "tier2");
+
+const maritimeExport = buildMaritimeBridgeExport({
+  language: "en",
+  lifecycle: "pilot",
+  result: maritimeAdvisory,
+  generatedAt: "2026-09-22T00:00:00.000Z"
+});
+assert.equal(maritimeExport.schema, MARITIME_BRIDGE_SCHEMA);
+assert.equal(maritimeExport.answers.length, 8);
+assert.ok(maritimeExport.limitations.some((item) => item.includes("not a DP class")));
+
+console.log("screening, evidence-workspace and maritime bridge cores passed");
