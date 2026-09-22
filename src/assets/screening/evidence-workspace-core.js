@@ -1,16 +1,18 @@
-import { AXES, CONSEQUENCE_CLASSES, QUESTIONS, SECTOR_CONTEXTS, normalizeConsequenceClass } from "./screening-core.js";
+import { AXES, CONSEQUENCE_CLASSES, QUESTIONS, RESPONSE_BASES, SECTOR_CONTEXTS, normalizeConsequenceClass } from "./screening-core.js";
 
-export const EVIDENCE_WORKSPACE_VERSION = "evidence-readiness-workspace 0.2.0-alpha";
-export const EVIDENCE_WORKSPACE_SCHEMA = "goto-calm:evidence-readiness-workspace:0.2";
+export const EVIDENCE_WORKSPACE_VERSION = "evidence-readiness-workspace 0.3.0-alpha";
+export const EVIDENCE_WORKSPACE_SCHEMA = "goto-calm:evidence-readiness-workspace:0.3";
 export const LEGACY_EVIDENCE_WORKSPACE_SCHEMA = "goto-calm:evidence-readiness-workspace:0.1";
+export const PREVIOUS_EVIDENCE_WORKSPACE_SCHEMA = "goto-calm:evidence-readiness-workspace:0.2";
 
 const MAX_CONTEXT_LENGTH = 160;
 const MAX_LOCATOR_LENGTH = 320;
 const SOURCE_ANSWERS = new Set(["3", "2", "1", "0", "unknown", "out"]);
 const CONSEQUENCE_CLASS_VALUES = new Set(CONSEQUENCE_CLASSES);
 const SECTOR_CONTEXT_VALUES = new Set(SECTOR_CONTEXTS);
+const RESPONSE_BASIS_VALUES = new Set(RESPONSE_BASES);
 const LIFECYCLE_CONTEXTS = new Set(["concept", "design", "pilot", "live"]);
-const SCREENING_OUTCOMES = new Set(["indeterminate", "review", "no-escalation"]);
+const SCREENING_OUTCOMES = new Set(["exploratory", "indeterminate", "review", "no-escalation"]);
 
 export const EVIDENCE_CLASSES = [
   { value: "unclassified", en: "Not classified", ua: "Не класифіковано" },
@@ -196,6 +198,7 @@ export function buildEvidenceWorkspaceExport({ language, context, screening, row
       consequenceClass: normalizeConsequenceClass(screening.consequenceClass ?? screening.materialConsequence),
       sectorContext: SECTOR_CONTEXT_VALUES.has(screening.sectorContext) ? screening.sectorContext : "general",
       lifecycle: screening.lifecycle || "concept",
+      responseBasis: RESPONSE_BASIS_VALUES.has(screening.responseBasis) ? screening.responseBasis : "mixed",
       outcome: screening.outcome || "indeterminate",
       screeningVersion: screening.version || "unknown",
       evidenceReviewed: false
@@ -227,7 +230,8 @@ export function parseEvidenceWorkspaceImport(payload) {
     throw new Error("Snapshot must be a JSON object");
   }
   const legacySchema = payload.schema === LEGACY_EVIDENCE_WORKSPACE_SCHEMA;
-  if (payload.schema !== EVIDENCE_WORKSPACE_SCHEMA && !legacySchema) {
+  const previousSchema = payload.schema === PREVIOUS_EVIDENCE_WORKSPACE_SCHEMA;
+  if (payload.schema !== EVIDENCE_WORKSPACE_SCHEMA && !legacySchema && !previousSchema) {
     throw new Error(`Unsupported snapshot schema: ${String(payload.schema || "missing")}`);
   }
   if (!new Set(["en", "ua"]).has(payload.language)) {
@@ -284,12 +288,19 @@ export function parseEvidenceWorkspaceImport(payload) {
     ? normalizeConsequenceClass(payload.screening.materialConsequence)
     : rawConsequenceClass;
   const sectorContext = legacySchema ? "general" : String(payload.screening.sectorContext ?? "general");
+  const responseBasis = String(payload.screening.responseBasis ?? "mixed");
   const lifecycle = String(payload.screening.lifecycle ?? "concept");
   const outcome = String(payload.screening.outcome ?? "indeterminate");
   if (!CONSEQUENCE_CLASS_VALUES.has(consequenceClass)) throw new Error(`Invalid consequenceClass: ${consequenceClass}`);
   if (!SECTOR_CONTEXT_VALUES.has(sectorContext)) throw new Error(`Invalid sectorContext: ${sectorContext}`);
+  if (!RESPONSE_BASIS_VALUES.has(responseBasis)) throw new Error(`Invalid responseBasis: ${responseBasis}`);
   if (!LIFECYCLE_CONTEXTS.has(lifecycle)) throw new Error(`Invalid lifecycle: ${lifecycle}`);
   if (!SCREENING_OUTCOMES.has(outcome)) throw new Error(`Invalid screening outcome: ${outcome}`);
+  const resolvedOutcome = responseBasis === "exploratory"
+    ? "exploratory"
+    : responseBasis === "mixed"
+      ? "indeterminate"
+      : outcome;
 
   const assessmentDate = boundedString(payload.context.assessmentDate ?? "", 10, "assessmentDate");
   if (assessmentDate && !/^\d{4}-\d{2}-\d{2}$/.test(assessmentDate)) {
@@ -307,7 +318,8 @@ export function parseEvidenceWorkspaceImport(payload) {
       consequenceClass,
       sectorContext,
       lifecycle,
-      outcome,
+      responseBasis,
+      outcome: resolvedOutcome,
       version: boundedString(payload.screening.screeningVersion ?? "unknown", MAX_CONTEXT_LENGTH, "screeningVersion")
     },
     rows,
