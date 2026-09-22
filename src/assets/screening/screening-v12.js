@@ -1997,6 +1997,9 @@ if (root) {
   function renderValuePanel() {
     const value = t.workspace.value;
     const contactPath = `/doctrine-site-box/${language}/contact/`;
+    const commercialLabel = language === "ua"
+      ? "Варіанти професійного перегляду"
+      : "Professional review options";
     return `
       <section class="gc-panel gc-value-panel" aria-labelledby="gc-value-title">
         <p class="gc-eyebrow">${value.eyebrow}</p>
@@ -2007,7 +2010,10 @@ if (root) {
           <div><strong>${value.future}</strong><ul>${value.futureItems.map((item) => `<li>${item}</li>`).join("")}</ul></div>
         </div>
         <p class="gc-hint">${value.boundary}</p>
-        <div class="gc-actions"><a class="gc-button gc-button-primary" href="${contactPath}">${value.cta}</a></div>
+        <div class="gc-actions">
+          <a class="gc-button gc-button-primary" href="${contactPath}">${value.cta}</a>
+          <a class="gc-button gc-button-secondary" href="https://gotocalm.com/engagements" target="_blank" rel="noopener noreferrer">${commercialLabel}</a>
+        </div>
       </section>`;
   }
 
