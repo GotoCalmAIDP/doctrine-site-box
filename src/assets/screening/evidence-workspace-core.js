@@ -1,9 +1,18 @@
 import { AXES, CONSEQUENCE_CLASSES, QUESTIONS, RESPONSE_BASES, SECTOR_CONTEXTS, normalizeConsequenceClass } from "./screening-core.js";
+import {
+  MARITIME_BRIDGE_SCHEMA,
+  MARITIME_BRIDGE_VERSION,
+  MARITIME_LOCI,
+  MARITIME_QUESTIONS,
+  MARITIME_RELATIONS,
+  evaluateMaritimeBridge
+} from "./maritime-core.js";
 
-export const EVIDENCE_WORKSPACE_VERSION = "evidence-readiness-workspace 0.4.0-alpha";
-export const EVIDENCE_WORKSPACE_SCHEMA = "goto-calm:evidence-readiness-workspace:0.3";
+export const EVIDENCE_WORKSPACE_VERSION = "evidence-readiness-workspace 0.5.0-alpha";
+export const EVIDENCE_WORKSPACE_SCHEMA = "goto-calm:evidence-readiness-workspace:0.4";
 export const LEGACY_EVIDENCE_WORKSPACE_SCHEMA = "goto-calm:evidence-readiness-workspace:0.1";
 export const PREVIOUS_EVIDENCE_WORKSPACE_SCHEMA = "goto-calm:evidence-readiness-workspace:0.2";
+export const PREVIOUS_COMBINED_EVIDENCE_WORKSPACE_SCHEMA = "goto-calm:evidence-readiness-workspace:0.3";
 
 const MAX_CONTEXT_LENGTH = 160;
 const MAX_LOCATOR_LENGTH = 320;
@@ -13,6 +22,20 @@ const SECTOR_CONTEXT_VALUES = new Set(SECTOR_CONTEXTS);
 const RESPONSE_BASIS_VALUES = new Set(RESPONSE_BASES);
 const LIFECYCLE_CONTEXTS = new Set(["concept", "design", "pilot", "live"]);
 const SCREENING_OUTCOMES = new Set(["exploratory", "indeterminate", "review", "no-escalation"]);
+const MARITIME_RELATION_VALUES = new Set(MARITIME_RELATIONS.map((item) => item.value));
+const MARITIME_LOCUS_VALUES = new Set(MARITIME_LOCI.map((item) => item.value));
+const MARITIME_ROUTES = new Set(["exploratory", "scope-first", "tier1-sector", "tier2", "tier3"]);
+
+export const MARITIME_EVIDENCE_AXES = [
+  { id: "mode", en: "Mode boundary", ua: "Межа режиму" },
+  { id: "control", en: "Control locus", ua: "Locus керування" },
+  { id: "authority", en: "Authority reachability", ua: "Досяжність повноважень" },
+  { id: "commit", en: "Commit topology", ua: "Топологія commit-шляхів" },
+  { id: "transition", en: "Transition and handover", ua: "Перехід і handover" },
+  { id: "preservation", en: "Fallback and preservation", ua: "Fallback і збереження" },
+  { id: "runtime", en: "Runtime verification", ua: "Runtime-перевірка" },
+  { id: "external", en: "External standing", ua: "Зовнішній статус" }
+];
 
 export const EVIDENCE_CLASSES = [
   { value: "unclassified", en: "Not classified", ua: "Не класифіковано" },
@@ -81,9 +104,9 @@ function boundedString(value, maxLength, field) {
   return value;
 }
 
-export function createEvidenceRows(screeningAnswers = {}) {
-  return QUESTIONS.map((question) => {
-    const sourceAnswer = String(screeningAnswers[question.id] ?? "unknown");
+function createRows(questions, answers = {}) {
+  return questions.map((question) => {
+    const sourceAnswer = String(answers[question.id] ?? "unknown");
     const evidenceStatus = SCREENING_TO_STATUS[sourceAnswer] || "unknown";
     const excluded = evidenceStatus === "excluded";
     return {
@@ -98,6 +121,14 @@ export function createEvidenceRows(screeningAnswers = {}) {
       conflict: excluded ? "not-applicable" : "unknown"
     };
   });
+}
+
+export function createEvidenceRows(screeningAnswers = {}) {
+  return createRows(QUESTIONS, screeningAnswers);
+}
+
+export function createMaritimeEvidenceRows(maritimeAnswers = {}) {
+  return createRows(MARITIME_QUESTIONS, maritimeAnswers);
 }
 
 function actionsFor(row) {
@@ -115,12 +146,12 @@ function actionsFor(row) {
   return actions;
 }
 
-export function evaluateEvidenceReadiness(rows) {
-  if (!Array.isArray(rows) || rows.length !== QUESTIONS.length) {
-    throw new Error(`Expected ${QUESTIONS.length} evidence rows`);
+function evaluateRows(rows, questions, axes) {
+  if (!Array.isArray(rows) || rows.length !== questions.length) {
+    throw new Error(`Expected ${questions.length} evidence rows`);
   }
 
-  const expectedIds = new Set(QUESTIONS.map((question) => question.id));
+  const expectedIds = new Set(questions.map((question) => question.id));
   const seen = new Set();
   const evaluatedRows = rows.map((row) => {
     if (!expectedIds.has(row.questionId) || seen.has(row.questionId)) {
@@ -153,7 +184,7 @@ export function evaluateEvidenceReadiness(rows) {
     return counts;
   }, { mapped: 0, open: 0, excluded: 0, priorityOpen: 0 });
 
-  const byAxis = AXES.map((axis) => {
+  const byAxis = axes.map((axis) => {
     const axisRows = evaluatedRows.filter((row) => row.axis === axis.id);
     return {
       ...axis,
@@ -179,21 +210,96 @@ export function evaluateEvidenceReadiness(rows) {
   };
 }
 
-export function buildEvidenceReviewBrief({ context, screening, rows }) {
-  const evaluation = evaluateEvidenceReadiness(rows);
+export function evaluateEvidenceReadiness(rows) {
+  return evaluateRows(rows, QUESTIONS, AXES);
+}
+
+export function evaluateMaritimeEvidenceReadiness(rows) {
+  return evaluateRows(rows, MARITIME_QUESTIONS, MARITIME_EVIDENCE_AXES);
+}
+
+export function evaluateCombinedEvidenceReadiness({ rows, maritime = null }) {
+  const core = evaluateEvidenceReadiness(rows);
+  const sector = maritime ? evaluateMaritimeEvidenceReadiness(maritime.rows) : null;
+  const summary = {
+    mapped: core.summary.mapped + (sector?.summary.mapped || 0),
+    open: core.summary.open + (sector?.summary.open || 0),
+    excluded: core.summary.excluded + (sector?.summary.excluded || 0),
+    priorityOpen: core.summary.priorityOpen + (sector?.summary.priorityOpen || 0)
+  };
+  const openActions = [
+    ...core.openActions.map((item) => ({ ...item, packageType: "core" })),
+    ...(sector?.openActions || []).map((item) => ({ ...item, packageType: "maritime-dp" }))
+  ];
+  return { summary, core, sector, openActions };
+}
+
+export function createMaritimeEvidencePackage(result) {
+  if (!result || result.version !== MARITIME_BRIDGE_VERSION) {
+    throw new Error("Invalid maritime bridge result");
+  }
+  const verified = evaluateMaritimeBridge({
+    consequenceClass: result.consequenceClass,
+    responseBasis: result.responseBasis,
+    relation: result.relation,
+    locus: result.locus,
+    answers: result.answers
+  });
+  if (verified.route !== result.route) throw new Error("Maritime route does not match the answer set");
+  return {
+    packageType: "maritime-dp",
+    bridgeVersion: result.version,
+    route: result.route,
+    operationalRelation: result.relation,
+    controlLocus: result.locus,
+    rows: createMaritimeEvidenceRows(result.answers)
+  };
+}
+
+function validateMaritimePackage(maritime, screening) {
+  if (!maritime || typeof maritime !== "object" || Array.isArray(maritime)) {
+    throw new Error("Invalid Maritime / DP evidence package");
+  }
+  if (maritime.packageType !== "maritime-dp") throw new Error("Invalid sector package type");
+  if (!MARITIME_RELATION_VALUES.has(maritime.operationalRelation)) {
+    throw new Error(`Invalid maritime relation: ${String(maritime.operationalRelation)}`);
+  }
+  if (!MARITIME_LOCUS_VALUES.has(maritime.controlLocus)) {
+    throw new Error(`Invalid maritime locus: ${String(maritime.controlLocus)}`);
+  }
+  if (!MARITIME_ROUTES.has(maritime.route)) throw new Error(`Invalid maritime route: ${String(maritime.route)}`);
+  const evaluation = evaluateMaritimeEvidenceReadiness(maritime.rows);
+  const answers = Object.fromEntries(maritime.rows.map((row) => [row.questionId, row.sourceAnswer]));
+  const verified = evaluateMaritimeBridge({
+    consequenceClass: screening.consequenceClass,
+    responseBasis: screening.responseBasis,
+    relation: maritime.operationalRelation,
+    locus: maritime.controlLocus,
+    answers
+  });
+  if (verified.route !== maritime.route) throw new Error("Maritime route does not match the workspace answer set");
+  return evaluation;
+}
+
+export function buildEvidenceReviewBrief({ context, screening, rows, maritime = null }) {
+  if (maritime) validateMaritimePackage(maritime, screening);
+  const evaluation = evaluateCombinedEvidenceReadiness({ rows, maritime });
   const contextGaps = ["referenceLabel", "assessedVersion", "assessmentDate", "contextLabel"]
     .filter((field) => !String(context?.[field] || "").trim());
   const exploratory = screening?.responseBasis === "exploratory" || screening?.outcome === "exploratory";
+  const missingSectorPackage = screening?.sectorContext === "maritime" && !maritime;
 
   let status = "mapping-complete";
   if (exploratory) status = "training-only";
   else if (contextGaps.length) status = "context-required";
+  else if (missingSectorPackage) status = "sector-package-required";
   else if (evaluation.summary.priorityOpen) status = "priority-open";
   else if (evaluation.summary.open) status = "mapping-open";
 
   const nextActions = [];
   if (exploratory) nextActions.push("rerun-substantive");
   if (contextGaps.length) nextActions.push("complete-context");
+  if (missingSectorPackage) nextActions.push("add-maritime-package");
   if (evaluation.summary.priorityOpen) nextActions.push("resolve-priority-records");
   if (evaluation.summary.open) nextActions.push("complete-open-records");
   nextActions.push("independent-review");
@@ -201,6 +307,7 @@ export function buildEvidenceReviewBrief({ context, screening, rows }) {
   return {
     status,
     exploratory,
+    missingSectorPackage,
     contextGaps,
     summary: evaluation.summary,
     priorityItems: evaluation.openActions.filter((item) => item.priority).slice(0, 3),
@@ -208,9 +315,28 @@ export function buildEvidenceReviewBrief({ context, screening, rows }) {
   };
 }
 
-export function buildEvidenceWorkspaceExport({ language, context, screening, rows, generatedAt = new Date().toISOString() }) {
+function serializeEvidenceRows(rows) {
+  return rows.map((row) => ({
+    questionId: row.questionId,
+    axis: row.axis,
+    sourceAnswer: row.sourceAnswer,
+    evidenceStatus: row.evidenceStatus,
+    evidenceClass: row.evidenceClass,
+    recordLocator: row.recordLocator,
+    freshness: row.freshness,
+    conflict: row.conflict,
+    mappingState: row.state,
+    openActions: row.actions
+  }));
+}
+
+export function buildEvidenceWorkspaceExport({ language, context, screening, rows, maritime = null, generatedAt = new Date().toISOString() }) {
   if (!new Set(["en", "ua"]).has(language)) throw new Error(`Unsupported language: ${language}`);
-  const evaluation = evaluateEvidenceReadiness(rows);
+  const evaluation = evaluateCombinedEvidenceReadiness({ rows, maritime });
+  if (maritime && screening.sectorContext !== "maritime") {
+    throw new Error("Maritime package requires the maritime sector context");
+  }
+  if (maritime) validateMaritimePackage(maritime, screening);
   return {
     schema: EVIDENCE_WORKSPACE_SCHEMA,
     version: EVIDENCE_WORKSPACE_VERSION,
@@ -232,68 +358,48 @@ export function buildEvidenceWorkspaceExport({ language, context, screening, row
       screeningVersion: screening.version || "unknown",
       evidenceReviewed: false
     },
-    summary: evaluation.summary,
-    evidenceRecords: evaluation.rows.map((row) => ({
-      questionId: row.questionId,
-      axis: row.axis,
-      sourceAnswer: row.sourceAnswer,
-      evidenceStatus: row.evidenceStatus,
-      evidenceClass: row.evidenceClass,
-      recordLocator: row.recordLocator,
-      freshness: row.freshness,
-      conflict: row.conflict,
-      mappingState: row.state,
-      openActions: row.actions
-    })),
+    summary: {
+      ...evaluation.summary,
+      core: evaluation.core.summary,
+      maritimeDp: evaluation.sector?.summary || null
+    },
+    evidenceRecords: serializeEvidenceRows(evaluation.core.rows),
+    sectorPackages: maritime ? [{
+      packageType: "maritime-dp",
+      bridgeVersion: maritime.bridgeVersion || MARITIME_BRIDGE_VERSION,
+      route: maritime.route,
+      operationalRelation: maritime.operationalRelation,
+      controlLocus: maritime.controlLocus,
+      summary: evaluation.sector.summary,
+      evidenceRecords: serializeEvidenceRows(evaluation.sector.rows)
+    }] : [],
     limitations: [
       "This record is self-reported and no evidence was independently reviewed.",
       "Mapped records are not proof of applicability, admissibility, safety, compliance or conformance.",
       "This record cannot authorize execution, continuation, restoration or certification.",
-      "The export contains record locators and user-entered labels; it should not contain raw evidence or confidential data."
+      "The export contains record locators and user-entered labels; it should not contain raw evidence or confidential data.",
+      "A Maritime / DP package is not a DP class, FMEA, proving-trials, ASOG, CAMO, TAM, flag, class, engineering or safety-case conclusion."
     ]
   };
 }
 
-export function parseEvidenceWorkspaceImport(payload) {
-  if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
-    throw new Error("Snapshot must be a JSON object");
+function parseEvidenceRows(recordsPayload, questions) {
+  if (!Array.isArray(recordsPayload) || recordsPayload.length !== questions.length) {
+    throw new Error(`Expected ${questions.length} evidence records`);
   }
-  const legacySchema = payload.schema === LEGACY_EVIDENCE_WORKSPACE_SCHEMA;
-  const previousSchema = payload.schema === PREVIOUS_EVIDENCE_WORKSPACE_SCHEMA;
-  if (payload.schema !== EVIDENCE_WORKSPACE_SCHEMA && !legacySchema && !previousSchema) {
-    throw new Error(`Unsupported snapshot schema: ${String(payload.schema || "missing")}`);
-  }
-  if (!new Set(["en", "ua"]).has(payload.language)) {
-    throw new Error(`Unsupported language: ${String(payload.language || "missing")}`);
-  }
-  if (!payload.context || typeof payload.context !== "object") {
-    throw new Error("Snapshot context is missing");
-  }
-  if (!payload.screening || typeof payload.screening !== "object") {
-    throw new Error("Snapshot screening record is missing");
-  }
-  if (!Array.isArray(payload.evidenceRecords) || payload.evidenceRecords.length !== QUESTIONS.length) {
-    throw new Error(`Expected ${QUESTIONS.length} evidence records`);
-  }
-
   const records = new Map();
-  for (const record of payload.evidenceRecords) {
+  for (const record of recordsPayload) {
     if (!record || typeof record !== "object" || typeof record.questionId !== "string") {
       throw new Error("Invalid evidence record");
     }
-    if (records.has(record.questionId)) {
-      throw new Error(`Duplicate questionId: ${record.questionId}`);
-    }
+    if (records.has(record.questionId)) throw new Error(`Duplicate questionId: ${record.questionId}`);
     records.set(record.questionId, record);
   }
-
-  const rows = QUESTIONS.map((question) => {
+  return questions.map((question) => {
     const record = records.get(question.id);
     if (!record) throw new Error(`Missing evidence record: ${question.id}`);
     const sourceAnswer = String(record.sourceAnswer ?? "unknown");
-    if (!SOURCE_ANSWERS.has(sourceAnswer)) {
-      throw new Error(`Invalid sourceAnswer: ${sourceAnswer}`);
-    }
+    if (!SOURCE_ANSWERS.has(sourceAnswer)) throw new Error(`Invalid sourceAnswer: ${sourceAnswer}`);
     assertOption("evidenceStatus", record.evidenceStatus);
     assertOption("evidenceClass", record.evidenceClass);
     assertOption("freshness", record.freshness);
@@ -310,6 +416,107 @@ export function parseEvidenceWorkspaceImport(payload) {
       conflict: record.conflict
     };
   });
+}
+
+function outcomeForMaritimeRoute(route) {
+  if (route === "exploratory") return "exploratory";
+  if (route === "scope-first") return "indeterminate";
+  if (route === "tier1-sector") return "no-escalation";
+  return "review";
+}
+
+export function parseMaritimeBridgeImport(payload) {
+  if (!payload || typeof payload !== "object" || Array.isArray(payload)) throw new Error("Snapshot must be a JSON object");
+  if (payload.schema !== MARITIME_BRIDGE_SCHEMA) throw new Error(`Unsupported maritime schema: ${String(payload.schema || "missing")}`);
+  if (!new Set(["en", "ua"]).has(payload.language)) throw new Error(`Unsupported language: ${String(payload.language || "missing")}`);
+  if (!payload.context || typeof payload.context !== "object") throw new Error("Maritime context is missing");
+  if (!payload.result || typeof payload.result !== "object") throw new Error("Maritime result is missing");
+  if (!Array.isArray(payload.answers) || payload.answers.length !== MARITIME_QUESTIONS.length) {
+    throw new Error(`Expected ${MARITIME_QUESTIONS.length} maritime answers`);
+  }
+  const answers = {};
+  for (const item of payload.answers) {
+    if (!item || typeof item.questionId !== "string" || answers[item.questionId] !== undefined) {
+      throw new Error("Invalid or duplicate maritime answer");
+    }
+    const value = String(item.value ?? "unknown");
+    if (!SOURCE_ANSWERS.has(value)) throw new Error(`Invalid maritime answer: ${value}`);
+    answers[item.questionId] = value;
+  }
+  for (const question of MARITIME_QUESTIONS) {
+    if (answers[question.id] === undefined) throw new Error(`Missing maritime answer: ${question.id}`);
+  }
+  const lifecycle = String(payload.context.lifecycle ?? "concept");
+  if (!LIFECYCLE_CONTEXTS.has(lifecycle)) throw new Error(`Invalid lifecycle: ${lifecycle}`);
+  const result = evaluateMaritimeBridge({
+    consequenceClass: String(payload.context.consequenceClass ?? "unknown"),
+    responseBasis: String(payload.context.responseBasis ?? "mixed"),
+    relation: String(payload.context.operationalRelation ?? "unresolved"),
+    locus: String(payload.context.controlLocus ?? "unresolved"),
+    answers
+  });
+  if (payload.result.route !== result.route) throw new Error("Maritime route does not match the imported answers");
+  for (const field of ["priorityGapCount", "unknownCount", "outOfScopeCount"]) {
+    if (Number(payload.result[field]) !== result[field]) throw new Error(`Maritime ${field} does not match the imported answers`);
+  }
+  return {
+    context: {
+      referenceLabel: "",
+      assessedVersion: "",
+      assessmentDate: "",
+      contextLabel: ""
+    },
+    screening: {
+      consequenceClass: result.consequenceClass,
+      sectorContext: "maritime",
+      lifecycle,
+      responseBasis: result.responseBasis,
+      outcome: outcomeForMaritimeRoute(result.route),
+      version: "maritime bridge import"
+    },
+    rows: createEvidenceRows(),
+    maritime: createMaritimeEvidencePackage(result),
+    importedFrom: {
+      generatedAt: typeof payload.generatedAt === "string" ? payload.generatedAt : "",
+      language: payload.language,
+      version: typeof payload.version === "string" ? payload.version : ""
+    }
+  };
+}
+
+export function mergeMaritimeBridgeIntoWorkspace(workspace, imported) {
+  if (!workspace?.screening || !Array.isArray(workspace.rows)) throw new Error("Workspace is not initialized");
+  if (!imported?.maritime || !imported?.screening) throw new Error("Maritime import is missing");
+  if (workspace.screening.sectorContext !== "maritime") throw new Error("The current workspace is not scoped to Maritime / DP");
+  for (const field of ["consequenceClass", "lifecycle", "responseBasis"]) {
+    if (workspace.screening[field] !== imported.screening[field]) {
+      throw new Error(`Maritime import conflicts with workspace ${field}`);
+    }
+  }
+  validateMaritimePackage(imported.maritime, workspace.screening);
+  return { ...workspace, maritime: imported.maritime };
+}
+
+export function parseEvidenceWorkspaceImport(payload) {
+  if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+    throw new Error("Snapshot must be a JSON object");
+  }
+  const legacySchema = payload.schema === LEGACY_EVIDENCE_WORKSPACE_SCHEMA;
+  const previousSchema = payload.schema === PREVIOUS_EVIDENCE_WORKSPACE_SCHEMA;
+  const previousCombinedSchema = payload.schema === PREVIOUS_COMBINED_EVIDENCE_WORKSPACE_SCHEMA;
+  if (payload.schema !== EVIDENCE_WORKSPACE_SCHEMA && !legacySchema && !previousSchema && !previousCombinedSchema) {
+    throw new Error(`Unsupported snapshot schema: ${String(payload.schema || "missing")}`);
+  }
+  if (!new Set(["en", "ua"]).has(payload.language)) {
+    throw new Error(`Unsupported language: ${String(payload.language || "missing")}`);
+  }
+  if (!payload.context || typeof payload.context !== "object") {
+    throw new Error("Snapshot context is missing");
+  }
+  if (!payload.screening || typeof payload.screening !== "object") {
+    throw new Error("Snapshot screening record is missing");
+  }
+  const rows = parseEvidenceRows(payload.evidenceRecords, QUESTIONS);
 
   evaluateEvidenceReadiness(rows);
   const rawConsequenceClass = String(payload.screening.consequenceClass ?? payload.screening.materialConsequence ?? "unknown");
@@ -336,6 +543,26 @@ export function parseEvidenceWorkspaceImport(payload) {
     throw new Error("Invalid assessmentDate");
   }
 
+  let maritime = null;
+  const sectorPackages = payload.schema === EVIDENCE_WORKSPACE_SCHEMA ? (payload.sectorPackages ?? []) : [];
+  if (!Array.isArray(sectorPackages)) throw new Error("sectorPackages must be an array");
+  if (sectorPackages.length > 1) throw new Error("Only one sector package is supported");
+  if (sectorPackages.length === 1) {
+    const sectorPackage = sectorPackages[0];
+    if (!sectorPackage || sectorPackage.packageType !== "maritime-dp") throw new Error("Unsupported sector package");
+    if (sectorContext !== "maritime") throw new Error("Maritime package requires the maritime sector context");
+    const maritimeRows = parseEvidenceRows(sectorPackage.evidenceRecords, MARITIME_QUESTIONS);
+    maritime = {
+      packageType: "maritime-dp",
+      bridgeVersion: boundedString(sectorPackage.bridgeVersion ?? MARITIME_BRIDGE_VERSION, MAX_CONTEXT_LENGTH, "bridgeVersion"),
+      route: String(sectorPackage.route ?? "scope-first"),
+      operationalRelation: String(sectorPackage.operationalRelation ?? "unresolved"),
+      controlLocus: String(sectorPackage.controlLocus ?? "unresolved"),
+      rows: maritimeRows
+    };
+    validateMaritimePackage(maritime, { consequenceClass, responseBasis });
+  }
+
   return {
     context: {
       referenceLabel: boundedString(payload.context.referenceLabel ?? "", MAX_CONTEXT_LENGTH, "referenceLabel"),
@@ -352,6 +579,7 @@ export function parseEvidenceWorkspaceImport(payload) {
       version: boundedString(payload.screening.screeningVersion ?? "unknown", MAX_CONTEXT_LENGTH, "screeningVersion")
     },
     rows,
+    maritime,
     importedFrom: {
       generatedAt: typeof payload.generatedAt === "string" ? payload.generatedAt : "",
       language: payload.language,
