@@ -6,7 +6,7 @@
     "build": "eleventy",
     "serve": "eleventy --serve",
     "start": "eleventy --serve",
-    "test:screening": "node scripts/test-screening-core.mjs"
+    "test:screening": "node scripts/test-screening-core.mjs && node scripts/test-public-activity.mjs"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1"
