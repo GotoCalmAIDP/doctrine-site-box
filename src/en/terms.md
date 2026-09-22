@@ -40,6 +40,20 @@ You agree to use this website only for lawful purposes and in a manner that does
 
 ---
 
+## Free Public Alpha and Local Document Intake
+
+The screening and evidence-readiness workspace are offered as a free, voluntary public alpha during calibration. No account, paid service, service level, certification or professional review is provided by this alpha.
+
+The local document intake currently accepts one non-macro, non-password-protected DOCX file of no more than 10 MB. A file is read only after you explicitly select it. The browser processes it locally to derive limited metadata and candidate section locators; the site operators do not receive, upload or retain the file.
+
+Do not select documents containing personal data, confidential or client information, credentials, vessel details, security-sensitive material, or live operational information. Automated cues may be incomplete or wrong. You must confirm the assessment object, consequence class, jurisdiction, market role and every candidate locator.
+
+The site may offer a separate, explicit opt-in to contribute a minimal screening summary to a rolling public aggregate. That contribution does not include the selected file, answers, percentages, free text or evidence locators. Declining does not restrict use of the local screening.
+
+Outputs are preparation aids only. They are not legal advice, a compliance determination, an audit, evidence verification, a safety finding, certification or authorization to operate. Accounts, team workspaces and commercial review routes may be considered after calibration; their appearance is not promised by these terms.
+
+---
+
 ## Intellectual Property
 
 All content on this website, including text, graphics, logos, and design elements, is the property of the site operators or their licensors and is protected by applicable intellectual property laws.
