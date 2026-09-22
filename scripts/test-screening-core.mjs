@@ -4,6 +4,7 @@ import {
   EVIDENCE_WORKSPACE_SCHEMA,
   LEGACY_EVIDENCE_WORKSPACE_SCHEMA,
   PREVIOUS_EVIDENCE_WORKSPACE_SCHEMA,
+  buildEvidenceReviewBrief,
   buildEvidenceWorkspaceExport,
   createEvidenceRows,
   evaluateEvidenceReadiness,
@@ -152,6 +153,35 @@ assert.equal(imported.context.referenceLabel, "SYSTEM-A");
 assert.equal(imported.rows.length, 17);
 assert.equal(evaluateEvidenceReadiness(imported.rows).summary.mapped, 1);
 assert.equal(imported.importedFrom.language, "en");
+
+const exploratoryBrief = buildEvidenceReviewBrief({
+  context: { referenceLabel: "", assessedVersion: "", assessmentDate: "2026-09-22", contextLabel: "" },
+  screening: { ...exploratory, responseBasis: "exploratory", outcome: "exploratory" },
+  rows: createEvidenceRows(exploratoryAnswers)
+});
+assert.equal(exploratoryBrief.status, "training-only");
+assert.deepEqual(exploratoryBrief.contextGaps, ["referenceLabel", "assessedVersion", "contextLabel"]);
+assert.equal(exploratoryBrief.priorityItems.length, 3);
+assert.deepEqual(exploratoryBrief.nextActions, [
+  "rerun-substantive",
+  "complete-context",
+  "resolve-priority-records"
+]);
+
+const completeBrief = buildEvidenceReviewBrief({
+  context: imported.context,
+  screening: imported.screening,
+  rows: imported.rows.map((row) => ({
+    ...row,
+    evidenceStatus: "documented",
+    evidenceClass: "documentary",
+    recordLocator: `REGISTER/${row.questionId}`,
+    freshness: "current",
+    conflict: "no"
+  }))
+});
+assert.equal(completeBrief.status, "mapping-complete");
+assert.deepEqual(completeBrief.nextActions, ["independent-review"]);
 
 const previousSnapshot = {
   ...exported,
