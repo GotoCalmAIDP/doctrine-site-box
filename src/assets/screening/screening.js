@@ -17,6 +17,11 @@ import {
   evaluateEvidenceReadiness,
   parseEvidenceWorkspaceImport
 } from "./evidence-workspace-core.js";
+import {
+  PUBLIC_AGGREGATE_ENDPOINT,
+  buildPublicSubmission,
+  normalizePublicAggregate
+} from "./public-activity-core.js";
 
 const root = document.querySelector("#gc-screening");
 
@@ -29,7 +34,7 @@ if (root) {
       purpose: "It helps identify where the stated scope is incomplete or where a deeper evidence review may be useful. It does not determine compliance, safety, certification, conformance or permission to operate.",
       time: "21 selections · about 6–9 minutes",
       private: "Private by design",
-      privateText: "The assessment runs in this browser. No account, names, free text, answer submission or server upload is used.",
+      privateText: "The assessment and all answers stay in this browser. Only after a substantive run, and only with your explicit consent, a minimal summary can be sent. No answers, scores, free text, evidence locators or files are uploaded.",
       before: "Before you begin",
       beforeItems: [
         "Choose one specific system or decision context and one current version.",
@@ -132,6 +137,29 @@ if (root) {
       readEvidence: "Read Evidence",
       answerRequired: "Select one answer to continue.",
       percentUnavailable: "Not bounded",
+      activity: {
+        eyebrow: "Public activity",
+        title: "Consented screening aggregate",
+        loading: "Loading the public aggregate…",
+        belowThreshold: "The distribution will appear after 10 consented substantive completions within the rolling 30-day window.",
+        unavailable: "The aggregate is temporarily unavailable. The screening itself remains local and usable.",
+        completed: "Consented completions",
+        tier2: "Scoped Tier 2+ routes",
+        period: "Rolling window",
+        days: "days",
+        updated: "Updated",
+        distribution: "Public triage-class distribution",
+        boundary: "Self-reported, opt-in completions only. This is not a visitor count, unique-user count, benchmark, audit, proof of safety or doctrine conformance.",
+        contributeTitle: "Contribute to the public aggregate",
+        contributeText: "Send only the triage class, context lens, outcome and declared answer basis from this result. Your answers, scores, text, evidence locators and files are not sent.",
+        consent: "I agree to contribute this minimal summary.",
+        send: "Contribute summary",
+        sending: "Sending…",
+        sent: "Thank you. The minimal summary was added to the rolling aggregate.",
+        duplicate: "This result was already received; it was not counted twice.",
+        error: "The summary could not be sent. Nothing from the answers was uploaded; you can try again.",
+        exploratory: "Exploratory runs are excluded from the public aggregate. Re-run with a real object and a declared records or mixed basis to contribute."
+      },
       workspace: {
         open: "Continue to evidence readiness workspace",
         openBlank: "Open blank evidence workspace",
@@ -208,7 +236,7 @@ if (root) {
       purpose: "Допомагає виявити неповний заявлений обсяг або потребу в глибшому розгляді свідчень. Не визначає відповідність, безпеку, сертифікацію, конформність чи дозвіл на експлуатацію.",
       time: "21 вибір · приблизно 6–9 хвилин",
       private: "Приватність за задумом",
-      privateText: "Оцінювання виконується в цьому браузері. Обліковий запис, імена, вільний текст, надсилання відповідей і серверне завантаження не використовуються.",
+      privateText: "Оцінювання та всі відповіді залишаються в цьому браузері. Лише після змістовного проходження і тільки за вашою явною згодою можна надіслати мінімальне резюме. Відповіді, бали, вільний текст, локатори свідчень і файли не завантажуються.",
       before: "Перед початком",
       beforeItems: [
         "Оберіть одну конкретну систему або контекст рішення та одну актуальну версію.",
@@ -311,6 +339,29 @@ if (root) {
       readEvidence: "Читати «Доказовість»",
       answerRequired: "Оберіть одну відповідь, щоб продовжити.",
       percentUnavailable: "Не визначено",
+      activity: {
+        eyebrow: "Публічна активність",
+        title: "Агрегат добровільно переданих скринінгів",
+        loading: "Завантаження публічного агрегату…",
+        belowThreshold: "Розподіл з’явиться після 10 добровільно переданих змістовних завершень у рухомому 30-денному вікні.",
+        unavailable: "Агрегат тимчасово недоступний. Сам скринінг залишається локальним і придатним до використання.",
+        completed: "Добровільні завершення",
+        tier2: "Маршрути зі scoped Tier 2+",
+        period: "Рухоме вікно",
+        days: "днів",
+        updated: "Оновлено",
+        distribution: "Розподіл за публічним triage-класом",
+        boundary: "Лише добровільні результати самооцінки. Це не кількість відвідувачів чи унікальних користувачів, не benchmark, аудит, доказ безпеки або відповідності доктрині.",
+        contributeTitle: "Додати результат до публічного агрегату",
+        contributeText: "Надіслати лише triage-клас, контекстну лінзу, результат і задекларовану підставу відповідей. Відповіді, бали, текст, локатори свідчень і файли не надсилаються.",
+        consent: "Я погоджуюся передати це мінімальне резюме.",
+        send: "Додати резюме",
+        sending: "Надсилання…",
+        sent: "Дякуємо. Мінімальне резюме додано до рухомого агрегату.",
+        duplicate: "Цей результат уже отримано; вдруге його не зараховано.",
+        error: "Не вдалося надіслати резюме. Жодну відповідь не завантажено; можна повторити спробу.",
+        exploratory: "Демонстраційні проходження не входять до публічного агрегату. Щоб долучитися, пройдіть скринінг для реального об’єкта з підставою records або mixed."
+      },
       workspace: {
         open: "Перейти до робочого простору готовності свідчень",
         openBlank: "Відкрити порожній робочий простір свідчень",
@@ -412,6 +463,10 @@ if (root) {
     screening: null,
     rows: []
   };
+  let publicAggregate = { status: "idle", data: null };
+  let contributionConsent = false;
+  let contributionStatus = "idle";
+  let contributionToken = null;
   const total = QUESTIONS.length + 4;
   const questionById = Object.fromEntries(QUESTIONS.map((question) => [question.id, question]));
 
@@ -452,6 +507,125 @@ if (root) {
       <span><strong>${label}</strong><small>${description}</small></span>
     </label>`).join("");
 
+  function renderPublicAggregate() {
+    const activity = t.activity;
+    let body;
+    if (publicAggregate.status === "loading" || publicAggregate.status === "idle") {
+      body = `<p class="gc-activity-state" aria-live="polite">${activity.loading}</p>`;
+    } else if (publicAggregate.status === "error") {
+      body = `<p class="gc-activity-state" aria-live="polite">${activity.unavailable}</p>`;
+    } else if (!publicAggregate.data.reportable) {
+      body = `<p class="gc-activity-state" aria-live="polite">${activity.belowThreshold}</p>`;
+    } else {
+      const aggregate = publicAggregate.data;
+      const updated = new Intl.DateTimeFormat(language === "ua" ? "uk-UA" : "en-GB", {
+        dateStyle: "medium",
+        timeZone: "UTC"
+      }).format(aggregate.generatedAt);
+      const classLabels = Object.fromEntries(t.consequenceOptions.map(([key, code, label]) => [key, `${code} · ${label}`]));
+      body = `
+        <div class="gc-activity-metrics">
+          <div><strong>${aggregate.total}</strong><span>${activity.completed}</span></div>
+          <div><strong>${aggregate.scopedTier2PlusPercent}%</strong><span>${activity.tier2}</span></div>
+          <div><strong>${aggregate.windowDays}</strong><span>${activity.days} · ${activity.period}</span></div>
+        </div>
+        <h4>${activity.distribution}</h4>
+        <div class="gc-activity-bars" role="list">
+          ${aggregate.classes.map((item) => `
+            <div class="gc-activity-bar" role="listitem">
+              <div><span>${classLabels[item.key]}</span><strong>${item.percent}%</strong></div>
+              <div aria-hidden="true"><span class="gc-class-${item.key}" style="width:${item.percent}%"></span></div>
+            </div>`).join("")}
+        </div>
+        <p class="gc-activity-updated">${activity.updated}: ${updated}</p>`;
+    }
+    return `
+      <section class="gc-panel gc-public-activity" aria-labelledby="gc-public-activity-title">
+        <p class="gc-eyebrow">${activity.eyebrow}</p>
+        <h3 id="gc-public-activity-title">${activity.title}</h3>
+        ${body}
+        <p class="gc-hint">${activity.boundary}</p>
+      </section>`;
+  }
+
+  async function loadPublicAggregate(force = false) {
+    if (!force && publicAggregate.status !== "idle") return;
+    publicAggregate = { status: "loading", data: null };
+    try {
+      const response = await fetch(`${PUBLIC_AGGREGATE_ENDPOINT}/aggregate`, {
+        headers: { accept: "application/json" }
+      });
+      if (!response.ok) throw new Error(`Aggregate request failed: ${response.status}`);
+      publicAggregate = { status: "ready", data: normalizePublicAggregate(await response.json()) };
+    } catch {
+      publicAggregate = { status: "error", data: null };
+    }
+    if (state.phase === "intro") renderIntro();
+  }
+
+  function createContributionToken() {
+    if (globalThis.crypto?.randomUUID) return globalThis.crypto.randomUUID().replaceAll("-", "");
+    const bytes = new Uint8Array(24);
+    globalThis.crypto.getRandomValues(bytes);
+    return Array.from(bytes, (value) => value.toString(16).padStart(2, "0")).join("");
+  }
+
+  function renderContribution(result) {
+    const activity = t.activity;
+    if (result.responseBasis === "exploratory") {
+      return `
+        <section class="gc-panel gc-contribution gc-contribution-ineligible" aria-labelledby="gc-contribution-title">
+          <p class="gc-eyebrow">${activity.eyebrow}</p>
+          <h3 id="gc-contribution-title">${activity.contributeTitle}</h3>
+          <p>${activity.exploratory}</p>
+        </section>`;
+    }
+    const completed = contributionStatus === "sent" || contributionStatus === "duplicate";
+    const message = contributionStatus === "sent" ? activity.sent
+      : contributionStatus === "duplicate" ? activity.duplicate
+        : contributionStatus === "error" ? activity.error : "";
+    return `
+      <section class="gc-panel gc-contribution" aria-labelledby="gc-contribution-title">
+        <p class="gc-eyebrow">${activity.eyebrow}</p>
+        <h3 id="gc-contribution-title">${activity.contributeTitle}</h3>
+        <p>${activity.contributeText}</p>
+        ${completed ? "" : `
+          <label class="gc-consent">
+            <input type="checkbox" data-contribution-consent${contributionConsent ? " checked" : ""}${contributionStatus === "sending" ? " disabled" : ""}>
+            <span>${activity.consent}</span>
+          </label>
+          <button class="gc-button gc-button-primary" type="button" data-action="contribute"${!contributionConsent || contributionStatus === "sending" ? " disabled" : ""}>
+            ${contributionStatus === "sending" ? activity.sending : activity.send}
+          </button>`}
+        <p class="gc-live-status" aria-live="polite">${message}</p>
+        <p class="gc-hint">${activity.boundary}</p>
+      </section>`;
+  }
+
+  async function submitContribution() {
+    if (!contributionConsent || contributionStatus === "sending") return;
+    const result = evaluateScreening(state);
+    if (result.responseBasis === "exploratory") return;
+    contributionToken ||= createContributionToken();
+    contributionStatus = "sending";
+    renderResults();
+    try {
+      const response = await fetch(`${PUBLIC_AGGREGATE_ENDPOINT}/submissions`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(buildPublicSubmission(result, contributionToken))
+      });
+      const reply = await response.json();
+      if (!response.ok || (!reply.accepted && !reply.duplicate)) throw new Error("Submission rejected");
+      contributionStatus = reply.duplicate ? "duplicate" : "sent";
+      publicAggregate = { status: "idle", data: null };
+      void loadPublicAggregate();
+    } catch {
+      contributionStatus = "error";
+    }
+    renderResults();
+  }
+
   function renderIntro() {
     root.innerHTML = `
       <section class="gc-panel gc-intro" aria-labelledby="gc-intro-title">
@@ -469,7 +643,9 @@ if (root) {
           <input type="file" accept="application/json,.json" data-workspace-import hidden>
         </div>
         <p class="gc-live-status" aria-live="polite">${workspaceNotice}</p>
-      </section>`;
+      </section>
+      ${renderPublicAggregate()}`;
+    void loadPublicAggregate();
   }
 
   function renderRouting() {
@@ -626,6 +802,7 @@ if (root) {
             </dl>
           </aside>
         </div>
+        ${renderContribution(result)}
         <section class="gc-boundary" aria-labelledby="gc-boundary-title">
           <h3 id="gc-boundary-title">${t.disclaimerTitle}</h3>
           <p>${t.disclaimer}</p>
@@ -945,6 +1122,7 @@ if (root) {
       state.phase = "routing";
       render();
     }
+    if (action === "contribute") void submitContribution();
     if (action === "open-workspace") startWorkspace(false);
     if (action === "open-workspace-blank") startWorkspace(true);
     if (action === "back") {
@@ -986,6 +1164,9 @@ if (root) {
       state.responseBasis = null;
       state.answers = {};
       workspaceNotice = "";
+      contributionConsent = false;
+      contributionStatus = "idle";
+      contributionToken = null;
       render();
     }
   });
@@ -1015,6 +1196,12 @@ if (root) {
   });
 
   root.addEventListener("change", async (event) => {
+    if (event.target.matches("[data-contribution-consent]")) {
+      contributionConsent = event.target.checked;
+      const button = root.querySelector('[data-action="contribute"]');
+      if (button) button.disabled = !contributionConsent;
+      return;
+    }
     if (event.target.matches("[data-workspace-import]")) {
       const [file] = event.target.files || [];
       event.target.value = "";
@@ -1071,6 +1258,9 @@ if (root) {
     } else if (event.target.dataset.form === "basis") {
       state.responseBasis = selected;
       state.phase = "results";
+      contributionConsent = false;
+      contributionStatus = "idle";
+      contributionToken = null;
     } else {
       state.answers[QUESTIONS[state.questionIndex].id] = selected;
       if (state.questionIndex === QUESTIONS.length - 1) state.phase = "basis";
