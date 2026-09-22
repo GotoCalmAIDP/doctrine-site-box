@@ -260,10 +260,10 @@ if (root) {
         excluded: "Outside stated scope",
         priority: "Priority open records",
         summaryBoundary: "Mapped means only that a current, classified record locator with no known conflict has been entered. It is not proof that the underlying claim is true or admissible.",
-        briefEyebrow: "Local JSON analysis",
-        briefTitle: "Compact review brief",
-        briefPurpose: "A local triage of this snapshot: what it can support, the main readiness gaps and the next bounded actions.",
-        briefStatusLabel: "Analysis readiness",
+        briefEyebrow: "One-page local decision aid",
+        briefTitle: "Review Readiness Brief",
+        briefPurpose: "Turn this snapshot into a bounded decision: the problem to solve now, up to five evidence gaps, the response window and whether a scoped professional review is justified.",
+        briefStatusLabel: "Current readiness",
         briefStatus: {
           "training-only": ["Training-only snapshot", "The declared exploratory basis prevents a substantive assessment. The mapping below can be used to learn the workflow, not to characterize a real system."],
           "context-required": ["Assessment context required", "Complete the object, version, date and context before treating the mapping as a bounded working record."],
@@ -277,6 +277,57 @@ if (root) {
         briefDate: "Assessment date",
         briefBasis: "Declared answer basis",
         notProvided: "Not provided",
+        briefPainTitle: "Problem to solve now",
+        briefPain: {
+          exploratory: "This run cannot support a real decision because the answer basis was exploratory. Repeat it for one bounded object before using the result.",
+          unknown: "The highest credible consequence is unresolved. Until it is bounded, the review depth and safe reliance point cannot be selected.",
+          live: "The object is already relied on in live operation while material claims may still lack current, attributable and independently challengeable evidence.",
+          pilot: "The next test can repeat the same evidence gaps and create false confidence unless open controls are closed or explicitly bounded first.",
+          design: "Procurement or deployment can lock in unsupported applicability, authority or control assumptions while changes are still comparatively cheap.",
+          concept: "This is the cheapest point to separate intended controls from claims that already have a reviewable evidence basis.",
+          lower: "The immediate value is proportionate assurance: document why deeper escalation is not triggered and avoid both false confidence and unnecessary control work."
+        },
+        briefStageTitle: "Current preparation stage",
+        briefTimingTitle: "Response window",
+        briefAsOf: "Horizon checked",
+        briefGapsTitle: "Priority gaps before next reliance",
+        briefNoGaps: "No structural mapping gap remains in this snapshot. Verification and an appropriately independent challenge are still required before external reliance.",
+        briefGapActionLabel: "Close",
+        briefGap: {
+          consequenceAxis: "Consequence boundary",
+          consequenceTitle: "The highest credible consequence path is not yet bounded.",
+          consequenceAction: "Confirm the highest credible path with an accountable owner before selecting review depth.",
+          contextAxis: "Assessment boundary",
+          contextTitle: "The object, version, date or use context is not fully bounded.",
+          regulatoryAxis: "Legal orientation",
+          regulatoryTitle: "Jurisdiction, market role or the suggested regulatory profile still needs confirmation.",
+          regulatoryAction: "Confirm the profile and route applicability questions to qualified legal or sector review.",
+          maritimeAxis: "Sector package",
+          maritimeTitle: "The Maritime / DP evidence package is not attached to this working record."
+        },
+        briefRecommendationTitle: "Recommended decision",
+        briefRecommendation: {
+          restart: "Repeat the screening for one real, bounded object. Do not commission a substantive review from this exploratory run.",
+          bound: "Complete the assessment boundary and consequence class first. This prevents buying a broad review that cannot reach a defensible conclusion.",
+          prepare: "Close the listed gaps, export the bounded packet and then route it for a scoped evidence-readiness review before the stated response window.",
+          review: "Prepare the bounded packet now and commission a scoped evidence-readiness review before the stated response window. The review should challenge sources, authority, commit paths and topology — not restate the score.",
+          challenge: "The mapping is ready for an appropriately independent challenge. Verify the records, conflicts and applicability before any external claim or operational conclusion."
+        },
+        briefReviewTitle: "Why a scoped professional review may be justified",
+        briefReviewReason: {
+          consequence: "The declared consequence class makes an unsupported claim materially expensive.",
+          lifecycle: "The pilot or live context shortens the time available to find and correct a false assumption.",
+          priority: "{count} critical doctrine record(s) remain open at the handoff boundary.",
+          regulatory: "The dated legal horizon is only orientation until role and applicability are tested against the real product and market facts.",
+          independence: "{count} source(s) are labelled independent, but that independence is still self-declared and needs external confirmation.",
+          concentration: "One source family carries most mapped claims, increasing correlated evidence risk.",
+          complete: "A complete mapping is the correct moment for challenge: the reviewer can test identifiable claims instead of reconstructing the scope from scratch.",
+          default: "A bounded external challenge can test whether the declared evidence would survive client, regulator, insurer or auditor scrutiny."
+        },
+        briefReviewScope: "Minimum professional scope: challenge the boundary; trace the 3–5 highest-risk claims; verify source identity, currentness, conflicts and independence; and issue dated findings with explicit hold points.",
+        briefDoctrineLabel: "Doctrinal decision chain",
+        briefDoctrine: "Scope and applicability → authority → commit → evidence and consequence → topology → drift and runtime.",
+        briefCta: "Discuss a scoped review",
         nextActionsTitle: "Recommended next actions",
         nextAction: {
           "rerun-substantive": "Repeat the screening for one real object using identifiable records or a declared mixed basis.",
@@ -288,8 +339,8 @@ if (root) {
         },
         priorityPreviewTitle: "First priority questions",
         noPriorityPreview: "No priority mapping items are open.",
-        briefBoundary: "This brief analyzes only the structure and declared state of the local snapshot. It does not read, upload or verify the underlying evidence.",
-        printBrief: "Print compact brief",
+        briefBoundary: "This brief analyzes only the structure and declared state of the local snapshot. It does not read, upload or verify the underlying evidence and is not an audit, compliance conclusion, safety finding or authorization.",
+        printBrief: "Print one-page brief",
         contextOpen: "assessment context field(s) remain incomplete",
         mapTitle: "Evidence map by doctrine axis",
         sourceAnswer: "Screening answer",
@@ -680,10 +731,10 @@ if (root) {
         excluded: "Поза заявленим обсягом",
         priority: "Пріоритетні відкриті записи",
         summaryBoundary: "«Картовано» означає лише, що введено актуальний класифікований локатор запису без відомого конфлікту. Це не доводить істинність або допустимість відповідного твердження.",
-        briefEyebrow: "Локальний аналіз JSON",
-        briefTitle: "Стислий огляд",
-        briefPurpose: "Локальний triage цього знімка: що він може підтримувати, головні прогалини готовності та наступні обмежені дії.",
-        briefStatusLabel: "Готовність аналізу",
+        briefEyebrow: "Локальний односторінковий орієнтир для рішення",
+        briefTitle: "Review Readiness Brief",
+        briefPurpose: "Перетворіть цей знімок на обмежене рішення: яку проблему вирішити зараз, до п’яти доказових прогалин, строк реакції та чи виправданий обмежений професійний перегляд.",
+        briefStatusLabel: "Поточна готовність",
         briefStatus: {
           "training-only": ["Навчальний знімок", "Заявлена ознайомлювальна підстава не дозволяє змістовного оцінювання. Картування нижче придатне для вивчення процесу, а не для характеристики реальної системи."],
           "context-required": ["Потрібен контекст оцінювання", "Заповніть об’єкт, версію, дату й контекст, перш ніж сприймати картування як обмежений робочий запис."],
@@ -697,6 +748,57 @@ if (root) {
         briefDate: "Дата оцінювання",
         briefBasis: "Заявлена підстава відповідей",
         notProvided: "Не вказано",
+        briefPainTitle: "Проблема, яку слід вирішити зараз",
+        briefPain: {
+          exploratory: "Цей запуск не може підтримувати реальне рішення, бо підстава відповідей була ознайомлювальною. Повторіть його для одного обмеженого об’єкта.",
+          unknown: "Найвищий достовірний наслідок не визначено. Поки його не обмежено, неможливо обрати глибину перегляду та безпечну точку покладання.",
+          live: "На об’єкт уже покладаються в робочій експлуатації, хоча суттєві твердження можуть не мати актуальних, атрибутованих і придатних до незалежного оскарження свідчень.",
+          pilot: "Наступний тест може повторити ті самі доказові прогалини й створити хибну впевненість, якщо відкриті контролі не закрити або явно не обмежити заздалегідь.",
+          design: "Закупівля або розгортання можуть зафіксувати непідтверджені припущення щодо застосовності, повноважень чи контролю, поки зміни ще відносно дешеві.",
+          concept: "Це найдешевший момент, щоб відокремити заплановані контролі від тверджень, які вже мають придатну для перегляду доказову підставу.",
+          lower: "Негайна цінність — пропорційна впевненість: зафіксувати, чому глибша ескалація не спрацьовує, й уникнути як хибної впевненості, так і зайвої контрольної роботи."
+        },
+        briefStageTitle: "Поточний етап підготовки",
+        briefTimingTitle: "Строк реакції",
+        briefAsOf: "Горизонт перевірено",
+        briefGapsTitle: "Пріоритетні прогалини до наступного покладання",
+        briefNoGaps: "У цьому знімку не залишилося структурних прогалин картування. До зовнішнього покладання однаково потрібні перевірка та належно незалежне оскарження.",
+        briefGapActionLabel: "Закрити",
+        briefGap: {
+          consequenceAxis: "Межа наслідків",
+          consequenceTitle: "Найвищий достовірний шлях наслідків ще не обмежено.",
+          consequenceAction: "Підтвердьте найвищий достовірний шлях із відповідальним власником до вибору глибини перегляду.",
+          contextAxis: "Межа оцінювання",
+          contextTitle: "Об’єкт, версію, дату або контекст використання визначено не повністю.",
+          regulatoryAxis: "Правова орієнтація",
+          regulatoryTitle: "Юрисдикція, ринкова роль або запропонований регуляторний профіль ще потребують підтвердження.",
+          regulatoryAction: "Підтвердьте профіль і передайте питання застосовності на кваліфікований правовий або галузевий перегляд.",
+          maritimeAxis: "Галузевий пакет",
+          maritimeTitle: "Пакет свідчень Maritime / DP не приєднано до цього робочого запису."
+        },
+        briefRecommendationTitle: "Рекомендоване рішення",
+        briefRecommendation: {
+          restart: "Повторіть скринінг для одного реального обмеженого об’єкта. Не замовляйте змістовний перегляд на підставі цього ознайомлювального запуску.",
+          bound: "Спочатку завершіть межу оцінювання та клас наслідків. Це захищає від оплати широкого перегляду, який не зможе дійти захищуваного висновку.",
+          prepare: "Закрийте перелічені прогалини, експортуйте обмежений пакет і передайте його на обмежений перегляд готовності свідчень до зазначеного строку.",
+          review: "Підготуйте обмежений пакет зараз і замовте обмежений перегляд готовності свідчень до зазначеного строку. Перегляд має оскаржити джерела, повноваження, commit-шляхи й топологію, а не повторювати бал.",
+          challenge: "Картування готове до належно незалежного оскарження. Перевірте записи, конфлікти та застосовність до будь-якого зовнішнього твердження чи операційного висновку."
+        },
+        briefReviewTitle: "Чому обмежений професійний перегляд може бути виправданим",
+        briefReviewReason: {
+          consequence: "Заявлений клас наслідків робить непідтверджене твердження матеріально дорогим.",
+          lifecycle: "Пілотний або робочий контекст скорочує час для виявлення й виправлення хибного припущення.",
+          priority: "{count} критичних доктринальних записів залишаються відкритими на межі передачі.",
+          regulatory: "Датований правовий горизонт є лише орієнтиром, доки роль і застосовність не перевірено на фактах реального продукту та ринку.",
+          independence: "{count} джерел позначено незалежними, але ця незалежність поки самозаявлена й потребує зовнішнього підтвердження.",
+          concentration: "Одна група джерел підтримує більшість картованих тверджень, що підвищує корельований доказовий ризик.",
+          complete: "Завершене картування — правильний момент для оскарження: рецензент може перевіряти визначені твердження, а не відновлювати обсяг з нуля.",
+          default: "Обмежене зовнішнє оскарження може перевірити, чи витримають заявлені свідчення перевірку клієнта, регулятора, страховика або аудитора."
+        },
+        briefReviewScope: "Мінімальний професійний обсяг: оскаржити межу; простежити 3–5 тверджень із найвищим ризиком; перевірити ідентичність, актуальність, конфлікти й незалежність джерел; видати датовані висновки з явними hold points.",
+        briefDoctrineLabel: "Доктринальний ланцюг рішення",
+        briefDoctrine: "Обсяг і застосовність → повноваження → commit → свідчення й наслідок → топологія → drift і runtime.",
+        briefCta: "Обговорити обмежений перегляд",
         nextActionsTitle: "Рекомендовані наступні дії",
         nextAction: {
           "rerun-substantive": "Повторіть скринінг для одного реального об’єкта на підставі записів, які можна визначити, або заявленої змішаної підстави.",
@@ -708,8 +810,8 @@ if (root) {
         },
         priorityPreviewTitle: "Перші пріоритетні питання",
         noPriorityPreview: "Відкритих пріоритетних елементів картування немає.",
-        briefBoundary: "Цей огляд аналізує лише структуру й заявлений стан локального знімка. Він не читає, не завантажує й не перевіряє самі свідчення.",
-        printBrief: "Друкувати стислий огляд",
+        briefBoundary: "Цей огляд аналізує лише структуру й заявлений стан локального знімка. Він не читає, не завантажує й не перевіряє самі свідчення та не є аудитом, висновком про відповідність чи безпеку або авторизацією.",
+        printBrief: "Друкувати односторінковий brief",
         contextOpen: "полів контексту оцінювання залишаються незаповненими",
         mapTitle: "Карта свідчень за осями доктрини",
         sourceAnswer: "Відповідь скринінгу",
@@ -1949,7 +2051,7 @@ if (root) {
       </article>`;
   }
 
-  function buildReviewSignals(evaluation) {
+  function reviewQualityStats(evaluation) {
     const allRows = [...workspace.rows, ...(workspace.maritime?.rows || [])];
     const evaluated = [...evaluation.core.rows, ...(evaluation.sector?.rows || [])];
     const mappedIds = new Set(evaluated.filter((item) => item.state === "mapped").map((item) => item.questionId));
@@ -1961,14 +2063,102 @@ if (root) {
     }
     const largestFamily = Math.max(0, ...families.values());
     const independentCount = allRows.filter((row) => row.evidenceStatus !== "excluded" && row.evidenceClass === "independent").length;
+    return { independentCount, largestFamily, mappedCount: mappedRows.length };
+  }
+
+  function buildReviewSignals(evaluation) {
+    const { independentCount, largestFamily, mappedCount } = reviewQualityStats(evaluation);
     const copy = t.workspace.reviewSignals;
     const signals = [];
-    if (largestFamily >= 3 && largestFamily / Math.max(mappedRows.length, 1) >= 0.6) {
+    if (largestFamily >= 3 && largestFamily / Math.max(mappedCount, 1) >= 0.6) {
       signals.push(copy.singleSource.replace("{count}", String(largestFamily)));
     }
     if (independentCount > 0) signals.push(copy.independence.replace("{count}", String(independentCount)));
     if (documentIntake.report) signals.push(copy.document);
     return signals;
+  }
+
+  function briefPainKey(brief) {
+    if (brief.exploratory) return "exploratory";
+    if (workspace.screening.consequenceClass === "unknown") return "unknown";
+    if (["informational", "limited"].includes(workspace.screening.consequenceClass) && workspace.screening.outcome === "no-escalation") return "lower";
+    return ["concept", "design", "pilot", "live"].includes(workspace.screening.lifecycle)
+      ? workspace.screening.lifecycle
+      : "concept";
+  }
+
+  function briefRecommendationKey(brief, evaluation, regulatoryReadiness) {
+    if (brief.exploratory) return "restart";
+    if (workspace.screening.consequenceClass === "unknown" || brief.contextGaps.length || regulatoryReadiness.level === 0) return "bound";
+    if (evaluation.summary.priorityOpen || ["enterprise", "high", "critical"].includes(workspace.screening.consequenceClass) || ["pilot", "live"].includes(workspace.screening.lifecycle)) return "review";
+    if (evaluation.summary.open || brief.missingSectorPackage) return "prepare";
+    return "challenge";
+  }
+
+  function buildBriefGaps(brief, evaluation, regulatoryReadiness) {
+    const copy = t.workspace.briefGap;
+    const items = [];
+    const seen = new Set();
+    const add = (item) => {
+      if (!item?.id || seen.has(item.id) || items.length >= 5) return;
+      seen.add(item.id);
+      items.push({ ...item, urgency: regulatoryReadiness.urgency });
+    };
+
+    if (workspace.screening.consequenceClass === "unknown") {
+      add({ id: "consequence-boundary", axis: copy.consequenceAxis, title: copy.consequenceTitle, actions: [copy.consequenceAction], priority: true });
+    }
+    if (brief.contextGaps.length) {
+      add({ id: "assessment-context", axis: copy.contextAxis, title: copy.contextTitle, actions: [t.workspace.nextAction["complete-context"]], priority: true });
+    }
+
+    const addEvidenceGap = (item) => {
+      const questionSet = item.packageType === "maritime-dp" ? maritimeQuestionById : questionById;
+      const axes = item.packageType === "maritime-dp" ? MARITIME_EVIDENCE_AXES : AXES;
+      const question = questionSet[item.questionId];
+      const axis = axes.find((entry) => entry.id === item.axis);
+      add({
+        id: `${item.packageType}:${item.questionId}`,
+        axis: axis?.[language] || item.axis,
+        title: question?.[language] || item.questionId,
+        actions: item.actions.slice(0, 2).map((action) => t.workspace.action[action]),
+        priority: Boolean(item.priority)
+      });
+    };
+
+    evaluation.openActions
+      .filter((item) => item.state === "open" && item.priority)
+      .forEach(addEvidenceGap);
+
+    if (brief.missingSectorPackage) {
+      add({ id: "maritime-package", axis: copy.maritimeAxis, title: copy.maritimeTitle, actions: [t.workspace.nextAction["add-maritime-package"]], priority: true });
+    }
+    if (regulatoryReadiness.gaps.some((gap) => ["jurisdiction", "market-role", "confirmation"].includes(gap))) {
+      add({ id: "regulatory-profile", axis: copy.regulatoryAxis, title: copy.regulatoryTitle, actions: [copy.regulatoryAction], priority: false });
+    }
+
+    evaluation.openActions
+      .filter((item) => item.state === "open" && !item.priority)
+      .forEach(addEvidenceGap);
+    evaluation.openActions
+      .filter((item) => item.state === "excluded")
+      .forEach(addEvidenceGap);
+
+    return items;
+  }
+
+  function buildProfessionalReviewReasons(brief, evaluation, regulatoryReadiness) {
+    const copy = t.workspace.briefReviewReason;
+    const quality = reviewQualityStats(evaluation);
+    const reasons = [];
+    if (["enterprise", "high", "critical"].includes(workspace.screening.consequenceClass)) reasons.push(copy.consequence);
+    if (["pilot", "live"].includes(workspace.screening.lifecycle)) reasons.push(copy.lifecycle);
+    if (evaluation.summary.priorityOpen) reasons.push(copy.priority.replace("{count}", String(evaluation.summary.priorityOpen)));
+    if (regulatoryReadiness.profile.confirmed || regulatoryReadiness.milestones.length) reasons.push(copy.regulatory);
+    if (quality.independentCount) reasons.push(copy.independence.replace("{count}", String(quality.independentCount)));
+    if (quality.largestFamily >= 3 && quality.largestFamily / Math.max(quality.mappedCount, 1) >= 0.6) reasons.push(copy.concentration);
+    if (brief.status === "mapping-complete") reasons.push(copy.complete);
+    return (reasons.length ? reasons : [copy.default]).slice(0, 4);
   }
 
   function renderWorkspace() {
@@ -1982,18 +2172,23 @@ if (root) {
     });
     const brief = buildEvidenceReviewBrief(workspace);
     const reviewSignals = buildReviewSignals(evaluation);
+    const briefGaps = buildBriefGaps(brief, evaluation, regulatoryReadiness);
+    const reviewReasons = buildProfessionalReviewReasons(brief, evaluation, regulatoryReadiness);
     const gaps = contextGaps();
     const briefStatus = t.workspace.briefStatus[brief.status];
     const consequence = t.consequenceOptions.find(([value]) => value === workspace.screening.consequenceClass);
     const basis = t.basisOptions.find(([value]) => value === workspace.screening.responseBasis);
+    const pain = t.workspace.briefPain[briefPainKey(brief)];
+    const recommendation = t.workspace.briefRecommendation[briefRecommendationKey(brief, evaluation, regulatoryReadiness)];
+    const contactPath = `/doctrine-site-box/${language}/contact/`;
     const valueOrMissing = (value) => escapeHtml(String(value || "").trim() || t.workspace.notProvided);
-    const briefPriorityItems = brief.priorityItems.map((item) => {
-      const question = item.packageType === "maritime-dp" ? maritimeQuestionById[item.questionId] : questionById[item.questionId];
-      return `<li><strong>${question[language]}</strong><span>${item.actions.slice(0, 2).map((action) => t.workspace.action[action]).join("; ")}</span></li>`;
-    }).join("");
-    const briefNextActions = brief.nextActions
-      .map((action) => `<li>${t.workspace.nextAction[action]}</li>`)
-      .join("");
+    const briefGapItems = briefGaps.map((item) => `
+      <li${item.priority ? ' class="gc-brief-gap-priority"' : ""}>
+        <div><span>${escapeHtml(item.axis)}</span><span>${escapeHtml(t.workspace.regulatory.urgencyLabels[item.urgency])}</span></div>
+        <strong>${escapeHtml(item.title)}</strong>
+        <p><b>${t.workspace.briefGapActionLabel}:</b> ${item.actions.map((action) => escapeHtml(action)).join("; ")}</p>
+      </li>`).join("");
+    const briefReviewReasons = reviewReasons.map((reason) => `<li>${escapeHtml(reason)}</li>`).join("");
     const filteredActions = evaluation.openActions.filter((item) => {
       if (workspaceActionFilter === "priority") return item.priority;
       if (workspaceActionFilter === "scope") return item.state === "excluded";
@@ -2107,29 +2302,52 @@ if (root) {
             <div><dt>${t.consequenceClass}</dt><dd>${consequence ? `${consequence[1]} · ${consequence[2]}` : t.workspace.notProvided}</dd></div>
             <div><dt>${t.workspace.briefBasis}</dt><dd>${basis ? basis[1] : t.workspace.notProvided}</dd></div>
           </dl>
+          <div class="gc-brief-decision-grid">
+            <article class="gc-brief-pain">
+              <h4>${t.workspace.briefPainTitle}</h4>
+              <p>${pain}</p>
+            </article>
+            <article>
+              <h4>${t.workspace.briefStageTitle}</h4>
+              <strong>${t.workspace.regulatory.levels[regulatoryReadiness.level]}</strong>
+              <p>${t.workspace.regulatory.levelBoundary}</p>
+            </article>
+            <article>
+              <h4>${t.workspace.briefTimingTitle}</h4>
+              <strong>${t.workspace.regulatory.urgencyLabels[regulatoryReadiness.urgency]}</strong>
+              <p>${t.workspace.briefAsOf}: ${regulatoryReadiness.asOf}</p>
+            </article>
+          </div>
           <div class="gc-brief-metrics" aria-label="${t.workspace.summaryTitle}">
             <div><strong>${brief.summary.mapped}</strong><span>${t.workspace.mapped}</span></div>
             <div><strong>${brief.summary.open}</strong><span>${t.workspace.openItems}</span></div>
             <div><strong>${brief.summary.excluded}</strong><span>${t.workspace.excluded}</span></div>
             <div><strong>${brief.summary.priorityOpen}</strong><span>${t.workspace.priority}</span></div>
           </div>
-          <div class="gc-brief-columns">
-            <div>
-              <h4>${t.workspace.nextActionsTitle}</h4>
-              <ol>${briefNextActions}</ol>
-            </div>
-            <div>
-              <h4>${t.workspace.priorityPreviewTitle}</h4>
-              ${briefPriorityItems ? `<ol class="gc-brief-priorities">${briefPriorityItems}</ol>` : `<p>${t.workspace.noPriorityPreview}</p>`}
-            </div>
+          <section class="gc-brief-gap-section" aria-labelledby="gc-brief-gaps-title">
+            <h4 id="gc-brief-gaps-title">${t.workspace.briefGapsTitle}</h4>
+            ${briefGapItems ? `<ol class="gc-brief-gap-list">${briefGapItems}</ol>` : `<p>${t.workspace.briefNoGaps}</p>`}
+          </section>
+          <div class="gc-brief-columns gc-brief-commercial-grid">
+            <article class="gc-brief-recommendation">
+              <h4>${t.workspace.briefRecommendationTitle}</h4>
+              <p>${recommendation}</p>
+            </article>
+            <article>
+              <h4>${t.workspace.briefReviewTitle}</h4>
+              <ul>${briefReviewReasons}</ul>
+              <p class="gc-brief-review-scope">${t.workspace.briefReviewScope}</p>
+            </article>
           </div>
           <div class="gc-review-signals">
             <h4>${t.workspace.reviewSignals.title}</h4>
             ${reviewSignals.length ? `<ul>${reviewSignals.map((item) => `<li>${item}</li>`).join("")}</ul>` : `<p>${t.workspace.reviewSignals.clear}</p>`}
           </div>
+          <p class="gc-brief-doctrine"><strong>${t.workspace.briefDoctrineLabel}:</strong> ${t.workspace.briefDoctrine}</p>
           <p class="gc-hint">${t.workspace.briefBoundary}</p>
           <div class="gc-actions gc-brief-actions">
             <button class="gc-button gc-button-primary" type="button" data-action="workspace-print-brief">${t.workspace.printBrief}</button>
+            <a class="gc-button gc-button-quiet" href="${contactPath}">${t.workspace.briefCta}</a>
           </div>
         </section>
 
