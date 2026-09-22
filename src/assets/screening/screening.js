@@ -55,7 +55,7 @@ if (root) {
       purpose: "It helps identify where the stated scope is incomplete or where a deeper evidence review may be useful. It does not determine compliance, safety, certification, conformance or permission to operate.",
       time: "21 selections · about 6–9 minutes",
       private: "Private by design",
-      privateText: "The assessment and all answers stay in this browser. Only after a substantive run, and only with your explicit consent, a minimal summary can be sent. No answers, scores, free text, evidence locators or files are uploaded.",
+      privateText: "The assessment and all answers stay in this browser. A working draft is auto-saved only in this tab so ordinary navigation or a refresh does not erase it. Closing the tab or explicitly starting a new assessment clears that tab draft. Only after a substantive run, and only with your explicit consent, a minimal summary can be sent. No answers, scores, free text, evidence locators or files are uploaded.",
       before: "Before you begin",
       beforeItems: [
         "Choose one specific system or decision context and one current version.",
@@ -153,7 +153,25 @@ if (root) {
       disclaimer: "This educational screening is not an audit, independent verification, certification, safety case, legal advice, engineering approval or regulatory conclusion. Answers and percentages are not evidence or proof and do not establish applicability, admissibility, authority, mandate continuity or doctrine conformance. The result cannot authorize execution, continuation or restoration. Unknown and excluded areas constrain the result. It applies only to the object, context, version and date you considered; material changes require reassessment.",
       urgent: "Do not use this screening for urgent operational decisions or as a substitute for qualified legal, safety, engineering or regulatory judgment.",
       print: "Print or save result",
-      restart: "Restart",
+      restart: "Start new assessment",
+      restartConfirm: "Start a new assessment and erase the current tab draft? Export the workspace JSON first if you may need it again.",
+      session: {
+        title: "Current work protected",
+        text: "Auto-saved only in this browser tab. Refreshes, same-tab navigation and language changes keep the draft; closing the tab or starting a new assessment clears it.",
+        saved: "Draft saved in this tab"
+      },
+      why: {
+        eyebrow: "Why this test matters",
+        title: "Find the claim that may fail review before a client, regulator, insurer or auditor finds it",
+        text: "The screen turns a broad confidence statement into a bounded consequence class, an evidence route and a visible list of claims that still need records or independent challenge.",
+        level: "Current product level",
+        levelText: "Self-reported review-readiness baseline — not an audit or compliance determination.",
+        outputs: [
+          "A consequence-sensitive route instead of one generic score.",
+          "A portable evidence-readiness packet showing what is mapped, open or excluded.",
+          "A dated regulatory preparation horizon and a handoff point for qualified independent review."
+        ]
+      },
       readScope: "Read Scope and Limitations",
       readEvidence: "Read Evidence",
       answerRequired: "Select one answer to continue.",
@@ -227,7 +245,7 @@ if (root) {
         eyebrow: "Tier 1.1 local alpha · structured working record",
         title: "Evidence Readiness Workspace",
         purpose: "Map where reviewable records exist and where the evidence basis remains open. This workspace does not review evidence and does not produce a pass, approval or conformance result.",
-        privacy: "Nothing is sent or saved automatically. The working record exists only in this tab unless you export it. Use neutral references and do not enter raw evidence, personal data, credentials, client details or operationally sensitive information.",
+        privacy: "Nothing is sent to us. A derived working draft is auto-saved only in this browser tab so navigation or refresh does not erase it; the raw document is never retained. Closing the tab or explicitly starting a new assessment clears the tab draft. Export JSON for a portable copy. Use neutral references and do not enter raw evidence, personal data, credentials, client details or operationally sensitive information.",
         contextTitle: "Assessment context",
         referenceLabel: "Neutral object reference",
         referenceHint: "Example: SYSTEM-A or CASE-014",
@@ -314,7 +332,7 @@ if (root) {
         exampleConfirm: "Replace the current workspace with a clearly fictional training example?",
         exampleLoaded: "Fictional training example loaded",
         print: "Print full mapping packet",
-        back: "Back to screening result",
+        back: "Back to result — keep this work",
         clear: "Reset workspace",
         clearConfirm: "Reset every Tier 1 field in this tab? This cannot be undone unless you already exported a snapshot.",
         exported: "JSON snapshot downloaded",
@@ -332,21 +350,32 @@ if (root) {
         version: "Workspace version",
         emptyOutcome: "Blank workspace",
         current: "current mapping",
+        independentHint: "Use “independent” only for a source whose author, method and incentives are sufficiently separate from the claim owner. Selecting the label here does not establish independence.",
+        reviewSignals: {
+          title: "Review-quality signals",
+          clear: "No source-concentration or independence flags were detected from the entered locators. This still does not verify the evidence.",
+          singleSource: "One source family supports {count} mapped records. Split claims across controlled records or add corroboration before external reliance.",
+          independence: "{count} record(s) are labelled independent. Independence is self-declared here and must be confirmed from source ownership, method and incentives.",
+          document: "A locally scanned document supplied candidate locators; phrase matches do not establish record quality or control effectiveness."
+        },
         value: {
-          title: "What this can solve",
-          now: "Here and now",
+          eyebrow: "Current product level",
+          title: "Review-readiness baseline — not an independent audit",
+          promise: "Expose the claim most likely to fail an evidence review before it reaches a client, regulator, insurer or auditor.",
+          now: "What you get now",
           nowItems: [
-            "Reduce manual setup by extracting basic DOCX metadata and candidate doctrine-section locators.",
-            "Show which evidence records and confirmations are still missing before a review can begin.",
-            "Place the current evidence state beside a dated EU/EEA regulatory horizon."
+            "A consequence-sensitive map of supported, open and excluded claims — without hiding gaps inside one score.",
+            "A portable review-readiness packet with controlled locators, priority actions and a compact brief.",
+            "A dated EU/EEA preparation horizon beside the evidence state, with explicit applicability limits."
           ],
-          future: "After calibration",
+          future: "Commercial path after calibration",
           futureItems: [
-            "Private accounts, team history and controlled multi-file workspaces.",
-            "Qualified legal, sector and independent evidence-review routes.",
-            "Calibrated comparisons without turning the doctrine into a commercial score."
+            "A scoped evidence-readiness review that challenges the map and prepares the controlled handoff.",
+            "Qualified legal, sector and genuinely independent evidence-review routes under separate scope.",
+            "Private accounts, team history and controlled multi-file workspaces after the public alpha is calibrated."
           ],
-          boundary: "This free voluntary alpha is a doctrine-led intake and preparation surface. Paid or account-based services are not active."
+          cta: "Discuss a scoped evidence-readiness review",
+          boundary: "Call this output an audit-readiness or review-readiness baseline. Do not call it an independent audit: the public alpha does not inspect the underlying evidence, test controls or establish reviewer independence. The test remains free; any professional engagement requires separate scope, competence and independence checks."
         },
         document: {
           intro: "Analyze a DOCX locally",
@@ -446,7 +475,7 @@ if (root) {
       purpose: "Допомагає виявити неповний заявлений обсяг або потребу в глибшому розгляді свідчень. Не визначає відповідність, безпеку, сертифікацію, конформність чи дозвіл на експлуатацію.",
       time: "21 вибір · приблизно 6–9 хвилин",
       private: "Приватність за задумом",
-      privateText: "Оцінювання та всі відповіді залишаються в цьому браузері. Лише після змістовного проходження і тільки за вашою явною згодою можна надіслати мінімальне резюме. Відповіді, бали, вільний текст, локатори свідчень і файли не завантажуються.",
+      privateText: "Оцінювання та всі відповіді залишаються в цьому браузері. Робочий чернетковий стан автоматично зберігається лише в цій вкладці, тому звичайна навігація або оновлення сторінки його не стирає. Закриття вкладки або явний початок нового оцінювання очищає чернетку цієї вкладки. Лише після змістовного проходження і тільки за вашою явною згодою можна надіслати мінімальне резюме. Відповіді, бали, вільний текст, локатори свідчень і файли не завантажуються.",
       before: "Перед початком",
       beforeItems: [
         "Оберіть одну конкретну систему або контекст рішення та одну актуальну версію.",
@@ -544,7 +573,25 @@ if (root) {
       disclaimer: "Цей освітній скринінг не є аудитом, незалежною перевіркою, сертифікацією, обґрунтуванням безпеки, юридичною порадою, інженерним схваленням або регуляторним висновком. Відповіді та відсотки не є свідченнями чи доказами і не встановлюють застосовність, допустимість, повноваження, безперервність мандата або відповідність доктрині. Результат не може дозволяти виконання, продовження чи відновлення. Невідомі та виключені області обмежують результат. Він стосується лише об’єкта, контексту, версії та дати, які ви розглядали; суттєві зміни потребують повторного оцінювання.",
       urgent: "Не використовуйте цей скринінг для термінових операційних рішень або замість кваліфікованого юридичного, безпекового, інженерного чи регуляторного судження.",
       print: "Друкувати або зберегти результат",
-      restart: "Почати знову",
+      restart: "Почати нове оцінювання",
+      restartConfirm: "Почати нове оцінювання і стерти поточну чернетку цієї вкладки? Якщо вона ще може знадобитися, спочатку експортуйте JSON робочого простору.",
+      session: {
+        title: "Поточну роботу захищено",
+        text: "Чернетка автоматично зберігається лише в цій вкладці браузера. Оновлення сторінки, навігація в цій вкладці та зміна мови зберігають її; закриття вкладки або початок нового оцінювання очищає її.",
+        saved: "Чернетку збережено в цій вкладці"
+      },
+      why: {
+        eyebrow: "Навіщо потрібен цей тест",
+        title: "Знайдіть твердження, яке може не витримати перегляду, раніше за клієнта, регулятора, страховика чи аудитора",
+        text: "Скринінг перетворює загальну впевненість на обмежений клас наслідків, доказовий маршрут і видимий перелік тверджень, яким досі потрібні записи або незалежне оскарження.",
+        level: "Поточний рівень продукту",
+        levelText: "Самозаявлена базова готовність до перегляду — не аудит і не визначення відповідності.",
+        outputs: [
+          "Маршрут за класом наслідків замість одного універсального бала.",
+          "Переносний пакет готовності свідчень: що картовано, відкрито або виключено.",
+          "Датований горизонт регуляторної підготовки й точка передачі на кваліфікований незалежний перегляд."
+        ]
+      },
       readScope: "Читати «Обсяг та обмеження»",
       readEvidence: "Читати «Доказовість»",
       answerRequired: "Оберіть одну відповідь, щоб продовжити.",
@@ -618,7 +665,7 @@ if (root) {
         eyebrow: "Локальна альфа Tier 1.1 · структурований робочий запис",
         title: "Робочий простір готовності свідчень",
         purpose: "Позначте, де існують записи для перегляду, а де доказова підстава залишається відкритою. Цей простір не перевіряє свідчення і не видає результату про проходження, схвалення чи конформність.",
-        privacy: "Нічого не надсилається і не зберігається автоматично. Робочий запис існує лише в цій вкладці, доки ви його не експортуєте. Використовуйте нейтральні посилання та не вводьте самі свідчення, персональні дані, облікові дані, відомості клієнта або операційно чутливу інформацію.",
+        privacy: "Нічого не надсилається нам. Похідна робоча чернетка автоматично зберігається лише в цій вкладці браузера, тому навігація або оновлення сторінки її не стирає; сирий документ ніколи не зберігається. Закриття вкладки або явний початок нового оцінювання очищає чернетку вкладки. Експортуйте JSON для переносної копії. Використовуйте нейтральні посилання та не вводьте самі свідчення, персональні дані, облікові дані, відомості клієнта або операційно чутливу інформацію.",
         contextTitle: "Контекст оцінювання",
         referenceLabel: "Нейтральне позначення об’єкта",
         referenceHint: "Приклад: SYSTEM-A або CASE-014",
@@ -705,7 +752,7 @@ if (root) {
         exampleConfirm: "Замінити поточний робочий простір явно вигаданим навчальним прикладом?",
         exampleLoaded: "Вигаданий навчальний приклад завантажено",
         print: "Друкувати повний пакет картування",
-        back: "Назад до результату скринінгу",
+        back: "Назад до результату — зберегти цю роботу",
         clear: "Скинути робочий простір",
         clearConfirm: "Скинути всі поля Tier 1 у цій вкладці? Скасувати це неможливо, якщо знімок ще не експортовано.",
         exported: "Знімок JSON завантажено",
@@ -723,21 +770,32 @@ if (root) {
         version: "Версія робочого простору",
         emptyOutcome: "Порожній робочий простір",
         current: "поточне картування",
+        independentHint: "Використовуйте клас «незалежне» лише для джерела, автор, метод і стимули якого достатньо відокремлені від власника твердження. Вибір цієї мітки тут не встановлює незалежність.",
+        reviewSignals: {
+          title: "Сигнали якості перегляду",
+          clear: "За введеними локаторами не виявлено сигналів концентрації джерела або незалежності. Це однаково не перевіряє свідчення.",
+          singleSource: "Одна група джерел підтримує {count} картованих записів. Розділіть твердження між контрольованими записами або додайте підтвердження до зовнішнього покладання.",
+          independence: "{count} запис(ів) позначено як незалежні. Тут незалежність є самозаявленою; її слід підтвердити за власністю джерела, методом і стимулами.",
+          document: "Локально просканований документ запропонував кандидати локаторів; збіги фраз не встановлюють якість запису або дієвість контролю."
+        },
         value: {
-          title: "Яку проблему це може вирішити",
-          now: "Тут і зараз",
+          eyebrow: "Поточний рівень продукту",
+          title: "Базова готовність до перегляду — не незалежний аудит",
+          promise: "Виявіть твердження, яке найімовірніше не витримає доказового перегляду, раніше за клієнта, регулятора, страховика чи аудитора.",
+          now: "Що ви отримуєте зараз",
           nowItems: [
-            "Зменшити ручне введення завдяки вилученню базових метаданих DOCX і кандидатів локаторів розділів доктрини.",
-            "Показати, яких записів і підтверджень ще бракує до початку перегляду.",
-            "Поставити поточний стан свідчень поруч із датованим регуляторним горизонтом EU/EEA."
+            "Карту підтриманих, відкритих і виключених тверджень за класом наслідків — без приховування прогалин в одному балі.",
+            "Переносний пакет готовності до перегляду з контрольованими локаторами, пріоритетними діями та стислим оглядом.",
+            "Датований горизонт підготовки EU/EEA поруч зі станом свідчень і явними межами застосовності."
           ],
-          future: "Після калібрування",
+          future: "Комерційний маршрут після калібрування",
           futureItems: [
-            "Приватні кабінети, історія команди й контрольовані багатофайлові робочі простори.",
-            "Кваліфіковані правові, галузеві та незалежні маршрути перегляду свідчень.",
-            "Калібровані порівняння без перетворення доктрини на комерційний бал."
+            "Обмежений перегляд готовності свідчень, який оскаржує карту й готує контрольовану передачу.",
+            "Кваліфіковані правові, галузеві та справді незалежні маршрути перегляду за окремим обсягом.",
+            "Приватні кабінети, історія команди й контрольовані багатофайлові робочі простори після калібрування публічної альфи."
           ],
-          boundary: "Ця безкоштовна добровільна альфа є доктринальним входом і засобом підготовки. Платні або кабінетні послуги ще не активні."
+          cta: "Обговорити обмежений перегляд готовності свідчень",
+          boundary: "Називайте цей результат базовою готовністю до аудиту або перегляду. Не називайте його незалежним аудитом: публічна альфа не перевіряє самі свідчення, не тестує контролі й не встановлює незалежність рецензента. Тест залишається безкоштовним; будь-яка професійна взаємодія потребує окремого обсягу, перевірки компетентності й незалежності."
         },
         document: {
           intro: "Проаналізувати DOCX локально",
@@ -875,10 +933,94 @@ if (root) {
   let contributionConsent = false;
   let contributionStatus = "idle";
   let contributionToken = null;
+  const SESSION_SCHEMA = "goto-calm:screening-tab-draft:0.1";
+  const SESSION_KEY = "goto-calm:screening-tab-draft";
+  const VALID_PHASES = new Set(["intro", "routing", "questions", "basis", "results", "maritime-routing", "maritime-questions", "maritime-results", "workspace"]);
   const total = QUESTIONS.length + 4;
   const questionById = Object.fromEntries(QUESTIONS.map((question) => [question.id, question]));
   const maritimeQuestionById = Object.fromEntries(MARITIME_QUESTIONS.map((question) => [question.id, question]));
   const maritimeTotal = MARITIME_QUESTIONS.length + 2;
+
+  function hasMeaningfulDraft() {
+    return state.phase !== "intro" ||
+      Object.keys(state.answers).length > 0 ||
+      Object.keys(state.maritimeAnswers).length > 0;
+  }
+
+  function sessionSnapshot() {
+    return {
+      schema: SESSION_SCHEMA,
+      savedAt: new Date().toISOString(),
+      state,
+      workspace,
+      documentIntake: documentIntake.status === "ready"
+        ? documentIntake
+        : { status: "empty", report: null, error: "" },
+      regulatoryProfile,
+      workspaceActionFilter,
+      contribution: { status: contributionStatus, token: contributionToken }
+    };
+  }
+
+  function persistSession() {
+    try {
+      if (!hasMeaningfulDraft()) {
+        window.sessionStorage.removeItem(SESSION_KEY);
+        return;
+      }
+      window.sessionStorage.setItem(SESSION_KEY, JSON.stringify(sessionSnapshot()));
+    } catch {
+      // The assessment remains usable when browser storage is unavailable.
+    }
+  }
+
+  function clearPersistedSession() {
+    try {
+      window.sessionStorage.removeItem(SESSION_KEY);
+    } catch {
+      // No action is needed when browser storage is unavailable.
+    }
+  }
+
+  function restoreSession() {
+    try {
+      const raw = window.sessionStorage.getItem(SESSION_KEY);
+      if (!raw) return false;
+      const saved = JSON.parse(raw);
+      if (saved?.schema !== SESSION_SCHEMA || !saved.state || !VALID_PHASES.has(saved.state.phase)) {
+        clearPersistedSession();
+        return false;
+      }
+      Object.assign(state, saved.state, {
+        answers: saved.state.answers && typeof saved.state.answers === "object" ? saved.state.answers : {},
+        maritimeAnswers: saved.state.maritimeAnswers && typeof saved.state.maritimeAnswers === "object" ? saved.state.maritimeAnswers : {}
+      });
+      if (saved.workspace?.screening && Array.isArray(saved.workspace.rows)) workspace = saved.workspace;
+      if (saved.documentIntake?.status === "ready" && saved.documentIntake.report?.retainedContent === "derived-metadata-and-section-locators-only") {
+        documentIntake = saved.documentIntake;
+      }
+      if (saved.regulatoryProfile && typeof saved.regulatoryProfile === "object") {
+        regulatoryProfile = { ...emptyRegulatoryProfile(), ...saved.regulatoryProfile };
+      }
+      if (["all", "priority", "scope"].includes(saved.workspaceActionFilter)) workspaceActionFilter = saved.workspaceActionFilter;
+      if (["sent", "duplicate", "error"].includes(saved.contribution?.status)) contributionStatus = saved.contribution.status;
+      if (typeof saved.contribution?.token === "string" && saved.contribution.token.length <= 96) contributionToken = saved.contribution.token;
+      workspaceNotice = t.session.saved;
+      return true;
+    } catch {
+      clearPersistedSession();
+      return false;
+    }
+  }
+
+  function prependSessionGuard() {
+    if (state.phase === "intro" || root.querySelector(".gc-session-guard")) return;
+    root.insertAdjacentHTML("afterbegin", `
+      <aside class="gc-session-guard" role="status">
+        <span aria-hidden="true">●</span>
+        <div><strong>${t.session.title}</strong><p>${t.session.text}</p></div>
+      </aside>`);
+  }
 
   const checked = (actual, expected) => actual === expected ? " checked" : "";
   const escapeHtml = (value) => String(value ?? "")
@@ -1026,7 +1168,7 @@ if (root) {
     if (result.responseBasis === "exploratory") return;
     contributionToken ||= createContributionToken();
     contributionStatus = "sending";
-    renderResults();
+    render();
     try {
       const response = await fetch(`${PUBLIC_AGGREGATE_ENDPOINT}/submissions`, {
         method: "POST",
@@ -1041,7 +1183,7 @@ if (root) {
     } catch {
       contributionStatus = "error";
     }
-    renderResults();
+    render();
   }
 
   function renderIntro() {
@@ -1258,6 +1400,8 @@ if (root) {
           <button class="gc-button gc-button-quiet" type="button" data-action="print">${t.print}</button>
         </div>
       </section>`;
+    prependSessionGuard();
+    persistSession();
   }
 
   function renderResults() {
@@ -1306,6 +1450,18 @@ if (root) {
             <p class="gc-eyebrow">${t.sectorFocusTitle}</p>
             <h3>${t.sectors[result.sectorContext]}</h3>
             <ul>${sectorFocus.map((item) => `<li>${item}</li>`).join("")}</ul>
+          </div>
+        </section>
+        <section class="gc-panel gc-why-panel" aria-labelledby="gc-why-title">
+          <div>
+            <p class="gc-eyebrow">${t.why.eyebrow}</p>
+            <h3 id="gc-why-title">${t.why.title}</h3>
+            <p>${t.why.text}</p>
+          </div>
+          <div class="gc-why-level">
+            <span>${t.why.level}</span>
+            <strong>${t.why.levelText}</strong>
+            <ul>${t.why.outputs.map((item) => `<li>${item}</li>`).join("")}</ul>
           </div>
         </section>
         <div class="gc-result-grid">
@@ -1404,6 +1560,16 @@ if (root) {
     workspaceActionFilter = "all";
     state.phase = "workspace";
     render();
+  }
+
+  function openOrResumeWorkspace() {
+    if (workspace.screening && Array.isArray(workspace.rows) && workspace.rows.length) {
+      state.phase = "workspace";
+      workspaceNotice = t.session.saved;
+      render();
+      return;
+    }
+    startWorkspace(false);
   }
 
   function loadNeutralExample() {
@@ -1603,14 +1769,18 @@ if (root) {
 
   function renderValuePanel() {
     const value = t.workspace.value;
+    const contactPath = `/doctrine-site-box/${language}/contact/`;
     return `
       <section class="gc-panel gc-value-panel" aria-labelledby="gc-value-title">
+        <p class="gc-eyebrow">${value.eyebrow}</p>
         <h3 id="gc-value-title">${value.title}</h3>
+        <p class="gc-value-promise">${value.promise}</p>
         <div class="gc-value-grid">
           <div><strong>${value.now}</strong><ul>${value.nowItems.map((item) => `<li>${item}</li>`).join("")}</ul></div>
           <div><strong>${value.future}</strong><ul>${value.futureItems.map((item) => `<li>${item}</li>`).join("")}</ul></div>
         </div>
         <p class="gc-hint">${value.boundary}</p>
+        <div class="gc-actions"><a class="gc-button gc-button-primary" href="${contactPath}">${value.cta}</a></div>
       </section>`;
   }
 
@@ -1774,8 +1944,31 @@ if (root) {
             <input id="${fieldId}-locator" type="text" maxlength="320" value="${escapeHtml(row.recordLocator)}" placeholder="${escapeHtml(t.workspace.locatorHint)}" data-workspace-row="${row.questionId}" data-workspace-field="recordLocator" autocomplete="off"${excluded ? " disabled" : ""}>
           </label>
         </div>
+        ${row.evidenceClass === "independent" ? `<p class="gc-independent-hint">${t.workspace.independentHint}</p>` : ""}
         ${actions ? `<ul class="gc-row-actions">${actions}</ul>` : ""}
       </article>`;
+  }
+
+  function buildReviewSignals(evaluation) {
+    const allRows = [...workspace.rows, ...(workspace.maritime?.rows || [])];
+    const evaluated = [...evaluation.core.rows, ...(evaluation.sector?.rows || [])];
+    const mappedIds = new Set(evaluated.filter((item) => item.state === "mapped").map((item) => item.questionId));
+    const mappedRows = allRows.filter((row) => mappedIds.has(row.questionId));
+    const families = new Map();
+    for (const row of mappedRows) {
+      const family = String(row.recordLocator || "").trim().split("#")[0].split("?")[0];
+      if (family) families.set(family, (families.get(family) || 0) + 1);
+    }
+    const largestFamily = Math.max(0, ...families.values());
+    const independentCount = allRows.filter((row) => row.evidenceStatus !== "excluded" && row.evidenceClass === "independent").length;
+    const copy = t.workspace.reviewSignals;
+    const signals = [];
+    if (largestFamily >= 3 && largestFamily / Math.max(mappedRows.length, 1) >= 0.6) {
+      signals.push(copy.singleSource.replace("{count}", String(largestFamily)));
+    }
+    if (independentCount > 0) signals.push(copy.independence.replace("{count}", String(independentCount)));
+    if (documentIntake.report) signals.push(copy.document);
+    return signals;
   }
 
   function renderWorkspace() {
@@ -1788,6 +1981,7 @@ if (root) {
       documentReport: documentIntake.report
     });
     const brief = buildEvidenceReviewBrief(workspace);
+    const reviewSignals = buildReviewSignals(evaluation);
     const gaps = contextGaps();
     const briefStatus = t.workspace.briefStatus[brief.status];
     const consequence = t.consequenceOptions.find(([value]) => value === workspace.screening.consequenceClass);
@@ -1929,6 +2123,10 @@ if (root) {
               ${briefPriorityItems ? `<ol class="gc-brief-priorities">${briefPriorityItems}</ol>` : `<p>${t.workspace.noPriorityPreview}</p>`}
             </div>
           </div>
+          <div class="gc-review-signals">
+            <h4>${t.workspace.reviewSignals.title}</h4>
+            ${reviewSignals.length ? `<ul>${reviewSignals.map((item) => `<li>${item}</li>`).join("")}</ul>` : `<p>${t.workspace.reviewSignals.clear}</p>`}
+          </div>
           <p class="gc-hint">${t.workspace.briefBoundary}</p>
           <div class="gc-actions gc-brief-actions">
             <button class="gc-button gc-button-primary" type="button" data-action="workspace-print-brief">${t.workspace.printBrief}</button>
@@ -1994,6 +2192,8 @@ if (root) {
           <button class="gc-button gc-button-danger" type="button" data-action="workspace-clear">${t.workspace.clear}</button>
         </div>
       </section>`;
+    prependSessionGuard();
+    persistSession();
   }
 
   function exportWorkspace() {
@@ -2052,6 +2252,8 @@ if (root) {
     if (state.phase === "maritime-questions") renderMaritimeQuestion();
     if (state.phase === "maritime-results") renderMaritimeResults();
     if (state.phase === "workspace") renderWorkspace();
+    prependSessionGuard();
+    persistSession();
     root.querySelector("button, input, summary")?.focus({ preventScroll: true });
   }
 
@@ -2069,7 +2271,7 @@ if (root) {
       maritimeNotice = "";
       render();
     }
-    if (action === "open-workspace") startWorkspace(false);
+    if (action === "open-workspace") openOrResumeWorkspace();
     if (action === "open-workspace-blank") startWorkspace(true);
     if (action === "document-intake") {
       startWorkspace(true);
@@ -2133,6 +2335,8 @@ if (root) {
       startWorkspace(false);
     }
     if (action === "restart") {
+      if (!window.confirm(t.restartConfirm)) return;
+      clearPersistedSession();
       state.phase = "intro";
       state.routingIndex = 0;
       state.questionIndex = 0;
@@ -2150,6 +2354,13 @@ if (root) {
       maritimeNotice = "";
       documentIntake = { status: "empty", report: null, error: "" };
       regulatoryProfile = emptyRegulatoryProfile();
+      workspace = {
+        context: { referenceLabel: "", assessedVersion: "", assessmentDate: localDate(), contextLabel: "" },
+        screening: null,
+        rows: [],
+        maritime: null
+      };
+      workspaceActionFilter = "all";
       contributionConsent = false;
       contributionStatus = "idle";
       contributionToken = null;
@@ -2166,6 +2377,7 @@ if (root) {
       const row = findWorkspaceRow(rowId);
       if (row) row.recordLocator = event.target.value;
     }
+    persistSession();
   });
 
   root.addEventListener("focusout", (event) => {
@@ -2286,5 +2498,6 @@ if (root) {
     root.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 
+  restoreSession();
   render();
 }
