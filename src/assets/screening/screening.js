@@ -27,7 +27,7 @@ if (root) {
       alpha: "Public alpha · self-reported",
       lead: "A short boundary screening for automated, AI-enabled and consequence-bearing systems.",
       purpose: "It helps identify where the stated scope is incomplete or where a deeper evidence review may be useful. It does not determine compliance, safety, certification, conformance or permission to operate.",
-      time: "20 selections · about 6–9 minutes",
+      time: "21 selections · about 6–9 minutes",
       private: "Private by design",
       privateText: "The assessment runs in this browser. No account, names, free text, answer submission or server upload is used.",
       before: "Before you begin",
@@ -70,15 +70,31 @@ if (root) {
         ["pilot", "Pilot, test or limited operation"],
         ["live", "Live or production operation"]
       ],
+      basisTitle: "What did you use to choose the answers?",
+      basisHint: "This declaration changes how the result may be interpreted. It does not change the consequence class or hide gaps.",
+      basisOptions: [
+        ["records", "Identifiable records", "I answered from current records I could identify for this specific object and context."],
+        ["mixed", "Records plus memory or assumptions", "Some answers were based on recollection, intention or an unverified assumption."],
+        ["exploratory", "Exploratory / demonstration run", "I was learning the interface, trying answer patterns or selecting without a real evidence basis."]
+      ],
       scaleHelp: "Use the same evidence scale for each statement.",
       resultLabel: "Screening result",
       outcome: {
+        exploratory: ["Exploratory run — no substantive result", "You marked this run as a demonstration or answer-pattern test. The selected class and profile remain visible for learning, but they must not be interpreted as an assessment of a real system."],
         indeterminate: ["Insufficient basis for a bounded result", "Unknown, excluded or weakly defined scope elements constrain this screening. Clarify the assessment object and evidence basis before relying on the profile."],
         review: ["Deeper evidence review is advisable", "The answers indicate a material consequence path or one or more control gaps that merit scoped review. This is a screening signal, not a finding of non-compliance or unsafety."],
         "no-escalation": ["No escalation indicator identified in the stated scope", "The self-reported answers did not trigger this screening’s escalation rules. This is not verification, approval, certification, conformance or evidence that the system is safe."]
       },
       profile: "Self-reported boundary profile",
-      profileHelp: "Percentages summarize selected answers within each axis. They are navigation aids, not grades, benchmarks or proof.",
+      profileHelp: "Percentages are calculated only from the selected answers, usually one or two prompts per axis. They are navigation aids, not measured performance, grades, benchmarks or proof.",
+      composition: "Answer composition",
+      compositionHelp: "This shows the mix behind the profile so a polished percentage cannot hide unknown, partial or negative answers.",
+      responseBasis: "Answer basis",
+      basisResult: {
+        records: ["Declared basis: identifiable records", "The result is still self-reported and no evidence has been reviewed."],
+        mixed: ["Limited basis: memory or assumptions used", "Treat the profile as a question map. Re-answer from identifiable current records before using it to plan a review."],
+        exploratory: ["Exploratory mode", "The answers are shown for learning only and are not interpreted as a substantive screening result."]
+      },
       unknown: "Unknown answers",
       excluded: "Out-of-scope answers",
       consequenceClass: "Public triage class",
@@ -190,7 +206,7 @@ if (root) {
       alpha: "Публічна альфа · самооцінка",
       lead: "Короткий скринінг меж для автоматизованих, ШІ-підсилених систем і систем із наслідками.",
       purpose: "Допомагає виявити неповний заявлений обсяг або потребу в глибшому розгляді свідчень. Не визначає відповідність, безпеку, сертифікацію, конформність чи дозвіл на експлуатацію.",
-      time: "20 виборів · приблизно 6–9 хвилин",
+      time: "21 вибір · приблизно 6–9 хвилин",
       private: "Приватність за задумом",
       privateText: "Оцінювання виконується в цьому браузері. Обліковий запис, імена, вільний текст, надсилання відповідей і серверне завантаження не використовуються.",
       before: "Перед початком",
@@ -233,15 +249,31 @@ if (root) {
         ["pilot", "Пілот, тест або обмежена експлуатація"],
         ["live", "Діюча або виробнича експлуатація"]
       ],
+      basisTitle: "На чому ґрунтувався вибір відповідей?",
+      basisHint: "Ця декларація змінює спосіб тлумачення результату. Вона не змінює клас наслідків і не приховує прогалини.",
+      basisOptions: [
+        ["records", "Записи, які можна визначити", "Я відповідав на підставі актуальних записів, які можу визначити для цього об’єкта й контексту."],
+        ["mixed", "Записи разом із пам’яттю чи припущеннями", "Частина відповідей ґрунтувалася на спогадах, намірах або неперевірених припущеннях."],
+        ["exploratory", "Ознайомлювальний / демонстраційний прохід", "Я вивчав інтерфейс, перевіряв комбінації або обирав відповіді без реальної доказової підстави."]
+      ],
       scaleHelp: "Для кожного твердження використовуйте однакову шкалу свідчень.",
       resultLabel: "Результат скринінгу",
       outcome: {
+        exploratory: ["Ознайомлювальний прохід — без змістовного результату", "Ви позначили цей прохід як демонстрацію або перевірку комбінацій відповідей. Обраний клас і профіль залишаються видимими для навчання, але їх не можна тлумачити як оцінювання реальної системи."],
         indeterminate: ["Недостатня підстава для обмеженого результату", "Невідомі, виключені або слабо визначені елементи обсягу обмежують цей скринінг. Уточніть об’єкт оцінювання та підставу свідчень, перш ніж покладатися на профіль."],
         review: ["Доцільний глибший розгляд свідчень", "Відповіді вказують на шлях суттєвих наслідків або одну чи кілька прогалин контролю, що потребують обмеженого розгляду. Це сигнал скринінгу, а не висновок про невідповідність чи небезпечність."],
         "no-escalation": ["У заявленому обсязі сигнал ескалації не виявлено", "Самозаявлені відповіді не активували правила ескалації цього скринінгу. Це не є перевіркою, схваленням, сертифікацією, конформністю або доказом безпеки системи."]
       },
       profile: "Самозаявлений профіль меж",
-      profileHelp: "Відсотки підсумовують обрані відповіді в межах кожної осі. Це навігаційні орієнтири, а не оцінки, еталони чи докази.",
+      profileHelp: "Відсотки обчислено лише з обраних відповідей — зазвичай з одного або двох тверджень на вісь. Це навігаційні орієнтири, а не виміряна результативність, оцінки, еталони чи докази.",
+      composition: "Склад відповідей",
+      compositionHelp: "Показує суміш відповідей за профілем, щоб привабливий відсоток не приховував невідомі, часткові або негативні відповіді.",
+      responseBasis: "Підстава відповідей",
+      basisResult: {
+        records: ["Заявлена підстава: записи, які можна визначити", "Результат однаково є самооцінкою; свідчення не перевірялися."],
+        mixed: ["Обмежена підстава: використано пам’ять або припущення", "Сприймайте профіль як карту питань. Дайте відповіді повторно на підставі актуальних записів, перш ніж планувати перегляд."],
+        exploratory: ["Ознайомлювальний режим", "Відповіді показано лише для навчання; вони не тлумачаться як змістовний результат скринінгу."]
+      },
       unknown: "Відповіді «Невідомо»",
       excluded: "Відповіді «Поза обсягом»",
       consequenceClass: "Публічний triage-клас",
@@ -365,6 +397,7 @@ if (root) {
     consequenceClass: null,
     sectorContext: null,
     lifecycle: null,
+    responseBasis: null,
     answers: {}
   };
   let workspaceNotice = "";
@@ -379,7 +412,7 @@ if (root) {
     screening: null,
     rows: []
   };
-  const total = QUESTIONS.length + 3;
+  const total = QUESTIONS.length + 4;
   const questionById = Object.fromEntries(QUESTIONS.map((question) => [question.id, question]));
 
   const checked = (actual, expected) => actual === expected ? " checked" : "";
@@ -410,6 +443,12 @@ if (root) {
     <label class="gc-option gc-consequence-option">
       <input type="radio" name="answer" value="${value}"${checked(selected, value)}>
       <span class="gc-class-code">${code}</span>
+      <span><strong>${label}</strong><small>${description}</small></span>
+    </label>`).join("");
+
+  const describedOptions = (items, selected) => items.map(([value, label, description]) => `
+    <label class="gc-option gc-described-option">
+      <input type="radio" name="answer" value="${value}"${checked(selected, value)}>
       <span><strong>${label}</strong><small>${description}</small></span>
     </label>`).join("");
 
@@ -471,7 +510,24 @@ if (root) {
         </fieldset>
         <div class="gc-actions">
           <button class="gc-button gc-button-quiet" type="button" data-action="back">${t.back}</button>
-          <button class="gc-button gc-button-primary" type="submit">${state.questionIndex === QUESTIONS.length - 1 ? t.seeResult : t.next}</button>
+          <button class="gc-button gc-button-primary" type="submit">${t.next}</button>
+        </div>
+      </form>`;
+  }
+
+  function renderBasis() {
+    root.innerHTML = `
+      ${progress(total)}
+      <form class="gc-panel gc-question" data-form="basis">
+        <fieldset>
+          <legend>${t.basisTitle}</legend>
+          <p class="gc-hint">${t.basisHint}</p>
+          <div class="gc-options">${describedOptions(t.basisOptions, state.responseBasis)}</div>
+          <p class="gc-form-error" role="alert" hidden>${t.answerRequired}</p>
+        </fieldset>
+        <div class="gc-actions">
+          <button class="gc-button gc-button-quiet" type="button" data-action="back">${t.back}</button>
+          <button class="gc-button gc-button-primary" type="submit">${t.seeResult}</button>
         </div>
       </form>`;
   }
@@ -483,6 +539,7 @@ if (root) {
     const consequenceLabel = `${selectedConsequence[1]} · ${selectedConsequence[2]}`;
     const [routeTitle, routeDescription] = t.reviewPath[result.consequenceClass];
     const sectorFocus = t.sectorFocus[result.sectorContext] || t.sectorFocus.unbounded;
+    const [basisTitle, basisDescription] = t.basisResult[result.responseBasis];
     const scopePath = language === "en" ? "en/scope-and-limitations" : "ua/scope-and-limitations";
     const evidencePath = language === "en" ? "en/evidence" : "ua/evidence";
     root.innerHTML = `
@@ -492,6 +549,11 @@ if (root) {
           <h2 id="gc-result-title">${title}</h2>
           <p class="gc-lead">${description}</p>
         </div>
+        <section class="gc-panel gc-basis-note gc-basis-${result.responseBasis}" aria-labelledby="gc-basis-result-title">
+          <p class="gc-eyebrow">${t.responseBasis}</p>
+          <h3 id="gc-basis-result-title">${basisTitle}</h3>
+          <p>${basisDescription}</p>
+        </section>
         <section class="gc-panel gc-consequence-map" aria-labelledby="gc-consequence-map-title">
           <div class="gc-section-heading">
             <div>
@@ -522,12 +584,28 @@ if (root) {
           <section class="gc-panel" aria-labelledby="gc-profile-title">
             <h3 id="gc-profile-title">${t.profile}</h3>
             <p class="gc-hint">${t.profileHelp}</p>
+            <div class="gc-composition">
+              <h4>${t.composition}</h4>
+              <p class="gc-hint">${t.compositionHelp}</p>
+              <div class="gc-composition-bar" role="img" aria-label="${t.composition}">
+                ${result.answerDistribution.filter((item) => item.count > 0).map((item) => {
+                  const scale = SCALE.find((entry) => entry.value === item.value);
+                  return `<span class="gc-answer-${item.value}" style="width:${item.percent}%" title="${scale[language]}: ${item.count}"></span>`;
+                }).join("")}
+              </div>
+              <ul class="gc-composition-legend">
+                ${result.answerDistribution.map((item) => {
+                  const scale = SCALE.find((entry) => entry.value === item.value);
+                  return `<li><span class="gc-answer-dot gc-answer-${item.value}"></span><span>${scale[language]}</span><strong>${item.count} · ${item.percent}%</strong></li>`;
+                }).join("")}
+              </ul>
+            </div>
             <div class="gc-axis-list" role="list">
               ${result.axes.map((axis) => {
                 const score = axis.score === null ? t.percentUnavailable : `${axis.score}%`;
                 const width = axis.score === null ? 0 : axis.score;
                 return `<div class="gc-axis-row" role="listitem">
-                  <div><span>${axis[language]}</span><strong>${score}</strong></div>
+                  <div><span>${axis[language]}</span><span class="gc-axis-score"><strong>${score}</strong><small>n=${axis.promptCount}</small></span></div>
                   <div class="gc-axis-meter" aria-hidden="true"><span style="width:${width}%"></span></div>
                 </div>`;
               }).join("")}
@@ -539,6 +617,7 @@ if (root) {
               <div><dt>${t.consequenceClass}</dt><dd>${consequenceLabel}</dd></div>
               <div><dt>${t.sector}</dt><dd>${t.sectors[result.sectorContext]}</dd></div>
               <div><dt>${t.lifecycle}</dt><dd>${t.contexts[result.lifecycle]}</dd></div>
+              <div><dt>${t.responseBasis}</dt><dd>${t.basisOptions.find(([value]) => value === result.responseBasis)[1]}</dd></div>
               <div><dt>${t.unknown}</dt><dd>${result.unknownCount}</dd></div>
               <div><dt>${t.excluded}</dt><dd>${result.outOfScopeCount}</dd></div>
               <div><dt>Version</dt><dd>${ASSESSMENT_VERSION}</dd></div>
@@ -567,6 +646,7 @@ if (root) {
       state.consequenceClass = "unknown";
       state.sectorContext = "general";
       state.lifecycle = "concept";
+      state.responseBasis = "mixed";
       state.answers = Object.fromEntries(QUESTIONS.map((question) => [question.id, "unknown"]));
     }
     const screeningResult = evaluateScreening(state);
@@ -590,6 +670,7 @@ if (root) {
     state.consequenceClass = "unknown";
     state.sectorContext = "general";
     state.lifecycle = "concept";
+    state.responseBasis = "exploratory";
     state.answers = Object.fromEntries(QUESTIONS.map((question) => [question.id, "unknown"]));
     const rows = createEvidenceRows(state.answers);
     Object.assign(rows[0], {
@@ -652,6 +733,7 @@ if (root) {
       state.consequenceClass = imported.screening.consequenceClass;
       state.sectorContext = imported.screening.sectorContext;
       state.lifecycle = imported.screening.lifecycle;
+      state.responseBasis = imported.screening.responseBasis;
       state.answers = Object.fromEntries(imported.rows.map((row) => [row.questionId, row.sourceAnswer]));
       workspaceActionFilter = "all";
       workspaceNotice = t.workspace.importSuccess;
@@ -850,6 +932,7 @@ if (root) {
     if (state.phase === "intro") renderIntro();
     if (state.phase === "routing") renderRouting();
     if (state.phase === "questions") renderQuestion();
+    if (state.phase === "basis") renderBasis();
     if (state.phase === "results") renderResults();
     if (state.phase === "workspace") renderWorkspace();
     root.querySelector("button, input, summary")?.focus({ preventScroll: true });
@@ -871,6 +954,10 @@ if (root) {
         state.phase = "routing";
         state.routingIndex = 2;
       } else if (state.phase === "questions") state.questionIndex -= 1;
+      else if (state.phase === "basis") {
+        state.phase = "questions";
+        state.questionIndex = QUESTIONS.length - 1;
+      }
       render();
     }
     if (action === "print") window.print();
@@ -896,6 +983,7 @@ if (root) {
       state.consequenceClass = null;
       state.sectorContext = null;
       state.lifecycle = null;
+      state.responseBasis = null;
       state.answers = {};
       workspaceNotice = "";
       render();
@@ -980,9 +1068,12 @@ if (root) {
         state.phase = "questions";
         state.questionIndex = 0;
       }
+    } else if (event.target.dataset.form === "basis") {
+      state.responseBasis = selected;
+      state.phase = "results";
     } else {
       state.answers[QUESTIONS[state.questionIndex].id] = selected;
-      if (state.questionIndex === QUESTIONS.length - 1) state.phase = "results";
+      if (state.questionIndex === QUESTIONS.length - 1) state.phase = "basis";
       else state.questionIndex += 1;
     }
     render();
