@@ -12,10 +12,14 @@ import {
   EVIDENCE_STATUSES,
   EVIDENCE_WORKSPACE_VERSION,
   FRESHNESS_STATES,
+  MARITIME_EVIDENCE_AXES,
   buildEvidenceReviewBrief,
   buildEvidenceWorkspaceExport,
   createEvidenceRows,
-  evaluateEvidenceReadiness,
+  createMaritimeEvidencePackage,
+  evaluateCombinedEvidenceReadiness,
+  mergeMaritimeBridgeIntoWorkspace,
+  parseMaritimeBridgeImport,
   parseEvidenceWorkspaceImport
 } from "./evidence-workspace-core.js";
 import {
@@ -24,6 +28,7 @@ import {
   normalizePublicAggregate
 } from "./public-activity-core.js";
 import {
+  MARITIME_BRIDGE_SCHEMA,
   MARITIME_BRIDGE_VERSION,
   MARITIME_LOCI,
   MARITIME_QUESTIONS,
@@ -237,6 +242,7 @@ if (root) {
         briefStatus: {
           "training-only": ["Training-only snapshot", "The declared exploratory basis prevents a substantive assessment. The mapping below can be used to learn the workflow, not to characterize a real system."],
           "context-required": ["Assessment context required", "Complete the object, version, date and context before treating the mapping as a bounded working record."],
+          "sector-package-required": ["Maritime / DP package required", "The main screening is maritime-scoped, but its sector package is not yet attached. Import the matching bridge JSON or complete the bridge in this tab."],
           "priority-open": ["Priority evidence work is open", "The snapshot has a bounded context, but one or more critical doctrine questions still lack a reviewable mapping."],
           "mapping-open": ["Evidence mapping is open", "No critical mapping gap remains, but the working record is not yet complete."],
           "mapping-complete": ["Mapping complete — review still required", "The local mapping fields are complete. This is not verification; an appropriately independent review remains necessary."]
@@ -250,6 +256,7 @@ if (root) {
         nextAction: {
           "rerun-substantive": "Repeat the screening for one real object using identifiable records or a declared mixed basis.",
           "complete-context": "Complete the neutral object, version, date and assessment-context fields.",
+          "add-maritime-package": "Attach the matching Maritime / DP bridge before treating the workspace as a complete sector record.",
           "resolve-priority-records": "Start with the priority open records; classify each source, add a controlled locator, and check currentness and conflicts.",
           "complete-open-records": "Complete the remaining open mappings or explicitly justify their scope boundaries.",
           "independent-review": "Route the bounded snapshot and controlled record locators to an appropriately independent reviewer."
@@ -290,9 +297,12 @@ if (root) {
         import: "Import and analyze JSON snapshot",
         importHint: "The selected snapshot is validated and analyzed only in this browser tab. Nothing is uploaded.",
         importSuccess: "JSON snapshot restored and analyzed locally",
+        importMaritimeSuccess: "Matching Maritime / DP package added to this workspace",
+        importMaritimeStandalone: "Maritime / DP package loaded; the 17 core records remain open until a matching main snapshot is added or mapped",
         importFailed: "Snapshot could not be restored",
         importTooLarge: "Snapshot is larger than the 512 KB local limit",
         replaceConfirm: "Replace the current Tier 1 workspace with the selected snapshot?",
+        mergeMaritimeConfirm: "Add this matching Maritime / DP package to the current workspace?",
         example: "Load neutral example",
         exampleConfirm: "Replace the current workspace with a clearly fictional training example?",
         exampleLoaded: "Fictional training example loaded",
@@ -302,6 +312,16 @@ if (root) {
         clearConfirm: "Reset every Tier 1 field in this tab? This cannot be undone unless you already exported a snapshot.",
         exported: "JSON snapshot downloaded",
         exportBoundary: "The JSON is a portable self-reported working record, not an audit artifact, proof package or authorization object.",
+        packageTitle: "Evidence packages",
+        corePackage: "Core doctrine package",
+        maritimePackage: "Maritime / DP sector package",
+        packageAttached: "Attached",
+        packageMissing: "Not attached",
+        packageRoute: "Sector route",
+        packageRelation: "Operational relationship",
+        packageLocus: "Control locus",
+        coreMapTitle: "Core doctrine evidence map",
+        maritimeMapTitle: "Maritime / DP evidence map",
         version: "Workspace version",
         emptyOutcome: "Blank workspace",
         current: "current mapping"
@@ -507,6 +527,7 @@ if (root) {
         briefStatus: {
           "training-only": ["Навчальний знімок", "Заявлена ознайомлювальна підстава не дозволяє змістовного оцінювання. Картування нижче придатне для вивчення процесу, а не для характеристики реальної системи."],
           "context-required": ["Потрібен контекст оцінювання", "Заповніть об’єкт, версію, дату й контекст, перш ніж сприймати картування як обмежений робочий запис."],
+          "sector-package-required": ["Потрібен пакет Maritime / DP", "Основний скринінг має морський обсяг, але галузевий пакет ще не приєднано. Імпортуйте відповідний JSON мосту або завершіть міст у цій вкладці."],
           "priority-open": ["Відкрита пріоритетна робота зі свідченнями", "Контекст знімка обмежено, але одне або кілька критичних питань доктрини ще не мають придатного для перегляду картування."],
           "mapping-open": ["Картування свідчень відкрите", "Критичних прогалин картування не залишилося, але робочий запис іще не завершено."],
           "mapping-complete": ["Картування завершено — перегляд усе ще потрібен", "Локальні поля картування заповнено. Це не перевірка; однаково потрібен належно незалежний перегляд."]
@@ -520,6 +541,7 @@ if (root) {
         nextAction: {
           "rerun-substantive": "Повторіть скринінг для одного реального об’єкта на підставі записів, які можна визначити, або заявленої змішаної підстави.",
           "complete-context": "Заповніть нейтральне позначення об’єкта, версію, дату й контекст оцінювання.",
+          "add-maritime-package": "Приєднайте відповідний міст Maritime / DP, перш ніж вважати робочий простір повним галузевим записом.",
           "resolve-priority-records": "Почніть із пріоритетних відкритих записів: класифікуйте кожне джерело, додайте контрольований локатор і перевірте актуальність та конфлікти.",
           "complete-open-records": "Завершіть решту відкритих картувань або явно обґрунтуйте їхні межі обсягу.",
           "independent-review": "Передайте обмежений знімок і контрольовані локатори записів належно незалежному рецензенту."
@@ -560,9 +582,12 @@ if (root) {
         import: "Імпортувати й проаналізувати знімок JSON",
         importHint: "Обраний знімок перевіряється й аналізується лише в цій вкладці браузера. Нічого не завантажується на сервер.",
         importSuccess: "Знімок JSON локально відновлено й проаналізовано",
+        importMaritimeSuccess: "Відповідний пакет Maritime / DP додано до цього робочого простору",
+        importMaritimeStandalone: "Пакет Maritime / DP завантажено; 17 основних записів залишаються відкритими, доки не буде додано відповідний основний знімок або картування",
         importFailed: "Не вдалося відновити знімок",
         importTooLarge: "Розмір знімка перевищує локальне обмеження 512 КБ",
         replaceConfirm: "Замінити поточний робочий простір Tier 1 обраним знімком?",
+        mergeMaritimeConfirm: "Додати цей відповідний пакет Maritime / DP до поточного робочого простору?",
         example: "Завантажити нейтральний приклад",
         exampleConfirm: "Замінити поточний робочий простір явно вигаданим навчальним прикладом?",
         exampleLoaded: "Вигаданий навчальний приклад завантажено",
@@ -572,6 +597,16 @@ if (root) {
         clearConfirm: "Скинути всі поля Tier 1 у цій вкладці? Скасувати це неможливо, якщо знімок ще не експортовано.",
         exported: "Знімок JSON завантажено",
         exportBoundary: "JSON є переносним робочим записом самооцінки, а не аудиторським артефактом, пакетом доказів чи об’єктом авторизації.",
+        packageTitle: "Пакети свідчень",
+        corePackage: "Основний доктринальний пакет",
+        maritimePackage: "Галузевий пакет Maritime / DP",
+        packageAttached: "Приєднано",
+        packageMissing: "Не приєднано",
+        packageRoute: "Галузевий маршрут",
+        packageRelation: "Операційний зв’язок",
+        packageLocus: "Locus керування",
+        coreMapTitle: "Карта свідчень основної доктрини",
+        maritimeMapTitle: "Карта свідчень Maritime / DP",
         version: "Версія робочого простору",
         emptyOutcome: "Порожній робочий простір",
         current: "поточне картування"
@@ -612,7 +647,8 @@ if (root) {
       contextLabel: ""
     },
     screening: null,
-    rows: []
+    rows: [],
+    maritime: null
   };
   let publicAggregate = { status: "idle", data: null };
   let contributionConsent = false;
@@ -620,6 +656,7 @@ if (root) {
   let contributionToken = null;
   const total = QUESTIONS.length + 4;
   const questionById = Object.fromEntries(QUESTIONS.map((question) => [question.id, question]));
+  const maritimeQuestionById = Object.fromEntries(MARITIME_QUESTIONS.map((question) => [question.id, question]));
   const maritimeTotal = MARITIME_QUESTIONS.length + 2;
 
   const checked = (actual, expected) => actual === expected ? " checked" : "";
@@ -1120,6 +1157,13 @@ if (root) {
       state.answers = Object.fromEntries(QUESTIONS.map((question) => [question.id, "unknown"]));
     }
     const screeningResult = evaluateScreening(state);
+    const maritime = !blank &&
+      state.sectorContext === "maritime" &&
+      state.maritimeRelation &&
+      state.maritimeLocus &&
+      MARITIME_QUESTIONS.every((question) => state.maritimeAnswers[question.id])
+      ? createMaritimeEvidencePackage(currentMaritimeResult())
+      : null;
     workspace = {
       context: {
         referenceLabel: "",
@@ -1128,7 +1172,8 @@ if (root) {
         contextLabel: ""
       },
       screening: screeningResult,
-      rows: createEvidenceRows(state.answers)
+      rows: createEvidenceRows(state.answers),
+      maritime
     };
     workspaceNotice = "";
     workspaceActionFilter = "all";
@@ -1172,7 +1217,8 @@ if (root) {
         contextLabel: language === "ua" ? "навчальний приклад — вигаданий" : "training example — fictional"
       },
       screening: evaluateScreening(state),
-      rows
+      rows,
+      maritime: null
     };
     workspaceActionFilter = "all";
     workspaceNotice = t.workspace.exampleLoaded;
@@ -1193,20 +1239,50 @@ if (root) {
       return;
     }
     try {
-      const imported = parseEvidenceWorkspaceImport(JSON.parse(await file.text()));
-      if (state.phase === "workspace" && !window.confirm(t.workspace.replaceConfirm)) return;
-      workspace = {
-        context: imported.context,
-        screening: imported.screening,
-        rows: imported.rows
-      };
+      const payload = JSON.parse(await file.text());
+      const maritimeOnly = payload.schema === MARITIME_BRIDGE_SCHEMA;
+      const imported = maritimeOnly ? parseMaritimeBridgeImport(payload) : parseEvidenceWorkspaceImport(payload);
+      let nextWorkspace;
+      let notice = t.workspace.importSuccess;
+      if (maritimeOnly && state.phase === "workspace" && workspace.screening?.sectorContext === "maritime") {
+        if (!window.confirm(t.workspace.mergeMaritimeConfirm)) return;
+        nextWorkspace = mergeMaritimeBridgeIntoWorkspace(workspace, imported);
+        notice = t.workspace.importMaritimeSuccess;
+      } else {
+        if (state.phase === "workspace" && !window.confirm(t.workspace.replaceConfirm)) return;
+        nextWorkspace = {
+          context: imported.context,
+          screening: imported.screening,
+          rows: imported.rows,
+          maritime: imported.maritime || null
+        };
+        if (maritimeOnly) {
+          notice = t.workspace.importMaritimeStandalone;
+        } else if (!nextWorkspace.maritime && workspace.maritime && nextWorkspace.screening.sectorContext === "maritime") {
+          nextWorkspace = mergeMaritimeBridgeIntoWorkspace(nextWorkspace, {
+            screening: workspace.screening,
+            maritime: workspace.maritime
+          });
+          notice = t.workspace.importMaritimeSuccess;
+        }
+      }
+      workspace = nextWorkspace;
       state.consequenceClass = imported.screening.consequenceClass;
-      state.sectorContext = imported.screening.sectorContext;
+      state.sectorContext = workspace.screening.sectorContext;
       state.lifecycle = imported.screening.lifecycle;
       state.responseBasis = imported.screening.responseBasis;
-      state.answers = Object.fromEntries(imported.rows.map((row) => [row.questionId, row.sourceAnswer]));
+      state.answers = Object.fromEntries(workspace.rows.map((row) => [row.questionId, row.sourceAnswer]));
+      if (workspace.maritime) {
+        state.maritimeRelation = workspace.maritime.operationalRelation;
+        state.maritimeLocus = workspace.maritime.controlLocus;
+        state.maritimeAnswers = Object.fromEntries(workspace.maritime.rows.map((row) => [row.questionId, row.sourceAnswer]));
+      } else {
+        state.maritimeRelation = null;
+        state.maritimeLocus = null;
+        state.maritimeAnswers = {};
+      }
       workspaceActionFilter = "all";
-      workspaceNotice = t.workspace.importSuccess;
+      workspaceNotice = notice;
       state.phase = "workspace";
       render();
     } catch (error) {
@@ -1219,8 +1295,14 @@ if (root) {
       .filter((field) => !workspace.context[field].trim());
   }
 
-  function renderWorkspaceRow(row, evaluatedRow, index) {
-    const question = questionById[row.questionId];
+  function findWorkspaceRow(rowId) {
+    return workspace.rows.find((item) => item.questionId === rowId) ||
+      workspace.maritime?.rows.find((item) => item.questionId === rowId) ||
+      null;
+  }
+
+  function renderWorkspaceRow(row, evaluatedRow, index, questionRegistry = questionById, axes = AXES) {
+    const question = questionRegistry[row.questionId];
     const source = SCALE.find((item) => item.value === row.sourceAnswer);
     const excluded = row.evidenceStatus === "excluded";
     const fieldId = `gc-evidence-${row.questionId}`;
@@ -1229,7 +1311,7 @@ if (root) {
       <article class="gc-evidence-row gc-evidence-${evaluatedRow.state}" data-question-id="${row.questionId}">
         <header class="gc-evidence-row-header">
           <div>
-            <span class="gc-question-number">${index + 1}. ${AXES.find((axis) => axis.id === row.axis)[language]}</span>
+            <span class="gc-question-number">${index + 1}. ${axes.find((axis) => axis.id === row.axis)[language]}</span>
             <h4>${question[language]}</h4>
           </div>
           <span class="gc-state-chip gc-state-${evaluatedRow.state}">${t.workspace.state[evaluatedRow.state]}</span>
@@ -1265,7 +1347,7 @@ if (root) {
   }
 
   function renderWorkspace() {
-    const evaluation = evaluateEvidenceReadiness(workspace.rows);
+    const evaluation = evaluateCombinedEvidenceReadiness(workspace);
     const brief = buildEvidenceReviewBrief(workspace);
     const gaps = contextGaps();
     const briefStatus = t.workspace.briefStatus[brief.status];
@@ -1273,7 +1355,7 @@ if (root) {
     const basis = t.basisOptions.find(([value]) => value === workspace.screening.responseBasis);
     const valueOrMissing = (value) => escapeHtml(String(value || "").trim() || t.workspace.notProvided);
     const briefPriorityItems = brief.priorityItems.map((item) => {
-      const question = questionById[item.questionId];
+      const question = item.packageType === "maritime-dp" ? maritimeQuestionById[item.questionId] : questionById[item.questionId];
       return `<li><strong>${question[language]}</strong><span>${item.actions.slice(0, 2).map((action) => t.workspace.action[action]).join("; ")}</span></li>`;
     }).join("");
     const briefNextActions = brief.nextActions
@@ -1288,13 +1370,13 @@ if (root) {
       .slice()
       .sort((a, b) => Number(b.priority) - Number(a.priority))
       .map((item) => {
-        const question = questionById[item.questionId];
+        const question = item.packageType === "maritime-dp" ? maritimeQuestionById[item.questionId] : questionById[item.questionId];
         return `<li${item.priority ? ' class="gc-priority-action"' : ""}><strong>${question[language]}</strong><span>${item.actions.map((action) => t.workspace.action[action]).join("; ")}</span></li>`;
       }).join("");
     const groups = AXES.map((axis) => {
-      const axisEvaluation = evaluation.byAxis.find((item) => item.id === axis.id);
+      const axisEvaluation = evaluation.core.byAxis.find((item) => item.id === axis.id);
       const axisRows = workspace.rows.filter((row) => row.axis === axis.id);
-      const hasPriority = axisRows.some((row) => row.critical && evaluation.rows.find((item) => item.questionId === row.questionId)?.state === "open");
+      const hasPriority = axisRows.some((row) => row.critical && evaluation.core.rows.find((item) => item.questionId === row.questionId)?.state === "open");
       return `
         <details class="gc-axis-group"${hasPriority ? " open" : ""}>
           <summary>
@@ -1302,10 +1384,32 @@ if (root) {
             <span>${t.workspace.mapped}: ${axisEvaluation.mapped} · ${t.workspace.openItems}: ${axisEvaluation.open} · ${t.workspace.excluded}: ${axisEvaluation.excluded}</span>
           </summary>
           <div class="gc-axis-group-body">
-            ${axisRows.map((row) => renderWorkspaceRow(row, evaluation.rows.find((item) => item.questionId === row.questionId), QUESTIONS.findIndex((question) => question.id === row.questionId))).join("")}
+            ${axisRows.map((row) => renderWorkspaceRow(row, evaluation.core.rows.find((item) => item.questionId === row.questionId), QUESTIONS.findIndex((question) => question.id === row.questionId))).join("")}
           </div>
         </details>`;
     }).join("");
+    const maritimeGroups = workspace.maritime ? MARITIME_EVIDENCE_AXES.map((axis) => {
+      const axisEvaluation = evaluation.sector.byAxis.find((item) => item.id === axis.id);
+      const axisRows = workspace.maritime.rows.filter((row) => row.axis === axis.id);
+      const hasPriority = axisRows.some((row) => row.critical && evaluation.sector.rows.find((item) => item.questionId === row.questionId)?.state === "open");
+      return `
+        <details class="gc-axis-group gc-axis-group-sector"${hasPriority ? " open" : ""}>
+          <summary>
+            <span>${axis[language]}</span>
+            <span>${t.workspace.mapped}: ${axisEvaluation.mapped} · ${t.workspace.openItems}: ${axisEvaluation.open} · ${t.workspace.excluded}: ${axisEvaluation.excluded}</span>
+          </summary>
+          <div class="gc-axis-group-body">
+            ${axisRows.map((row) => renderWorkspaceRow(row, evaluation.sector.rows.find((item) => item.questionId === row.questionId), MARITIME_QUESTIONS.findIndex((question) => question.id === row.questionId), maritimeQuestionById, MARITIME_EVIDENCE_AXES)).join("")}
+          </div>
+        </details>`;
+    }).join("") : "";
+    const relationLabel = workspace.maritime
+      ? MARITIME_RELATIONS.find((item) => item.value === workspace.maritime.operationalRelation)?.[language]
+      : "";
+    const locusLabel = workspace.maritime
+      ? MARITIME_LOCI.find((item) => item.value === workspace.maritime.controlLocus)?.[language]
+      : "";
+    const routeLabel = workspace.maritime ? t.maritime.route[workspace.maritime.route]?.[0] : "";
 
     root.innerHTML = `
       <section class="gc-workspace" aria-labelledby="gc-workspace-title">
@@ -1324,6 +1428,26 @@ if (root) {
             <button class="gc-button gc-button-primary" type="button" data-action="workspace-import">${t.workspace.import}</button>
             <button class="gc-button gc-button-quiet" type="button" data-action="workspace-example">${t.workspace.example}</button>
             <input type="file" accept="application/json,.json" data-workspace-import hidden>
+          </div>
+        </section>
+
+        <section class="gc-panel gc-evidence-packages" aria-labelledby="gc-evidence-packages-title">
+          <h3 id="gc-evidence-packages-title">${t.workspace.packageTitle}</h3>
+          <div class="gc-package-grid">
+            <article class="gc-package-card gc-package-attached">
+              <div><strong>${t.workspace.corePackage}</strong><span>${t.workspace.packageAttached}</span></div>
+              <p>${QUESTIONS.length} · ${t.workspace.mapped}: ${evaluation.core.summary.mapped} · ${t.workspace.openItems}: ${evaluation.core.summary.open}</p>
+            </article>
+            ${workspace.screening.sectorContext === "maritime" ? `
+              <article class="gc-package-card ${workspace.maritime ? "gc-package-attached" : "gc-package-missing"}">
+                <div><strong>${t.workspace.maritimePackage}</strong><span>${workspace.maritime ? t.workspace.packageAttached : t.workspace.packageMissing}</span></div>
+                ${workspace.maritime ? `
+                  <dl>
+                    <div><dt>${t.workspace.packageRoute}</dt><dd>${escapeHtml(routeLabel)}</dd></div>
+                    <div><dt>${t.workspace.packageRelation}</dt><dd>${escapeHtml(relationLabel)}</dd></div>
+                    <div><dt>${t.workspace.packageLocus}</dt><dd>${escapeHtml(locusLabel)}</dd></div>
+                  </dl>` : `<p>${t.workspace.nextAction["add-maritime-package"]}</p>`}
+              </article>` : ""}
           </div>
         </section>
 
@@ -1399,8 +1523,9 @@ if (root) {
         </section>
 
         <section class="gc-evidence-map" aria-labelledby="gc-evidence-map-title">
-          <h3 id="gc-evidence-map-title">${t.workspace.mapTitle}</h3>
+          <h3 id="gc-evidence-map-title">${t.workspace.coreMapTitle}</h3>
           ${groups}
+          ${workspace.maritime ? `<h3 class="gc-sector-map-title">${t.workspace.maritimeMapTitle}</h3>${maritimeGroups}` : ""}
         </section>
 
         <details class="gc-panel gc-action-register" open>
@@ -1432,7 +1557,8 @@ if (root) {
       language,
       context: workspace.context,
       screening: workspace.screening,
-      rows: workspace.rows
+      rows: workspace.rows,
+      maritime: workspace.maritime
     });
     const blob = new Blob([`${JSON.stringify(payload, null, 2)}\n`], { type: "application/json" });
     const url = URL.createObjectURL(blob);
@@ -1580,7 +1706,7 @@ if (root) {
     const rowId = event.target.dataset.workspaceRow;
     const field = event.target.dataset.workspaceField;
     if (rowId && field === "recordLocator") {
-      const row = workspace.rows.find((item) => item.questionId === rowId);
+      const row = findWorkspaceRow(rowId);
       if (row) row.recordLocator = event.target.value;
     }
   });
@@ -1589,7 +1715,7 @@ if (root) {
     const rowId = event.target.dataset.workspaceRow;
     const field = event.target.dataset.workspaceField;
     if (!rowId || field !== "recordLocator") return;
-    const row = workspace.rows.find((item) => item.questionId === rowId);
+    const row = findWorkspaceRow(rowId);
     if (!row) return;
     const nextId = event.relatedTarget?.id || "";
     row.recordLocator = event.target.value;
@@ -1625,7 +1751,7 @@ if (root) {
     const rowId = event.target.dataset.workspaceRow;
     const field = event.target.dataset.workspaceField;
     if (!rowId || !field) return;
-    const row = workspace.rows.find((item) => item.questionId === rowId);
+    const row = findWorkspaceRow(rowId);
     if (!row) return;
     if (field === "recordLocator") return;
     row[field] = event.target.value;
