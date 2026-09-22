@@ -1318,6 +1318,10 @@
   margin-bottom: 0;
 }
 
+.gc-review-brief {
+  border-top: 6px solid var(--gc-accent-dark);
+}
+
 .gc-brief-status {
   background: var(--gc-soft);
   border: 1px solid var(--gc-line);
@@ -1413,6 +1417,122 @@
   font-weight: 700;
 }
 
+.gc-brief-decision-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: minmax(0, 1.55fr) repeat(2, minmax(0, 0.8fr));
+  margin: 0 0 1.1rem;
+}
+
+.gc-brief-decision-grid > article,
+.gc-brief-commercial-grid > article {
+  background: var(--gc-soft);
+  border: 1px solid var(--gc-line);
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+}
+
+.gc-brief-decision-grid h4,
+.gc-brief-commercial-grid h4,
+.gc-brief-gap-section > h4 {
+  color: var(--gc-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.035em;
+  margin-bottom: 0.55rem;
+  text-transform: uppercase;
+}
+
+.gc-brief-decision-grid strong {
+  color: var(--gc-accent-dark);
+  display: block;
+  line-height: 1.35;
+}
+
+.gc-brief-decision-grid p,
+.gc-brief-commercial-grid p {
+  line-height: 1.5;
+  margin: 0.4rem 0 0;
+}
+
+.gc-brief-decision-grid .gc-brief-pain {
+  background: #eef6fb;
+  border-left: 5px solid var(--gc-accent-dark);
+}
+
+.gc-brief-gap-section {
+  border-top: 1px solid var(--gc-line);
+  margin-top: 1.2rem;
+  padding-top: 1.15rem;
+}
+
+.gc-brief-gap-list {
+  counter-reset: brief-gap;
+  display: grid;
+  gap: 0.65rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.gc-brief-gap-list > li {
+  border: 1px solid var(--gc-line);
+  border-radius: 9px;
+  counter-increment: brief-gap;
+  padding: 0.75rem 0.85rem 0.75rem 3.2rem;
+  position: relative;
+}
+
+.gc-brief-gap-list > li::before {
+  align-items: center;
+  background: var(--gc-accent-dark);
+  border-radius: 50%;
+  color: #fff;
+  content: counter(brief-gap);
+  display: flex;
+  font-size: 0.78rem;
+  font-weight: 800;
+  height: 1.8rem;
+  justify-content: center;
+  left: 0.8rem;
+  position: absolute;
+  top: 0.75rem;
+  width: 1.8rem;
+}
+
+.gc-brief-gap-list > li.gc-brief-gap-priority {
+  border-left: 5px solid var(--gc-warn);
+}
+
+.gc-brief-gap-list > li > div {
+  align-items: start;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+.gc-brief-gap-list > li > div span {
+  color: var(--gc-muted);
+  font-size: 0.75rem;
+  font-weight: 750;
+}
+
+.gc-brief-gap-list > li > div span:last-child {
+  text-align: right;
+}
+
+.gc-brief-gap-list > li > strong {
+  display: block;
+  line-height: 1.4;
+}
+
+.gc-brief-gap-list > li > p {
+  color: var(--gc-muted);
+  font-size: 0.84rem;
+  line-height: 1.45;
+  margin: 0.3rem 0 0;
+}
+
 .gc-brief-columns {
   display: grid;
   gap: 1.25rem;
@@ -1427,6 +1547,27 @@
 
 .gc-brief-columns li + li {
   margin-top: 0.55rem;
+}
+
+.gc-brief-commercial-grid {
+  margin-top: 1.1rem;
+}
+
+.gc-brief-commercial-grid ul {
+  line-height: 1.45;
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.gc-brief-recommendation {
+  border-left: 5px solid var(--gc-accent-dark) !important;
+}
+
+.gc-brief-review-scope {
+  border-top: 1px solid var(--gc-line);
+  color: var(--gc-muted);
+  font-size: 0.84rem;
+  padding-top: 0.65rem;
 }
 
 .gc-brief-priorities span {
@@ -1462,6 +1603,14 @@
 
 .gc-review-signals li + li {
   margin-top: 0.4rem;
+}
+
+.gc-brief-doctrine {
+  background: #f4f7f9;
+  border-radius: 8px;
+  line-height: 1.5;
+  margin: 0.9rem 0;
+  padding: 0.75rem 0.9rem;
 }
 
 .gc-context-grid,
@@ -1785,10 +1934,17 @@
   .gc-regulatory-fields,
   .gc-regulatory-summary,
   .gc-review-brief-heading,
+  .gc-brief-decision-grid,
   .gc-brief-columns,
   .gc-brief-context,
   .gc-brief-metrics {
     grid-template-columns: 1fr;
+  }
+  .gc-brief-gap-list > li > div {
+    display: grid;
+  }
+  .gc-brief-gap-list > li > div span:last-child {
+    text-align: left;
   }
   .gc-axis-group > summary {
     grid-template-columns: 1fr;
@@ -1803,6 +1959,11 @@
   .gc-workspace-actions .gc-button {
     width: 100%;
   }
+}
+
+@page {
+  margin: 10mm;
+  size: A4;
 }
 
 @media print {
@@ -1851,6 +2012,9 @@
   .gc-brief-context > div {
     break-inside: avoid;
   }
+  .gc-print-brief .gc-workspace > :not(.gc-review-brief) {
+    display: none !important;
+  }
   .gc-print-brief .gc-workspace-privacy,
   .gc-print-brief .gc-value-panel,
   .gc-print-brief .gc-document-intake,
@@ -1859,20 +2023,68 @@
   .gc-print-brief .gc-readiness,
   .gc-print-brief .gc-evidence-map,
   .gc-print-brief .gc-action-register,
+  .gc-print-brief .gc-review-signals,
   .gc-print-brief .gc-brief-actions {
     display: none !important;
   }
   .gc-print-brief .gc-review-brief-heading {
     grid-template-columns: 1.2fr 1fr;
   }
+  .gc-print-brief .gc-brief-decision-grid {
+    gap: 5px;
+    grid-template-columns: 1.45fr repeat(2, 0.8fr);
+    margin-bottom: 6px;
+  }
   .gc-print-brief .gc-brief-context {
     grid-template-columns: repeat(5, minmax(0, 1fr));
+    margin: 6px 0;
   }
   .gc-print-brief .gc-brief-metrics {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-bottom: 6px;
   }
   .gc-print-brief .gc-review-brief {
-    font-size: 10pt;
+    border: 0;
+    font-size: 8.5pt;
+    padding: 0;
+  }
+  .gc-print-brief .gc-review-brief-heading,
+  .gc-print-brief .gc-brief-commercial-grid {
+    gap: 7px;
+  }
+  .gc-print-brief .gc-brief-status,
+  .gc-print-brief .gc-brief-context > div,
+  .gc-print-brief .gc-brief-metrics > div,
+  .gc-print-brief .gc-brief-decision-grid > article,
+  .gc-print-brief .gc-brief-commercial-grid > article {
+    padding: 5px 6px;
+  }
+  .gc-print-brief .gc-brief-gap-section {
+    margin-top: 6px;
+    padding-top: 6px;
+  }
+  .gc-print-brief .gc-brief-gap-list {
+    gap: 4px;
+  }
+  .gc-print-brief .gc-brief-gap-list > li {
+    padding: 4px 6px 4px 27px;
+  }
+  .gc-print-brief .gc-brief-gap-list > li::before {
+    font-size: 7pt;
+    height: 16px;
+    left: 6px;
+    top: 5px;
+    width: 16px;
+  }
+  .gc-print-brief .gc-brief-gap-list > li > p,
+  .gc-print-brief .gc-brief-review-scope,
+  .gc-print-brief .gc-hint,
+  .gc-print-brief .gc-brief-doctrine {
+    font-size: 7.5pt;
+  }
+  .gc-print-brief .gc-brief-commercial-grid,
+  .gc-print-brief .gc-brief-doctrine {
+    margin-top: 6px;
   }
   .gc-context-grid input,
   .gc-evidence-fields input,
