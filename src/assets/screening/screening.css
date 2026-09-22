@@ -171,10 +171,20 @@
   gap: 0.2rem;
 }
 
-.gc-consequence-option small {
+.gc-consequence-option small,
+.gc-described-option small {
   color: var(--gc-muted);
   font-size: 0.86rem;
   line-height: 1.45;
+}
+
+.gc-described-option {
+  align-items: flex-start;
+}
+
+.gc-described-option > span:last-child {
+  display: grid;
+  gap: 0.25rem;
 }
 
 .gc-class-code {
@@ -251,6 +261,34 @@
 .gc-outcome-indeterminate {
   background: #f5f3f2;
   border-left-color: #6b625c;
+}
+
+.gc-outcome-exploratory {
+  background: var(--gc-info-soft);
+  border-left-color: #437a87;
+}
+
+.gc-basis-note {
+  border-left: 5px solid var(--gc-accent);
+  margin-top: 1rem;
+}
+
+.gc-basis-note h3 {
+  margin: 0 0 0.55rem;
+}
+
+.gc-basis-note p:last-child {
+  margin-bottom: 0;
+}
+
+.gc-basis-mixed {
+  background: var(--gc-warn-soft);
+  border-left-color: var(--gc-warn);
+}
+
+.gc-basis-exploratory {
+  background: var(--gc-info-soft);
+  border-left-color: #437a87;
 }
 
 .gc-result-grid {
@@ -387,6 +425,64 @@
   gap: 1rem;
 }
 
+.gc-composition {
+  border-bottom: 1px solid var(--gc-line);
+  margin-bottom: 1.4rem;
+  padding-bottom: 1.4rem;
+}
+
+.gc-composition h4 {
+  font-size: 1.05rem;
+  margin: 0 0 0.45rem;
+}
+
+.gc-composition-bar {
+  background: #e5ebee;
+  border-radius: 99px;
+  display: flex;
+  height: 14px;
+  margin: 0.9rem 0 1rem;
+  overflow: hidden;
+}
+
+.gc-composition-bar span {
+  display: block;
+  min-width: 2px;
+}
+
+.gc-answer-3 { background: var(--gc-accent); }
+.gc-answer-2 { background: #437a87; }
+.gc-answer-1 { background: #c18a19; }
+.gc-answer-0 { background: #a44235; }
+.gc-answer-unknown { background: #6b625c; }
+.gc-answer-out { background: #74658a; }
+
+.gc-composition-legend {
+  display: grid;
+  gap: 0.45rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.gc-composition-legend li {
+  align-items: center;
+  display: grid;
+  font-size: 0.86rem;
+  gap: 0.55rem;
+  grid-template-columns: 0.75rem minmax(0, 1fr) auto;
+}
+
+.gc-answer-dot {
+  border-radius: 50%;
+  height: 0.68rem;
+  width: 0.68rem;
+}
+
+.gc-composition-legend strong {
+  white-space: nowrap;
+}
+
 .gc-axis-row > div:first-child {
   display: flex;
   gap: 1rem;
@@ -396,6 +492,17 @@
 
 .gc-axis-row strong {
   white-space: nowrap;
+}
+
+.gc-axis-score {
+  align-items: baseline;
+  display: flex;
+  gap: 0.45rem;
+}
+
+.gc-axis-score small {
+  color: var(--gc-muted);
+  font-size: 0.72rem;
 }
 
 .gc-record dl,
