@@ -23,6 +23,14 @@ import {
   buildPublicSubmission,
   normalizePublicAggregate
 } from "./public-activity-core.js";
+import {
+  MARITIME_BRIDGE_VERSION,
+  MARITIME_LOCI,
+  MARITIME_QUESTIONS,
+  MARITIME_RELATIONS,
+  buildMaritimeBridgeExport,
+  evaluateMaritimeBridge
+} from "./maritime-core.js";
 
 const root = document.querySelector("#gc-screening");
 
@@ -160,6 +168,46 @@ if (root) {
         duplicate: "This result was already received; it was not counted twice.",
         error: "The summary could not be sent. Nothing from the answers was uploaded; you can try again.",
         exploratory: "Exploratory runs are excluded from the public aggregate. Re-run with a real object and a declared records or mixed basis to contribute."
+      },
+      maritime: {
+        open: "Continue to Maritime / DP bridge",
+        eyebrow: "Tier 1.2 local sector alpha",
+        title: "Maritime / DP applicability bridge",
+        purpose: "Bound how an AI-enabled or automated function relates to vessel decisions, commands and preservation before selecting a deeper evidence route.",
+        privacy: "Answers remain in this browser. Use neutral descriptions only; do not enter vessel identifiers, client data, positions, incidents, credentials, network details or raw operational evidence.",
+        progress: "Maritime / DP bridge progress",
+        relationTitle: "What is the function’s highest operational relationship to the vessel or DP context?",
+        relationHint: "Choose what the function can actually influence now, not the intended future product description.",
+        locusTitle: "Where can the relevant decision, command or actuation path exist?",
+        locusHint: "Choose the widest credible current path. A hybrid path includes any meaningful onboard and remote dependency.",
+        scaleHelp: "Answer from identifiable current records. Use Unknown where the boundary is not demonstrable.",
+        axes: { mode: "Mode boundary", control: "Control locus", authority: "Authority reachability", commit: "Commit topology", transition: "Transition and handover", preservation: "Fallback and preservation", runtime: "Runtime verification", external: "External standing" },
+        question: "Sector question",
+        resultLabel: "Maritime / DP route",
+        route: {
+          exploratory: ["Training-only sector route", "The declared exploratory basis prevents a substantive sector result. The selected route remains visible only to demonstrate the decision logic."],
+          "scope-first": ["Bound the maritime control path first", "The operational relationship, control locus or a critical sector boundary remains unresolved. Do not infer a review depth until these paths are explicit."],
+          "tier1-sector": ["Tier 1.2 · Maritime / DP evidence map", "Use a bounded sector evidence map for mode, authority, commit paths, transition, preservation and external standing. Independent domain processes remain separate."],
+          tier2: ["Scoped Tier 2 · maritime evidence review", "Use an appropriately independent review of authority reachability, commit topology, handover, bounded fallback, runtime claims and external class / flag standing."],
+          tier3: ["Tier 3 · critical-systems and sector engagement", "Use qualified maritime, DP, safety, engineering, class, flag and regulatory processes. This public bridge must not authorize command, actuation, continuation or return to mission."]
+        },
+        composition: "Sector answer composition",
+        compositionHint: "This is a navigation aid, not a DP capability score, safety rating or benchmark.",
+        priorityGaps: "Priority sector gaps",
+        unknown: "Unknown answers",
+        excluded: "Outside-scope answers",
+        recordTitle: "Sector routing record",
+        relation: "Operational relationship",
+        locus: "Control locus",
+        version: "Bridge version",
+        statusLabel: "Status",
+        status: "Self-reported; evidence not reviewed",
+        critical: "Priority",
+        export: "Export Maritime / DP JSON",
+        exported: "Maritime / DP routing JSON downloaded",
+        back: "Back to main screening result",
+        boundaryTitle: "Sector boundary",
+        boundary: "This bridge is not a DP equipment class, FMEA, proving-trials programme, ASOG, CAMO, TAM, flag or class review, safety case, engineering approval or operational procedure. ACE remains a declaration of applicability loss, not a control command. The bridge selects evidence depth only and cannot authorize operation, continuation, restoration or return to mission."
       },
       workspace: {
         open: "Continue to evidence readiness workspace",
@@ -391,6 +439,46 @@ if (root) {
         error: "Не вдалося надіслати резюме. Жодну відповідь не завантажено; можна повторити спробу.",
         exploratory: "Демонстраційні проходження не входять до публічного агрегату. Щоб долучитися, пройдіть скринінг для реального об’єкта з підставою records або mixed."
       },
+      maritime: {
+        open: "Перейти до Maritime / DP bridge",
+        eyebrow: "Локальна галузева альфа Tier 1.2",
+        title: "Maritime / DP міст застосовності",
+        purpose: "Обмежте зв’язок ШІ-підсиленої або автоматизованої функції із судновими рішеннями, командами та збереженням, перш ніж обирати глибший доказовий маршрут.",
+        privacy: "Відповіді залишаються в цьому браузері. Використовуйте лише нейтральні описи; не вводьте ідентифікатори судна, дані клієнта, позиції, інциденти, облікові дані, деталі мережі або сирі операційні свідчення.",
+        progress: "Прогрес Maritime / DP bridge",
+        relationTitle: "Який найвищий операційний зв’язок функції із судном або DP-контекстом?",
+        relationHint: "Оберіть те, на що функція реально може впливати зараз, а не бажаний майбутній опис продукту.",
+        locusTitle: "Де може існувати відповідний шлях рішення, команди або виконання?",
+        locusHint: "Оберіть найширший достовірний поточний шлях. Гібридний шлях включає будь-яку суттєву бортову й віддалену залежність.",
+        scaleHelp: "Відповідайте за актуальними записами, які можна визначити. Оберіть «Невідомо», якщо межу неможливо підтвердити.",
+        axes: { mode: "Межа режиму", control: "Locus керування", authority: "Досяжність повноважень", commit: "Commit-топологія", transition: "Перехід і handover", preservation: "Fallback і збереження", runtime: "Runtime-перевірка", external: "Зовнішня чинність" },
+        question: "Галузеве питання",
+        resultLabel: "Maritime / DP маршрут",
+        route: {
+          exploratory: ["Навчальний галузевий маршрут", "Заявлена ознайомлювальна підстава не дозволяє змістовного галузевого результату. Обраний маршрут показано лише для демонстрації логіки рішення."],
+          "scope-first": ["Спочатку обмежте морський шлях керування", "Операційний зв’язок, locus керування або критична галузева межа залишаються невизначеними. Не визначайте глибину перегляду, доки ці шляхи не стануть явними."],
+          "tier1-sector": ["Tier 1.2 · Maritime / DP карта свідчень", "Використовуйте обмежену галузеву карту для режиму, повноважень, commit-шляхів, переходу, збереження та зовнішньої чинності. Незалежні галузеві процеси залишаються окремими."],
+          tier2: ["Обмежений Tier 2 · морський перегляд свідчень", "Потрібен належно незалежний перегляд досяжності повноважень, commit-топології, handover, bounded fallback, runtime-тверджень і зовнішньої class / flag чинності."],
+          tier3: ["Tier 3 · critical systems і галузеве залучення", "Застосовуйте кваліфіковані maritime, DP, safety, engineering, class, flag і regulatory процеси. Цей публічний міст не може дозволяти команду, виконання, продовження або повернення до місії."]
+        },
+        composition: "Склад галузевих відповідей",
+        compositionHint: "Це навігаційний орієнтир, а не оцінка DP-спроможності, рейтинг безпеки чи benchmark.",
+        priorityGaps: "Пріоритетні галузеві прогалини",
+        unknown: "Відповіді «Невідомо»",
+        excluded: "Відповіді «Поза обсягом»",
+        recordTitle: "Запис галузевої маршрутизації",
+        relation: "Операційний зв’язок",
+        locus: "Locus керування",
+        version: "Версія мосту",
+        statusLabel: "Статус",
+        status: "Самооцінка; свідчення не перевірялися",
+        critical: "Пріоритет",
+        export: "Експортувати Maritime / DP JSON",
+        exported: "Maritime / DP routing JSON завантажено",
+        back: "Назад до основного результату скринінгу",
+        boundaryTitle: "Галузева межа",
+        boundary: "Цей міст не є DP equipment class, FMEA, proving-trials programme, ASOG, CAMO, TAM, flag або class review, safety case, інженерним схваленням чи операційною процедурою. ACE залишається декларацією втрати застосовності, а не командою керування. Міст лише обирає глибину свідчень і не може дозволяти експлуатацію, продовження, відновлення або повернення до місії."
+      },
       workspace: {
         open: "Перейти до робочого простору готовності свідчень",
         openBlank: "Відкрити порожній робочий простір свідчень",
@@ -506,9 +594,15 @@ if (root) {
     sectorContext: null,
     lifecycle: null,
     responseBasis: null,
-    answers: {}
+    answers: {},
+    maritimeRoutingIndex: 0,
+    maritimeQuestionIndex: 0,
+    maritimeRelation: null,
+    maritimeLocus: null,
+    maritimeAnswers: {}
   };
   let workspaceNotice = "";
+  let maritimeNotice = "";
   let workspaceActionFilter = "all";
   let workspace = {
     context: {
@@ -526,6 +620,7 @@ if (root) {
   let contributionToken = null;
   const total = QUESTIONS.length + 4;
   const questionById = Object.fromEntries(QUESTIONS.map((question) => [question.id, question]));
+  const maritimeTotal = MARITIME_QUESTIONS.length + 2;
 
   const checked = (actual, expected) => actual === expected ? " checked" : "";
   const escapeHtml = (value) => String(value ?? "")
@@ -542,6 +637,14 @@ if (root) {
       <div class="gc-progress-copy"><span>${t.progress}</span><span>${current} ${t.of} ${total}</span></div>
       <div class="gc-progress" role="progressbar" aria-label="${t.progress}" aria-valuemin="0" aria-valuemax="${total}" aria-valuenow="${current}">
         <span style="width:${Math.round((current / total) * 100)}%"></span>
+      </div>
+    </div>`;
+
+  const maritimeProgress = (current) => `
+    <div class="gc-progress-block">
+      <div class="gc-progress-copy"><span>${t.maritime.progress}</span><span>${current} ${t.of} ${maritimeTotal}</span></div>
+      <div class="gc-progress" role="progressbar" aria-label="${t.maritime.progress}" aria-valuemin="0" aria-valuemax="${maritimeTotal}" aria-valuenow="${current}">
+        <span style="width:${Math.round((current / maritimeTotal) * 100)}%"></span>
       </div>
     </div>`;
 
@@ -765,6 +868,138 @@ if (root) {
       </form>`;
   }
 
+  function renderMaritimeRouting() {
+    const isRelation = state.maritimeRoutingIndex === 0;
+    const title = isRelation ? t.maritime.relationTitle : t.maritime.locusTitle;
+    const hint = isRelation ? t.maritime.relationHint : t.maritime.locusHint;
+    const items = (isRelation ? MARITIME_RELATIONS : MARITIME_LOCI).map((item) => [item.value, item[language]]);
+    const selected = isRelation ? state.maritimeRelation : state.maritimeLocus;
+    root.innerHTML = `
+      ${maritimeProgress(state.maritimeRoutingIndex + 1)}
+      <form class="gc-panel gc-question gc-maritime-question" data-form="maritime-routing">
+        <fieldset>
+          <p class="gc-eyebrow">${t.maritime.eyebrow}</p>
+          <legend>${title}</legend>
+          <p class="gc-hint">${hint}</p>
+          <div class="gc-options">${options(items, selected)}</div>
+          <p class="gc-form-error" role="alert" hidden>${t.answerRequired}</p>
+        </fieldset>
+        <div class="gc-actions">
+          <button class="gc-button gc-button-quiet" type="button" data-action="back">${t.back}</button>
+          <button class="gc-button gc-button-primary" type="submit">${t.next}</button>
+        </div>
+      </form>`;
+  }
+
+  function renderMaritimeQuestion() {
+    const question = MARITIME_QUESTIONS[state.maritimeQuestionIndex];
+    const scaleItems = SCALE.map((item) => [item.value, item[language]]);
+    root.innerHTML = `
+      ${maritimeProgress(state.maritimeQuestionIndex + 3)}
+      <form class="gc-panel gc-question gc-maritime-question" data-form="maritime-question">
+        <fieldset>
+          <p class="gc-axis">${t.maritime.axes[question.axis]}</p>
+          <legend><span class="gc-question-number">${t.maritime.question} ${state.maritimeQuestionIndex + 1}</span>${question[language]}</legend>
+          <p class="gc-hint">${t.maritime.scaleHelp}</p>
+          <div class="gc-options gc-scale">${options(scaleItems, state.maritimeAnswers[question.id])}</div>
+          <p class="gc-form-error" role="alert" hidden>${t.answerRequired}</p>
+        </fieldset>
+        <div class="gc-actions">
+          <button class="gc-button gc-button-quiet" type="button" data-action="back">${t.back}</button>
+          <button class="gc-button gc-button-primary" type="submit">${state.maritimeQuestionIndex === MARITIME_QUESTIONS.length - 1 ? t.seeResult : t.next}</button>
+        </div>
+      </form>`;
+  }
+
+  function currentMaritimeResult() {
+    return evaluateMaritimeBridge({
+      consequenceClass: state.consequenceClass,
+      responseBasis: state.responseBasis,
+      relation: state.maritimeRelation,
+      locus: state.maritimeLocus,
+      answers: state.maritimeAnswers
+    });
+  }
+
+  function renderMaritimeResults() {
+    const result = currentMaritimeResult();
+    const [routeTitle, routeDescription] = t.maritime.route[result.route];
+    const relation = MARITIME_RELATIONS.find((item) => item.value === result.relation);
+    const locus = MARITIME_LOCI.find((item) => item.value === result.locus);
+    const selectedConsequence = t.consequenceOptions.find(([value]) => value === result.consequenceClass) || t.consequenceOptions.at(-1);
+    root.innerHTML = `
+      <section class="gc-results gc-maritime-results" aria-labelledby="gc-maritime-result-title">
+        <div class="gc-panel gc-outcome gc-maritime-outcome gc-maritime-route-${result.route}">
+          <p class="gc-eyebrow">${t.maritime.resultLabel}</p>
+          <h2 id="gc-maritime-result-title">${routeTitle}</h2>
+          <p class="gc-lead">${routeDescription}</p>
+        </div>
+        <section class="gc-panel gc-maritime-summary" aria-labelledby="gc-maritime-summary-title">
+          <div class="gc-section-heading">
+            <div>
+              <p class="gc-eyebrow">${t.maritime.eyebrow}</p>
+              <h3 id="gc-maritime-summary-title">${t.maritime.title}</h3>
+            </div>
+            <span class="gc-selected-class">${selectedConsequence[1]} · ${selectedConsequence[2]}</span>
+          </div>
+          <p>${t.maritime.purpose}</p>
+          <div class="gc-maritime-metrics">
+            <div><strong>${result.priorityGapCount}</strong><span>${t.maritime.priorityGaps}</span></div>
+            <div><strong>${result.unknownCount}</strong><span>${t.maritime.unknown}</span></div>
+            <div><strong>${result.outOfScopeCount}</strong><span>${t.maritime.excluded}</span></div>
+          </div>
+          <div class="gc-composition">
+            <h4>${t.maritime.composition}</h4>
+            <p class="gc-hint">${t.maritime.compositionHint}</p>
+            <div class="gc-composition-bar" role="img" aria-label="${t.maritime.composition}">
+              ${result.answerDistribution.filter((item) => item.count > 0).map((item) => {
+                const scale = SCALE.find((entry) => entry.value === item.value);
+                return `<span class="gc-answer-${item.value}" style="width:${item.percent}%" title="${scale[language]}: ${item.count}"></span>`;
+              }).join("")}
+            </div>
+            <ul class="gc-composition-legend">
+              ${result.answerDistribution.map((item) => {
+                const scale = SCALE.find((entry) => entry.value === item.value);
+                return `<li><span class="gc-answer-dot gc-answer-${item.value}"></span><span>${scale[language]}</span><strong>${item.count} · ${item.percent}%</strong></li>`;
+              }).join("")}
+            </ul>
+          </div>
+          <ol class="gc-maritime-answer-list">
+            ${MARITIME_QUESTIONS.map((question) => {
+              const scale = SCALE.find((item) => item.value === result.answers[question.id]);
+              return `<li>
+                <div><span>${t.maritime.axes[question.axis]}</span>${question.critical ? `<strong>${t.maritime.critical}</strong>` : ""}</div>
+                <p>${question[language]}</p>
+                <span class="gc-maritime-answer"><i class="gc-answer-dot gc-answer-${result.answers[question.id]}"></i>${scale[language]}</span>
+              </li>`;
+            }).join("")}
+          </ol>
+        </section>
+        <aside class="gc-panel gc-record" aria-labelledby="gc-maritime-record-title">
+          <h3 id="gc-maritime-record-title">${t.maritime.recordTitle}</h3>
+          <dl>
+            <div><dt>${t.maritime.relation}</dt><dd>${relation[language]}</dd></div>
+            <div><dt>${t.maritime.locus}</dt><dd>${locus[language]}</dd></div>
+            <div><dt>${t.consequenceClass}</dt><dd>${selectedConsequence[1]} · ${selectedConsequence[2]}</dd></div>
+            <div><dt>${t.responseBasis}</dt><dd>${t.basisOptions.find(([value]) => value === result.responseBasis)[1]}</dd></div>
+            <div><dt>${t.maritime.version}</dt><dd>${MARITIME_BRIDGE_VERSION}</dd></div>
+            <div><dt>${t.maritime.statusLabel}</dt><dd>${t.maritime.status}</dd></div>
+          </dl>
+        </aside>
+        <section class="gc-boundary" aria-labelledby="gc-maritime-boundary-title">
+          <h3 id="gc-maritime-boundary-title">${t.maritime.boundaryTitle}</h3>
+          <p>${t.maritime.boundary}</p>
+        </section>
+        <p class="gc-live-status gc-maritime-status" aria-live="polite">${maritimeNotice}</p>
+        <div class="gc-actions gc-result-actions">
+          <button class="gc-button gc-button-primary" type="button" data-action="maritime-export">${t.maritime.export}</button>
+          <button class="gc-button gc-button-quiet" type="button" data-action="open-workspace">${t.workspace.open}</button>
+          <button class="gc-button gc-button-quiet" type="button" data-action="maritime-back-results">${t.maritime.back}</button>
+          <button class="gc-button gc-button-quiet" type="button" data-action="print">${t.print}</button>
+        </div>
+      </section>`;
+  }
+
   function renderResults() {
     const result = evaluateScreening(state);
     const [title, description] = t.outcome[result.outcome];
@@ -866,6 +1101,7 @@ if (root) {
           <p><strong>${t.urgent}</strong></p>
         </section>
         <div class="gc-actions gc-result-actions">
+          ${result.sectorContext === "maritime" ? `<button class="gc-button gc-button-primary" type="button" data-action="start-maritime">${t.maritime.open}</button>` : ""}
           <button class="gc-button gc-button-primary" type="button" data-action="open-workspace">${t.workspace.open}</button>
           <button class="gc-button gc-button-primary" type="button" data-action="print">${t.print}</button>
           <button class="gc-button gc-button-quiet" type="button" data-action="restart">${t.restart}</button>
@@ -1216,12 +1452,35 @@ if (root) {
     if (status) status.textContent = workspaceNotice;
   }
 
+  function exportMaritimeBridge() {
+    const payload = buildMaritimeBridgeExport({
+      language,
+      lifecycle: state.lifecycle,
+      result: currentMaritimeResult()
+    });
+    const blob = new Blob([`${JSON.stringify(payload, null, 2)}\n`], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = `maritime-dp-bridge-${localDate()}.json`;
+    document.body.append(anchor);
+    anchor.click();
+    anchor.remove();
+    URL.revokeObjectURL(url);
+    maritimeNotice = t.maritime.exported;
+    const status = root.querySelector(".gc-maritime-status");
+    if (status) status.textContent = maritimeNotice;
+  }
+
   function render() {
     if (state.phase === "intro") renderIntro();
     if (state.phase === "routing") renderRouting();
     if (state.phase === "questions") renderQuestion();
     if (state.phase === "basis") renderBasis();
     if (state.phase === "results") renderResults();
+    if (state.phase === "maritime-routing") renderMaritimeRouting();
+    if (state.phase === "maritime-questions") renderMaritimeQuestion();
+    if (state.phase === "maritime-results") renderMaritimeResults();
     if (state.phase === "workspace") renderWorkspace();
     root.querySelector("button, input, summary")?.focus({ preventScroll: true });
   }
@@ -1234,6 +1493,12 @@ if (root) {
       render();
     }
     if (action === "contribute") void submitContribution();
+    if (action === "start-maritime" && state.sectorContext === "maritime") {
+      state.phase = "maritime-routing";
+      state.maritimeRoutingIndex = 0;
+      maritimeNotice = "";
+      render();
+    }
     if (action === "open-workspace") startWorkspace(false);
     if (action === "open-workspace-blank") startWorkspace(true);
     if (action === "back") {
@@ -1246,10 +1511,24 @@ if (root) {
       else if (state.phase === "basis") {
         state.phase = "questions";
         state.questionIndex = QUESTIONS.length - 1;
+      } else if (state.phase === "maritime-routing" && state.maritimeRoutingIndex === 0) {
+        state.phase = "results";
+      } else if (state.phase === "maritime-routing") {
+        state.maritimeRoutingIndex -= 1;
+      } else if (state.phase === "maritime-questions" && state.maritimeQuestionIndex === 0) {
+        state.phase = "maritime-routing";
+        state.maritimeRoutingIndex = 1;
+      } else if (state.phase === "maritime-questions") {
+        state.maritimeQuestionIndex -= 1;
       }
       render();
     }
     if (action === "print") window.print();
+    if (action === "maritime-export") exportMaritimeBridge();
+    if (action === "maritime-back-results") {
+      state.phase = "results";
+      render();
+    }
     if (action === "workspace-print-brief") {
       document.body.classList.add("gc-print-brief");
       const clearPrintMode = () => document.body.classList.remove("gc-print-brief");
@@ -1281,7 +1560,13 @@ if (root) {
       state.lifecycle = null;
       state.responseBasis = null;
       state.answers = {};
+      state.maritimeRoutingIndex = 0;
+      state.maritimeQuestionIndex = 0;
+      state.maritimeRelation = null;
+      state.maritimeLocus = null;
+      state.maritimeAnswers = {};
       workspaceNotice = "";
+      maritimeNotice = "";
       contributionConsent = false;
       contributionStatus = "idle";
       contributionToken = null;
@@ -1379,6 +1664,19 @@ if (root) {
       contributionConsent = false;
       contributionStatus = "idle";
       contributionToken = null;
+    } else if (event.target.dataset.form === "maritime-routing") {
+      if (state.maritimeRoutingIndex === 0) {
+        state.maritimeRelation = selected;
+        state.maritimeRoutingIndex = 1;
+      } else {
+        state.maritimeLocus = selected;
+        state.maritimeQuestionIndex = 0;
+        state.phase = "maritime-questions";
+      }
+    } else if (event.target.dataset.form === "maritime-question") {
+      state.maritimeAnswers[MARITIME_QUESTIONS[state.maritimeQuestionIndex].id] = selected;
+      if (state.maritimeQuestionIndex === MARITIME_QUESTIONS.length - 1) state.phase = "maritime-results";
+      else state.maritimeQuestionIndex += 1;
     } else {
       state.answers[QUESTIONS[state.questionIndex].id] = selected;
       if (state.questionIndex === QUESTIONS.length - 1) state.phase = "basis";
