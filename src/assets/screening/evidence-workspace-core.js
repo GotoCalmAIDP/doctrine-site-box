@@ -1,6 +1,6 @@
 import { AXES, CONSEQUENCE_CLASSES, QUESTIONS, RESPONSE_BASES, SECTOR_CONTEXTS, normalizeConsequenceClass } from "./screening-core.js";
 
-export const EVIDENCE_WORKSPACE_VERSION = "evidence-readiness-workspace 0.3.0-alpha";
+export const EVIDENCE_WORKSPACE_VERSION = "evidence-readiness-workspace 0.4.0-alpha";
 export const EVIDENCE_WORKSPACE_SCHEMA = "goto-calm:evidence-readiness-workspace:0.3";
 export const LEGACY_EVIDENCE_WORKSPACE_SCHEMA = "goto-calm:evidence-readiness-workspace:0.1";
 export const PREVIOUS_EVIDENCE_WORKSPACE_SCHEMA = "goto-calm:evidence-readiness-workspace:0.2";
@@ -176,6 +176,35 @@ export function evaluateEvidenceReadiness(rows) {
         state: row.state,
         actions: row.actions
       }))
+  };
+}
+
+export function buildEvidenceReviewBrief({ context, screening, rows }) {
+  const evaluation = evaluateEvidenceReadiness(rows);
+  const contextGaps = ["referenceLabel", "assessedVersion", "assessmentDate", "contextLabel"]
+    .filter((field) => !String(context?.[field] || "").trim());
+  const exploratory = screening?.responseBasis === "exploratory" || screening?.outcome === "exploratory";
+
+  let status = "mapping-complete";
+  if (exploratory) status = "training-only";
+  else if (contextGaps.length) status = "context-required";
+  else if (evaluation.summary.priorityOpen) status = "priority-open";
+  else if (evaluation.summary.open) status = "mapping-open";
+
+  const nextActions = [];
+  if (exploratory) nextActions.push("rerun-substantive");
+  if (contextGaps.length) nextActions.push("complete-context");
+  if (evaluation.summary.priorityOpen) nextActions.push("resolve-priority-records");
+  if (evaluation.summary.open) nextActions.push("complete-open-records");
+  nextActions.push("independent-review");
+
+  return {
+    status,
+    exploratory,
+    contextGaps,
+    summary: evaluation.summary,
+    priorityItems: evaluation.openActions.filter((item) => item.priority).slice(0, 3),
+    nextActions: [...new Set(nextActions)].slice(0, 3)
   };
 }
 
