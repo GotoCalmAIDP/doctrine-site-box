@@ -26,7 +26,7 @@ The site operators do not request names, accounts or personal profile informatio
 
 ## Local Screening and Document Processing
 
-Screening answers, evidence-workspace fields and document analysis remain in the current browser tab unless you choose to export a JSON snapshot. The site does not automatically save them.
+Screening answers, evidence-workspace fields and derived document-analysis metadata are automatically saved in `sessionStorage` for the lifetime of the current browser tab so a refresh, same-tab navigation or language change can restore the draft. This tab draft is not sent to the site operators. Closing the tab or explicitly starting a new assessment clears it; export a JSON snapshot if you need a portable copy.
 
 The DOCX intake runs only after you select a file. Processing occurs locally in the browser. The file and its raw text are not uploaded or retained by the site operators. After analysis, the interface keeps only derived metadata and candidate section locators in the tab. Do not select files containing personal, confidential, client, security-sensitive or live operational information.
 
