@@ -1,5 +1,6 @@
-export const DOCUMENT_INTAKE_VERSION = "document-intake 0.1.0-alpha";
+export const DOCUMENT_INTAKE_VERSION = "document-intake 0.2.0-alpha";
 export const DOCUMENT_MAX_BYTES = 10 * 1024 * 1024;
+export const DOCUMENT_MAX_FILES = 3;
 export const DOCUMENT_MAX_XML_BYTES = 16 * 1024 * 1024;
 export const DOCUMENT_ALLOWED_EXTENSIONS = [".docx"];
 export const REGULATORY_HORIZON_AS_OF = "2026-09-22";
@@ -26,6 +27,8 @@ const AXIS_CUES = {
   drift: ["change", "update", "drift", "trajectory", "reassessment", "post-market", "зміна", "оновлен", "дрейф", "траєктор", "повторн"],
   runtime: ["runtime", "invariant", "suppression", "verifier", "operational state", "виконання", "інваріант", "пригнічен", "верифікатор", "операційн"]
 };
+
+export const DOCUMENT_INTAKE_AXES = Object.freeze(Object.keys(AXIS_CUES));
 
 export const REGULATORY_SOURCES = {
   aiAct: "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
@@ -426,6 +429,85 @@ export async function analyzeDocxArrayBuffer(file, arrayBuffer) {
     retainedContent: "derived-metadata-and-section-locators-only"
   };
   return report;
+}
+
+function retainedReports(reports) {
+  return (Array.isArray(reports) ? reports : [])
+    .filter((report) => report?.retainedContent === "derived-metadata-and-section-locators-only")
+    .slice(0, DOCUMENT_MAX_FILES);
+}
+
+export function selectBestAxisSuggestions(reports) {
+  const best = new Map();
+  retainedReports(reports).forEach((report, documentIndex) => {
+    for (const suggestion of report.axisSuggestions || []) {
+      if (!DOCUMENT_INTAKE_AXES.includes(suggestion.axis)) continue;
+      const candidate = {
+        ...suggestion,
+        sourceFile: report.file?.name || "document.docx",
+        documentIndex
+      };
+      const current = best.get(suggestion.axis);
+      if (!current || Number(candidate.matches || 0) > Number(current.matches || 0)) {
+        best.set(suggestion.axis, candidate);
+      }
+    }
+  });
+  return DOCUMENT_INTAKE_AXES.map((axis) => best.get(axis)).filter(Boolean);
+}
+
+export function buildDocumentIntakeAssessment({ reports, context, screening, profile } = {}) {
+  const retained = retainedReports(reports);
+  const coveredAxes = selectBestAxisSuggestions(retained).map((item) => item.axis);
+  const missingAxes = DOCUMENT_INTAKE_AXES.filter((axis) => !coveredAxes.includes(axis));
+  const gaps = [];
+  const consequence = String(screening?.consequenceClass || "unknown");
+  const referenceLabel = String(context?.referenceLabel || "").trim();
+  const assessedVersion = String(context?.assessedVersion || "").trim();
+  const contextLabel = String(context?.contextLabel || "").trim();
+  const jurisdiction = String(profile?.jurisdiction || "unresolved");
+  const marketRole = String(profile?.marketRole || "unresolved");
+
+  if (!retained.length) gaps.push("document");
+  if (consequence === "unknown") gaps.push("consequence");
+  if (!referenceLabel) gaps.push("object");
+  if (!assessedVersion) gaps.push("version");
+  if (!contextLabel) gaps.push("context");
+  if (jurisdiction === "unresolved") gaps.push("jurisdiction");
+  if (marketRole === "unresolved") gaps.push("market-role");
+  if (!profile?.confirmed) gaps.push("confirmation");
+  if (missingAxes.length) gaps.push("missing-axes");
+  gaps.push("evidence-review");
+
+  let status = "empty";
+  if (retained.length) {
+    const coreContextReady = consequence !== "unknown" && referenceLabel && assessedVersion && contextLabel;
+    if (!coreContextReady || coveredAxes.length < 4) status = "insufficient";
+    else if (coveredAxes.length >= 7) status = "bounded";
+    else status = "partial";
+  }
+
+  const questionKeys = gaps.filter((gap) => [
+    "consequence",
+    "object",
+    "version",
+    "context",
+    "jurisdiction",
+    "market-role",
+    "confirmation"
+  ].includes(gap));
+
+  return {
+    status,
+    fileCount: retained.length,
+    coveredAxes,
+    missingAxes,
+    coveragePercent: Math.round((coveredAxes.length / DOCUMENT_INTAKE_AXES.length) * 100),
+    gaps,
+    questionKeys,
+    canAddDocument: retained.length < DOCUMENT_MAX_FILES,
+    boundary: "structure-only-not-evidence"
+  };
 }
 
 function conditionState(profile, condition) {
