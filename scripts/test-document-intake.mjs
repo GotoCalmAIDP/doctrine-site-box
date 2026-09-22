@@ -3,10 +3,13 @@ import { readFile } from "node:fs/promises";
 import { basename } from "node:path";
 import {
   DOCUMENT_MAX_BYTES,
+  DOCUMENT_MAX_FILES,
   analyzeDocxArrayBuffer,
+  buildDocumentIntakeAssessment,
   buildRegulatoryReadiness,
   emptyRegulatoryProfile,
   formatFileSize,
+  selectBestAxisSuggestions,
   validateDocumentFileDescriptor
 } from "../src/assets/screening/document-intake-core.js";
 
@@ -108,6 +111,7 @@ for (const report of reports) {
 
 assert.equal(reports[0].suggestions.assessedVersion, "v0.3");
 assert.equal(reports[0].axisSuggestions.length, 9);
+assert.equal(DOCUMENT_MAX_FILES, 3);
 assert.equal(formatFileSize(45_377), "44 KB");
 assert.throws(
   () => validateDocumentFileDescriptor({ name: "evidence.pdf", size: 200 }),
@@ -117,6 +121,51 @@ assert.throws(
   () => validateDocumentFileDescriptor({ name: "evidence.docx", size: DOCUMENT_MAX_BYTES + 1 }),
   /document-file-too-large/
 );
+
+const emptyIntake = buildDocumentIntakeAssessment();
+assert.equal(emptyIntake.status, "empty");
+assert.equal(emptyIntake.fileCount, 0);
+assert.equal(emptyIntake.coveragePercent, 0);
+assert.ok(emptyIntake.gaps.includes("document"));
+
+const insufficientIntake = buildDocumentIntakeAssessment({
+  reports: [reports[0]],
+  context: { referenceLabel: "SYSTEM-A", assessedVersion: "v1", contextLabel: "test" },
+  screening: { consequenceClass: "unknown" },
+  profile: emptyRegulatoryProfile()
+});
+assert.equal(insufficientIntake.status, "insufficient");
+assert.ok(insufficientIntake.questionKeys.includes("consequence"));
+
+const boundedIntake = buildDocumentIntakeAssessment({
+  reports: [reports[0]],
+  context: { referenceLabel: "SYSTEM-A", assessedVersion: "v1", contextLabel: "test" },
+  screening: { consequenceClass: "enterprise" },
+  profile: { ...emptyRegulatoryProfile(), jurisdiction: "eu-eea", marketRole: "provider", confirmed: true }
+});
+assert.equal(boundedIntake.status, "bounded");
+assert.equal(boundedIntake.coveredAxes.length, 9);
+assert.equal(boundedIntake.coveragePercent, 100);
+assert.ok(boundedIntake.gaps.includes("evidence-review"));
+
+const threeReports = [reports[0], reports[0], reports[0]];
+assert.equal(buildDocumentIntakeAssessment({ reports: threeReports }).canAddDocument, false);
+
+const weaker = {
+  ...reports[0],
+  file: { ...reports[0].file, name: "weaker.docx" },
+  axisSuggestions: reports[0].axisSuggestions.map((item) => ({ ...item, matches: 1, locator: `WEAK:${item.axis}` }))
+};
+const strongerScope = {
+  ...reports[0],
+  file: { ...reports[0].file, name: "stronger.docx" },
+  axisSuggestions: reports[0].axisSuggestions.map((item) => item.axis === "scope"
+    ? { ...item, matches: 99, locator: "STRONG:SCOPE" }
+    : { ...item, matches: 0 })
+};
+const bestSuggestions = selectBestAxisSuggestions([weaker, strongerScope]);
+assert.equal(bestSuggestions.find((item) => item.axis === "scope").locator, "STRONG:SCOPE");
+assert.equal(bestSuggestions.find((item) => item.axis === "authority").locator, "WEAK:authority");
 
 const unresolved = buildRegulatoryReadiness({
   profile: emptyRegulatoryProfile(),
