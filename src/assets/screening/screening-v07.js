@@ -21,7 +21,7 @@ import {
   mergeMaritimeBridgeIntoWorkspace,
   parseMaritimeBridgeImport,
   parseEvidenceWorkspaceImport
-} from "./evidence-workspace-core.js";
+} from "./evidence-workspace-core-v07.js";
 import {
   PUBLIC_AGGREGATE_ENDPOINT,
   buildPublicSubmission,
