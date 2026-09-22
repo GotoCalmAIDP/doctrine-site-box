@@ -662,6 +662,116 @@
   align-items: center;
 }
 
+.gc-maritime-results {
+  display: grid;
+  gap: 1rem;
+}
+
+.gc-maritime-outcome {
+  border-left-color: #315f77;
+}
+
+.gc-maritime-route-scope-first,
+.gc-maritime-route-tier2 {
+  background: var(--gc-warn-soft);
+  border-left-color: var(--gc-warn);
+}
+
+.gc-maritime-route-tier3 {
+  background: #fdebea;
+  border-left-color: #a43b33;
+}
+
+.gc-maritime-route-exploratory {
+  background: var(--gc-info-soft);
+  border-left-color: #437a87;
+}
+
+.gc-maritime-summary h3,
+.gc-maritime-summary h4 {
+  margin-top: 0;
+}
+
+.gc-maritime-metrics {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 1.15rem 0;
+}
+
+.gc-maritime-metrics > div {
+  background: var(--gc-soft);
+  border: 1px solid var(--gc-line);
+  border-radius: 10px;
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.85rem;
+}
+
+.gc-maritime-metrics strong {
+  color: var(--gc-accent-dark);
+  font-size: 1.55rem;
+}
+
+.gc-maritime-metrics span {
+  color: var(--gc-muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.gc-maritime-answer-list {
+  display: grid;
+  gap: 0.7rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.gc-maritime-answer-list > li {
+  border: 1px solid var(--gc-line);
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+}
+
+.gc-maritime-answer-list > li > div {
+  align-items: center;
+  color: var(--gc-accent);
+  display: flex;
+  font-size: 0.76rem;
+  font-weight: 750;
+  gap: 0.6rem;
+  justify-content: space-between;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.gc-maritime-answer-list > li > div strong {
+  background: var(--gc-warn-soft);
+  border-radius: 99px;
+  color: var(--gc-warn);
+  font-size: 0.68rem;
+  padding: 0.2rem 0.45rem;
+}
+
+.gc-maritime-answer-list p {
+  line-height: 1.5;
+  margin: 0.5rem 0;
+}
+
+.gc-maritime-answer {
+  align-items: center;
+  color: var(--gc-muted);
+  display: flex;
+  font-size: 0.84rem;
+  font-weight: 700;
+  gap: 0.45rem;
+}
+
+.gc-maritime-answer .gc-answer-dot {
+  display: inline-block;
+  flex: 0 0 auto;
+}
+
 .gc-text-link {
   color: var(--gc-accent-dark);
   font-weight: 700;
@@ -1108,6 +1218,9 @@
     grid-template-columns: 1fr;
   }
   .gc-result-grid {
+    grid-template-columns: 1fr;
+  }
+  .gc-maritime-metrics {
     grid-template-columns: 1fr;
   }
   .gc-route-grid {
