@@ -37,12 +37,15 @@ import {
   evaluateMaritimeBridge
 } from "./maritime-core.js";
 import {
+  DOCUMENT_MAX_FILES,
   DOCUMENT_INTAKE_VERSION,
   REGULATORY_HORIZON_AS_OF,
   analyzeDocxArrayBuffer,
+  buildDocumentIntakeAssessment,
   buildRegulatoryReadiness,
-  emptyRegulatoryProfile
-} from "./document-intake-core-v09.js";
+  emptyRegulatoryProfile,
+  selectBestAxisSuggestions
+} from "./document-intake-core-v10.js";
 
 const root = document.querySelector("#gc-screening");
 
@@ -429,18 +432,20 @@ if (root) {
           boundary: "Call this output an audit-readiness or review-readiness baseline. Do not call it an independent audit: the public alpha does not inspect the underlying evidence, test controls or establish reviewer independence. The test remains free; any professional engagement requires separate scope, competence and independence checks."
         },
         document: {
-          intro: "Analyze a DOCX locally",
+          intro: "Start with a DOCX",
           eyebrow: "Local document intake · free public alpha",
-          title: "Let the document reduce manual setup",
-          purpose: "Choose one DOCX. This browser reads it once to suggest a title, version, context, section locators and a possible regulatory profile. Suggestions are not findings and require confirmation.",
+          title: "Drop in the document first",
+          purpose: "Add up to three DOCX files, one at a time. The browser fills only what it can support from the documents, marks everything else as insufficient data and asks for the smallest safe set of answers.",
           choose: "Choose and analyze DOCX",
-          replace: "Choose another DOCX",
+          add: "Add supporting DOCX",
+          maxReached: "Maximum of 3 documents reached",
           apply: "Apply candidate locators",
           applied: "candidate locator(s) added; evidence status remains open",
-          spec: "DOCX only · maximum 10 MB · no macros or password protection",
-          privacy: "The file is read only after you choose it. It is not uploaded, transmitted or saved by us. Raw text is discarded after local analysis; only derived metadata and section locators remain in this tab.",
+          spec: "Up to 3 DOCX files · 10 MB each · no macros or password protection",
+          privacy: "Each file is read only after you choose it. It is not uploaded, transmitted or saved by us. Its bytes and raw text are discarded immediately after local analysis; only derived metadata and section locators remain in this tab.",
           analyzing: "Reading the selected document locally…",
           ready: "Local scan ready",
+          documentNumber: "Document",
           file: "Selected file",
           titleLabel: "Detected title",
           versionLabel: "Detected version",
@@ -449,21 +454,44 @@ if (root) {
           paragraphs: "Readable paragraphs",
           headings: "Headings",
           cues: "Candidate doctrine sections",
+          combinedCues: "Best combined section candidates",
           cueMatches: "matching paragraph(s)",
           suggestion: "Suggested context",
+          coverage: "Doctrinal structure cues",
+          axesFound: "axes found",
+          missingAxes: "No cue yet for",
+          statusEyebrow: "Automated orientation",
+          statuses: {
+            empty: ["Waiting for a document", "Add a DOCX to begin the local orientation."],
+            insufficient: ["Insufficient data", "The document supplied useful cues, but cannot safely select the review depth yet. Answer the short questions or add a supporting document."],
+            partial: ["Partial orientation", "There is enough structure to begin mapping, but material gaps remain explicit."],
+            bounded: ["Bounded orientation ready", "There is enough context and document structure to prepare the evidence map. Nothing has been verified or accepted as evidence."]
+          },
+          quickTitle: "Answer only what the document cannot safely decide",
+          quickHint: "These answers update the orientation immediately. You can then add another document; the earlier analysis stays in this tab.",
+          quickConsequence: "Highest credible consequence",
+          quickSector: "Context lens",
+          quickLifecycle: "Current lifecycle",
           needsTitle: "What the system still needs from you",
-          needs: {
-            document: "Choose a DOCX if you want automatic metadata and section suggestions.",
-            consequence: "Set the highest credible consequence class through the screening; a document cannot decide it safely.",
-            context: "Confirm the object, version, date and neutral assessment context.",
-            regulatory: "Confirm jurisdiction, market role and product-scope signals.",
-            evidence: "For each candidate locator, confirm record status, evidence class, currentness and conflicts."
+          gaps: {
+            document: "Add a DOCX to generate local metadata and section suggestions.",
+            consequence: "Confirm the highest credible consequence; document wording cannot decide this safely.",
+            object: "Name the specific assessment object in the context fields below.",
+            version: "Enter or confirm the assessed version in the context fields below.",
+            context: "Confirm a neutral assessment context.",
+            jurisdiction: "Bound the jurisdiction or market in the regulatory section.",
+            "market-role": "Confirm the possible market role in the regulatory section.",
+            confirmation: "Confirm the edited regulatory profile for this working context.",
+            "missing-axes": "Add a relevant supporting document or leave the missing axes openly unresolved.",
+            "evidence-review": "Review every candidate locator for record status, evidence class, currentness and conflicts."
           },
           boundary: "A matching phrase or heading does not prove applicability, admissibility, control effectiveness, safety or compliance. Applying a locator never changes evidence status.",
           errors: {
             "document-type-unsupported": "Only .docx files are supported in this alpha.",
             "document-file-empty": "The selected file is empty.",
             "document-file-too-large": "The selected file is larger than 10 MB.",
+            "document-file-limit": "Three documents are already attached to this local orientation.",
+            "document-file-duplicate": "This document is already included in the local orientation.",
             "docx-macros-unsupported": "Macro-enabled documents are not accepted.",
             "docx-decompression-unavailable": "This browser cannot perform the local DOCX scan.",
             "docx-no-readable-text": "No readable document text was found.",
@@ -900,18 +928,20 @@ if (root) {
           boundary: "Називайте цей результат базовою готовністю до аудиту або перегляду. Не називайте його незалежним аудитом: публічна альфа не перевіряє самі свідчення, не тестує контролі й не встановлює незалежність рецензента. Тест залишається безкоштовним; будь-яка професійна взаємодія потребує окремого обсягу, перевірки компетентності й незалежності."
         },
         document: {
-          intro: "Проаналізувати DOCX локально",
+          intro: "Почати з DOCX",
           eyebrow: "Локальний вхід документа · безкоштовна публічна альфа",
-          title: "Нехай документ зменшить ручне введення",
-          purpose: "Оберіть один DOCX. Браузер один раз прочитає його, щоб запропонувати назву, версію, контекст, локатори розділів і можливий регуляторний профіль. Підказки не є висновками й потребують підтвердження.",
+          title: "Спочатку просто додайте документ",
+          purpose: "Додайте до трьох DOCX по одному. Браузер заповнить лише те, що може обґрунтувати з документів, для решти покаже «недостатньо даних» і поставить мінімум безпечних запитань.",
           choose: "Обрати й проаналізувати DOCX",
-          replace: "Обрати інший DOCX",
+          add: "Додати підтверджувальний DOCX",
+          maxReached: "Досягнуто максимум — 3 документи",
           apply: "Застосувати кандидати локаторів",
           applied: "кандидатів локаторів додано; стан свідчень залишається відкритим",
-          spec: "Лише DOCX · максимум 10 МБ · без макросів і захисту паролем",
-          privacy: "Файл читається тільки після вашого вибору. Ми не завантажуємо, не передаємо й не зберігаємо його. Після локального аналізу сирий текст відкидається; у цій вкладці залишаються лише похідні метадані й локатори розділів.",
+          spec: "До 3 файлів DOCX · до 10 МБ кожен · без макросів і захисту паролем",
+          privacy: "Кожен файл читається тільки після вашого вибору. Ми не завантажуємо, не передаємо й не зберігаємо його. Байти й сирий текст відкидаються одразу після локального аналізу; у цій вкладці залишаються лише похідні метадані й локатори розділів.",
           analyzing: "Обраний документ читається локально…",
           ready: "Локальне сканування завершено",
+          documentNumber: "Документ",
           file: "Обраний файл",
           titleLabel: "Визначена назва",
           versionLabel: "Визначена версія",
@@ -920,21 +950,44 @@ if (root) {
           paragraphs: "Читабельні абзаци",
           headings: "Заголовки",
           cues: "Кандидати розділів доктрини",
+          combinedCues: "Найкращі спільні кандидати розділів",
           cueMatches: "відповідних абзаців",
           suggestion: "Запропонований контекст",
+          coverage: "Сигнали доктринальної структури",
+          axesFound: "осей знайдено",
+          missingAxes: "Ще немає сигналу для",
+          statusEyebrow: "Автоматична орієнтація",
+          statuses: {
+            empty: ["Очікується документ", "Додайте DOCX, щоб почати локальну орієнтацію."],
+            insufficient: ["Недостатньо даних", "Документ дав корисні сигнали, але ще не дозволяє безпечно обрати глибину перегляду. Дайте короткі відповіді або додайте підтверджувальний документ."],
+            partial: ["Часткова орієнтація", "Структури вже достатньо, щоб почати картування, але суттєві прогалини залишаються явними."],
+            bounded: ["Обмежена орієнтація готова", "Контексту й структури документів достатньо для підготовки карти свідчень. Нічого не перевірено й не прийнято як свідчення."]
+          },
+          quickTitle: "Відповідайте лише на те, що документ не може безпечно вирішити",
+          quickHint: "Ці відповіді одразу оновлюють орієнтацію. Після цього можна додати інший документ; попередній аналіз залишиться в цій вкладці.",
+          quickConsequence: "Найвищий достовірний наслідок",
+          quickSector: "Контекстна лінза",
+          quickLifecycle: "Поточний життєвий цикл",
           needsTitle: "Що система ще очікує від вас",
-          needs: {
-            document: "Оберіть DOCX, якщо потрібні автоматичні метадані та підказки розділів.",
-            consequence: "Встановіть найвищий достовірний клас наслідків через скринінг; документ не може безпечно вирішити це сам.",
-            context: "Підтвердьте об’єкт, версію, дату й нейтральний контекст оцінювання.",
-            regulatory: "Підтвердьте юрисдикцію, ринкову роль і сигнали обсягу продукту.",
-            evidence: "Для кожного кандидата локатора підтвердьте стан запису, клас свідчення, актуальність і конфлікти."
+          gaps: {
+            document: "Додайте DOCX, щоб отримати локальні метадані й підказки розділів.",
+            consequence: "Підтвердьте найвищий достовірний наслідок; формулювання документа не може безпечно визначити його.",
+            object: "Назвіть конкретний об’єкт оцінювання в полях контексту нижче.",
+            version: "Введіть або підтвердьте оцінювану версію в полях контексту нижче.",
+            context: "Підтвердьте нейтральний контекст оцінювання.",
+            jurisdiction: "Обмежте юрисдикцію або ринок у регуляторному розділі.",
+            "market-role": "Підтвердьте можливу ринкову роль у регуляторному розділі.",
+            confirmation: "Підтвердьте відредагований регуляторний профіль для цього робочого контексту.",
+            "missing-axes": "Додайте релевантний підтверджувальний документ або залиште відсутні осі явно невизначеними.",
+            "evidence-review": "Перегляньте кожен кандидат локатора: стан запису, клас свідчення, актуальність і конфлікти."
           },
           boundary: "Збіг фрази або заголовка не доводить застосовність, допустимість, дієвість контролю, безпеку чи відповідність. Застосування локатора ніколи не змінює стан свідчення.",
           errors: {
             "document-type-unsupported": "У цій альфі підтримуються лише файли .docx.",
             "document-file-empty": "Обраний файл порожній.",
             "document-file-too-large": "Розмір обраного файлу перевищує 10 МБ.",
+            "document-file-limit": "До цієї локальної орієнтації вже додано три документи.",
+            "document-file-duplicate": "Цей документ уже включено до локальної орієнтації.",
             "docx-macros-unsupported": "Документи з макросами не приймаються.",
             "docx-decompression-unavailable": "Цей браузер не може виконати локальне сканування DOCX.",
             "docx-no-readable-text": "У документі не знайдено читабельного тексту.",
@@ -1029,7 +1082,8 @@ if (root) {
     rows: [],
     maritime: null
   };
-  let documentIntake = { status: "empty", report: null, error: "" };
+  const emptyDocumentIntake = (quickMode = false) => ({ status: "empty", report: null, reports: [], error: "", quickMode });
+  let documentIntake = emptyDocumentIntake();
   let regulatoryProfile = emptyRegulatoryProfile();
   let publicAggregate = { status: "idle", data: null };
   let contributionConsent = false;
@@ -1055,9 +1109,9 @@ if (root) {
       savedAt: new Date().toISOString(),
       state,
       workspace,
-      documentIntake: documentIntake.status === "ready"
-        ? documentIntake
-        : { status: "empty", report: null, error: "" },
+      documentIntake: documentIntake.status === "ready" || documentIntake.reports?.length
+        ? { ...documentIntake, status: "ready", report: documentIntake.reports?.at(-1) || documentIntake.report, error: "" }
+        : emptyDocumentIntake(documentIntake.quickMode),
       regulatoryProfile,
       workspaceActionFilter,
       contribution: { status: contributionStatus, token: contributionToken }
@@ -1098,8 +1152,22 @@ if (root) {
         maritimeAnswers: saved.state.maritimeAnswers && typeof saved.state.maritimeAnswers === "object" ? saved.state.maritimeAnswers : {}
       });
       if (saved.workspace?.screening && Array.isArray(saved.workspace.rows)) workspace = saved.workspace;
-      if (saved.documentIntake?.status === "ready" && saved.documentIntake.report?.retainedContent === "derived-metadata-and-section-locators-only") {
-        documentIntake = saved.documentIntake;
+      if (saved.documentIntake?.status === "ready") {
+        const savedReports = Array.isArray(saved.documentIntake.reports)
+          ? saved.documentIntake.reports
+          : [saved.documentIntake.report].filter(Boolean);
+        const reports = savedReports
+          .filter((report) => report?.retainedContent === "derived-metadata-and-section-locators-only")
+          .slice(0, DOCUMENT_MAX_FILES);
+        if (reports.length) {
+          documentIntake = {
+            status: "ready",
+            report: reports.at(-1),
+            reports,
+            error: "",
+            quickMode: Boolean(saved.documentIntake.quickMode)
+          };
+        }
       }
       if (saved.regulatoryProfile && typeof saved.regulatoryProfile === "object") {
         regulatoryProfile = { ...emptyRegulatoryProfile(), ...saved.regulatoryProfile };
@@ -1629,7 +1697,7 @@ if (root) {
       </section>`;
   }
 
-  function startWorkspace(blank = false) {
+  function startWorkspace(blank = false, quickMode = false) {
     if (blank) {
       state.consequenceClass = "unknown";
       state.sectorContext = "general";
@@ -1656,7 +1724,7 @@ if (root) {
       rows: createEvidenceRows(state.answers),
       maritime
     };
-    documentIntake = { status: "empty", report: null, error: "" };
+    documentIntake = emptyDocumentIntake(quickMode);
     regulatoryProfile = emptyRegulatoryProfile();
     workspaceNotice = "";
     workspaceActionFilter = "all";
@@ -1713,7 +1781,7 @@ if (root) {
       rows,
       maritime: null
     };
-    documentIntake = { status: "empty", report: null, error: "" };
+    documentIntake = emptyDocumentIntake();
     regulatoryProfile = emptyRegulatoryProfile();
     workspaceActionFilter = "all";
     workspaceNotice = t.workspace.exampleLoaded;
@@ -1762,7 +1830,7 @@ if (root) {
         }
       }
       workspace = nextWorkspace;
-      documentIntake = { status: "empty", report: null, error: "" };
+      documentIntake = emptyDocumentIntake();
       regulatoryProfile = emptyRegulatoryProfile();
       state.consequenceClass = imported.screening.consequenceClass;
       state.sectorContext = workspace.screening.sectorContext;
@@ -1806,9 +1874,52 @@ if (root) {
     return t.workspace.document.errors[key] || t.workspace.document.errors.default;
   }
 
+  function documentDescriptorKey(file) {
+    return [file?.name || "", Number(file?.size || 0), Number(file?.lastModified || 0)].join(":");
+  }
+
+  function reportDescriptorKey(report) {
+    const modified = report?.file?.lastModified ? Date.parse(report.file.lastModified) : 0;
+    return [report?.file?.name || "", Number(report?.file?.size || 0), Number.isFinite(modified) ? modified : 0].join(":");
+  }
+
+  function mergeDocumentRegulatoryProfiles(reports) {
+    const profiles = reports.map((report) => report?.suggestions?.regulatoryProfile).filter(Boolean);
+    const consensus = (field, unresolved) => {
+      const values = [...new Set(profiles.map((profile) => profile[field]).filter((value) => value && value !== unresolved))];
+      return values.length === 1 ? values[0] : unresolved;
+    };
+    const triState = (field) => {
+      const values = profiles.map((profile) => profile[field]).filter(Boolean);
+      if (values.includes("yes")) return "yes";
+      if (values.length && values.every((value) => value === "no")) return "no";
+      return "unknown";
+    };
+    return {
+      jurisdiction: consensus("jurisdiction", "unresolved"),
+      marketRole: consensus("marketRole", "unresolved"),
+      ai: triState("ai"),
+      digitalProduct: triState("digitalProduct"),
+      machinery: triState("machinery"),
+      nis2Entity: triState("nis2Entity"),
+      confirmed: false
+    };
+  }
+
   async function analyzeDocumentFile(file) {
     if (!file) return;
-    documentIntake = { status: "analyzing", report: null, error: "" };
+    const existingReports = Array.isArray(documentIntake.reports) ? documentIntake.reports : [];
+    if (existingReports.length >= DOCUMENT_MAX_FILES) {
+      documentIntake = { ...documentIntake, status: "ready", error: friendlyDocumentError(new Error("document-file-limit")) };
+      renderWorkspace();
+      return;
+    }
+    if (existingReports.some((report) => reportDescriptorKey(report) === documentDescriptorKey(file))) {
+      documentIntake = { ...documentIntake, status: "ready", error: friendlyDocumentError(new Error("document-file-duplicate")) };
+      renderWorkspace();
+      return;
+    }
+    documentIntake = { ...documentIntake, status: "analyzing", error: "" };
     workspaceNotice = "";
     renderWorkspace();
     let bytes;
@@ -1820,24 +1931,38 @@ if (root) {
         lastModified: file.lastModified
       }, bytes);
       bytes = null;
-      documentIntake = { status: "ready", report, error: "" };
+      const reports = [...existingReports, report];
+      documentIntake = { ...documentIntake, status: "ready", report, reports, error: "" };
       if (!workspace.context.referenceLabel.trim()) workspace.context.referenceLabel = report.suggestions.referenceLabel;
       if (!workspace.context.assessedVersion.trim()) workspace.context.assessedVersion = report.suggestions.assessedVersion;
       if (!workspace.context.contextLabel.trim()) workspace.context.contextLabel = report.suggestions.contextLabel;
-      regulatoryProfile = {
-        ...emptyRegulatoryProfile(),
-        ...report.suggestions.regulatoryProfile,
-        confirmed: false
-      };
+      if (documentIntake.quickMode && existingReports.length === 0) {
+        state.sectorContext = report.suggestions.sectorContext;
+        state.lifecycle = report.suggestions.lifecycle;
+        workspace.screening = evaluateScreening(state);
+      }
+      const suggestedProfile = mergeDocumentRegulatoryProfiles(reports);
+      const currentProfile = { ...emptyRegulatoryProfile(), ...regulatoryProfile };
+      regulatoryProfile = Object.fromEntries(Object.entries(suggestedProfile).map(([field, value]) => {
+        if (field === "confirmed") return [field, false];
+        const unresolved = ["jurisdiction", "marketRole"].includes(field) ? "unresolved" : "unknown";
+        return [field, currentProfile[field] !== unresolved ? currentProfile[field] : value];
+      }));
     } catch (error) {
       bytes = null;
-      documentIntake = { status: "error", report: null, error: friendlyDocumentError(error) };
+      documentIntake = {
+        ...documentIntake,
+        status: existingReports.length ? "ready" : "error",
+        report: existingReports.at(-1) || null,
+        reports: existingReports,
+        error: friendlyDocumentError(error)
+      };
     }
     renderWorkspace();
   }
 
   function applyDocumentLocators() {
-    const suggestions = documentIntake.report?.axisSuggestions || [];
+    const suggestions = selectBestAxisSuggestions(documentIntake.reports || []);
     if (!suggestions.length) return;
     const byAxis = Object.fromEntries(suggestions.map((item) => [item.axis, item]));
     const maritimeAxisMap = {
@@ -1888,48 +2013,66 @@ if (root) {
 
   function renderDocumentPanel(regulatoryReadiness) {
     const copy = t.workspace.document;
-    const report = documentIntake.report;
-    const needs = [];
-    if (!report) needs.push(copy.needs.document);
-    if (workspace.screening.consequenceClass === "unknown") needs.push(copy.needs.consequence);
-    if (contextGaps().length) needs.push(copy.needs.context);
-    if (regulatoryReadiness.gaps.some((gap) => ["jurisdiction", "market-role", "confirmation"].includes(gap))) needs.push(copy.needs.regulatory);
-    needs.push(copy.needs.evidence);
-    let body = "";
-    if (documentIntake.status === "analyzing") {
-      body = `<p class="gc-document-state" role="status">${copy.analyzing}</p>`;
-    } else if (documentIntake.status === "error") {
-      body = `<p class="gc-document-error" role="alert">${escapeHtml(documentIntake.error)}</p>`;
-    } else if (report) {
-      const metrics = [
-        report.metrics.pages ? [copy.pages, report.metrics.pages] : null,
-        [copy.words, report.metrics.words],
-        [copy.paragraphs, report.metrics.paragraphs],
-        [copy.headings, report.metrics.headings]
-      ].filter(Boolean);
-      body = `
-        <div class="gc-document-ready">
-          <div class="gc-document-file">
-            <span>${copy.ready}</span>
-            <strong>${escapeHtml(report.file.name)}</strong>
-            <small>${escapeHtml(report.file.type)} · ${escapeHtml(report.file.sizeLabel)} · ${escapeHtml(DOCUMENT_INTAKE_VERSION)}</small>
-          </div>
-          <dl class="gc-document-metadata">
-            <div><dt>${copy.titleLabel}</dt><dd>${escapeHtml(report.metadata.title)}</dd></div>
-            <div><dt>${copy.versionLabel}</dt><dd>${escapeHtml(report.suggestions.assessedVersion || t.workspace.notProvided)}</dd></div>
-            <div><dt>${copy.suggestion}</dt><dd>${escapeHtml(t.sectors[report.suggestions.sectorContext])} · ${escapeHtml(t.contexts[report.suggestions.lifecycle])}</dd></div>
-          </dl>
-          <div class="gc-document-metrics">${metrics.map(([label, value]) => `<div><strong>${value}</strong><span>${label}</span></div>`).join("")}</div>
-          <details class="gc-document-cues">
-            <summary>${copy.cues} · ${report.axisSuggestions.length}</summary>
-            <ol>${report.axisSuggestions.map((item) => {
-              const axis = AXES.find((candidate) => candidate.id === item.axis);
-              return `<li><strong>${escapeHtml(axis?.[language] || item.axis)}</strong><span>${escapeHtml(item.section)}</span><small>${escapeHtml(item.locator)} · ${item.matches} ${copy.cueMatches}</small></li>`;
-            }).join("")}</ol>
-          </details>
-          <button class="gc-button gc-button-primary" type="button" data-action="document-apply-locators">${copy.apply}</button>
-        </div>`;
-    }
+    const reports = Array.isArray(documentIntake.reports) ? documentIntake.reports : [];
+    const assessment = buildDocumentIntakeAssessment({
+      reports,
+      context: workspace.context,
+      screening: workspace.screening,
+      profile: regulatoryReadiness.profile
+    });
+    const statusCopy = copy.statuses[assessment.status];
+    const bestSuggestions = selectBestAxisSuggestions(reports);
+    const missingAxisLabels = assessment.missingAxes.map((axisId) => {
+      const axis = AXES.find((candidate) => candidate.id === axisId);
+      return axis?.[language] || axisId;
+    });
+    const needs = [...new Set(assessment.gaps.map((gap) => copy.gaps[gap]).filter(Boolean))];
+    const documentCards = reports.map((report, index) => `
+      <article class="gc-document-card">
+        <div>
+          <span>${copy.documentNumber} ${index + 1}</span>
+          <strong>${escapeHtml(report.file.name)}</strong>
+          <small>${escapeHtml(report.file.type)} · ${escapeHtml(report.file.sizeLabel)} · ${report.axisSuggestions.length}/9 ${copy.axesFound}</small>
+        </div>
+        <dl>
+          <div><dt>${copy.titleLabel}</dt><dd>${escapeHtml(report.metadata.title)}</dd></div>
+          <div><dt>${copy.versionLabel}</dt><dd>${escapeHtml(report.suggestions.assessedVersion || t.workspace.notProvided)}</dd></div>
+          <div><dt>${copy.suggestion}</dt><dd>${escapeHtml(t.sectors[report.suggestions.sectorContext])} · ${escapeHtml(t.contexts[report.suggestions.lifecycle])}</dd></div>
+        </dl>
+      </article>`).join("");
+    const combinedCues = bestSuggestions.length ? `
+      <details class="gc-document-cues">
+        <summary>${copy.combinedCues} · ${bestSuggestions.length}/9</summary>
+        <ol>${bestSuggestions.map((item) => {
+          const axis = AXES.find((candidate) => candidate.id === item.axis);
+          return `<li><strong>${escapeHtml(axis?.[language] || item.axis)}</strong><span>${escapeHtml(item.section)}</span><small>${escapeHtml(item.sourceFile)} · ${escapeHtml(item.locator)} · ${item.matches} ${copy.cueMatches}</small></li>`;
+        }).join("")}</ol>
+      </details>` : "";
+    const quickQuestions = reports.length ? `
+      <div class="gc-document-quick">
+        <h4>${copy.quickTitle}</h4>
+        <p>${copy.quickHint}</p>
+        <div class="gc-document-quick-grid">
+          <label>${copy.quickConsequence}<select data-document-routing-field="consequenceClass">${pairOptions(t.consequenceOptions.map(([value, code, label]) => [value, `${code} · ${label}`]), workspace.screening.consequenceClass)}</select></label>
+          <label>${copy.quickSector}<select data-document-routing-field="sectorContext">${pairOptions(t.sectorOptions, workspace.screening.sectorContext)}</select></label>
+          <label>${copy.quickLifecycle}<select data-document-routing-field="lifecycle">${pairOptions(t.lifecycleOptions, workspace.screening.lifecycle)}</select></label>
+        </div>
+      </div>` : "";
+    const body = `
+      <div class="gc-document-assessment gc-document-assessment-${assessment.status}" role="status">
+        <div><span>${copy.statusEyebrow}</span><strong>${statusCopy[0]}</strong><p>${statusCopy[1]}</p></div>
+        <div class="gc-document-coverage">
+          <div><strong>${assessment.coveredAxes.length}/9</strong><span>${copy.coverage}</span></div>
+          <div class="gc-document-coverage-track" role="progressbar" aria-label="${escapeHtml(copy.coverage)}" aria-valuemin="0" aria-valuemax="9" aria-valuenow="${assessment.coveredAxes.length}"><span style="width:${assessment.coveragePercent}%"></span></div>
+        </div>
+      </div>
+      ${documentIntake.status === "analyzing" ? `<p class="gc-document-state" role="status">${copy.analyzing}</p>` : ""}
+      ${documentIntake.error ? `<p class="gc-document-error" role="alert">${escapeHtml(documentIntake.error)}</p>` : ""}
+      ${documentCards ? `<div class="gc-document-list">${documentCards}</div>` : ""}
+      ${missingAxisLabels.length && reports.length ? `<p class="gc-document-missing"><strong>${copy.missingAxes}:</strong> ${escapeHtml(missingAxisLabels.join(" · "))}</p>` : ""}
+      ${quickQuestions}
+      ${combinedCues}
+      ${bestSuggestions.length ? `<button class="gc-button gc-button-primary" type="button" data-action="document-apply-locators">${copy.apply}</button>` : ""}`;
     return `
       <section class="gc-panel gc-document-intake" aria-labelledby="gc-document-intake-title">
         <p class="gc-eyebrow">${copy.eyebrow}</p>
@@ -1938,7 +2081,7 @@ if (root) {
         <p class="gc-document-spec"><strong>${copy.spec}</strong></p>
         <p class="gc-hint">${copy.privacy}</p>
         <div class="gc-actions">
-          <button class="gc-button ${report ? "gc-button-quiet" : "gc-button-primary"}" type="button" data-action="document-select">${report ? copy.replace : copy.choose}</button>
+          <button class="gc-button ${reports.length ? "gc-button-quiet" : "gc-button-primary"}" type="button" data-action="document-select"${assessment.canAddDocument && documentIntake.status !== "analyzing" ? "" : " disabled"}>${assessment.canAddDocument ? (reports.length ? copy.add : copy.choose) : copy.maxReached}</button>
           <input type="file" accept="application/vnd.openxmlformats-officedocument.wordprocessingml.document,.docx" data-document-input hidden>
         </div>
         ${body}
@@ -2492,7 +2635,7 @@ if (root) {
     if (action === "open-workspace") openOrResumeWorkspace();
     if (action === "open-workspace-blank") startWorkspace(true);
     if (action === "document-intake") {
-      startWorkspace(true);
+      startWorkspace(true, true);
       root.querySelector("[data-document-input]")?.click();
     }
     if (action === "document-select") root.querySelector("[data-document-input]")?.click();
@@ -2570,7 +2713,7 @@ if (root) {
       state.maritimeAnswers = {};
       workspaceNotice = "";
       maritimeNotice = "";
-      documentIntake = { status: "empty", report: null, error: "" };
+      documentIntake = emptyDocumentIntake();
       regulatoryProfile = emptyRegulatoryProfile();
       workspace = {
         context: { referenceLabel: "", assessedVersion: "", assessmentDate: localDate(), contextLabel: "" },
@@ -2628,6 +2771,16 @@ if (root) {
       const [file] = event.target.files || [];
       event.target.value = "";
       await analyzeDocumentFile(file);
+      return;
+    }
+    const documentRoutingField = event.target.dataset.documentRoutingField;
+    if (documentRoutingField) {
+      state[documentRoutingField] = event.target.value;
+      workspace.screening = evaluateScreening(state);
+      if (documentRoutingField === "sectorContext" && event.target.value !== "maritime") workspace.maritime = null;
+      workspaceNotice = "";
+      renderWorkspace();
+      root.querySelector(`[data-document-routing-field="${documentRoutingField}"]`)?.focus({ preventScroll: true });
       return;
     }
     if (event.target.matches("[data-workspace-action-filter]")) {
