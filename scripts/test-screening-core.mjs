@@ -3,11 +3,18 @@ import { QUESTIONS, evaluateScreening } from "../src/assets/screening/screening-
 import {
   EVIDENCE_WORKSPACE_SCHEMA,
   LEGACY_EVIDENCE_WORKSPACE_SCHEMA,
+  PREVIOUS_COMBINED_EVIDENCE_WORKSPACE_SCHEMA,
   PREVIOUS_EVIDENCE_WORKSPACE_SCHEMA,
   buildEvidenceReviewBrief,
   buildEvidenceWorkspaceExport,
   createEvidenceRows,
+  createMaritimeEvidencePackage,
+  createMaritimeEvidenceRows,
+  evaluateCombinedEvidenceReadiness,
   evaluateEvidenceReadiness,
+  evaluateMaritimeEvidenceReadiness,
+  mergeMaritimeBridgeIntoWorkspace,
+  parseMaritimeBridgeImport,
   parseEvidenceWorkspaceImport
 } from "../src/assets/screening/evidence-workspace-core.js";
 import {
@@ -294,5 +301,100 @@ const maritimeExport = buildMaritimeBridgeExport({
 assert.equal(maritimeExport.schema, MARITIME_BRIDGE_SCHEMA);
 assert.equal(maritimeExport.answers.length, 8);
 assert.ok(maritimeExport.limitations.some((item) => item.includes("not a DP class")));
+
+const maritimeEvidenceRows = createMaritimeEvidenceRows(maritimeAnswers);
+assert.equal(maritimeEvidenceRows.length, 8);
+assert.deepEqual(evaluateMaritimeEvidenceReadiness(maritimeEvidenceRows).summary, {
+  mapped: 0,
+  open: 8,
+  excluded: 0,
+  priorityOpen: MARITIME_QUESTIONS.filter((question) => question.critical).length
+});
+
+const maritimePackage = createMaritimeEvidencePackage(maritimeAdvisory);
+const maritimeScreening = evaluate({
+  consequenceClass: "limited",
+  sectorContext: "maritime",
+  lifecycle: "pilot",
+  answers: answers("3")
+});
+const combinedEvaluation = evaluateCombinedEvidenceReadiness({
+  rows: createEvidenceRows(answers("3")),
+  maritime: maritimePackage
+});
+assert.equal(combinedEvaluation.summary.open, 25);
+assert.equal(combinedEvaluation.sector.rows.length, 8);
+assert.equal(combinedEvaluation.openActions.filter((item) => item.packageType === "maritime-dp").length, 8);
+
+const combinedExport = buildEvidenceWorkspaceExport({
+  language: "en",
+  context: {
+    referenceLabel: "SYSTEM-M",
+    assessedVersion: "config-7",
+    assessmentDate: "2026-09-22",
+    contextLabel: "pre-deployment maritime review"
+  },
+  screening: maritimeScreening,
+  rows: createEvidenceRows(answers("3")),
+  maritime: maritimePackage,
+  generatedAt: "2026-09-22T01:00:00.000Z"
+});
+assert.equal(combinedExport.schema, EVIDENCE_WORKSPACE_SCHEMA);
+assert.equal(combinedExport.sectorPackages.length, 1);
+assert.equal(combinedExport.sectorPackages[0].evidenceRecords.length, 8);
+assert.equal(combinedExport.summary.open, 25);
+
+const combinedImport = parseEvidenceWorkspaceImport(combinedExport);
+assert.equal(combinedImport.maritime.route, "tier1-sector");
+assert.equal(combinedImport.maritime.rows.length, 8);
+assert.equal(evaluateCombinedEvidenceReadiness(combinedImport).summary.open, 25);
+
+const standaloneMaritimeImport = parseMaritimeBridgeImport(maritimeExport);
+assert.equal(standaloneMaritimeImport.screening.sectorContext, "maritime");
+assert.equal(standaloneMaritimeImport.rows.length, 17);
+assert.equal(standaloneMaritimeImport.maritime.rows.length, 8);
+
+const mergedWorkspace = mergeMaritimeBridgeIntoWorkspace({
+  context: combinedImport.context,
+  screening: maritimeScreening,
+  rows: createEvidenceRows(answers("3")),
+  maritime: null
+}, standaloneMaritimeImport);
+assert.equal(mergedWorkspace.maritime.route, "tier1-sector");
+assert.throws(() => mergeMaritimeBridgeIntoWorkspace({
+  ...mergedWorkspace,
+  maritime: null,
+  screening: { ...maritimeScreening, lifecycle: "live" }
+}, standaloneMaritimeImport), /conflicts with workspace lifecycle/);
+
+const missingSectorBrief = buildEvidenceReviewBrief({
+  context: combinedImport.context,
+  screening: maritimeScreening,
+  rows: createEvidenceRows(answers("3")),
+  maritime: null
+});
+assert.equal(missingSectorBrief.status, "sector-package-required");
+assert.ok(missingSectorBrief.nextActions.includes("add-maritime-package"));
+
+const v03Snapshot = {
+  ...combinedExport,
+  schema: PREVIOUS_COMBINED_EVIDENCE_WORKSPACE_SCHEMA,
+  sectorPackages: undefined
+};
+const importedV03 = parseEvidenceWorkspaceImport(v03Snapshot);
+assert.equal(importedV03.maritime, null);
+
+assert.throws(() => parseMaritimeBridgeImport({
+  ...maritimeExport,
+  result: { ...maritimeExport.result, route: "tier3" }
+}), /route does not match/);
+
+assert.throws(() => parseEvidenceWorkspaceImport({
+  ...combinedExport,
+  sectorPackages: [{
+    ...combinedExport.sectorPackages[0],
+    route: "tier3"
+  }]
+}), /route does not match/);
 
 console.log("screening, evidence-workspace and maritime bridge cores passed");
