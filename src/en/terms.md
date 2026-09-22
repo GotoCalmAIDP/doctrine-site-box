@@ -42,7 +42,7 @@ You agree to use this website only for lawful purposes and in a manner that does
 
 ## Free Public Alpha and Local Document Intake
 
-The screening and evidence-readiness workspace are offered as a free, voluntary public alpha during calibration. No account, paid service, service level, certification or professional review is provided by this alpha.
+The screening and evidence-readiness workspace are offered as a free, voluntary public alpha during calibration. No account, paid service, service level, certification or professional review is provided by this alpha.\n\nThe interface may keep a derived working draft in the current tab’s `sessionStorage` so refreshes and same-tab navigation do not erase the work. The draft is not an operator-held account record. Closing the tab or explicitly starting a new assessment clears it; exporting JSON is the user-controlled way to keep a portable copy.
 
 The local document intake currently accepts one non-macro, non-password-protected DOCX file of no more than 10 MB. A file is read only after you explicitly select it. The browser processes it locally to derive limited metadata and candidate section locators; the site operators do not receive, upload or retain the file.
 
