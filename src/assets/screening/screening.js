@@ -12,6 +12,7 @@ import {
   EVIDENCE_STATUSES,
   EVIDENCE_WORKSPACE_VERSION,
   FRESHNESS_STATES,
+  buildEvidenceReviewBrief,
   buildEvidenceWorkspaceExport,
   createEvidenceRows,
   evaluateEvidenceReadiness,
@@ -181,6 +182,34 @@ if (root) {
         excluded: "Outside stated scope",
         priority: "Priority open records",
         summaryBoundary: "Mapped means only that a current, classified record locator with no known conflict has been entered. It is not proof that the underlying claim is true or admissible.",
+        briefEyebrow: "Local JSON analysis",
+        briefTitle: "Compact review brief",
+        briefPurpose: "A local triage of this snapshot: what it can support, the main readiness gaps and the next bounded actions.",
+        briefStatusLabel: "Analysis readiness",
+        briefStatus: {
+          "training-only": ["Training-only snapshot", "The declared exploratory basis prevents a substantive assessment. The mapping below can be used to learn the workflow, not to characterize a real system."],
+          "context-required": ["Assessment context required", "Complete the object, version, date and context before treating the mapping as a bounded working record."],
+          "priority-open": ["Priority evidence work is open", "The snapshot has a bounded context, but one or more critical doctrine questions still lack a reviewable mapping."],
+          "mapping-open": ["Evidence mapping is open", "No critical mapping gap remains, but the working record is not yet complete."],
+          "mapping-complete": ["Mapping complete — review still required", "The local mapping fields are complete. This is not verification; an appropriately independent review remains necessary."]
+        },
+        briefObject: "Object",
+        briefVersion: "Version / configuration",
+        briefDate: "Assessment date",
+        briefBasis: "Declared answer basis",
+        notProvided: "Not provided",
+        nextActionsTitle: "Recommended next actions",
+        nextAction: {
+          "rerun-substantive": "Repeat the screening for one real object using identifiable records or a declared mixed basis.",
+          "complete-context": "Complete the neutral object, version, date and assessment-context fields.",
+          "resolve-priority-records": "Start with the priority open records; classify each source, add a controlled locator, and check currentness and conflicts.",
+          "complete-open-records": "Complete the remaining open mappings or explicitly justify their scope boundaries.",
+          "independent-review": "Route the bounded snapshot and controlled record locators to an appropriately independent reviewer."
+        },
+        priorityPreviewTitle: "First priority questions",
+        noPriorityPreview: "No priority mapping items are open.",
+        briefBoundary: "This brief analyzes only the structure and declared state of the local snapshot. It does not read, upload or verify the underlying evidence.",
+        printBrief: "Print compact brief",
         contextOpen: "assessment context field(s) remain incomplete",
         mapTitle: "Evidence map by doctrine axis",
         sourceAnswer: "Screening answer",
@@ -210,16 +239,16 @@ if (root) {
           "check-for-conflict": "Check for conflicting records or observations"
         },
         export: "Export JSON snapshot",
-        import: "Import JSON snapshot",
-        importHint: "The selected snapshot is validated and read only in this browser tab. Nothing is uploaded.",
-        importSuccess: "JSON snapshot restored locally",
+        import: "Import and analyze JSON snapshot",
+        importHint: "The selected snapshot is validated and analyzed only in this browser tab. Nothing is uploaded.",
+        importSuccess: "JSON snapshot restored and analyzed locally",
         importFailed: "Snapshot could not be restored",
         importTooLarge: "Snapshot is larger than the 512 KB local limit",
         replaceConfirm: "Replace the current Tier 1 workspace with the selected snapshot?",
         example: "Load neutral example",
         exampleConfirm: "Replace the current workspace with a clearly fictional training example?",
         exampleLoaded: "Fictional training example loaded",
-        print: "Print review packet",
+        print: "Print full mapping packet",
         back: "Back to screening result",
         clear: "Reset workspace",
         clearConfirm: "Reset every Tier 1 field in this tab? This cannot be undone unless you already exported a snapshot.",
@@ -383,6 +412,34 @@ if (root) {
         excluded: "Поза заявленим обсягом",
         priority: "Пріоритетні відкриті записи",
         summaryBoundary: "«Картовано» означає лише, що введено актуальний класифікований локатор запису без відомого конфлікту. Це не доводить істинність або допустимість відповідного твердження.",
+        briefEyebrow: "Локальний аналіз JSON",
+        briefTitle: "Стислий огляд",
+        briefPurpose: "Локальний triage цього знімка: що він може підтримувати, головні прогалини готовності та наступні обмежені дії.",
+        briefStatusLabel: "Готовність аналізу",
+        briefStatus: {
+          "training-only": ["Навчальний знімок", "Заявлена ознайомлювальна підстава не дозволяє змістовного оцінювання. Картування нижче придатне для вивчення процесу, а не для характеристики реальної системи."],
+          "context-required": ["Потрібен контекст оцінювання", "Заповніть об’єкт, версію, дату й контекст, перш ніж сприймати картування як обмежений робочий запис."],
+          "priority-open": ["Відкрита пріоритетна робота зі свідченнями", "Контекст знімка обмежено, але одне або кілька критичних питань доктрини ще не мають придатного для перегляду картування."],
+          "mapping-open": ["Картування свідчень відкрите", "Критичних прогалин картування не залишилося, але робочий запис іще не завершено."],
+          "mapping-complete": ["Картування завершено — перегляд усе ще потрібен", "Локальні поля картування заповнено. Це не перевірка; однаково потрібен належно незалежний перегляд."]
+        },
+        briefObject: "Об’єкт",
+        briefVersion: "Версія / конфігурація",
+        briefDate: "Дата оцінювання",
+        briefBasis: "Заявлена підстава відповідей",
+        notProvided: "Не вказано",
+        nextActionsTitle: "Рекомендовані наступні дії",
+        nextAction: {
+          "rerun-substantive": "Повторіть скринінг для одного реального об’єкта на підставі записів, які можна визначити, або заявленої змішаної підстави.",
+          "complete-context": "Заповніть нейтральне позначення об’єкта, версію, дату й контекст оцінювання.",
+          "resolve-priority-records": "Почніть із пріоритетних відкритих записів: класифікуйте кожне джерело, додайте контрольований локатор і перевірте актуальність та конфлікти.",
+          "complete-open-records": "Завершіть решту відкритих картувань або явно обґрунтуйте їхні межі обсягу.",
+          "independent-review": "Передайте обмежений знімок і контрольовані локатори записів належно незалежному рецензенту."
+        },
+        priorityPreviewTitle: "Перші пріоритетні питання",
+        noPriorityPreview: "Відкритих пріоритетних елементів картування немає.",
+        briefBoundary: "Цей огляд аналізує лише структуру й заявлений стан локального знімка. Він не читає, не завантажує й не перевіряє самі свідчення.",
+        printBrief: "Друкувати стислий огляд",
         contextOpen: "полів контексту оцінювання залишаються незаповненими",
         mapTitle: "Карта свідчень за осями доктрини",
         sourceAnswer: "Відповідь скринінгу",
@@ -412,16 +469,16 @@ if (root) {
           "check-for-conflict": "Перевірити наявність суперечливих записів або спостережень"
         },
         export: "Експортувати знімок JSON",
-        import: "Імпортувати знімок JSON",
-        importHint: "Обраний знімок перевіряється й читається лише в цій вкладці браузера. Нічого не завантажується на сервер.",
-        importSuccess: "Знімок JSON локально відновлено",
+        import: "Імпортувати й проаналізувати знімок JSON",
+        importHint: "Обраний знімок перевіряється й аналізується лише в цій вкладці браузера. Нічого не завантажується на сервер.",
+        importSuccess: "Знімок JSON локально відновлено й проаналізовано",
         importFailed: "Не вдалося відновити знімок",
         importTooLarge: "Розмір знімка перевищує локальне обмеження 512 КБ",
         replaceConfirm: "Замінити поточний робочий простір Tier 1 обраним знімком?",
         example: "Завантажити нейтральний приклад",
         exampleConfirm: "Замінити поточний робочий простір явно вигаданим навчальним прикладом?",
         exampleLoaded: "Вигаданий навчальний приклад завантажено",
-        print: "Друкувати пакет для перегляду",
+        print: "Друкувати повний пакет картування",
         back: "Назад до результату скринінгу",
         clear: "Скинути робочий простір",
         clearConfirm: "Скинути всі поля Tier 1 у цій вкладці? Скасувати це неможливо, якщо знімок ще не експортовано.",
@@ -973,7 +1030,19 @@ if (root) {
 
   function renderWorkspace() {
     const evaluation = evaluateEvidenceReadiness(workspace.rows);
+    const brief = buildEvidenceReviewBrief(workspace);
     const gaps = contextGaps();
+    const briefStatus = t.workspace.briefStatus[brief.status];
+    const consequence = t.consequenceOptions.find(([value]) => value === workspace.screening.consequenceClass);
+    const basis = t.basisOptions.find(([value]) => value === workspace.screening.responseBasis);
+    const valueOrMissing = (value) => escapeHtml(String(value || "").trim() || t.workspace.notProvided);
+    const briefPriorityItems = brief.priorityItems.map((item) => {
+      const question = questionById[item.questionId];
+      return `<li><strong>${question[language]}</strong><span>${item.actions.slice(0, 2).map((action) => t.workspace.action[action]).join("; ")}</span></li>`;
+    }).join("");
+    const briefNextActions = brief.nextActions
+      .map((action) => `<li>${t.workspace.nextAction[action]}</li>`)
+      .join("");
     const filteredActions = evaluation.openActions.filter((item) => {
       if (workspaceActionFilter === "priority") return item.priority;
       if (workspaceActionFilter === "scope") return item.state === "excluded";
@@ -1019,6 +1088,48 @@ if (root) {
             <button class="gc-button gc-button-primary" type="button" data-action="workspace-import">${t.workspace.import}</button>
             <button class="gc-button gc-button-quiet" type="button" data-action="workspace-example">${t.workspace.example}</button>
             <input type="file" accept="application/json,.json" data-workspace-import hidden>
+          </div>
+        </section>
+
+        <section class="gc-panel gc-review-brief" aria-labelledby="gc-review-brief-title">
+          <div class="gc-review-brief-heading">
+            <div>
+              <p class="gc-eyebrow">${t.workspace.briefEyebrow}</p>
+              <h3 id="gc-review-brief-title">${t.workspace.briefTitle}</h3>
+              <p>${t.workspace.briefPurpose}</p>
+            </div>
+            <div class="gc-brief-status gc-brief-status-${brief.status}">
+              <span>${t.workspace.briefStatusLabel}</span>
+              <strong>${briefStatus[0]}</strong>
+              <p>${briefStatus[1]}</p>
+            </div>
+          </div>
+          <dl class="gc-brief-context">
+            <div><dt>${t.workspace.briefObject}</dt><dd>${valueOrMissing(workspace.context.referenceLabel)}</dd></div>
+            <div><dt>${t.workspace.briefVersion}</dt><dd>${valueOrMissing(workspace.context.assessedVersion)}</dd></div>
+            <div><dt>${t.workspace.briefDate}</dt><dd>${valueOrMissing(workspace.context.assessmentDate)}</dd></div>
+            <div><dt>${t.consequenceClass}</dt><dd>${consequence ? `${consequence[1]} · ${consequence[2]}` : t.workspace.notProvided}</dd></div>
+            <div><dt>${t.workspace.briefBasis}</dt><dd>${basis ? basis[1] : t.workspace.notProvided}</dd></div>
+          </dl>
+          <div class="gc-brief-metrics" aria-label="${t.workspace.summaryTitle}">
+            <div><strong>${brief.summary.mapped}</strong><span>${t.workspace.mapped}</span></div>
+            <div><strong>${brief.summary.open}</strong><span>${t.workspace.openItems}</span></div>
+            <div><strong>${brief.summary.excluded}</strong><span>${t.workspace.excluded}</span></div>
+            <div><strong>${brief.summary.priorityOpen}</strong><span>${t.workspace.priority}</span></div>
+          </div>
+          <div class="gc-brief-columns">
+            <div>
+              <h4>${t.workspace.nextActionsTitle}</h4>
+              <ol>${briefNextActions}</ol>
+            </div>
+            <div>
+              <h4>${t.workspace.priorityPreviewTitle}</h4>
+              ${briefPriorityItems ? `<ol class="gc-brief-priorities">${briefPriorityItems}</ol>` : `<p>${t.workspace.noPriorityPreview}</p>`}
+            </div>
+          </div>
+          <p class="gc-hint">${t.workspace.briefBoundary}</p>
+          <div class="gc-actions gc-brief-actions">
+            <button class="gc-button gc-button-primary" type="button" data-action="workspace-print-brief">${t.workspace.printBrief}</button>
           </div>
         </section>
 
@@ -1139,6 +1250,13 @@ if (root) {
       render();
     }
     if (action === "print") window.print();
+    if (action === "workspace-print-brief") {
+      document.body.classList.add("gc-print-brief");
+      const clearPrintMode = () => document.body.classList.remove("gc-print-brief");
+      window.addEventListener("afterprint", clearPrintMode, { once: true });
+      window.print();
+      window.setTimeout(clearPrintMode, 1000);
+    }
     if (action === "workspace-print") {
       workspaceActionFilter = "all";
       renderWorkspace();
