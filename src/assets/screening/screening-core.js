@@ -1,8 +1,9 @@
-export const ASSESSMENT_VERSION = "screening-core 0.2.0-alpha";
-export const ASSESSMENT_DATE = "2026-09-21";
+export const ASSESSMENT_VERSION = "screening-core 0.3.0-alpha";
+export const ASSESSMENT_DATE = "2026-09-22";
 
 export const CONSEQUENCE_CLASSES = ["informational", "limited", "enterprise", "high", "critical", "unknown"];
 export const SECTOR_CONTEXTS = ["general", "enterprise", "maritime", "critical-infrastructure", "unbounded"];
+export const RESPONSE_BASES = ["records", "mixed", "exploratory"];
 
 export const AXES = [
   { id: "scope", en: "Scope and applicability basis", ua: "Обсяг і підстава застосовності" },
@@ -165,10 +166,12 @@ export function normalizeConsequenceClass(value) {
   return CONSEQUENCE_CLASSES.includes(normalized) ? normalized : "unknown";
 }
 
-export function evaluateScreening({ consequenceClass, materialConsequence, sectorContext = "general", lifecycle, answers }) {
+export function evaluateScreening({ consequenceClass, materialConsequence, sectorContext = "general", lifecycle, responseBasis = "mixed", answers }) {
   const resolvedConsequenceClass = normalizeConsequenceClass(consequenceClass ?? materialConsequence);
   const resolvedSectorContext = SECTOR_CONTEXTS.includes(sectorContext) ? sectorContext : "unbounded";
+  const resolvedResponseBasis = RESPONSE_BASES.includes(responseBasis) ? responseBasis : "mixed";
   const axisState = Object.fromEntries(AXES.map((axis) => [axis.id, { earned: 0, possible: 0, unknown: 0, out: 0 }]));
+  const answerCounts = Object.fromEntries(SCALE.map((item) => [item.value, 0]));
   const priorityFlags = [];
   let unknownCount = 0;
   let outOfScopeCount = 0;
@@ -178,6 +181,7 @@ export function evaluateScreening({ consequenceClass, materialConsequence, secto
     if (!answer) {
       throw new Error(`Missing or invalid answer for ${question.id}`);
     }
+    answerCounts[answer.value] += 1;
     const axis = axisState[question.axis];
     if (answer.value === "unknown") {
       unknownCount += 1;
@@ -204,6 +208,7 @@ export function evaluateScreening({ consequenceClass, materialConsequence, secto
     return {
       ...axis,
       score: state.possible ? Math.round((state.earned / state.possible) * 100) : null,
+      promptCount: state.possible / 3,
       unknown: state.unknown,
       out: state.out
     };
@@ -215,7 +220,9 @@ export function evaluateScreening({ consequenceClass, materialConsequence, secto
   const materiallyLowAxis = axes.some((axis) => axis.score !== null && axis.score < 50);
 
   let outcome;
-  if (resolvedConsequenceClass === "unknown" || resolvedSectorContext === "unbounded" || weakScope || unknownCount >= 4 || outOfScopeCount > 0 || emptyAxis) {
+  if (resolvedResponseBasis === "exploratory") {
+    outcome = "exploratory";
+  } else if (resolvedResponseBasis === "mixed" || resolvedConsequenceClass === "unknown" || resolvedSectorContext === "unbounded" || weakScope || unknownCount >= 4 || outOfScopeCount > 0 || emptyAxis) {
     outcome = "indeterminate";
   } else if (["enterprise", "high", "critical"].includes(resolvedConsequenceClass) || priorityFlags.length > 0 || materiallyLowAxis) {
     outcome = "review";
@@ -226,12 +233,18 @@ export function evaluateScreening({ consequenceClass, materialConsequence, secto
   return {
     outcome,
     axes,
+    answerDistribution: SCALE.map((item) => ({
+      value: item.value,
+      count: answerCounts[item.value],
+      percent: Math.round((answerCounts[item.value] / QUESTIONS.length) * 100)
+    })),
     priorityFlags,
     unknownCount,
     outOfScopeCount,
     consequenceClass: resolvedConsequenceClass,
     sectorContext: resolvedSectorContext,
     lifecycle,
+    responseBasis: resolvedResponseBasis,
     version: ASSESSMENT_VERSION,
     assessmentDate: ASSESSMENT_DATE
   };
