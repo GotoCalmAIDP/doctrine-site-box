@@ -971,6 +971,191 @@
   font-weight: 700;
 }
 
+.gc-document-assessment {
+  align-items: center;
+  background: var(--gc-soft);
+  border-left: 5px solid var(--gc-muted);
+  border-radius: 9px;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1fr) minmax(10rem, 0.35fr);
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.gc-document-assessment-insufficient {
+  background: var(--gc-warn-soft);
+  border-left-color: var(--gc-warn);
+}
+
+.gc-document-assessment-partial {
+  background: var(--gc-info-soft);
+  border-left-color: #3f6b88;
+}
+
+.gc-document-assessment-bounded {
+  background: #edf7f2;
+  border-left-color: #287653;
+}
+
+.gc-document-assessment > div:first-child {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.gc-document-assessment > div:first-child > span,
+.gc-document-card > div > span {
+  color: var(--gc-accent-dark);
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.gc-document-assessment > div:first-child > strong {
+  font-size: 1.08rem;
+}
+
+.gc-document-assessment p {
+  margin: 0;
+}
+
+.gc-document-coverage {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.gc-document-coverage > div:first-child {
+  align-items: baseline;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.gc-document-coverage strong {
+  color: var(--gc-accent-dark);
+  font-size: 1.45rem;
+}
+
+.gc-document-coverage span {
+  color: var(--gc-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.gc-document-coverage-track {
+  background: #d7dfe3;
+  border-radius: 999px;
+  height: 0.55rem;
+  overflow: hidden;
+}
+
+.gc-document-coverage-track > span {
+  background: var(--gc-accent);
+  display: block;
+  height: 100%;
+}
+
+.gc-document-list {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.gc-document-card {
+  background: var(--gc-info-soft);
+  border: 1px solid var(--gc-line);
+  border-left: 5px solid var(--gc-accent);
+  border-radius: 9px;
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.5fr);
+  padding: 0.9rem 1rem;
+}
+
+.gc-document-card > div {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.gc-document-card strong,
+.gc-document-card small,
+.gc-document-card dd {
+  overflow-wrap: anywhere;
+}
+
+.gc-document-card small {
+  color: var(--gc-muted);
+  font-size: 0.8rem;
+}
+
+.gc-document-card dl {
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+}
+
+.gc-document-card dt {
+  color: var(--gc-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.gc-document-card dd {
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin: 0.18rem 0 0;
+}
+
+.gc-document-missing {
+  background: var(--gc-soft);
+  border-radius: 8px;
+  font-size: 0.88rem;
+  padding: 0.75rem 0.9rem;
+}
+
+.gc-document-quick {
+  border: 1px solid var(--gc-line);
+  border-radius: 9px;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.gc-document-quick h4 {
+  margin: 0;
+}
+
+.gc-document-quick > p {
+  color: var(--gc-muted);
+  margin: 0.35rem 0 0;
+}
+
+.gc-document-quick-grid {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 0.9rem;
+}
+
+.gc-document-quick-grid label {
+  color: var(--gc-muted);
+  display: grid;
+  font-size: 0.82rem;
+  font-weight: 700;
+  gap: 0.35rem;
+}
+
+.gc-document-quick-grid select {
+  background: #fff;
+  border: 1px solid #aebbc4;
+  border-radius: 8px;
+  color: var(--gc-ink);
+  font: inherit;
+  min-height: 44px;
+  padding: 0.65rem 0.7rem;
+  width: 100%;
+}
+
 .gc-document-ready {
   display: grid;
   gap: 1rem;
@@ -1122,6 +1307,7 @@
 }
 
 .gc-regulatory-fields select:focus-visible,
+.gc-document-quick-grid select:focus-visible,
 .gc-alpha-terms summary:focus-visible,
 .gc-document-cues summary:focus-visible {
   outline: 3px solid #004c99;
@@ -1929,6 +2115,10 @@
   .gc-readiness-grid,
   .gc-package-grid,
   .gc-value-grid,
+  .gc-document-assessment,
+  .gc-document-card,
+  .gc-document-card dl,
+  .gc-document-quick-grid,
   .gc-document-metadata,
   .gc-document-metrics,
   .gc-regulatory-fields,
