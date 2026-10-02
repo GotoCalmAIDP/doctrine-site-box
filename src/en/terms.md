@@ -7,6 +7,7 @@ title: Terms of Use
 **Language:** English  
 **Page:** Terms of Use  
 **Status:** Legal Notice
+**Rights notice:** v1.0 · Published 3 October 2026
 
 ---
 
@@ -30,7 +31,7 @@ To the fullest extent permitted by applicable law, we disclaim all warranties, e
 
 ## Limitation of Liability
 
-In no event shall the site operators be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of, or inability to use, this website.
+To the fullest extent permitted by applicable law, the site operators disclaim liability for damages arising out of or related to use of, or inability to use, this website. Nothing excludes rights or liabilities that cannot lawfully be excluded.
 
 ---
 
@@ -43,6 +44,8 @@ You agree to use this website only for lawful purposes and in a manner that does
 ## Free Public Alpha and Local Document Intake
 
 The screening and evidence-readiness workspace are offered as a free, voluntary public alpha during calibration. No account, paid service, service level, certification or professional review is provided by this alpha.
+
+Before starting or resuming, you must explicitly accept the current Terms. The Terms version and acceptance time are stored only in this tab's local draft, not sent to the site operator. This is separate from any voluntary aggregate contribution; accepting the Terms never opts you into a contribution. A new Terms version may ask you to accept again without discarding your saved work.
 
 The interface may keep a derived working draft in the current tab’s `sessionStorage` so refreshes and same-tab navigation do not erase the work. The draft is not an operator-held account record. Closing the tab or explicitly starting a new assessment clears it; exporting JSON is the user-controlled way to keep a portable copy.
 
@@ -58,7 +61,29 @@ Outputs are preparation aids only. They are not legal advice, a compliance deter
 
 ## Intellectual Property
 
-All content on this website, including text, graphics, logos, and design elements, is the property of the site operators or their licensors and is protected by applicable intellectual property laws.
+Copyright © 2026 Vadym Partasyuk. GotoCalm. Authored GotoCalm materials and code are protected to the extent that the author owns or controls the relevant rights. Third-party materials retain their own licences and notices.
+
+### Permitted reading, citation and evaluation
+
+Reading, downloading, sharing links to canonical sources, accurate attributed citation and short excerpts, scholarly discussion, non-commercial analysis, and regulatory or standards consideration are permitted.
+
+Self-directed evaluation of your own case through the hosted public screening is free, including evaluation by commercial organisations. You may keep and share the generated self-reported brief or JSON internally and with your reviewers, advisers or authorities, preserving attribution and limitations. You retain your own documents and input information; framework attribution does not transfer ownership of them to GotoCalm.
+
+### Uses requiring written permission or a licence
+
+Use of covered authored materials or code for embedding, operational or internal production deployment, integration, productisation, derivative tooling, commercial frameworks or training, white-labelling, resale, commercial redistribution, or paid third-party services requires prior written permission or a licence, unless an applicable earlier or third-party licence already permits it. Free evaluation is not permission to clone or embed the tool or to provide paid client services with it.
+
+Licence enquiries: [admin@gotocalm.com](mailto:admin@gotocalm.com). See also the [commercial terms and review route](https://gotocalm.com/terms).
+
+### Attribution and limits of rights
+
+Attribute “Vadym Partasyuk · GotoCalm · Applicability Boundary Doctrine”, with a link to the relevant canonical source and version. Preserve rights and limitation notices; do not misstate authorship or imply endorsement, certification, compliance, safety or authorisation.
+
+No exclusive rights are asserted over ideas, ordinary terminology, methods as such or independently developed work not relying on protected GotoCalm expression. No patent, trademark or certification-mark licence is implied. Legally applicable quotation, research and other exceptions and rights that cannot lawfully be excluded remain intact.
+
+### Specific items, prior licences and scope
+
+Each Zenodo record remains governed by its own deposited terms; these website terms do not relicense a deposit. Specific file licences, third-party licences, and rights previously validly granted, including any applicable MIT grant, remain effective. A signed agreement governs the uses it expressly covers. Repository LICENSE.md and NOTICE.md document these boundaries. Changes to website terms or repository metadata are not retroactive restrictions on already licensed copies.
 
 ---
 
@@ -80,7 +105,7 @@ The conceptual materials presented on this site form part of the Applicability B
 
 Publication of conceptual material does not grant permission to reproduce proprietary technologies, implementation architectures, or operational mechanisms related to the doctrine.
 
-All implementation technologies remain proprietary.
+Private implementation technologies are not licensed by publication of a conceptual summary. Public screening code is visible in the browser and repository; it is not represented as a trade secret. Its reuse is governed by the applicable licence, with prior and third-party rights preserved.
 
 ---
 
@@ -88,7 +113,7 @@ All implementation technologies remain proprietary.
 
 This repository publishes conceptual doctrine, terminology, and analytical frameworks.
 
-It does not publish implementation technology or operational system designs.
+It also publishes a limited public screening application. That application is a self-reported preparation aid, not a deployed operational controller or a complete implementation of the doctrine. Public client-side logic is not confidential.
 
 ---
 

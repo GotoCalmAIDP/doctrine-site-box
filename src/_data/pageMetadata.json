@@ -514,11 +514,11 @@
   },
   "/en/terms/": {
     "title": "Terms of Use",
-    "description": "Language: English Page: Terms of Use Status: Legal Notice",
+    "description": "Language: English Page: Terms of Use Status: Legal Notice Rights notice: v1.0 · Published 3 October 2026",
     "og_title": "Terms of Use | Applicability Boundary Doctrine",
-    "og_description": "Language: English Page: Terms of Use Status: Legal Notice",
+    "og_description": "Language: English Page: Terms of Use Status: Legal Notice Rights notice: v1.0 · Published 3 October 2026",
     "twitter_title": "Terms of Use | Applicability Boundary Doctrine",
-    "twitter_description": "Language: English Page: Terms of Use Status: Legal Notice",
+    "twitter_description": "Language: English Page: Terms of Use Status: Legal Notice Rights notice: v1.0 · Published 3 October 2026",
     "source": "first visible paragraph"
   },
   "/ua/about/": {
@@ -1036,11 +1036,11 @@
   },
   "/ua/terms/": {
     "title": "Умови використання",
-    "description": "Мова: Українська Сторінка: Умови використання Статус: Юридичне повідомлення",
+    "description": "Мова: Українська Сторінка: Умови використання Статус: Юридичне повідомлення Повідомлення про права: v1.0 · Опубліковано 3 жовтня 2026 року",
     "og_title": "Умови використання | Доктрина межі застосовності",
-    "og_description": "Мова: Українська Сторінка: Умови використання Статус: Юридичне повідомлення",
+    "og_description": "Мова: Українська Сторінка: Умови використання Статус: Юридичне повідомлення Повідомлення про права: v1.0 · Опубліковано 3 жовтня 2026 року",
     "twitter_title": "Умови використання | Доктрина межі застосовності",
-    "twitter_description": "Мова: Українська Сторінка: Умови використання Статус: Юридичне повідомлення",
+    "twitter_description": "Мова: Українська Сторінка: Умови використання Статус: Юридичне повідомлення Повідомлення про права: v1.0 · Опубліковано 3 жовтня 2026 року",
     "source": "first visible paragraph"
   }
 }
