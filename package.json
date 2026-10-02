@@ -1,12 +1,13 @@
 {
   "name": "doctrine-site",
   "version": "1.0.0",
+  "license": "SEE LICENSE.md",
   "description": "Doctrine site structural shell - bilingual static website",
   "scripts": {
     "build": "eleventy",
     "serve": "eleventy --serve",
     "start": "eleventy --serve",
-    "test:screening": "node scripts/test-screening-core.mjs && node scripts/test-public-activity.mjs && node scripts/test-document-intake.mjs"
+    "test:screening": "node scripts/test-screening-core.mjs && node scripts/test-public-activity.mjs && node scripts/test-document-intake.mjs && node scripts/test-rights.mjs"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1"

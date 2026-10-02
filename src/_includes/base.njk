@@ -20,7 +20,7 @@
     <meta name="twitter:image:alt" content="{% if lang == 'en' %}Applicability Boundary Doctrine concept diagram{% else %}Концептуальна діаграма Доктрини межі застосовності{% endif %}">
     <link rel="stylesheet" href="{{ baseurl }}/css/style.css">
     {% if page.url == '/en/screening/' or page.url == '/ua/screening/' %}
-    <link rel="stylesheet" href="{{ baseurl }}/assets/screening/screening-v12.css">
+    <link rel="stylesheet" href="{{ baseurl }}/assets/screening/screening-v13.css">
     {% endif %}
     <link rel="canonical" href="https://gotocalmaidp.github.io{{ baseurl }}{{ page.url }}">
     {% if lang == 'en' %}
@@ -142,6 +142,9 @@
                 </a>
             </nav>
             <p class="footer-contact">Contact: <a href="mailto:admin@gotocalm.com">admin@gotocalm.com</a></p>
+            <p class="footer-rights">© 2026 Vadym Partasyuk. GotoCalm.
+                <a href="{{ baseurl }}/{{ lang }}/terms/">{% if lang == "en" %}Rights and licensing{% else %}Права та ліцензування{% endif %}</a>
+            </p>
             <p class="footer-scope">
                 {% if lang == "en" %}
                 This site presents a conceptual doctrine for analysing complex automated, AI-enabled and safety-critical systems, including systems operating in regulated or high-consequence environments. It does not prescribe operational procedures and does not replace regulatory safety investigations.
@@ -151,9 +154,9 @@
             </p>
             <p class="footer-ip">
                 {% if lang == "en" %}
-                This site describes conceptual doctrine and terminology. Implementation architectures, detection mechanisms, and operational protocols remain proprietary.
+                Reading, attributed discussion and free self-directed evaluation are welcome. Reuse of covered authored materials or code for deployment, embedding or paid third-party services requires written permission, subject to applicable prior and third-party licences. Public screening code is not confidential.
                 {% else %}
-                Цей сайт описує концептуальну доктрину та термінологію. Архітектури реалізації, механізми виявлення та операційні протоколи залишаються власністю.
+                Читання, обговорення з атрибуцією та безкоштовне самостійне оцінювання дозволені. Повторне використання охоплених авторських матеріалів або коду для розгортання, вбудовування чи платних послуг третім особам потребує письмового дозволу з урахуванням попередніх і сторонніх ліцензій. Код публічного скринінгу не є конфіденційним.
                 {% endif %}
             </p>
             <p class="footer-commentary">
@@ -168,7 +171,7 @@
         </div>
     </footer>
     {% if page.url == '/en/screening/' or page.url == '/ua/screening/' %}
-    <script type="module" src="{{ baseurl }}/assets/screening/screening-v12.js?release=2026-09-22-bridge"></script>
+    <script type="module" src="{{ baseurl }}/assets/screening/screening-v13.js"></script>
     {% endif %}
 </body>
 </html>
