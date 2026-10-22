@@ -15,6 +15,7 @@ module.exports = function(eleventyConfig) {
   // Add keyboard-accessible table scrolling without changing source content.
   eleventyConfig.addTransform("readerTables", require("./scripts/reader-transform.cjs"));
   eleventyConfig.addTransform("glossaryNavigation", require("./scripts/glossary-transform.cjs"));
+  eleventyConfig.addTransform("readerToc", require("./scripts/reader-toc.cjs"));
 
   // Add language filter
   eleventyConfig.addFilter("langUrl", function(url, lang) {

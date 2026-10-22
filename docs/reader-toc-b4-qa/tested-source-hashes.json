@@ -1,0 +1,30 @@
+[
+  {
+    "path": ".eleventy.js",
+    "sha256": "a122df3e23e84cdce384c35bb83963b3c6c133a1f595331b30993124e8fc5e53"
+  },
+  {
+    "path": ".github/workflows/deploy.yml",
+    "sha256": "84676b8c584da551c31138c17bc950a57dfa59abaa36745d21c09650f545758f"
+  },
+  {
+    "path": "package.json",
+    "sha256": "620d0d5ad918667fafa13ceffc6b34cc6aec2ffae634c5b283df7aa71284b1f2"
+  },
+  {
+    "path": "scripts/reader-toc.cjs",
+    "sha256": "70959c54375ee87f6c5ae057b0ec8b1ec05a12a673383bec5c4876781a7e7b04"
+  },
+  {
+    "path": "scripts/test-reader-toc.mjs",
+    "sha256": "bf4199f89fe67566a799a7e8f8229108e2611caca0da6764b187661ae8387827"
+  },
+  {
+    "path": "src/_includes/base.njk",
+    "sha256": "dd49d7e80e4b1d978623b330932ff8333ac2d462ccf540a187be69acbf0fda53"
+  },
+  {
+    "path": "src/assets/reader-toc/reader-toc.css",
+    "sha256": "92ef4467bb23065eac5b9d755d59236ce722958c16e8259224232902036b8dd5"
+  }
+]

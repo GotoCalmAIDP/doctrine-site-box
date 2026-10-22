@@ -1,0 +1,27 @@
+[
+  {
+    "path": "assets/reader-toc/reader-toc.css",
+    "bytes": 1242,
+    "sha256": "92ef4467bb23065eac5b9d755d59236ce722958c16e8259224232902036b8dd5"
+  },
+  {
+    "path": "assets/search/en.json",
+    "bytes": 152804,
+    "sha256": "2656641173a0d798142193b1b54be27dd77d10efc437d261673675f7cde40c38"
+  },
+  {
+    "path": "assets/search/ua.json",
+    "bytes": 270390,
+    "sha256": "17704381bf7bda599a3b8a31d410e4a211d8a7d62d53b37af895736abcbdadbe"
+  },
+  {
+    "path": "en/doctrine-theorems/index.html",
+    "bytes": 20822,
+    "sha256": "f3c1a24c37be58cfbcc2e6b7b9890c7b2c25134c1850c7d8d8992235fad768f1"
+  },
+  {
+    "path": "ua/doctrine-theorems/index.html",
+    "bytes": 26433,
+    "sha256": "7ba1ec4c263736cc8d566f81c9eb82d1294af5cdd0f5d4052c9d782f530672ca"
+  }
+]

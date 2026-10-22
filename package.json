@@ -11,7 +11,8 @@
     "audit:screening-assets": "node scripts/audit-screening-assets.mjs _site",
     "test:search": "node scripts/test-site-search.mjs",
     "test:example": "node scripts/test-screening-example.mjs _site && node scripts/test-screening-example-controller.mjs",
-    "test:glossary": "node scripts/test-glossary.mjs _site"
+    "test:glossary": "node scripts/test-glossary.mjs _site",
+    "test:reader-toc": "node scripts/test-reader-toc.mjs _site"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1"
