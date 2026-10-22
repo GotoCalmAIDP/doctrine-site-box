@@ -1,0 +1,162 @@
+[
+  {
+    "path": "css/style.css",
+    "status": 200,
+    "mime": "text/css; charset=utf-8",
+    "bytes": 11494,
+    "exactBytes": true,
+    "expectedSha256": "71e1eae41981c7a8169c93483cc9e1e2024a99f56ec4232558638443bbc928df"
+  },
+  {
+    "path": "assets/search/search.js",
+    "status": 200,
+    "mime": "text/javascript; charset=utf-8",
+    "bytes": 5725,
+    "exactBytes": true,
+    "expectedSha256": "586fe087d3076e6d6b28e0c25143d9e1fed254c587c00597e06d4f18d72d45ad"
+  },
+  {
+    "path": "assets/search/search-core.mjs",
+    "status": 200,
+    "mime": "text/javascript; charset=utf-8",
+    "bytes": 2848,
+    "exactBytes": true,
+    "expectedSha256": "d442683e88cc105080d31c846e56e55cc18ed27f3cd51084d52cec32278b7c88"
+  },
+  {
+    "path": "assets/search/search.css",
+    "status": 200,
+    "mime": "text/css; charset=utf-8",
+    "bytes": 2446,
+    "exactBytes": true,
+    "expectedSha256": "0492a58ca7029d68bd552c0c8866cbf6f858c0f6b30bca9dc51cf4dabb725d2a"
+  },
+  {
+    "path": "assets/search/en.json",
+    "status": 200,
+    "mime": "application/json; charset=utf-8",
+    "bytes": 152804,
+    "exactBytes": true,
+    "expectedSha256": "2656641173a0d798142193b1b54be27dd77d10efc437d261673675f7cde40c38"
+  },
+  {
+    "path": "assets/search/ua.json",
+    "status": 200,
+    "mime": "application/json; charset=utf-8",
+    "bytes": 270390,
+    "exactBytes": true,
+    "expectedSha256": "17704381bf7bda599a3b8a31d410e4a211d8a7d62d53b37af895736abcbdadbe"
+  },
+  {
+    "path": "assets/screening/screening-v14.js",
+    "status": 200,
+    "mime": "text/javascript; charset=utf-8",
+    "bytes": 226003,
+    "exactBytes": true,
+    "expectedSha256": "ad98aae6d3a4abc089889f6ef1882225d45105f69190536c8cb32f2b84a0d911"
+  },
+  {
+    "path": "assets/screening/screening-v14.css",
+    "status": 200,
+    "mime": "text/css; charset=utf-8",
+    "bytes": 43054,
+    "exactBytes": true,
+    "expectedSha256": "08ec832ca242f6b0e1f62479be3728996bf577edea5761657a8520951097dbef"
+  },
+  {
+    "path": "assets/screening/screening-session-v14.js",
+    "status": 200,
+    "mime": "text/javascript; charset=utf-8",
+    "bytes": 6770,
+    "exactBytes": true,
+    "expectedSha256": "696cac0d71ccf34a4fc78e82eb0f7f99b967f50b3714a34416c26b9d2c5a285a"
+  },
+  {
+    "path": "assets/screening/document-intake-core-v14.js",
+    "status": 200,
+    "mime": "text/javascript; charset=utf-8",
+    "bytes": 29865,
+    "exactBytes": true,
+    "expectedSha256": "d5d1234498ad6f0e35e28f1aaf34ed3c8f37117672174d6b6fa8d5ba7a2275d9"
+  },
+  {
+    "path": "assets/screening/screening-core.js",
+    "status": 200,
+    "mime": "text/javascript; charset=utf-8",
+    "bytes": 12397,
+    "exactBytes": true,
+    "expectedSha256": "c73fc4fd098985af193f44f6922abd49d2ea1f061753f52e9cb7ef03bdb6eb17"
+  },
+  {
+    "path": "assets/screening/evidence-workspace-core-v08.js",
+    "status": 200,
+    "mime": "text/javascript; charset=utf-8",
+    "bytes": 26916,
+    "exactBytes": true,
+    "expectedSha256": "662d0d385e116a1e0e2a388aaa08bb04894d0810460104916df12074e0435409"
+  },
+  {
+    "path": "assets/screening/public-activity-core.js",
+    "status": 200,
+    "mime": "text/javascript; charset=utf-8",
+    "bytes": 2796,
+    "exactBytes": true,
+    "expectedSha256": "994f1718d884724e434faf9afc26fb1563f77f97613dfca77b27e5ba323fd280"
+  },
+  {
+    "path": "assets/screening/maritime-core.js",
+    "status": 200,
+    "mime": "text/javascript; charset=utf-8",
+    "bytes": 9285,
+    "exactBytes": true,
+    "expectedSha256": "88d6ad5a88dfb4061a00b3d3af919a9fa38d59c53937f30264151de8383cc813"
+  },
+  {
+    "path": "assets/screening/rights-core-v13.js",
+    "status": 200,
+    "mime": "text/javascript; charset=utf-8",
+    "bytes": 1738,
+    "exactBytes": true,
+    "expectedSha256": "e451f09603b628a922484c5ab81ced372a69b4d963492ecd34441a2767eef606"
+  },
+  {
+    "path": "assets/examples/example.css",
+    "status": 200,
+    "mime": "text/css; charset=utf-8",
+    "bytes": 3261,
+    "exactBytes": true,
+    "expectedSha256": "012e6628e0399e8d0ffc9a9b1a22a0be91935ebcc16c643e6c0c7a159625fd62"
+  },
+  {
+    "path": "assets/examples/screening-en.json",
+    "status": 200,
+    "mime": "application/json; charset=utf-8",
+    "bytes": 9959,
+    "exactBytes": true,
+    "expectedSha256": "917d87f363a280d473d183423358c688e26cf1786066de61de36e398d99ade06"
+  },
+  {
+    "path": "assets/examples/screening-ua.json",
+    "status": 200,
+    "mime": "application/json; charset=utf-8",
+    "bytes": 10146,
+    "exactBytes": true,
+    "expectedSha256": "ee2174a7b06a4735cacf3c75aa7e5aac2fac3d28d06b45d2bede0d1ef3f4c140"
+  },
+  {
+    "path": "assets/examples/screening-en.md",
+    "status": 200,
+    "mime": "text/markdown; charset=utf-8",
+    "bytes": 5546,
+    "exactBytes": true,
+    "expectedSha256": "6be006ad1d65e7c2fdf71c4e89cc84bd100d8478ee04e14dc8d9712ccf286dfe"
+  },
+  {
+    "path": "assets/examples/screening-ua.md",
+    "status": 200,
+    "mime": "text/markdown; charset=utf-8",
+    "bytes": 9924,
+    "exactBytes": true,
+    "expectedSha256": "597b0f4a31ba83a91576a84f180c3406d7e51bf617ba1feee0171675df218a51"
+  }
+]

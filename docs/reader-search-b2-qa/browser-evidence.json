@@ -1,0 +1,131 @@
+{
+  "date": "2026-10-22",
+  "environment": "Supported sites-preview; Chrome cloud browser; exact built site mounted at /doctrine-site-box/",
+  "deployment": false,
+  "previewReleased": true,
+  "temporaryFixturesIncluded": false,
+  "desktop": {
+    "authority": {
+      "total": 25,
+      "first": "/en/cases/case-003/",
+      "second": "/en/terminology-authority/"
+    },
+    "commit": {
+      "total": 3
+    },
+    "doi": {
+      "query": "10.5281/zenodo.19425317",
+      "total": 1
+    },
+    "htmlLike": {
+      "query": "<img src=x onerror=alert(1)>",
+      "total": 0,
+      "createdImages": 0
+    },
+    "longQuery": {
+      "inputCharacters": 1000,
+      "retainedCharacters": 240,
+      "total": 0
+    },
+    "empty": "prompt displayed",
+    "noMatch": "zero results displayed",
+    "showAll": {
+      "query": "boundary",
+      "total": 44,
+      "initialShown": 30,
+      "expandedShown": 44,
+      "keyboardFocus": "first newly revealed result link"
+    },
+    "clear": "zero result links; focus returned to search input",
+    "languageSelection": {
+      "from": "EN interface",
+      "selectedIndex": "UA",
+      "query": "повноваження",
+      "total": 9,
+      "resultLang": "uk",
+      "paths": "/ua/"
+    },
+    "queryInURL": false,
+    "missingIndexRecovery": "Temporarily withheld built en.json; localized retry message appeared. Restored exact file and pressed Search: 25 authority results without reload.",
+    "skipLink": "first Tab then Return focused main-content",
+    "catalogue": "native Enter expanded 58 document links",
+    "readingOrder": "correct /en/reading-order-note/ heading and aria-current"
+  },
+  "mobileCSSViewports": [
+    {
+      "language": "ua",
+      "width": 375,
+      "documentClientWidth": 360,
+      "documentScrollWidth": 360,
+      "query": "межі",
+      "total": 51,
+      "initialShown": 30
+    },
+    {
+      "language": "en",
+      "width": 320,
+      "documentClientWidth": 305,
+      "documentScrollWidth": 305,
+      "query": "001",
+      "total": 5,
+      "distinctCaseFamilies": true
+    },
+    {
+      "language": "ua",
+      "width": 375,
+      "scriptsDisabled": true,
+      "documentClientWidth": 360,
+      "documentScrollWidth": 360,
+      "catalogue": "native keyboard expand works",
+      "navigation": "native Reading Order link navigated correctly",
+      "search": "disabled controls and explanatory no-JS text"
+    }
+  ],
+  "tableKeyboard": {
+    "language": "en",
+    "width": 320,
+    "page": "/en/applicability-failure-map/",
+    "regionClientWidth": 273,
+    "regionScrollWidth": 385,
+    "tabindex": 0,
+    "ArrowRightObservedScrollLeft": 91,
+    "documentOverflow": false
+  },
+  "educationalExample": {
+    "expandedInBothLanguages": true,
+    "mobileOverflow": false,
+    "computedCounts": {
+      "unknown": 17,
+      "outOfScope": 0,
+      "mapped": 0,
+      "open": 17,
+      "priorityOpen": 11
+    },
+    "existingDraft": "B2 synthetic working draft — preserve while reading the example.",
+    "afterViewingAndDownloadClick": {
+      "draftUnchanged": true,
+      "completionCount": 0,
+      "lastResult": "None",
+      "termsChecked": false
+    },
+    "servedDownloads": "All four JSON/Markdown files HTTP200, correct MIME, exact expected bytes; see served-resources.json",
+    "browserDownloadCapture": "UNVERIFIED: waitForEvent(download) timed out; one documented downloadMedia recovery also timed out; no completed browser download path claimed",
+    "nativeImport": "PASS in isolated Node oracle using exact pinned controller file-input change handler, not browser acceptance; initial no-consent path rejects before read; synthetic prior-consent fixture imports both languages, no real terms event or network; declined replacement preserves state",
+    "aggregatePOSTsPerformed": 0
+  },
+  "servedResourceEvidence": "served-resources.json: twenty resources fetched by a temporary first-party QA helper and compared byte-for-byte with expected built content; all HTTP200. Helper removed before final build.",
+  "limits": [
+    "CSS iframe viewports, not physical devices",
+    "Screen-reader speech and print output not tested",
+    "No successful browser download-file capture; actual served bytes verified",
+    "Native browser file-picker import after legal Terms was not performed; exact controller import is covered by isolated Node fixtures",
+    "Existing optional aggregate GET reported unavailable in preview; no real aggregate POST and no new live aggregate validation",
+    "No production deployment or production acceptance claimed"
+  ],
+  "screenshots": [
+    "en-search.jpg",
+    "en-reading.jpg",
+    "mobile-search.jpg",
+    "mobile-example.jpg"
+  ]
+}

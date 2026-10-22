@@ -9,6 +9,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("_assets/images");
   eleventyConfig.addPassthroughCopy({"src/assets": "assets"});
+  // Downloadable Markdown is a static artifact, never an extra HTML route.
+  eleventyConfig.ignores.add("src/assets/examples/*.md");
   
   // Add keyboard-accessible table scrolling without changing source content.
   eleventyConfig.addTransform("readerTables", require("./scripts/reader-transform.cjs"));

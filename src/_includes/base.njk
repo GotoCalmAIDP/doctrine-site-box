@@ -26,6 +26,7 @@
     {% endif %}
     {% if page.url == '/en/screening/' or page.url == '/ua/screening/' %}
     <link rel="stylesheet" href="{{ baseurl }}/assets/screening/screening-v14.css">
+    <link rel="stylesheet" href="{{ baseurl }}/assets/examples/example.css">
     {% endif %}
     <link rel="canonical" href="https://gotocalmaidp.github.io{{ baseurl }}{{ page.url }}">
     {% if lang == 'en' %}
@@ -112,6 +113,9 @@
         <article class="content {% if isScreening %}screening-document{% else %}reader-document{% endif %}">
             {{ content | safe }}
         </article>
+        {% if isScreening %}
+        {% include "screening-example.njk" %}
+        {% endif %}
         {% if isIndexNote %}
         {% include "site-search.njk" %}
         {% endif %}
