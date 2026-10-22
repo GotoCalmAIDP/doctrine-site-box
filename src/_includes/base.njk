@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="{{ baseurl }}/css/style.css">
     {% set isScreening = page.url == '/en/screening/' or page.url == '/ua/screening/' %}
     {% set isIndexNote = page.url == '/en/index-note/' or page.url == '/ua/index-note/' %}
+    {% set isGlossary = page.url == '/en/glossary/' or page.url == '/ua/glossary/' %}
+    {% if isGlossary %}
+    <link rel="stylesheet" href="{{ baseurl }}/assets/glossary/glossary.css">
+    {% endif %}
     {% if isIndexNote %}
     <link rel="stylesheet" href="{{ baseurl }}/assets/search/search.css">
     {% endif %}
@@ -200,6 +204,9 @@
     {% endif %}
     {% if isIndexNote %}
     <script type="module" src="{{ baseurl }}/assets/search/search.js"></script>
+    {% endif %}
+    {% if isGlossary %}
+    <script type="module" src="{{ baseurl }}/assets/glossary/glossary.js"></script>
     {% endif %}
 </body>
 </html>
