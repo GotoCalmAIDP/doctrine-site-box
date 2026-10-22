@@ -1,55 +1,54 @@
-# Executor B — doctrine Screening integration
+# Executor B — doctrinal Screening v14 integration checkpoint
 
-Status: PREPARATION COMPLETE / SHARED RELEASE MANIFEST PENDING. This is not a v14 release or deployment acceptance.
+Status: INTEGRATED / REVIEW REQUIRED / NOT DEPLOYED. Shared r1 has one unresolved file-read limit defect. Do not merge or publish before the managing chat supplies a correction/disposition and independently accepts this integration.
 
 Assignment: https://app.notion.com/p/4012a14e14ce81d6afa7e02a99bda6bc
 
 Command: https://app.notion.com/p/4012a14e14ce818786b9f0b6c83f843b
 
-Baseline and rollback: `f82c696d79d3ff31cf0cd6f12c6db2449ac84187`, `backup/pre-screening-20261022`. Working branch: `screening/doctrine-improvement-20261022`. Fresh main matched the baseline and no open PR existed at intake. No other repository is edited.
+## Source and isolated diff
 
-## Isolated preparation diff
+- Fresh main baseline: `f82c696d79d3ff31cf0cd6f12c6db2449ac84187`. Rollback: `backup/pre-screening-20261022` at that same SHA.
+- Working branch: `screening/doctrine-improvement-20261022`; draft PR21. Preparation commit: `963fba28707bc226fb36c1e46c7ae57a4d143828`; preparation CI39827310489 PASS. Those checks are distinct from this final v14 candidate.
+- Exact shared source: `dac71a03978d5913fa9729800b0ccba0b80c13de`, release `gotocalm-screening-portable-20261022-v14-r1`. Nine asset byte counts/SHA-256 and all eleven added git blobs match the manager's immutable source. Shared files are unmodified.
+- Template selects matching v14 JS/CSS for physical EN/UA routes. Historical v13/generic assets, publications/DOIs/citations/content and semantic cores remain intact.
+- Existing tests pinned to selected evidence-v08/document-v10; all existing checks retained. Three manager v14 session/controller/parser test commands appended to the actual package/CI pipeline.
+- New B-owned `audit:screening-assets` runs after Eleventy in existing integrity job. It pins v14/release identity, validates EN/UA mounts and `/doctrine-site-box/`, recursively resolves literal imports, checks source/built bytes and every manifest path/count/size/SHA-256, flags unreviewed worker/CSS dependencies.
+- No commercial modules, other repositories, production refs, DNS/mail, ACTIVE/corpus/formal128 or proposal activation changed.
 
-- Pin existing evidence/document tests to the actually selected v08/v10 modules. At the baseline these equal the generic files byte for byte; assertions are preserved.
-- Add `npm run audit:screening-assets` after Eleventy in the existing integrity job. It reads physical EN/UA entry pages, rejects generic or mismatched JS/CSS, preserves `/doctrine-site-box/`, traverses literal module imports, verifies built/source SHA-256 and flags unreviewed worker/CSS dependencies.
-- No runtime, shared evaluator/schema, publication, citation, ACTIVE/corpus/formal128, production ref or public visibility changes in this preparation commit.
+## Current manifest and contracts
 
-## Fresh validation
+The complete exact identity is committed in `docs/screening-shared-v14/RELEASE_MANIFEST.json`; integration contract and feature matrix are adjacent. Current runtime closure is nine assets: v14 entry/CSS/session/parser plus screening-core, evidence-v08, public-activity, maritime and rights-v13. No remote runtime import, parser, worker or CSS asset dependency.
 
-Executed here, not inherited from historical reports:
+Core0.3.0-alpha, evidence0.5.0-alpha/schema0.4, legacy0.1–0.3, Maritime0.1 and nine axes are unchanged. Session0.2 explicitly migrates old0.1 without inventing completion history. New local cues require canonical consequence confirmation; statement/extracted text/record mapping is unverified. Document metadata and section excerpts up to180 chars can remain locally; full text and raw preliminary description are not persisted. Origin storage remains separate; JSON0.4 is portable.
 
-1. `npm ci` — PASS.
-2. `npm run test:screening` — PASS, including existing evidence/Maritime/public activity/document/rights checks. Re-run after exact-module test pinning — PASS.
-3. `python scripts/generate-page-metadata.py` and `python scripts/generate-citation-artifacts.py` — PASS; 116 metadata entries, 33 unique publication DOIs.
-4. `npm run build` — PASS; 120 outputs.
-5. `python scripts/audit-routes.py _site` — PASS; 58 EN + 58 UA, no broken internal links, controlled canonical baseline preserved.
-6. Workflow controlled-artifact `git diff --exit-code` — PASS; no generated changes.
-7. `npm run audit:screening-assets` — PASS; eight selected v13 JS/CSS files, source/built bytes identical.
-8. `git diff --check` — PASS.
+Default doctrinal aggregate behavior is inherited. Actual application CORS remains UNKNOWN from the manager's edge1010 finding; B sent no POST or additional probes. Count/last result is tab-local and independent. Contribution payload excludes documents/text/answers/locators and requires fresh opt-in/action.
 
-Local environment: Node 24.19.0 and Python 3.12; workflow requests Node20/Python3.11, so fresh PR CI is still required. Missing jsonschema environment dependencies were installed without changing project integrity code.
+## Fresh candidate validation
 
-The live EN baseline was opened in cloud Chrome; it rendered v13 introduction, terms gate and four disabled entry controls. No terms accepted or aggregate contribution submitted. This is baseline entry observation only. Local browser cannot reach the host's HTTP server (`ERR_CONNECTION_REFUSED`); local Playwright Chromium download failed with an invalid/truncated ZIP. New-release browser/file/mobile interactions remain UNVERIFIED. Static responsive audit is not a mobile browser test.
+Executed on this integrated candidate, not copied from historical reports:
 
-## Exact current runtime closure
+1. Full `npm run test:screening` including all three new commands — PASS. Session/controller tests cover cues, UNKNOWN/explicit Critical, raw-text exclusion, once-only completion, reload/date, JSON import without counting, Reset cancellation, legacy migration, blocked storage and aggregate-off. Parser tests cover corruption/CRC/limits/TXT/MD/metadata plus five available DOCX calibrations. Calibration files are not committed.
+2. Metadata/citation generators — PASS;116 metadata records,33 publication DOIs.
+3. Eleventy — PASS;120 outputs.
+4. `npm run audit:screening-assets` — PASS; exactly nine manifest-matching assets on both physical language entries and correct Pages basepath.
+5. Deterministic route audit — PASS;58 EN+58 UA, zero broken internal links, citation/canonical integrity preserved.
+6. Workflow controlled-artifact diff — PASS; no generated changes. `git diff --check` — PASS.
 
-| Asset | SHA-256 |
-| --- | --- |
-| screening-v13.js | 92c4fa451c3bd1a75933eb64098366db3d306bb5a979c4021313391bdb866e64 |
-| screening-v13.css | 14bbd13d35aa4d0d598bb1540798232b809b156f5fa106f1ca8819725fa1077d |
-| screening-core.js | c73fc4fd098985af193f44f6922abd49d2ea1f061753f52e9cb7ef03bdb6eb17 |
-| evidence-workspace-core-v08.js | 662d0d385e116a1e0e2a388aaa08bb04894d0810460104916df12074e0435409 |
-| public-activity-core.js | 994f1718d884724e434faf9afc26fb1563f77f97613dfca77b27e5ba323fd280 |
-| maritime-core.js | 88d6ad5a88dfb4061a00b3d3af919a9fa38d59c53937f30264151de8383cc813 |
-| document-intake-core-v10.js | 5cc59e49a29f2a040ceccb7ce2650b4393c291ef9470fea4880083711478a684 |
-| rights-core-v13.js | e451f09603b628a922484c5ab81ced372a69b4d963492ecd34441a2767eef606 |
+Local Node24.19/Python3.12 differ from CI20/3.11; candidate PR CI must be checked independently. The managing chat separately performed browser QA of shared assets; that is not claimed as B final-wrapper testing.
 
-No extra parser/worker/CDN/CSS import dependencies. DOCX uses native DecompressionStream, three reports, 10MiB/file, 16MiB XML/entry and 4096 ZIP entries. Session/evidence/Maritime versions and nine axes remain unchanged.
+B opened live EN baseline in cloud Chrome and saw intro, terms gate and four disabled entry controls. No terms were accepted or contribution submitted. The cloud browser cannot reach the local host HTTP build (`ERR_CONNECTION_REFUSED`); official local Chromium download returned invalid/truncated ZIP. New-release browser/file/mobile interactions are UNVERIFIED. Static responsive audit is not a mobile browser test. No new deployment or served v14 identity is claimed.
 
-## Findings for the shared release owner
+## Required shared-owner correction
 
-Baseline v13 reads `file.arrayBuffer()` before descriptor validation and lacks cancellation checks after asynchronous intake; Reset can be undone by late completion. Native inflation checks actual expanded length after collecting output. Storage errors are silent. The automatic aggregate GET precedes contribution consent. Parser reports retain limited section excerpts (up to180 chars), metadata and locators; zero-extracted-text retention must not be claimed. Fixes must come from the single pinned shared release owner, not an independent B rewrite.
+`screening-v14.js` reads `file.arrayBuffer()` before calling parser descriptor validation. A rejected oversized/wrong-type file is therefore fully read first. Proposed exact shared change: import the already exported `validateDocumentFileDescriptor` and call it inside the existing try block immediately before the first file read; retain generation/error handling. Add a controller spy proving invalid descriptors never invoke `arrayBuffer()`. B has not edited the pinned assets; the manager must issue a corrected manifest/release or explicit bounded disposition. The request is also in the B assignment page.
 
-## Next executable step
+Read-only independent review found no further blocking integration regression. It recorded an inherited lower-priority aggregate response race: a delayed sent/error response may update contribution state after full Reset; consent still gates the actual POST. Record or fix under shared ownership if aggregate remains enabled.
 
-Read the managing chat's immutable portable release manifest and feature matrix. Verify all hashes before copying its selected assets/tests. Switch the doctrinal template to the pinned matching JS/CSS; retain all existing rich functions, routes and basepath. Run the fresh complete pipeline plus new exact-release tests and browser/mobile checks; save an independent acceptance checkpoint in the assignment page. Publish through Pages only after the managing chat's acceptance, then verify workflow/deployment source and actual served closure identity. If blocked, preserve this branch and state the exact remaining dependency. Rollback production remains the original baseline and its backup ref.
+## Acceptance, deployment and rollback
+
+Next action belongs to the managing chat: resolve the shared file-read defect, issue a matching A/B pinned release, independently accept this checkpoint and address final browser/mobile limits. B then consumes that exact release, reruns affected tests and required pipeline, updates this PR and releases through Pages within the owner's existing authorization. No repeat general publication permission is needed.
+
+Before merge recheck fresh main/working refs and foreign work. After acceptance check PR integrity, merge only this scope, inspect main-triggered Pages integrity/build/deploy source, then compare actual served EN/UA JS/CSS/import bytes to the accepted manifest. Push or green build alone is not deployment evidence.
+
+Rollback: revert only this integration release and restore v13 template from the preserved baseline, keeping unrelated later work. Production currently remains the original baseline; rollback backup is untouched. Exact commit/CI/diff and subsequent disposition are recorded in the assignment page for cross-chat continuation.

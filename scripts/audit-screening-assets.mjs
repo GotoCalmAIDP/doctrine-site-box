@@ -63,4 +63,15 @@ for (const language of ["en", "ua"]) {
   selected = version;
   for (const url of [...scripts, ...styles]) await visit(localAsset(url));
 }
+const manifest = JSON.parse(await readFile(resolve("docs/screening-shared-v14/RELEASE_MANIFEST.json"), "utf8"));
+assert.equal(manifest.release_id, "gotocalm-screening-portable-20261022-v14-r1");
+assert.equal(selected, "v14", "Template does not consume the pinned release");
+assert.equal(closure.size, manifest.assets.length, "Runtime closure differs from release manifest");
+for (const asset of manifest.assets) {
+  const path = asset.path.replace(/^src\//, "");
+  const actual = [...closure.values()].find(item => item.path === path);
+  assert.ok(actual, `Manifest asset is not in served closure: ${path}`);
+  assert.equal(actual.bytes, asset.bytes, `Manifest size mismatch: ${path}`);
+  assert.equal(actual.sha256, asset.sha256, `Manifest hash mismatch: ${path}`);
+}
 console.log(JSON.stringify({ status: "PASS", selected, prefix, assets: [...closure.values()] }, null, 2));
