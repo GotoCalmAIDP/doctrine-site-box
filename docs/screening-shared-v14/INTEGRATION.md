@@ -1,4 +1,4 @@
-# Shared release v14 — integration contract
+# Shared release v14 r2 — integration contract
 
 The managing chat owns changes to shared rules/schema and this portable release. A and B consume the same nine manifest assets byte-for-byte. No second engine rewrite. Existing semantic core/evidence/Maritime/rights/public-activity files are unchanged.
 
@@ -13,3 +13,11 @@ Full text/bytes are not retained in reports. Limited source metadata and section
 Root local browser checks cover the shared assets in a temporary generated Eleventy wrapper, not final deployments. Each integrator must run its real workflow, EN/UA/direct/reload/assets/mobile, JSON import/export, file limits/Reset, consent/aggregate and actual served-build identity. Do not count a branch push as deployment. Root will independently accept final checkpoints.
 
 Rollback: both repos have backup/pre-screening-20261022 at their pre-transfer baselines. Revert only the integration release, preserving unrelated later work; restore previous entry links/assets from the exact baseline if required. No DNS/mail changes. R16 author adoption is a separate record and does not silently alter the evaluator. No formal128, optional proposal activation, safety/certification or actual-operation authorization.
+
+## r2 correction and acceptance
+
+Supersedes r1 dac71a03978d5913fa9729800b0ccba0b80c13de. Only screening-v14.js changes among the nine runtime assets; the controller oracle also changes. Recopy all manifest assets and verify all hashes. B must update its own scripts/audit-screening-assets.mjs release_id pin from v14-r1 to v14-r2, retaining actual hash and closure checks. A must update its source identity and any owned release pins. Rules and portable schemas stay unchanged.
+
+The file descriptor is rejected before arrayBuffer. Async import/scan actions use latest accepted action ownership; rejected oversized input does not cancel a valid pending action. A detached, replaced or reinitialized controller cannot persist, clear, render or consume late async replies over the active controller. Reset/new session invalidates pending contribution replies. Focused regressions and independent A/B reproductions pass with mocked network only. These fixes do not certify actual aggregate CORS or final browser routing.
+
+Continue each assigned repository integration; run new r2 controller tests plus the existing pipelines, real wrapper EN/UA/mobile, lifecycle Reset and exact served assets. Preserve old working production entry until replacement acceptance. Source release itself grants no live-deployment proof.
