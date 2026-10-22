@@ -1,0 +1,108 @@
+[
+  {
+    "command": [
+      "npm",
+      "run",
+      "test:screening"
+    ],
+    "started": "2026-10-22T21:48:33.778776+00:00",
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "python",
+      "scripts/generate-page-metadata.py"
+    ],
+    "started": "2026-10-22T21:48:34.869189+00:00",
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "python",
+      "scripts/generate-citation-artifacts.py"
+    ],
+    "started": "2026-10-22T21:48:34.908027+00:00",
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "build"
+    ],
+    "started": "2026-10-22T21:48:34.939945+00:00",
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "test:search"
+    ],
+    "started": "2026-10-22T21:48:35.975722+00:00",
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "test:example"
+    ],
+    "started": "2026-10-22T21:48:36.697635+00:00",
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "test:glossary"
+    ],
+    "started": "2026-10-22T21:48:37.088752+00:00",
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "test:reader-toc"
+    ],
+    "started": "2026-10-22T21:48:37.459709+00:00",
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "python",
+      "scripts/audit-routes.py",
+      "_site"
+    ],
+    "started": "2026-10-22T21:48:37.849160+00:00",
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "audit:screening-assets"
+    ],
+    "started": "2026-10-22T21:48:38.132433+00:00",
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--exit-code",
+      "--",
+      "CITATION.cff",
+      "docs/publications-manifest.schema.json",
+      "scripts/audit-result.json",
+      "src/_data/pageMetadata.json",
+      "src/_data/screeningExample.json",
+      "src/assets/examples",
+      "src/assets/citation",
+      "src/assets/data/publications.json"
+    ],
+    "started": "2026-10-22T21:48:38.324451+00:00",
+    "exitCode": 0
+  }
+]

@@ -1,0 +1,123 @@
+[
+  {
+    "command": [
+      "npm",
+      "run",
+      "test:screening"
+    ],
+    "started": "2026-10-22T21:46:18.478251+00:00",
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "python",
+      "-m",
+      "pip",
+      "install",
+      "--upgrade",
+      "pip",
+      "pyyaml",
+      "jsonschema",
+      "pillow"
+    ],
+    "started": "2026-10-22T21:46:19.471982+00:00",
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "python",
+      "scripts/generate-page-metadata.py"
+    ],
+    "started": "2026-10-22T21:46:34.287630+00:00",
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "python",
+      "scripts/generate-citation-artifacts.py"
+    ],
+    "started": "2026-10-22T21:46:34.330883+00:00",
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "build"
+    ],
+    "started": "2026-10-22T21:47:17.215317+00:00",
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "test:search"
+    ],
+    "started": "2026-10-22T21:47:18.310655+00:00",
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "test:example"
+    ],
+    "started": "2026-10-22T21:47:19.059071+00:00",
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "test:glossary"
+    ],
+    "started": "2026-10-22T21:47:19.520346+00:00",
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "test:reader-toc"
+    ],
+    "started": "2026-10-22T21:47:19.936027+00:00",
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "python",
+      "scripts/audit-routes.py",
+      "_site"
+    ],
+    "started": "2026-10-22T21:47:20.316072+00:00",
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "audit:screening-assets"
+    ],
+    "started": "2026-10-22T21:47:20.635882+00:00",
+    "exitCode": 0
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--exit-code",
+      "--",
+      "CITATION.cff",
+      "docs/publications-manifest.schema.json",
+      "scripts/audit-result.json",
+      "src/_data/pageMetadata.json",
+      "src/_data/screeningExample.json",
+      "src/assets/examples",
+      "src/assets/citation",
+      "src/assets/data/publications.json"
+    ],
+    "started": "2026-10-22T21:47:20.832080+00:00",
+    "exitCode": 0
+  }
+]

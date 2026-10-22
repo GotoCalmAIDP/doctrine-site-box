@@ -22,6 +22,9 @@
     {% set isScreening = page.url == '/en/screening/' or page.url == '/ua/screening/' %}
     {% set isIndexNote = page.url == '/en/index-note/' or page.url == '/ua/index-note/' %}
     {% set isGlossary = page.url == '/en/glossary/' or page.url == '/ua/glossary/' %}
+    {% if not isScreening and not isGlossary %}
+    <link rel="stylesheet" href="{{ baseurl }}/assets/reader-toc/reader-toc.css">
+    {% endif %}
     {% if isGlossary %}
     <link rel="stylesheet" href="{{ baseurl }}/assets/glossary/glossary.css">
     {% endif %}

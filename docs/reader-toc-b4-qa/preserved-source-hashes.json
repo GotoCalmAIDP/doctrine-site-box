@@ -1,0 +1,841 @@
+{
+  "baseline": "2a5442c377c6f03a63b37e18ea7b4e253ede82d7",
+  "allByteIdentical": true,
+  "files": [
+    {
+      "path": "CITATION.cff",
+      "bytes": 641,
+      "sha256": "5deaf93c5f1803966710e00a36be4bb2026a7929a068eefb2f5e2f720c0ea6ec"
+    },
+    {
+      "path": "docs/publications-manifest.schema.json",
+      "bytes": 2721,
+      "sha256": "e0302468093a08c6e3b0feb1d35961f2abbee0dc17a4823231f8db65a938ee93"
+    },
+    {
+      "path": "docs/screening-shared-v14/FEATURE_MATRIX.md",
+      "bytes": 12871,
+      "sha256": "c95fb13188044b324c6f5edaa28f8f80b6a9d3ad1d2918e34cef1eb5889e4f92"
+    },
+    {
+      "path": "docs/screening-shared-v14/INTEGRATION.md",
+      "bytes": 4490,
+      "sha256": "38288820d8598f4c0d080d24d42d37f627cf1bfa56c5c3805f59a1292f51c36f"
+    },
+    {
+      "path": "docs/screening-shared-v14/RELEASE_MANIFEST.json",
+      "bytes": 3984,
+      "sha256": "619492406980509341b4b99175c762ff116a595c25459722324bd6815763a53d"
+    },
+    {
+      "path": "docs/screening-shared-v14/UI_HANDOFF.md",
+      "bytes": 4665,
+      "sha256": "d25a49ebffb1ec79a08c243be91e6233c00beb3f0d272804ee808001bb174359"
+    },
+    {
+      "path": "scripts/audit-result.json",
+      "bytes": 7681,
+      "sha256": "f637d95bb60c08fd8e4bb9d16bd497621ab0a430cabf62db76540473c634b2ca"
+    },
+    {
+      "path": "src/_data/pageMetadata.json",
+      "bytes": 101472,
+      "sha256": "ac3fa53328745ba392e41f421df591c26d4522f6570eacaddbd51bcef7667610"
+    },
+    {
+      "path": "src/assets/citation/CITATION.cff",
+      "bytes": 641,
+      "sha256": "5deaf93c5f1803966710e00a36be4bb2026a7929a068eefb2f5e2f720c0ea6ec"
+    },
+    {
+      "path": "src/assets/citation/applicability-boundary-doctrine-citation.txt",
+      "bytes": 173,
+      "sha256": "00fd8214d129c827e2d39105d7985a2c0b0b11251e925a9005aeb9e2df7007df"
+    },
+    {
+      "path": "src/assets/citation/applicability-boundary-doctrine.bib",
+      "bytes": 319,
+      "sha256": "1211ec665e9af7f598560c4543767024aac3bad4ae3de93fda1cc0f3b9e8aa32"
+    },
+    {
+      "path": "src/assets/citation/applicability-boundary-doctrine.ris",
+      "bytes": 216,
+      "sha256": "5134dd4a783f625a57a0d3591097a35d2f7618e55ce79bd0191c93173a8bbb9c"
+    },
+    {
+      "path": "src/assets/data/publications.json",
+      "bytes": 19352,
+      "sha256": "0f7adac3ecec63aeb839bafd6b4a7548e0ba72ac69069d4dd1b59b1bd8d90df8"
+    },
+    {
+      "path": "src/assets/screening/document-intake-core-v09.js",
+      "bytes": 19788,
+      "sha256": "a10ec1799e79586e6fc659f6dd1b065f8f24e5ddbbd0823ce03d6a4b49709570"
+    },
+    {
+      "path": "src/assets/screening/document-intake-core-v10.js",
+      "bytes": 22906,
+      "sha256": "5cc59e49a29f2a040ceccb7ce2650b4393c291ef9470fea4880083711478a684"
+    },
+    {
+      "path": "src/assets/screening/document-intake-core-v14.js",
+      "bytes": 29865,
+      "sha256": "d5d1234498ad6f0e35e28f1aaf34ed3c8f37117672174d6b6fa8d5ba7a2275d9"
+    },
+    {
+      "path": "src/assets/screening/document-intake-core.js",
+      "bytes": 22906,
+      "sha256": "5cc59e49a29f2a040ceccb7ce2650b4393c291ef9470fea4880083711478a684"
+    },
+    {
+      "path": "src/assets/screening/evidence-workspace-core-v07.js",
+      "bytes": 26916,
+      "sha256": "662d0d385e116a1e0e2a388aaa08bb04894d0810460104916df12074e0435409"
+    },
+    {
+      "path": "src/assets/screening/evidence-workspace-core-v08.js",
+      "bytes": 26916,
+      "sha256": "662d0d385e116a1e0e2a388aaa08bb04894d0810460104916df12074e0435409"
+    },
+    {
+      "path": "src/assets/screening/evidence-workspace-core.js",
+      "bytes": 26916,
+      "sha256": "662d0d385e116a1e0e2a388aaa08bb04894d0810460104916df12074e0435409"
+    },
+    {
+      "path": "src/assets/screening/maritime-core.js",
+      "bytes": 9285,
+      "sha256": "88d6ad5a88dfb4061a00b3d3af919a9fa38d59c53937f30264151de8383cc813"
+    },
+    {
+      "path": "src/assets/screening/public-activity-core.js",
+      "bytes": 2796,
+      "sha256": "994f1718d884724e434faf9afc26fb1563f77f97613dfca77b27e5ba323fd280"
+    },
+    {
+      "path": "src/assets/screening/rights-core-v13.js",
+      "bytes": 1738,
+      "sha256": "e451f09603b628a922484c5ab81ced372a69b4d963492ecd34441a2767eef606"
+    },
+    {
+      "path": "src/assets/screening/screening-core.js",
+      "bytes": 12397,
+      "sha256": "c73fc4fd098985af193f44f6922abd49d2ea1f061753f52e9cb7ef03bdb6eb17"
+    },
+    {
+      "path": "src/assets/screening/screening-session-v14.js",
+      "bytes": 6770,
+      "sha256": "696cac0d71ccf34a4fc78e82eb0f7f99b967f50b3714a34416c26b9d2c5a285a"
+    },
+    {
+      "path": "src/assets/screening/screening-v04.css",
+      "bytes": 18347,
+      "sha256": "54701679ca1736acc7c24c0f3e71d355907dd566eea1397fc29bdd8bbea6e972"
+    },
+    {
+      "path": "src/assets/screening/screening-v04.js",
+      "bytes": 82534,
+      "sha256": "2e3f3ac3a183444937006709a60975da2407b175595447258e663ec0e4a93721"
+    },
+    {
+      "path": "src/assets/screening/screening-v05.css",
+      "bytes": 21355,
+      "sha256": "81b61bc1c2af2e217eb5eb669917f5feed44f5936693fe0fea9097012f216486"
+    },
+    {
+      "path": "src/assets/screening/screening-v05.js",
+      "bytes": 92897,
+      "sha256": "f7ca3ca59b2551ed7526bbafc44391cf58359da0e02fd4379b30f9b963183b09"
+    },
+    {
+      "path": "src/assets/screening/screening-v06.css",
+      "bytes": 23374,
+      "sha256": "60b97fe69a3fad0eb3f5817e04ceb4ea953d941047abb491a876551298987660"
+    },
+    {
+      "path": "src/assets/screening/screening-v06.js",
+      "bytes": 114268,
+      "sha256": "b4915bc93e4c3bc097361bda2912fe3f9b9d148b780b5c6aa5363ea62cc5dcbe"
+    },
+    {
+      "path": "src/assets/screening/screening-v07.css",
+      "bytes": 24799,
+      "sha256": "82c00f85624c304d8f3269365ecb564ddd73bc7189b1d9bbd85c7145aec45958"
+    },
+    {
+      "path": "src/assets/screening/screening-v07.js",
+      "bytes": 122893,
+      "sha256": "c2c749a77319bd84b3e1db204ffbd271343ebd22e07cf444a6b423d3c7d5a8b8"
+    },
+    {
+      "path": "src/assets/screening/screening-v08.css",
+      "bytes": 24799,
+      "sha256": "82c00f85624c304d8f3269365ecb564ddd73bc7189b1d9bbd85c7145aec45958"
+    },
+    {
+      "path": "src/assets/screening/screening-v08.js",
+      "bytes": 122893,
+      "sha256": "9139297dd69f51ef2905a431f2efb0dba2d1a73f081412697a8a577a0bce80a8"
+    },
+    {
+      "path": "src/assets/screening/screening-v09.css",
+      "bytes": 31012,
+      "sha256": "f59f52c662f38369d96e25f6dfaeccd36da65d790082ad033e237f3cb6a6b4e5"
+    },
+    {
+      "path": "src/assets/screening/screening-v09.js",
+      "bytes": 156263,
+      "sha256": "4c3dc4425e36a2ee34df3c36268cd209e495e6f108f8b3e829ecc3b785d37fc9"
+    },
+    {
+      "path": "src/assets/screening/screening-v10.css",
+      "bytes": 33118,
+      "sha256": "33ae7c0821af76f1c87be77cc4c1477cc83c2ff2fd06438a13d0cf7b86d257d5"
+    },
+    {
+      "path": "src/assets/screening/screening-v10.js",
+      "bytes": 171900,
+      "sha256": "cb03774ee8c454f35ded869ac07031669c794942dd9b03c20581ac625e9a9fe3"
+    },
+    {
+      "path": "src/assets/screening/screening-v11.css",
+      "bytes": 37540,
+      "sha256": "333d1c887083559a62dec71ff5fbdb6e8296a185394fb39b0786b81a40ee6e6e"
+    },
+    {
+      "path": "src/assets/screening/screening-v11.js",
+      "bytes": 192485,
+      "sha256": "c9c66231d07dba6a5b690c5d3fb1039e58716cebc64a4aaae51de4accf228487"
+    },
+    {
+      "path": "src/assets/screening/screening-v12.css",
+      "bytes": 41004,
+      "sha256": "fe3a447e540042e589995bb0dc2d75c53d9ab47758202ad8ae7c779a51bc0e31"
+    },
+    {
+      "path": "src/assets/screening/screening-v12.js",
+      "bytes": 203869,
+      "sha256": "87f0066129bedbe91fa845655cea462d99ad0a31c15e73d307eedfb474a1d9bf"
+    },
+    {
+      "path": "src/assets/screening/screening-v13.css",
+      "bytes": 41633,
+      "sha256": "14bbd13d35aa4d0d598bb1540798232b809b156f5fa106f1ca8819725fa1077d"
+    },
+    {
+      "path": "src/assets/screening/screening-v13.js",
+      "bytes": 208968,
+      "sha256": "92c4fa451c3bd1a75933eb64098366db3d306bb5a979c4021313391bdb866e64"
+    },
+    {
+      "path": "src/assets/screening/screening-v14.css",
+      "bytes": 43054,
+      "sha256": "08ec832ca242f6b0e1f62479be3728996bf577edea5761657a8520951097dbef"
+    },
+    {
+      "path": "src/assets/screening/screening-v14.js",
+      "bytes": 226003,
+      "sha256": "ad98aae6d3a4abc089889f6ef1882225d45105f69190536c8cb32f2b84a0d911"
+    },
+    {
+      "path": "src/assets/screening/screening.css",
+      "bytes": 41004,
+      "sha256": "fe3a447e540042e589995bb0dc2d75c53d9ab47758202ad8ae7c779a51bc0e31"
+    },
+    {
+      "path": "src/assets/screening/screening.js",
+      "bytes": 203537,
+      "sha256": "00f6cd3fba18c3c09e560d3661c3d462aa014acb834d97b023f2d9a06b047893"
+    },
+    {
+      "path": "src/en/about.md",
+      "bytes": 2372,
+      "sha256": "95707e9aa0477ae8d1e2a8312dc14deb5c7c4c93413341d04438cd612f3336bb"
+    },
+    {
+      "path": "src/en/annex-failure-archetypes.md",
+      "bytes": 2642,
+      "sha256": "f923deba6728227663efe42960c1f3b2a7f01b95610ae1578de2425ea73637e6"
+    },
+    {
+      "path": "src/en/applicability-architecture.md",
+      "bytes": 1913,
+      "sha256": "b1edf2ca779c8269787462bc80dd6b40d241530c514ea3c4ed97e075ffc4eed0"
+    },
+    {
+      "path": "src/en/applicability-boundary-context.md",
+      "bytes": 3900,
+      "sha256": "3fed51cd3cb9100529f983723f8d8d125bc9f5be3df836a9d7371eb5f097045f"
+    },
+    {
+      "path": "src/en/applicability-boundary-definition.md",
+      "bytes": 993,
+      "sha256": "8cae99cc032e0e227a9d927ebbd40a251869e07453172a0646154119f1f3d53d"
+    },
+    {
+      "path": "src/en/applicability-failure-map.md",
+      "bytes": 4372,
+      "sha256": "c6046a8133728645cd178416cec5c5187065f8da813883cc11a06bd2e267070e"
+    },
+    {
+      "path": "src/en/applicability-incident-lens.md",
+      "bytes": 4105,
+      "sha256": "58ac96f6396edf6411e758b78945df7e5e5d3d0288ca1e259da54fb608bb0887"
+    },
+    {
+      "path": "src/en/architectural-questions.md",
+      "bytes": 1241,
+      "sha256": "7121e2acc3e548596b56cdc46712edeed0b6fa089f3bdac0468a5026a534ae3e"
+    },
+    {
+      "path": "src/en/architecture.md",
+      "bytes": 3080,
+      "sha256": "aacab9f96077cf292186ae1934d2d107f3441b15a802dd1f267a01cac0b54231"
+    },
+    {
+      "path": "src/en/boundaries.md",
+      "bytes": 1230,
+      "sha256": "b2aaea2409fffd2d8fc6bdc60d75283a5eaae9cfbc74065423f5a33477d94d41"
+    },
+    {
+      "path": "src/en/boundary-note.md",
+      "bytes": 2644,
+      "sha256": "c258a9bec60fa470e37ec9352049d8641652563c577b1f72962a51e83ff95806"
+    },
+    {
+      "path": "src/en/case-001-mode-validity-drift.md",
+      "bytes": 1541,
+      "sha256": "a8918f533efc2d982098feac5285a905c08d475472eb98f75664c8fd5c1cf96f"
+    },
+    {
+      "path": "src/en/case-002-authorization-delay-and-object-validity-drift.md",
+      "bytes": 2044,
+      "sha256": "80a27eca30242da41a8cf3e50a5f3384506f0e08b3814730cd2980a8e1cd492d"
+    },
+    {
+      "path": "src/en/case-003-observability-lag-in-route-execution.md",
+      "bytes": 1676,
+      "sha256": "cb67874a6a6902fafcb131ba8849ea7f0fbcffde19862f1789ac2058f93bd5e6"
+    },
+    {
+      "path": "src/en/case-004-alarm-suppression-and-safety-envelope-drift.md",
+      "bytes": 1874,
+      "sha256": "c3d16a0ab96854964239dddb7a28ff88f0cfe6419ef0258c00248b43c397c5b6"
+    },
+    {
+      "path": "src/en/case-studies.md",
+      "bytes": 1688,
+      "sha256": "9d12cb0e9bf57329ef41cd3851a59ba4d49436d479ef6387181f6193cec3953b"
+    },
+    {
+      "path": "src/en/case-template.md",
+      "bytes": 4873,
+      "sha256": "d1acbbd8984076c82ae00b46bea3a4edab718cc9c4718e23d2068ee892328443"
+    },
+    {
+      "path": "src/en/cases-overview-note.md",
+      "bytes": 2034,
+      "sha256": "df999b2940be1ee642d453530f80ac2bfb09e4790a93cfede5ea0f9dbc98fe3d"
+    },
+    {
+      "path": "src/en/cases.md",
+      "bytes": 2491,
+      "sha256": "6f4c06427420095a08faadb62888d958850b2ef5650e3ce2a2e803fb8d568fe6"
+    },
+    {
+      "path": "src/en/cases/case-001.md",
+      "bytes": 5334,
+      "sha256": "3b6c2839c7df21c2da623a29bc63a7dbeed371c8cd3471f1bf049b8e5329d7b4"
+    },
+    {
+      "path": "src/en/cases/case-002.md",
+      "bytes": 3206,
+      "sha256": "531814e594e0d650a7b74460de4c729c7634a636c703fe373d14c73bfb301c3a"
+    },
+    {
+      "path": "src/en/cases/case-003.md",
+      "bytes": 2933,
+      "sha256": "73fefd6cc5e22743f551b1ffe665f43cd4b391c6fca4cd0370216b6e805b9fce"
+    },
+    {
+      "path": "src/en/cases/case-004.md",
+      "bytes": 2829,
+      "sha256": "baf1ed14ecdb96c03ec8fae79afde0da591430463bd3117ea44d8c50b7af2ffd"
+    },
+    {
+      "path": "src/en/change-log.md",
+      "bytes": 1386,
+      "sha256": "0ed791e21854f0f86f2880b81bc19f4a6cf9015cf49602f5ff3722202012a44b"
+    },
+    {
+      "path": "src/en/citation.md",
+      "bytes": 13317,
+      "sha256": "cadddf1762755eee339a533dd416edb89bae7f17e3ec3f844e7508e88e4705ff"
+    },
+    {
+      "path": "src/en/concept-lineage.md",
+      "bytes": 3234,
+      "sha256": "55b120212e58b36f95bab998c0b7ba9a0033513a14072d3969df8cc0976cff64"
+    },
+    {
+      "path": "src/en/contact.md",
+      "bytes": 199,
+      "sha256": "42054774d884b92a63435853ec11d8c6f59c03d6bcf0d97f84d6e34ceb2f7ee0"
+    },
+    {
+      "path": "src/en/cookies.md",
+      "bytes": 1406,
+      "sha256": "c8695ddfcf1796db61f154ef790fc22a0efd55e066f8415fabb5e5fa50608fb1"
+    },
+    {
+      "path": "src/en/definition.md",
+      "bytes": 1205,
+      "sha256": "7f80d1377ff2f583485522439fcf9294a334ac1c85c5a752147a76af29f3da98"
+    },
+    {
+      "path": "src/en/disclaimer.md",
+      "bytes": 1529,
+      "sha256": "7f196324a9e85b12c916ffcd43b484e0d16a3c5fb583ec4612bde9f06062fb17"
+    },
+    {
+      "path": "src/en/doctrine-stability.md",
+      "bytes": 657,
+      "sha256": "5df1feb07492790ed81d4c91aa618a9e793de24afd8bf63b55e9830170abd596"
+    },
+    {
+      "path": "src/en/doctrine-theorems.md",
+      "bytes": 2247,
+      "sha256": "1b499cbe55e511befd5c49fcbb3b655d87d3053c0970e4612e1948d4da1be635"
+    },
+    {
+      "path": "src/en/doctrine.md",
+      "bytes": 3241,
+      "sha256": "a81de3ab862365f8d50b751286eb1cb551a61f7cd79036fbda13c95736d1d84c"
+    },
+    {
+      "path": "src/en/en.json",
+      "bytes": 43,
+      "sha256": "3f97be9abc369991ad61221a76937edf96f4d2fcde29855e60446ef3128caeff"
+    },
+    {
+      "path": "src/en/evidence-note.md",
+      "bytes": 2733,
+      "sha256": "0a62020ea04fd83ece008e9be6ac0ce4e2ee3f7a0c64a2a2d2eda07c93ed7544"
+    },
+    {
+      "path": "src/en/evidence.md",
+      "bytes": 1603,
+      "sha256": "141b4583d0a1558f5eb7c7fd7073e5d3fa9199b89bbcd79f5ccf046ebbfc0abc"
+    },
+    {
+      "path": "src/en/external-evidence.md",
+      "bytes": 2459,
+      "sha256": "9dbd2da115a9183ddde939ccdb2766782fd548f12cf1c2598b9aed7bb0853538"
+    },
+    {
+      "path": "src/en/for-architects.md",
+      "bytes": 3374,
+      "sha256": "51f8479c7b8d67ca488f8c8293e1a4720e7bdd6c797c81c2ff655a31775b3203"
+    },
+    {
+      "path": "src/en/for-auditors.md",
+      "bytes": 1475,
+      "sha256": "d7140a23b1ef6a140d94984693b02e232807ca3ec69af44a8be7514179dfda0e"
+    },
+    {
+      "path": "src/en/for-engineers.md",
+      "bytes": 1320,
+      "sha256": "f16aa5fa8628c3355413b923d2205d7c930d9d55a1b3365218c1826c21b27cf7"
+    },
+    {
+      "path": "src/en/for-insurers.md",
+      "bytes": 3906,
+      "sha256": "4ec1f89020a725f317667bf1e995f97edafa3f9e71089fee3cb09a7b6b1d9bdb"
+    },
+    {
+      "path": "src/en/for-investors.md",
+      "bytes": 3919,
+      "sha256": "4c3c88ef2dc7b695ef06d15649f0829473112f0f6c0e43e2eb04b39b9c9ccffe"
+    },
+    {
+      "path": "src/en/for-operators.md",
+      "bytes": 3026,
+      "sha256": "2de42852980b25923168cc209cc699f30c3082db03c827b4fbea10c2f8150ef7"
+    },
+    {
+      "path": "src/en/for-regulators.md",
+      "bytes": 3394,
+      "sha256": "a8d2cd82640ca49d2b4d063c95d0170e296e9447d6a035135463b86f71f589cb"
+    },
+    {
+      "path": "src/en/framework-overview.md",
+      "bytes": 5004,
+      "sha256": "0f14e6087a7376c5f3e483bd2e8d0dad255b748129c4be535e294bb159e965e6"
+    },
+    {
+      "path": "src/en/glossary.md",
+      "bytes": 3782,
+      "sha256": "27ed7bb209d5628aa99be29ee9520ee00b3580b3fa2860d7a88a14d8a4f3d531"
+    },
+    {
+      "path": "src/en/index-note.md",
+      "bytes": 1987,
+      "sha256": "4f61e97cbe590f59c438880dd16b1f46721c426ca258c89840dae250aa3ada6e"
+    },
+    {
+      "path": "src/en/index.md",
+      "bytes": 2796,
+      "sha256": "ecdf42bc907939c0c8a91bfcba9101cc789ff4231cf670fee0d56bd6938b104f"
+    },
+    {
+      "path": "src/en/method.md",
+      "bytes": 772,
+      "sha256": "99ed544450c2f7f583fd4eee97995ca5a349429cbbdaec621d82645f5cb4cb31"
+    },
+    {
+      "path": "src/en/notes-applicability.md",
+      "bytes": 1836,
+      "sha256": "5f1a5a7deeab283737dcd3e5e0c356686320f2d454ac47ed6a1c360ddc8f0bcd"
+    },
+    {
+      "path": "src/en/privacy.md",
+      "bytes": 3152,
+      "sha256": "18b105f96b405a5b37587d9fb6600d8b89de82c8d630fae05a8983acbff5fa61"
+    },
+    {
+      "path": "src/en/reading-order-note.md",
+      "bytes": 2060,
+      "sha256": "bac875ad9dcb18d008bb32802d8b35b9d5d285fa9b9778072df42e0a8e52f6fc"
+    },
+    {
+      "path": "src/en/scope-and-limitations.md",
+      "bytes": 1799,
+      "sha256": "3e18d8ce07d1b0171b524b10c4b40ac044f4a490daddd28a6eafdefbb7cf1d93"
+    },
+    {
+      "path": "src/en/scope-note.md",
+      "bytes": 2074,
+      "sha256": "24bf1e718434c7de373a1be6514acaaf082b40394d4db7d41aac60f631166934"
+    },
+    {
+      "path": "src/en/scope.md",
+      "bytes": 1482,
+      "sha256": "201c0ce8fa614d77b94d583e5508630644a5c746684143e488c2c453c84a060b"
+    },
+    {
+      "path": "src/en/screening.md",
+      "bytes": 497,
+      "sha256": "f63734a05ce9920fbf3140a27ba2b82671866d28cdc58bb2b5ab6db936865cd2"
+    },
+    {
+      "path": "src/en/terminology-applicability.md",
+      "bytes": 2430,
+      "sha256": "0a2640ddf0e5e054aadfe0960d8b89cd6661b8bd7fe8f729ab5cb4b855a1c775"
+    },
+    {
+      "path": "src/en/terminology-authority.md",
+      "bytes": 2935,
+      "sha256": "152a985da97a85e65954142787d78c18e04a7c026b8be3e3e1486958a6298a26"
+    },
+    {
+      "path": "src/en/terms.md",
+      "bytes": 8564,
+      "sha256": "6af5c3c81dca5f0a1d0ebd674254cfdd2f50ec7560978d7abe3ad5eb3665b6b1"
+    },
+    {
+      "path": "src/ua/about.md",
+      "bytes": 3519,
+      "sha256": "4f169e7e8ffaf73db813e4def986e408573ee05fa6508bfa218c69a22cbb3633"
+    },
+    {
+      "path": "src/ua/annex-failure-archetypes.md",
+      "bytes": 4621,
+      "sha256": "547d70aee3c887d04525ddc14478bbbdaf152b6189582052304303517bb5d1a0"
+    },
+    {
+      "path": "src/ua/applicability-architecture.md",
+      "bytes": 3204,
+      "sha256": "3b1213e808e62d0eaf71ab94e192917a6bcb377757546df621a6ecd986d50852"
+    },
+    {
+      "path": "src/ua/applicability-boundary-context.md",
+      "bytes": 6788,
+      "sha256": "7e15129679ce4b98dd568e21e19f8f822376a74e5b5bebee642e345f6977f9c3"
+    },
+    {
+      "path": "src/ua/applicability-boundary-definition.md",
+      "bytes": 1617,
+      "sha256": "f4dcb643b9b11c9ba23e264baf2b92755bec221a54b50b0d7cf998cf253c9428"
+    },
+    {
+      "path": "src/ua/applicability-failure-map.md",
+      "bytes": 7775,
+      "sha256": "83e021cb5593532678e98b33d58b926427fcc714f598e6aed268a6fde00db524"
+    },
+    {
+      "path": "src/ua/applicability-incident-lens.md",
+      "bytes": 7006,
+      "sha256": "cc49a119f16ecf8b8fcd3ead1159ecaef9256506b18a61b885fbb31ea77ac0f9"
+    },
+    {
+      "path": "src/ua/architectural-questions.md",
+      "bytes": 2067,
+      "sha256": "a873cbba5b83bd0a529a436cde9f5541dddc417468b8896c277fcd8feed62488"
+    },
+    {
+      "path": "src/ua/architecture.md",
+      "bytes": 5095,
+      "sha256": "164cfa06e73d5826d4d5e6713657bb74625f1102b5d15b823b419535d8a0feda"
+    },
+    {
+      "path": "src/ua/boundaries.md",
+      "bytes": 2039,
+      "sha256": "cf2b2587ffc33e1f8f29e99bc52bba58e597e6bb7bcd84eb1b600b6147a11dbf"
+    },
+    {
+      "path": "src/ua/boundary-note.md",
+      "bytes": 4450,
+      "sha256": "2fb0f58807181ba629cd5685a2aacd688485d0ae6126e0504c1d3315ff48f9ee"
+    },
+    {
+      "path": "src/ua/case-001-mode-validity-drift.md",
+      "bytes": 2901,
+      "sha256": "8d344020c6f56d0c5d5cb266a9b7cdace2bb78b5e11fc2560ec18561200b1fe5"
+    },
+    {
+      "path": "src/ua/case-002-authorization-delay-and-object-validity-drift.md",
+      "bytes": 3582,
+      "sha256": "e1634d618924a3e0dfe62d865a5d410d0e0988dbdbaa0ddd85477340bb1fa5e0"
+    },
+    {
+      "path": "src/ua/case-003-observability-lag-in-route-execution.md",
+      "bytes": 3123,
+      "sha256": "9b71b34eb468c025f8def0b31f3381a934ec055fc9801efd4bc35fa51afc80d9"
+    },
+    {
+      "path": "src/ua/case-004-alarm-suppression-and-safety-envelope-drift.md",
+      "bytes": 3434,
+      "sha256": "b3f205e5a19f7b495f9690b5847e28f044d55c90e22e797198eb5679baa3b9f8"
+    },
+    {
+      "path": "src/ua/case-studies.md",
+      "bytes": 2886,
+      "sha256": "0a08a12f2e9c188184f9cada78dc40261f28a0581d65ccaf8b1e2763862d7d29"
+    },
+    {
+      "path": "src/ua/case-template.md",
+      "bytes": 8393,
+      "sha256": "ca56a46846cdb17efcb0e52dc3c91978467d7f41b30d76412e48d3b908a9afb7"
+    },
+    {
+      "path": "src/ua/cases-overview-note.md",
+      "bytes": 3659,
+      "sha256": "5ce6e95e52aa579fc44b07c94103fc382c4a6e60b25f5b03f559f1d1812b6bb0"
+    },
+    {
+      "path": "src/ua/cases.md",
+      "bytes": 4010,
+      "sha256": "d4f4d3de7d0fdc9527bf25b150161d290e5eafefc2f61ff1da9f1cdb3f9c0799"
+    },
+    {
+      "path": "src/ua/cases/case-001.md",
+      "bytes": 9321,
+      "sha256": "f8e4d393cc948e145b6a4c458eff6ccbf097f73f2bfdc57098e21c4d8d7c6185"
+    },
+    {
+      "path": "src/ua/cases/case-002.md",
+      "bytes": 5801,
+      "sha256": "69b8a6a0ce857cc188327381cfdf1996077917147c0a64370a19623be214ee69"
+    },
+    {
+      "path": "src/ua/cases/case-003.md",
+      "bytes": 5315,
+      "sha256": "d1670c375d90331719317f8233734807cea87353431ee23af1ecd0b97b770b0a"
+    },
+    {
+      "path": "src/ua/cases/case-004.md",
+      "bytes": 4833,
+      "sha256": "b224bc8b3203c050f57dbb19aee4e23f78e9d88ce5b669cb071fa14d2f8bea10"
+    },
+    {
+      "path": "src/ua/change-log.md",
+      "bytes": 2304,
+      "sha256": "65217d363437420075f43e247c312fb5c4f51f8316879a2954545be5b7f1f606"
+    },
+    {
+      "path": "src/ua/citation.md",
+      "bytes": 16303,
+      "sha256": "36fdd8d8285beca93330d0298e860e3d331e027a391595997262fd12c1410f2f"
+    },
+    {
+      "path": "src/ua/concept-lineage.md",
+      "bytes": 5767,
+      "sha256": "bb43bc86fd6397450260ae2212f4e289ccbb7c4b4e08e562500c5f1e2f6d8feb"
+    },
+    {
+      "path": "src/ua/contact.md",
+      "bytes": 217,
+      "sha256": "33939f33b90ab5484d7cf47baffc93b1da809ae3fcc09933488ebd92c8e3d525"
+    },
+    {
+      "path": "src/ua/cookies.md",
+      "bytes": 2630,
+      "sha256": "3daacb4781bf92e65120ab0f0b1c906b6447f5d3da996b475b5b16a06069e630"
+    },
+    {
+      "path": "src/ua/definition.md",
+      "bytes": 2008,
+      "sha256": "0aba20d4742a3bf9d603a8035971b1dcdffca352c07b94d82089ccf4d3dc2fdb"
+    },
+    {
+      "path": "src/ua/disclaimer.md",
+      "bytes": 2711,
+      "sha256": "7432001dd87495960fe72861b01085ca9299cc312ae7724ea9ba1ed16b8f6031"
+    },
+    {
+      "path": "src/ua/doctrine-stability.md",
+      "bytes": 1157,
+      "sha256": "e7f2600426bb5b2fbcc691c63d964984c203be75374ce83b262a68d5fc141e96"
+    },
+    {
+      "path": "src/ua/doctrine-theorems.md",
+      "bytes": 3990,
+      "sha256": "6db4a4a993c24be5f8bf95ad90b8c99bf8f3c1477518d308a5e249ea221e0a8d"
+    },
+    {
+      "path": "src/ua/doctrine.md",
+      "bytes": 5334,
+      "sha256": "ae83514b0f9291186367b00474fd1c78e490bf28aa22197f5291cb1e2e96abab"
+    },
+    {
+      "path": "src/ua/evidence-note.md",
+      "bytes": 4799,
+      "sha256": "6d667c210eaca634206662dfe7e524a200e2c5129991cf7750e8ca383994d80c"
+    },
+    {
+      "path": "src/ua/evidence.md",
+      "bytes": 2527,
+      "sha256": "a444f8ecc880a882adb74354dd3feaeb8fd45fafff934e08423fac6b6f47ec19"
+    },
+    {
+      "path": "src/ua/external-evidence.md",
+      "bytes": 4499,
+      "sha256": "7b94b71e49ef9686b9e4cd6cf7755d9fb4af3ec9044d58013db9040971d4512c"
+    },
+    {
+      "path": "src/ua/for-architects.md",
+      "bytes": 5625,
+      "sha256": "e6f82d4d0a4e12cf5e0bb2670d4a58f9b0ebe3d669665a29f610823001ea2369"
+    },
+    {
+      "path": "src/ua/for-auditors.md",
+      "bytes": 2770,
+      "sha256": "99bb331d685d6c0f05239cba11718418895aaac1f28c291e1f2db0beffdbc56f"
+    },
+    {
+      "path": "src/ua/for-engineers.md",
+      "bytes": 2316,
+      "sha256": "a99f69ad6319a081d3c2f4dc67561302528d04a40fb165b0441ead39dbceebdb"
+    },
+    {
+      "path": "src/ua/for-insurers.md",
+      "bytes": 6753,
+      "sha256": "08855476461a1c32aaea5be0eccaa5d8a8eb1b091963ec672d6832c72553c40e"
+    },
+    {
+      "path": "src/ua/for-investors.md",
+      "bytes": 6720,
+      "sha256": "2f5d22b52cb9ea711a90dbf543c0fd256e4419f008334a08b51cb8bd773e8aad"
+    },
+    {
+      "path": "src/ua/for-operators.md",
+      "bytes": 5243,
+      "sha256": "86a10ca9c6d061f8ebc4b21911f2079dc8f8b93dd643d13c522ab733041f40b9"
+    },
+    {
+      "path": "src/ua/for-regulators.md",
+      "bytes": 5903,
+      "sha256": "cd722a74def38092ce12eaf78d10de9d8e3390b55078253aef748fb734ee5874"
+    },
+    {
+      "path": "src/ua/framework-overview.md",
+      "bytes": 7940,
+      "sha256": "a6b64424436dbb553bd394e43b2d7ef0dc98e6f5e1e75c67894e375955861715"
+    },
+    {
+      "path": "src/ua/glossary.md",
+      "bytes": 6792,
+      "sha256": "20444017ae39aee764be51ed143545fe2565f2bfeff2f94d9ded4d9d182de8a5"
+    },
+    {
+      "path": "src/ua/index-note.md",
+      "bytes": 3610,
+      "sha256": "4469850fff04e42a3034bc4e28bd66e9304a8a8c2e0aabcf751d6d40b7cfd544"
+    },
+    {
+      "path": "src/ua/index.md",
+      "bytes": 4786,
+      "sha256": "b5bc65b4b44bcca67702e8cec79e79e38ae9ea5184f9bcf7327d05c592149a83"
+    },
+    {
+      "path": "src/ua/method.md",
+      "bytes": 1318,
+      "sha256": "0e9bb4887d2a587117513009760129a7748f26a5d9ae75efe0d917fda09ca407"
+    },
+    {
+      "path": "src/ua/notes-applicability.md",
+      "bytes": 3243,
+      "sha256": "25842858775d1a58b9fdc8239d1908900e29a2f0b62232ced703005ce8b1d86e"
+    },
+    {
+      "path": "src/ua/privacy.md",
+      "bytes": 6008,
+      "sha256": "15784edab7e71eab72e2dbf1f7fcad679ce52ec33cec2717c0a5842f9bbb8784"
+    },
+    {
+      "path": "src/ua/reading-order-note.md",
+      "bytes": 3822,
+      "sha256": "ee2eb97f9e3e274283373d8aa7d069ad3c4670ab775187335213b0208f06206d"
+    },
+    {
+      "path": "src/ua/scope-and-limitations.md",
+      "bytes": 3227,
+      "sha256": "5024070fb737b75b55ed98fee2eb30155d889c32287eb9d698f434b998c6092a"
+    },
+    {
+      "path": "src/ua/scope-note.md",
+      "bytes": 3738,
+      "sha256": "95c086200f2b8601ebbfe52d20caf898f7e0a97ff84d28f6986eee9b4167f776"
+    },
+    {
+      "path": "src/ua/scope.md",
+      "bytes": 2527,
+      "sha256": "c9a0ea42ad62ee1580ec7260da7e9bb1fef84edf143cd0674cf8de8a802a8f98"
+    },
+    {
+      "path": "src/ua/screening.md",
+      "bytes": 779,
+      "sha256": "78b5e3a2e01c7c98c99e1932ca46af438d4161dd3b0fa9d1191ca536411371da"
+    },
+    {
+      "path": "src/ua/terminology-applicability.md",
+      "bytes": 4058,
+      "sha256": "d896b8a53620ae4533be675e3205fc34b0c1b2c847ef115ec081e77a881e2ec6"
+    },
+    {
+      "path": "src/ua/terminology-authority.md",
+      "bytes": 5200,
+      "sha256": "335dc6f5b3529ee15e0c35ece6d0b2a9fd58ac3b4ad0bef066bdbad24bef5f97"
+    },
+    {
+      "path": "src/ua/terms.md",
+      "bytes": 15790,
+      "sha256": "17e59151b28484edb1f57758801c66f4ad14ffea5e7e0255ddbaea6b75000869"
+    },
+    {
+      "path": "src/ua/ua.json",
+      "bytes": 43,
+      "sha256": "8487bf99da4066ce4baa5b57fe31526bac4ac54a3225fbe7e9ab56846528b034"
+    }
+  ]
+}
