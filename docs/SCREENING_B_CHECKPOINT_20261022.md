@@ -1,6 +1,6 @@
 # Executor B — doctrinal Screening v14 r2 checkpoint
 
-Status: R2 INTEGRATED / FINAL BROWSER QA IN PROGRESS / NOT DEPLOYED. The r1 file-read/lifecycle findings are fixed by the shared owner. This candidate awaits complete final-wrapper QA and managing-chat acceptance.
+Status: READY FOR INDEPENDENT ACCEPTANCE / NOT DEPLOYED. Exact r2 integrated; pipeline and final EN/UA/mobile wrapper checks completed with the specific browser-policy limit below. The r1 defects are resolved; managing-chat acceptance is the next gate.
 
 Assignment: https://app.notion.com/p/4012a14e14ce81d6afa7e02a99bda6bc
 
@@ -31,18 +31,37 @@ Canonical core0.3.0-alpha, evidence0.5.0-alpha/schema0.4 with legacy0.1–0.3, M
 - B's original independent rejected-file spy now PASS: unsupportedZIP100bytes and DOCX10485761bytes each perform0reads (r1 each performed1).
 - Independent second execution of session/controller/parser including5local DOCX calibrations — PASS. Additional old-snapshot oracle preserves2025date/version/stale and recheck-currentness; unsupported private-session format rejected. Calibration files are not committed.
 
-Local Node24.19/Python3.12; fresh PR CI20/3.11 remains mandatory for this exact candidate.
+Local Node24.19/Python3.12. GitHub CI Node20/Python3.11 PASS for exact code candidate656b9bef6e820c6cdbd01045e822935d24184e14: https://github.com/GotoCalmAIDP/doctrine-site-box/actions/runs/39837852132 . Final evidence/document commit changes no application runtime; its CI is recorded in the assignment page.
 
-## Browser QA progress and boundaries
+## Completed final-wrapper browser QA
 
-The supported Sites supervisor served the exact generated B wrapper at terminal.local with a temporary static mount preserving the Pages basepath. No Site registration, public preview or deployment was created. Temporary hosting/mount/mobile QA files are untracked and excluded from release.
+Supported Sites managed preview, cloud Chrome, exact built pages and Pages basepath. No Site registration or deployment. Temporary hosting/mount/helper HTML removed; supervisor stopped. Detailed evidence: `docs/screening-b-qa/r2-browser-evidence.json`; screenshot: `docs/screening-b-qa/r2-ua375.jpg` (SHA2562454eb5d7037e13495315ed7198872131be57ab0ef9226696cece9576b378c80).
 
-Browser PASS so far: EN preliminary Enterprise cue remains unverified/defaultUnknown; explicitCritical selection; Maritime context;17Unknown answers+mixed basis gives Insufficient basis;9axes/17Unknown retained; local completion1 with original last result/date. Aggregate unavailable does not block local work; no contribution opt-in/POST.
+| Path | Observed result |
+| --- | --- |
+| Minimum EN text | Unverified Enterprise cue; default Unknown; explicit Critical retained |
+| Full canonical path | Maritime/design/mixed basis+17Unknown gives Insufficient basis; all9axes visible; count1 |
+| Session/reload | Original count1/last timestamp survives navigation and successful direct reload |
+| Maritime | Both routing choices unresolved+8Unknown gives bound-control-path-first; count remains1 |
+| Native DOCX | Deflated synthetic fixture with long Unicode name;9/9cues, all17core records remain open |
+| Invalid files | ZIP,10MiB+1 and corrupt DOCX rejected with specific local errors; prior report preserved |
+| File count | DOCX+TXT+MD produces3reports; Maximum of3documents button disabled |
+| EN to UA | Object/version/old2025-01-01date and count1 preserved |
+| Portable JSON | Browser export schema0.4 has17records+1Maritime package; separate UA375tab import preserves old date/version and count0/no last result |
+| Mobile | UA375: document360=scroll360,root328=scroll328,htmluk. EN320: document305=scroll305,htmlen.15px reserved for vertical scrollbar; no horizontal overflow |
+| Reset | Explicit test confirm accepted; imported workspace inputs removed, terms unchecked, count0/no last result |
+| Served identity | All9same-origin asset GETs200, correct JS/CSS MIME, exact response bytes equal manifest-pinned source |
 
-During reload the single shared preview was switched to A commercial root (verified visible commercial home), producing Cannot GET on B's path. This is preview contention, not a proven B reload failure. B does not interrupt active A preview. Remaining: finish reload/restore count/date, native file/export/import/Reset, UA375/EN320 exact-wrapper frames, screenshot and served browser resources. Do not label these PASS until completed. Physical mobile device and real-origin aggregate CORS are untested; no live POST is required for this acceptance.
+The browser's URL-policy gate rejected the final mobile harness reload after Reset (disallowed protocol; exact target protocol not exposed). That single post-Reset reload is UNVERIFIED; no alternate surface/workaround was attempted. The preceding result reload/restore passed and controller oracles verify Reset persistence. A screenshot clipping attempt timed out; the earlier complete viewport screenshot was saved unchanged. These tool limits are not application failures or a physical-device test.
+
+The initial supervisor conflict was resolved after A saved its completed acceptance checkpoint. Successful B direct reload/restore was rerun on the correct B preview; earlier Cannot GET did not count as a product failure.
+
+Aggregate showed unavailable while local paths stayed usable. No contribution opt-in/action/live POST. Source and mocked lifecycle tests enforce payload exclusion of files/text/answers/locators. Actual application CORS, physical mobile devices, full accessibility and printed PDF remain unverified. Limited metadata/excerpts can remain locally; zero-text-retention is not claimed.
+
+After removing temporary QA files, metadata/citations, Eleventy, route integrity, nine-asset audit and controlled-artifact diff were repeated successfully; no QA route or mount enters production.
 
 ## Next step and rollback
 
-Finish final wrapper browser/mobile QA on the available supervisor slot, save updated immutable checkpoint and request managing-chat acceptance. Publication remains the separate next stage already authorized by the owner: after acceptance, recheck refs/foreign work, merge only accepted scope, inspect actual Pages integrity/build/deployment source and compare served EN/UA closure to accepted manifest. A branch push or green build alone is not deployment.
+Return this immutable checkpoint to the managing chat for independent acceptance. No shared fix or user permission is pending; the narrow tool/device/CORS limits above remain explicit. Publication remains the separate next stage already authorized by the owner: after acceptance, recheck refs/foreign work, merge only accepted scope, inspect actual Pages integrity/build/deployment source and compare served EN/UA closure to accepted manifest. A branch push or green build alone is not deployment.
 
 Rollback remains the original baseline backup. Revert only this integration and restore v13 template while preserving unrelated later changes. Current production is unchanged by B.

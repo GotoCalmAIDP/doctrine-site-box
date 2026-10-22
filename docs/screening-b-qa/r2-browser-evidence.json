@@ -1,0 +1,126 @@
+{
+  "source_commit": "df4ea1292f6c356950f25e46e6025f68304c8ab8",
+  "code_candidate": "656b9bef6e820c6cdbd01045e822935d24184e14",
+  "release_id": "gotocalm-screening-portable-20261022-v14-r2",
+  "environment": "Supported Sites supervisor, cloud Chrome; exact built pages in 375px UA / 320px EN frames; not physical devices",
+  "checks": {
+    "EN_minimum_text": "PASS: unverified Enterprise cue; canonical default Unknown; explicit Critical retained",
+    "canonical_unknown": "PASS: Maritime/design/mixed basis, 17Unknown, nine axes, Insufficient basis, count1",
+    "reload_restore": "PASS: original count1 and last result timestamp unchanged across navigation and successful reload",
+    "maritime": "PASS: two unresolved routing choices + 8Unknown => bound control path first; count remains1",
+    "DOCX_native": "PASS: synthetic deflated DOCX, Unicode long filename; 9/9 cues; all17 core records still open",
+    "file_refusals": {
+      "ZIP": "Only .docx, .txt and .md files are supported.",
+      "10485761_byte_DOCX": "The selected file is larger than 10 MiB.",
+      "corrupt_DOCX": "The file could not be analyzed locally. It may be encrypted, damaged or unsupported."
+    },
+    "three_file_cap": "PASS: DOCX+TXT+MD, three reports; Maximum of 3 documents reached button disabled",
+    "EN_UA_same_tab": "PASS: context/version/2025-01-01 preserved; count1 remains",
+    "export": "PASS: workspace schema0.4, 17evidenceRecords, 1sectorPackage; raw preliminary/extracted paragraph absent; rights preserved",
+    "UA375_portable_import": "PASS: separate tab imports EN JSON with old2025date/version; count0 and no last result, core+Maritime preserved",
+    "mobile_dimensions": {
+      "UA375": {
+        "document_client": 360,
+        "document_scroll": 360,
+        "root_client": 328,
+        "root_scroll": 328,
+        "html_lang": "uk"
+      },
+      "EN320": {
+        "document_client": 305,
+        "document_scroll": 305,
+        "html_lang": "en"
+      }
+    },
+    "mobile_reset": "PASS: explicit confirm accepted; workspace context inputs0, terms unchecked, count0, no last result",
+    "post_reset_harness_reload": "UNVERIFIED: browser URL-policy gate rejected final harness reload for disallowed protocol; no workaround attempted",
+    "aggregate": "Unavailable message leaves local flow usable. No contribution checkbox/action/POST. Actual origin CORS remains UNKNOWN; payload/privacy/lifecycle covered by source/mock tests."
+  },
+  "served_assets": [
+    {
+      "url": "/doctrine-site-box/assets/screening/screening-v14.js",
+      "status": 200,
+      "bytes": 226003,
+      "expected_sha256": "ad98aae6d3a4abc089889f6ef1882225d45105f69190536c8cb32f2b84a0d911",
+      "exact_source_byte_comparison": true,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    {
+      "url": "/doctrine-site-box/assets/screening/screening-v14.css",
+      "status": 200,
+      "bytes": 43054,
+      "expected_sha256": "08ec832ca242f6b0e1f62479be3728996bf577edea5761657a8520951097dbef",
+      "exact_source_byte_comparison": true,
+      "mime": "text/css; charset=utf-8"
+    },
+    {
+      "url": "/doctrine-site-box/assets/screening/screening-session-v14.js",
+      "status": 200,
+      "bytes": 6770,
+      "expected_sha256": "696cac0d71ccf34a4fc78e82eb0f7f99b967f50b3714a34416c26b9d2c5a285a",
+      "exact_source_byte_comparison": true,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    {
+      "url": "/doctrine-site-box/assets/screening/document-intake-core-v14.js",
+      "status": 200,
+      "bytes": 29865,
+      "expected_sha256": "d5d1234498ad6f0e35e28f1aaf34ed3c8f37117672174d6b6fa8d5ba7a2275d9",
+      "exact_source_byte_comparison": true,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    {
+      "url": "/doctrine-site-box/assets/screening/screening-core.js",
+      "status": 200,
+      "bytes": 12397,
+      "expected_sha256": "c73fc4fd098985af193f44f6922abd49d2ea1f061753f52e9cb7ef03bdb6eb17",
+      "exact_source_byte_comparison": true,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    {
+      "url": "/doctrine-site-box/assets/screening/evidence-workspace-core-v08.js",
+      "status": 200,
+      "bytes": 26916,
+      "expected_sha256": "662d0d385e116a1e0e2a388aaa08bb04894d0810460104916df12074e0435409",
+      "exact_source_byte_comparison": true,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    {
+      "url": "/doctrine-site-box/assets/screening/public-activity-core.js",
+      "status": 200,
+      "bytes": 2796,
+      "expected_sha256": "994f1718d884724e434faf9afc26fb1563f77f97613dfca77b27e5ba323fd280",
+      "exact_source_byte_comparison": true,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    {
+      "url": "/doctrine-site-box/assets/screening/maritime-core.js",
+      "status": 200,
+      "bytes": 9285,
+      "expected_sha256": "88d6ad5a88dfb4061a00b3d3af919a9fa38d59c53937f30264151de8383cc813",
+      "exact_source_byte_comparison": true,
+      "mime": "text/javascript; charset=utf-8"
+    },
+    {
+      "url": "/doctrine-site-box/assets/screening/rights-core-v13.js",
+      "status": 200,
+      "bytes": 1738,
+      "expected_sha256": "e451f09603b628a922484c5ab81ced372a69b4d963492ecd34441a2767eef606",
+      "exact_source_byte_comparison": true,
+      "mime": "text/javascript; charset=utf-8"
+    }
+  ],
+  "screenshot": {
+    "path": "docs/screening-b-qa/r2-ua375.jpg",
+    "sha256": "2454eb5d7037e13495315ed7198872131be57ab0ef9226696cece9576b378c80",
+    "description": "Exact UA375 frame: context/version and imported old date, visible rights/boundary copy."
+  },
+  "limits": [
+    "No production deployment or live source identity claimed",
+    "No physical mobile device/full accessibility/printed PDF",
+    "Actual application aggregate CORS unverified; no live POST",
+    "One final post-Reset harness reload blocked by browser URL policy; preceding result reload PASS",
+    "Screenshot clip attempt timed out; earlier full viewport screenshot saved unchanged",
+    "Shared supervisor briefly switched to A during first reload; rerun after A checkpoint succeeded"
+  ]
+}
