@@ -16,7 +16,7 @@ import {
   mergeMaritimeBridgeIntoWorkspace,
   parseMaritimeBridgeImport,
   parseEvidenceWorkspaceImport
-} from "../src/assets/screening/evidence-workspace-core.js";
+} from "../src/assets/screening/evidence-workspace-core-v08.js";
 import {
   MARITIME_BRIDGE_SCHEMA,
   MARITIME_QUESTIONS,
