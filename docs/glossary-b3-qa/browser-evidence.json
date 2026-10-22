@@ -1,0 +1,705 @@
+{
+  "date": "2026-10-22",
+  "environment": "Supported sites-preview; Chrome; CSS iframe viewports, not physical devices",
+  "deployment": false,
+  "enTermClicks": [
+    {
+      "focused": true,
+      "id": "term-applicability",
+      "target": true,
+      "title": "Applicability",
+      "top": 48
+    },
+    {
+      "focused": true,
+      "id": "term-applicability-boundary",
+      "target": true,
+      "title": "Applicability Boundary",
+      "top": 48
+    },
+    {
+      "focused": true,
+      "id": "term-behaviour-governance",
+      "target": true,
+      "title": "Behaviour Governance",
+      "top": 48
+    },
+    {
+      "focused": true,
+      "id": "term-boundary",
+      "target": true,
+      "title": "Boundary",
+      "top": 48
+    },
+    {
+      "focused": true,
+      "id": "term-boundary-note",
+      "target": true,
+      "title": "Boundary Note",
+      "top": 48
+    },
+    {
+      "focused": true,
+      "id": "term-canonical",
+      "target": true,
+      "title": "Canonical",
+      "top": 48
+    },
+    {
+      "focused": true,
+      "id": "term-case",
+      "target": true,
+      "title": "Case",
+      "top": 48
+    },
+    {
+      "focused": true,
+      "id": "term-claim",
+      "target": true,
+      "title": "Claim",
+      "top": 48
+    },
+    {
+      "focused": true,
+      "id": "term-compliance-theater",
+      "target": true,
+      "title": "Compliance Theater",
+      "top": 48
+    },
+    {
+      "focused": true,
+      "id": "term-conceptual-note",
+      "target": true,
+      "title": "Conceptual Note",
+      "top": 48
+    },
+    {
+      "focused": true,
+      "id": "term-evidence",
+      "target": true,
+      "title": "Evidence",
+      "top": 48
+    },
+    {
+      "focused": true,
+      "id": "term-evidence-note",
+      "target": true,
+      "title": "Evidence Note",
+      "top": 48
+    },
+    {
+      "focused": true,
+      "id": "term-explanation",
+      "target": true,
+      "title": "Explanation",
+      "top": 48
+    },
+    {
+      "focused": true,
+      "id": "term-illustrative",
+      "target": true,
+      "title": "Illustrative",
+      "top": 48
+    },
+    {
+      "focused": true,
+      "id": "term-invalid-operational-mode",
+      "target": true,
+      "title": "Invalid Operational Mode",
+      "top": 48
+    },
+    {
+      "focused": true,
+      "id": "term-non-claim",
+      "target": true,
+      "title": "Non-Claim",
+      "top": 48
+    },
+    {
+      "focused": true,
+      "id": "term-operational-assumptions",
+      "target": true,
+      "title": "Operational Assumptions",
+      "top": 48
+    },
+    {
+      "focused": true,
+      "id": "term-operational-mode",
+      "target": true,
+      "title": "Operational Mode",
+      "top": 48
+    },
+    {
+      "focused": true,
+      "id": "term-scope",
+      "target": true,
+      "title": "Scope",
+      "top": 48
+    },
+    {
+      "focused": true,
+      "id": "term-scope-note",
+      "target": true,
+      "title": "Scope Note",
+      "top": 48
+    },
+    {
+      "focused": true,
+      "id": "term-structural-translation",
+      "target": true,
+      "title": "Structural Translation",
+      "top": 48
+    },
+    {
+      "focused": true,
+      "id": "term-system-legitimacy",
+      "target": true,
+      "title": "System Legitimacy",
+      "top": 48
+    },
+    {
+      "focused": true,
+      "id": "term-verbatim",
+      "target": true,
+      "title": "Verbatim",
+      "top": 48
+    }
+  ],
+  "uaTermClicks": [
+    {
+      "focused": true,
+      "id": "term-non-claim",
+      "target": true,
+      "title": "Без тверджень (Non-Claim)"
+    },
+    {
+      "focused": true,
+      "id": "term-evidence",
+      "target": true,
+      "title": "Доказ (Evidence)"
+    },
+    {
+      "focused": true,
+      "id": "term-verbatim",
+      "target": true,
+      "title": "Дослівно (Verbatim)"
+    },
+    {
+      "focused": true,
+      "id": "term-applicability",
+      "target": true,
+      "title": "Застосовність (Applicability)"
+    },
+    {
+      "focused": true,
+      "id": "term-illustrative",
+      "target": true,
+      "title": "Ілюстративний (Illustrative)"
+    },
+    {
+      "focused": true,
+      "id": "term-canonical",
+      "target": true,
+      "title": "Канонічний (Canonical)"
+    },
+    {
+      "focused": true,
+      "id": "term-case",
+      "target": true,
+      "title": "Кейс (Case)"
+    },
+    {
+      "focused": true,
+      "id": "term-conceptual-note",
+      "target": true,
+      "title": "Концептуальна примітка (Conceptual Note)"
+    },
+    {
+      "focused": true,
+      "id": "term-system-legitimacy",
+      "target": true,
+      "title": "Легітимність системи (System Legitimacy)"
+    },
+    {
+      "focused": true,
+      "id": "term-boundary",
+      "target": true,
+      "title": "Межа (Boundary)"
+    },
+    {
+      "focused": true,
+      "id": "term-applicability-boundary",
+      "target": true,
+      "title": "Межа застосовності (Applicability Boundary)"
+    },
+    {
+      "focused": true,
+      "id": "term-invalid-operational-mode",
+      "target": true,
+      "title": "Недійсний операційний режим (Invalid Operational Mode)"
+    },
+    {
+      "focused": true,
+      "id": "term-scope",
+      "target": true,
+      "title": "Обсяг (Scope)"
+    },
+    {
+      "focused": true,
+      "id": "term-operational-mode",
+      "target": true,
+      "title": "Операційний режим (Operational Mode)"
+    },
+    {
+      "focused": true,
+      "id": "term-operational-assumptions",
+      "target": true,
+      "title": "Операційні припущення (Operational Assumptions)"
+    },
+    {
+      "focused": true,
+      "id": "term-explanation",
+      "target": true,
+      "title": "Пояснення (Explanation)"
+    },
+    {
+      "focused": true,
+      "id": "term-evidence-note",
+      "target": true,
+      "title": "Примітка про докази (Evidence Note)"
+    },
+    {
+      "focused": true,
+      "id": "term-boundary-note",
+      "target": true,
+      "title": "Примітка про межі (Boundary Note)"
+    },
+    {
+      "focused": true,
+      "id": "term-scope-note",
+      "target": true,
+      "title": "Примітка про обсяг (Scope Note)"
+    },
+    {
+      "focused": true,
+      "id": "term-structural-translation",
+      "target": true,
+      "title": "Структурний переклад (Structural Translation)"
+    },
+    {
+      "focused": true,
+      "id": "term-claim",
+      "target": true,
+      "title": "Твердження (Claim)"
+    },
+    {
+      "focused": true,
+      "id": "term-compliance-theater",
+      "target": true,
+      "title": "Театр відповідності (Compliance Theater)"
+    },
+    {
+      "focused": true,
+      "id": "term-behaviour-governance",
+      "target": true,
+      "title": "Управління поведінкою (Behaviour Governance)"
+    }
+  ],
+  "bilingualRoundtrips": [
+    {
+      "id": "term-applicability",
+      "ua": {
+        "focused": true,
+        "target": true,
+        "title": "Застосовність (Applicability)"
+      },
+      "en": {
+        "focused": true,
+        "target": true,
+        "title": "Applicability"
+      }
+    },
+    {
+      "id": "term-boundary",
+      "ua": {
+        "focused": true,
+        "target": true,
+        "title": "Межа (Boundary)"
+      },
+      "en": {
+        "focused": true,
+        "target": true,
+        "title": "Boundary"
+      }
+    },
+    {
+      "id": "term-boundary-note",
+      "ua": {
+        "focused": true,
+        "target": true,
+        "title": "Примітка про межі (Boundary Note)"
+      },
+      "en": {
+        "focused": true,
+        "target": true,
+        "title": "Boundary Note"
+      }
+    },
+    {
+      "id": "term-case",
+      "ua": {
+        "focused": true,
+        "target": true,
+        "title": "Кейс (Case)"
+      },
+      "en": {
+        "focused": true,
+        "target": true,
+        "title": "Case"
+      }
+    },
+    {
+      "id": "term-canonical",
+      "ua": {
+        "focused": true,
+        "target": true,
+        "title": "Канонічний (Canonical)"
+      },
+      "en": {
+        "focused": true,
+        "target": true,
+        "title": "Canonical"
+      }
+    },
+    {
+      "id": "term-claim",
+      "ua": {
+        "focused": true,
+        "target": true,
+        "title": "Твердження (Claim)"
+      },
+      "en": {
+        "focused": true,
+        "target": true,
+        "title": "Claim"
+      }
+    },
+    {
+      "id": "term-compliance-theater",
+      "ua": {
+        "focused": true,
+        "target": true,
+        "title": "Театр відповідності (Compliance Theater)"
+      },
+      "en": {
+        "focused": true,
+        "target": true,
+        "title": "Compliance Theater"
+      }
+    },
+    {
+      "id": "term-conceptual-note",
+      "ua": {
+        "focused": true,
+        "target": true,
+        "title": "Концептуальна примітка (Conceptual Note)"
+      },
+      "en": {
+        "focused": true,
+        "target": true,
+        "title": "Conceptual Note"
+      }
+    },
+    {
+      "id": "term-evidence",
+      "ua": {
+        "focused": true,
+        "target": true,
+        "title": "Доказ (Evidence)"
+      },
+      "en": {
+        "focused": true,
+        "target": true,
+        "title": "Evidence"
+      }
+    },
+    {
+      "id": "term-evidence-note",
+      "ua": {
+        "focused": true,
+        "target": true,
+        "title": "Примітка про докази (Evidence Note)"
+      },
+      "en": {
+        "focused": true,
+        "target": true,
+        "title": "Evidence Note"
+      }
+    },
+    {
+      "id": "term-explanation",
+      "ua": {
+        "focused": true,
+        "target": true,
+        "title": "Пояснення (Explanation)"
+      },
+      "en": {
+        "focused": true,
+        "target": true,
+        "title": "Explanation"
+      }
+    },
+    {
+      "id": "term-illustrative",
+      "ua": {
+        "focused": true,
+        "target": true,
+        "title": "Ілюстративний (Illustrative)"
+      },
+      "en": {
+        "focused": true,
+        "target": true,
+        "title": "Illustrative"
+      }
+    },
+    {
+      "id": "term-non-claim",
+      "ua": {
+        "focused": true,
+        "target": true,
+        "title": "Без тверджень (Non-Claim)"
+      },
+      "en": {
+        "focused": true,
+        "target": true,
+        "title": "Non-Claim"
+      }
+    },
+    {
+      "id": "term-scope",
+      "ua": {
+        "focused": true,
+        "target": true,
+        "title": "Обсяг (Scope)"
+      },
+      "en": {
+        "focused": true,
+        "target": true,
+        "title": "Scope"
+      }
+    },
+    {
+      "id": "term-scope-note",
+      "ua": {
+        "focused": true,
+        "target": true,
+        "title": "Примітка про обсяг (Scope Note)"
+      },
+      "en": {
+        "focused": true,
+        "target": true,
+        "title": "Scope Note"
+      }
+    },
+    {
+      "id": "term-structural-translation",
+      "ua": {
+        "focused": true,
+        "target": true,
+        "title": "Структурний переклад (Structural Translation)"
+      },
+      "en": {
+        "focused": true,
+        "target": true,
+        "title": "Structural Translation"
+      }
+    },
+    {
+      "id": "term-verbatim",
+      "ua": {
+        "focused": true,
+        "target": true,
+        "title": "Дослівно (Verbatim)"
+      },
+      "en": {
+        "focused": true,
+        "target": true,
+        "title": "Verbatim"
+      }
+    },
+    {
+      "id": "term-operational-mode",
+      "ua": {
+        "focused": true,
+        "target": true,
+        "title": "Операційний режим (Operational Mode)"
+      },
+      "en": {
+        "focused": true,
+        "target": true,
+        "title": "Operational Mode"
+      }
+    },
+    {
+      "id": "term-applicability-boundary",
+      "ua": {
+        "focused": true,
+        "target": true,
+        "title": "Межа застосовності (Applicability Boundary)"
+      },
+      "en": {
+        "focused": true,
+        "target": true,
+        "title": "Applicability Boundary"
+      }
+    },
+    {
+      "id": "term-invalid-operational-mode",
+      "ua": {
+        "focused": true,
+        "target": true,
+        "title": "Недійсний операційний режим (Invalid Operational Mode)"
+      },
+      "en": {
+        "focused": true,
+        "target": true,
+        "title": "Invalid Operational Mode"
+      }
+    },
+    {
+      "id": "term-behaviour-governance",
+      "ua": {
+        "focused": true,
+        "target": true,
+        "title": "Управління поведінкою (Behaviour Governance)"
+      },
+      "en": {
+        "focused": true,
+        "target": true,
+        "title": "Behaviour Governance"
+      }
+    },
+    {
+      "id": "term-system-legitimacy",
+      "ua": {
+        "focused": true,
+        "target": true,
+        "title": "Легітимність системи (System Legitimacy)"
+      },
+      "en": {
+        "focused": true,
+        "target": true,
+        "title": "System Legitimacy"
+      }
+    },
+    {
+      "id": "term-operational-assumptions",
+      "ua": {
+        "focused": true,
+        "target": true,
+        "title": "Операційні припущення (Operational Assumptions)"
+      },
+      "en": {
+        "focused": true,
+        "target": true,
+        "title": "Operational Assumptions"
+      }
+    }
+  ],
+  "filter": [
+    {
+      "query": "межа",
+      "shown": 2,
+      "status": "2 of 23 terms. All definitions remain below."
+    },
+    {
+      "event": "keyboard Clear",
+      "focused": "glossary-filter",
+      "query": "",
+      "shown": 23
+    },
+    {
+      "event": "HTML-like",
+      "hiddenDefinitions": 0,
+      "images": 0,
+      "noResult": true,
+      "shown": 0,
+      "termHeadings": 23
+    }
+  ],
+  "mobileInitial": [
+    {
+      "name": "ua375",
+      "client": 360,
+      "current": "Глосарій",
+      "filterHidden": false,
+      "indexLinks": 23,
+      "lang": "uk",
+      "scroll": 360,
+      "terms": 23
+    },
+    {
+      "name": "en320",
+      "client": 305,
+      "current": "Glossary",
+      "filterHidden": false,
+      "indexLinks": 23,
+      "lang": "en",
+      "scroll": 305,
+      "terms": 23
+    },
+    {
+      "name": "nojs375",
+      "client": 360,
+      "current": "Глосарій",
+      "filterHidden": true,
+      "indexLinks": 23,
+      "lang": "uk",
+      "scroll": 360,
+      "terms": 23
+    }
+  ],
+  "mobileFiltered": [
+    {
+      "name": "ua375",
+      "client": 360,
+      "scroll": 360,
+      "shown": [
+        "Доказ (Evidence)",
+        "Примітка про докази (Evidence Note)"
+      ],
+      "status": "Знайдено 2 із 23. Усі визначення залишаються нижче."
+    },
+    {
+      "name": "en320",
+      "client": 305,
+      "scroll": 305,
+      "shown": [
+        "System Legitimacy"
+      ],
+      "status": "1 of 23 terms. All definitions remain below."
+    }
+  ],
+  "noJS": {
+    "indexLinks": 23,
+    "definitionTarget": "term-evidence",
+    "targetAndDefinitionObserved": true,
+    "nativeBackToIndex": true
+  },
+  "limits": [
+    "Physical devices, screen-reader speech and print untested",
+    "Only current23 actual h2 targets were browser-tested; legacy-ID alias handling is fixture-tested"
+  ],
+  "screenshots": [
+    "desktop-index.jpg",
+    "mobile-navigation.jpg",
+    "mobile-filter.jpg"
+  ],
+  "previewReleased": true,
+  "temporaryFixturesIncluded": false,
+  "additionalUAFilterChecks": {
+    "noResults": "Назв термінів не знайдено. Очистіть фільтр, щоб показати всі терміни.",
+    "clearRestored": 23,
+    "clearFocusVerifiedImmediately": true
+  }
+}

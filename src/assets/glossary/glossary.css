@@ -1,0 +1,43 @@
+/* Glossary navigation only. Canonical definitions are never filtered or hidden. */
+.glossary-index {
+    margin: 1.8rem 0 2.8rem;
+    padding: 1.4rem 1.6rem;
+    border: 1px solid var(--reader-line);
+    border-radius: 5px;
+    background: var(--reader-paper);
+    scroll-margin-top: 1.5rem;
+}
+.reader-document .glossary-index h2 { margin: 0 0 .6rem; font-size: 1.25rem; }
+.reader-document .glossary-index-help { margin-bottom: 1.2rem; color: var(--reader-muted); font-size: .9rem; line-height: 1.6; }
+.glossary-filter label { display: block; font-size: .9rem; font-weight: 650; margin-bottom: .35rem; }
+.glossary-filter-controls { display: flex; align-items: stretch; gap: .65rem; }
+.glossary-filter input {
+    width: 100%; min-width: 0; padding: .6rem .75rem;
+    border: 1px solid #8c9f93; border-radius: 3px;
+    background: #fff; color: var(--reader-ink); font: inherit; font-size: 1rem;
+}
+.glossary-filter button {
+    padding: .55rem .8rem; border: 1px solid #8c9f93; border-radius: 3px;
+    background: var(--reader-accent-soft); color: var(--reader-ink); font: inherit; font-size: .9rem; cursor: pointer;
+}
+.glossary-filter button:hover { background: #dae6df; }
+.reader-document .glossary-filter-hint { margin: .4rem 0 .7rem; color: var(--reader-muted); font-size: .8rem; }
+.reader-document .glossary-filter-status { margin-bottom: 1rem; color: var(--reader-muted); font-size: .85rem; }
+.reader-document .glossary-filter-empty { margin: 1rem 0; font-size: .9rem; }
+.reader-document .glossary-term-list {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .2rem 1.4rem;
+    margin: 0; padding: 0; list-style: none;
+}
+.reader-document .glossary-term-list li { margin: 0; padding: 0; font-size: .9rem; line-height: 1.5; }
+.glossary-term-list a { display: block; padding: .4rem 0; overflow-wrap: anywhere; }
+.glossary-index [hidden] { display: none !important; }
+.reader-document .glossary-term-tools { margin: -.3rem 0 .9rem; font-size: .8rem; color: var(--reader-muted); line-height: 1.5; }
+.glossary-term-tools a { display: inline-block; padding-block: .2rem; }
+[data-glossary-term]:target { border-left: 3px solid var(--reader-accent); padding-left: .7rem; }
+[data-glossary-term]:focus-visible { outline: 3px solid var(--reader-accent); outline-offset: 5px; }
+.glossary-term-anchor { display: block; scroll-margin-top: 1.5rem; }
+@media (max-width: 540px) {
+    .glossary-index { padding: 1.1rem; }
+    .reader-document .glossary-term-list { grid-template-columns: 1fr; gap: .1rem; }
+    .glossary-term-list a { padding-block: .5rem; }
+}

@@ -14,6 +14,7 @@ module.exports = function(eleventyConfig) {
   
   // Add keyboard-accessible table scrolling without changing source content.
   eleventyConfig.addTransform("readerTables", require("./scripts/reader-transform.cjs"));
+  eleventyConfig.addTransform("glossaryNavigation", require("./scripts/glossary-transform.cjs"));
 
   // Add language filter
   eleventyConfig.addFilter("langUrl", function(url, lang) {
@@ -103,6 +104,7 @@ module.exports = function(eleventyConfig) {
     en: [
       { title: "Home", url: pathPrefix + "/en/" },
       { title: "Reading Order", url: pathPrefix + "/en/reading-order-note/" },
+      { title: "Glossary", url: pathPrefix + "/en/glossary/" },
       { title: "Doctrine", url: pathPrefix + "/en/doctrine/" },
       { title: "Screening", url: pathPrefix + "/en/screening/" },
       { title: "Search", url: pathPrefix + "/en/index-note/#site-search" }
@@ -110,6 +112,7 @@ module.exports = function(eleventyConfig) {
     ua: [
       { title: "Головна", url: pathPrefix + "/ua/" },
       { title: "Порядок читання", url: pathPrefix + "/ua/reading-order-note/" },
+      { title: "Глосарій", url: pathPrefix + "/ua/glossary/" },
       { title: "Доктрина", url: pathPrefix + "/ua/doctrine/" },
       { title: "Скринінг", url: pathPrefix + "/ua/screening/" },
       { title: "Пошук", url: pathPrefix + "/ua/index-note/#site-search" }

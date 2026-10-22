@@ -1,0 +1,26 @@
+[
+  {
+    "path": "assets/glossary/glossary.css",
+    "status": 200,
+    "mime": "text/css; charset=utf-8",
+    "bytes": 2571,
+    "exactBytes": true,
+    "expectedSha256": "b4495a658fb95d40ccd8731b25b27463f70f33f3d878025fb0318a4f6f705fe2"
+  },
+  {
+    "path": "assets/glossary/glossary.js",
+    "status": 200,
+    "mime": "text/javascript; charset=utf-8",
+    "bytes": 1885,
+    "exactBytes": true,
+    "expectedSha256": "c897f6163605b0561f050037a0b5f71d80ec631c95f0e91c21b33026b21fce20"
+  },
+  {
+    "path": "assets/glossary/glossary-core.mjs",
+    "status": 200,
+    "mime": "text/javascript; charset=utf-8",
+    "bytes": 642,
+    "exactBytes": true,
+    "expectedSha256": "159761bef62dadcc75b2be07d4090d486b3529602938c7736d4fd1071f485d8e"
+  }
+]

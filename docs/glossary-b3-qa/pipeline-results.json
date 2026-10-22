@@ -1,0 +1,128 @@
+{
+  "allPassed": true,
+  "checks": [
+    {
+      "command": [
+        "node",
+        "--version"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python",
+        "--version"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "npm",
+        "ci"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:screening"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python",
+        "-c",
+        "import yaml,jsonschema,PIL; print(\"Audit dependencies available\")"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python",
+        "scripts/generate-page-metadata.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python",
+        "scripts/generate-citation-artifacts.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:search"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:example"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:glossary"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python",
+        "scripts/audit-routes.py",
+        "_site"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "audit:screening-assets"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": "167 controlled sources byte-identical to published fc035df baseline",
+      "exitCode": 0
+    },
+    {
+      "command": "Both complete B2 search indexes byte-identical",
+      "exitCode": 0
+    },
+    {
+      "command": "All23 B2+B3 browser-served resource hashes match final clean build",
+      "exitCode": 0
+    },
+    {
+      "command": "No preview fixtures in clean build",
+      "exitCode": 0
+    }
+  ]
+}
