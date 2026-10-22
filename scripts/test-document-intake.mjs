@@ -11,7 +11,7 @@ import {
   formatFileSize,
   selectBestAxisSuggestions,
   validateDocumentFileDescriptor
-} from "../src/assets/screening/document-intake-core.js";
+} from "../src/assets/screening/document-intake-core-v10.js";
 
 const sources = [
   "01-02_Canonical_Doctrine_Standard_v0.3.docx",

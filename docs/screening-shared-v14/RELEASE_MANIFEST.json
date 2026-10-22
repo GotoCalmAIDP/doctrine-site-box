@@ -1,0 +1,102 @@
+{
+  "release_id": "gotocalm-screening-portable-20261022-v14-r2",
+  "owner": "managing chat / root",
+  "status": "READY_FOR_INTEGRATION_NOT_DEPLOYED",
+  "public_baseline": {
+    "repository": "GotoCalmAIDP/doctrine-site-box",
+    "commit": "f82c696d79d3ff31cf0cd6f12c6db2449ac84187"
+  },
+  "private_source": {
+    "project_id": "appgprj_6ace8660511c8191912ec992ad3f9b2c",
+    "commit": "1e95fdf90f7a711b4a1a5cbf73535eebd0bc4e76"
+  },
+  "core_version": "screening-core 0.3.0-alpha",
+  "evidence_version": "evidence-readiness-workspace 0.5.0-alpha",
+  "schemas": {
+    "evidence": "goto-calm:evidence-readiness-workspace:0.4",
+    "evidence_legacy": [
+      "0.1",
+      "0.2",
+      "0.3"
+    ],
+    "maritime": "goto-calm:maritime-dp-bridge:0.1",
+    "session": "goto-calm:screening-tab-draft:0.2",
+    "session_legacy": "goto-calm:screening-tab-draft:0.1",
+    "tab_completions": "goto-calm:screening-tab-completions:0.1"
+  },
+  "consequence_classes": [
+    "informational",
+    "limited",
+    "enterprise",
+    "high",
+    "critical",
+    "unknown"
+  ],
+  "canonical_semantics_changed": false,
+  "commercial_aggregate_mode": "off until origin/CORS/consent validated",
+  "assets": [
+    {
+      "path": "src/assets/screening/screening-v14.js",
+      "bytes": 226003,
+      "sha256": "ad98aae6d3a4abc089889f6ef1882225d45105f69190536c8cb32f2b84a0d911"
+    },
+    {
+      "path": "src/assets/screening/screening-v14.css",
+      "bytes": 43054,
+      "sha256": "08ec832ca242f6b0e1f62479be3728996bf577edea5761657a8520951097dbef"
+    },
+    {
+      "path": "src/assets/screening/screening-session-v14.js",
+      "bytes": 6770,
+      "sha256": "696cac0d71ccf34a4fc78e82eb0f7f99b967f50b3714a34416c26b9d2c5a285a"
+    },
+    {
+      "path": "src/assets/screening/document-intake-core-v14.js",
+      "bytes": 29865,
+      "sha256": "d5d1234498ad6f0e35e28f1aaf34ed3c8f37117672174d6b6fa8d5ba7a2275d9"
+    },
+    {
+      "path": "src/assets/screening/screening-core.js",
+      "bytes": 12397,
+      "sha256": "c73fc4fd098985af193f44f6922abd49d2ea1f061753f52e9cb7ef03bdb6eb17"
+    },
+    {
+      "path": "src/assets/screening/evidence-workspace-core-v08.js",
+      "bytes": 26916,
+      "sha256": "662d0d385e116a1e0e2a388aaa08bb04894d0810460104916df12074e0435409"
+    },
+    {
+      "path": "src/assets/screening/public-activity-core.js",
+      "bytes": 2796,
+      "sha256": "994f1718d884724e434faf9afc26fb1563f77f97613dfca77b27e5ba323fd280"
+    },
+    {
+      "path": "src/assets/screening/maritime-core.js",
+      "bytes": 9285,
+      "sha256": "88d6ad5a88dfb4061a00b3d3af919a9fa38d59c53937f30264151de8383cc813"
+    },
+    {
+      "path": "src/assets/screening/rights-core-v13.js",
+      "bytes": 1738,
+      "sha256": "e451f09603b628a922484c5ab81ced372a69b4d963492ecd34441a2767eef606"
+    }
+  ],
+  "checks": {
+    "fresh_existing_screening_tests": "PASS r2",
+    "v14_session_oracles": "PASS r2",
+    "v14_controller_oracles": "PASS r2; file-read bounds, import/scan races, detached/superseded Reset, mocked aggregate lifecycle",
+    "v14_intake_hardening": "PASS r2; 5 attached calibration DOCX present locally, not distributed",
+    "independent_lifecycle_review": "PASS on controller SHA256 ad98aae6d3a4abc089889f6ef1882225d45105f69190536c8cb32f2b84a0d911; exact A detached repro, 12 mocked aggregate cases, 3 inverse import/scan cases",
+    "browser_r1_historical": "Recorded at r1 only; not counted as r2 final-wrapper acceptance",
+    "final_wrapper_browser_mobile": "REQUIRED per A/B integration; manager preview not deployment",
+    "new_deployment": "NOT_DEPLOYED",
+    "aggregate_cors": "UNKNOWN; no live POST sent"
+  },
+  "supersedes_commit": "dac71a03978d5913fa9729800b0ccba0b80c13de",
+  "fixes": [
+    "Reject file descriptors before reading bytes",
+    "Latest accepted import/scan owns its async generation",
+    "Detached or superseded controllers cannot render or persist stale state",
+    "Late aggregate replies cannot restore reset/replaced session contribution state"
+  ]
+}
