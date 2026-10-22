@@ -4,11 +4,13 @@
   "license": "SEE LICENSE.md",
   "description": "Doctrine site structural shell - bilingual static website",
   "scripts": {
-    "build": "eleventy",
+    "build": "node scripts/build-screening-example.mjs && eleventy && node scripts/build-search-index.mjs",
     "serve": "eleventy --serve",
     "start": "eleventy --serve",
     "test:screening": "node scripts/test-screening-core.mjs && node scripts/test-public-activity.mjs && node scripts/test-document-intake.mjs && node scripts/test-rights.mjs && node scripts/test-screening-session-v14.mjs && node scripts/test-screening-app-v14.mjs && node tests/v14-intake-hardening.mjs",
-    "audit:screening-assets": "node scripts/audit-screening-assets.mjs _site"
+    "audit:screening-assets": "node scripts/audit-screening-assets.mjs _site",
+    "test:search": "node scripts/test-site-search.mjs",
+    "test:example": "node scripts/test-screening-example.mjs _site && node scripts/test-screening-example-controller.mjs"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1"

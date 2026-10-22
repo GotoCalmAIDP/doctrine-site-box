@@ -1,0 +1,694 @@
+{
+  "version": 1,
+  "sampleId": "fictional-supplier-reply-assistant",
+  "fictional": true,
+  "nonnormative": true,
+  "screening": {
+    "outcome": "exploratory",
+    "axes": [
+      {
+        "id": "scope",
+        "en": "Scope and applicability basis",
+        "ua": "Обсяг і підстава застосовності",
+        "score": 0,
+        "promptCount": 2,
+        "unknown": 2,
+        "out": 0
+      },
+      {
+        "id": "explanation",
+        "en": "Explanatory boundary visibility",
+        "ua": "Видимість пояснювальної межі",
+        "score": 0,
+        "promptCount": 2,
+        "unknown": 2,
+        "out": 0
+      },
+      {
+        "id": "authority",
+        "en": "Human authority effectiveness",
+        "ua": "Дієвість людських повноважень",
+        "score": 0,
+        "promptCount": 2,
+        "unknown": 2,
+        "out": 0
+      },
+      {
+        "id": "commit",
+        "en": "Commit-time admissibility",
+        "ua": "Допустимість у момент фіксації",
+        "score": 0,
+        "promptCount": 2,
+        "unknown": 2,
+        "out": 0
+      },
+      {
+        "id": "evidence",
+        "en": "Evidence and proof discipline",
+        "ua": "Дисципліна свідчень і доказів",
+        "score": 0,
+        "promptCount": 2,
+        "unknown": 2,
+        "out": 0
+      },
+      {
+        "id": "consequence",
+        "en": "Consequence and reversibility posture",
+        "ua": "Позиція щодо наслідків і зворотності",
+        "score": 0,
+        "promptCount": 2,
+        "unknown": 2,
+        "out": 0
+      },
+      {
+        "id": "topology",
+        "en": "Topology-wide enforcement",
+        "ua": "Застосування в усій топології",
+        "score": 0,
+        "promptCount": 2,
+        "unknown": 2,
+        "out": 0
+      },
+      {
+        "id": "drift",
+        "en": "Change and trajectory integrity",
+        "ua": "Цілісність змін і траєкторії",
+        "score": 0,
+        "promptCount": 2,
+        "unknown": 2,
+        "out": 0
+      },
+      {
+        "id": "runtime",
+        "en": "Runtime and post-boundary integrity",
+        "ua": "Цілісність виконання та стану після межі",
+        "score": 0,
+        "promptCount": 1,
+        "unknown": 1,
+        "out": 0
+      }
+    ],
+    "answerDistribution": [
+      {
+        "value": "3",
+        "count": 0,
+        "percent": 0
+      },
+      {
+        "value": "2",
+        "count": 0,
+        "percent": 0
+      },
+      {
+        "value": "1",
+        "count": 0,
+        "percent": 0
+      },
+      {
+        "value": "0",
+        "count": 0,
+        "percent": 0
+      },
+      {
+        "value": "unknown",
+        "count": 17,
+        "percent": 100
+      },
+      {
+        "value": "out",
+        "count": 0,
+        "percent": 0
+      }
+    ],
+    "priorityFlags": [
+      "authority_effectiveness",
+      "commit_preconditions",
+      "revocation",
+      "evidence_freshness",
+      "proof_reconstruction",
+      "topology_enforcement",
+      "systemic_stop"
+    ],
+    "unknownCount": 17,
+    "outOfScopeCount": 0,
+    "consequenceClass": "unknown",
+    "sectorContext": "general",
+    "lifecycle": "concept",
+    "responseBasis": "exploratory",
+    "version": "screening-core 0.3.0-alpha",
+    "assessmentDate": "2026-09-22"
+  },
+  "evidenceReviewed": false,
+  "answerCount": 17,
+  "dates": {
+    "coreBasisDate": "2026-09-22",
+    "assessmentDate": "2026-10-22",
+    "generatedAt": "2026-10-22T00:00:00.000Z"
+  },
+  "provenance": {
+    "releaseId": "gotocalm-screening-portable-20261022-v14-r2",
+    "sharedSourceCommit": "df4ea1292f6c356950f25e46e6025f68304c8ab8",
+    "manifestSha256": "619492406980509341b4b99175c762ff116a595c25459722324bd6815763a53d",
+    "sharedRuntimeSha256": "ad98aae6d3a4abc089889f6ef1882225d45105f69190536c8cb32f2b84a0d911",
+    "coreVersion": "screening-core 0.3.0-alpha",
+    "evidenceVersion": "evidence-readiness-workspace 0.5.0-alpha",
+    "schema": "goto-calm:evidence-readiness-workspace:0.4"
+  },
+  "languages": {
+    "en": {
+      "copy": {
+        "title": "How to read a result: educational example",
+        "badge": "Training only · nonnormative",
+        "scenario": "Imagine an assistant that drafts supplier replies for a person to review. This example represents no real organisation, supplier, source document or operational deployment.",
+        "interpretation": "Every answer is UNKNOWN. The scenario description and context labels are fictional premises, not evidence that a control exists or works. The example shows how unresolved evidence appears in an exploratory record.",
+        "boundary": "No evidence has been independently reviewed. This is not an assessment of an operational system, an audit or a conclusion on safety, compliance or doctrine conformance. It cannot authorize execution, continuation or restoration.",
+        "mappingNote": "Open records require further evidence work; they do not establish a failure or a risk level. A mapped record would still not be independent verification.",
+        "interaction": "Viewing or downloading this example does not change your active screening, completion count or consent, and does not submit to the public aggregate. Importing the JSON is a separate, manual action in the workspace, with its normal replacement prompts.",
+        "contextTitle": "Fictional context and result",
+        "countsTitle": "Computed evidence state",
+        "briefTitle": "Review brief",
+        "priorityTitle": "Priority questions surfaced in the brief",
+        "nextTitle": "Next actions in this brief",
+        "inputsTitle": "The full answer set",
+        "provenanceTitle": "Dates and provenance",
+        "dateNote": "The core basis date identifies the pinned rule set. The assessment date belongs only to this fictional scenario. generatedAt is a fixed export timestamp used to reproduce these files; it is not a new evidence-review date.",
+        "jsonLanguageNote": "The JSON preserves the runtime's schema and its standard English status and limitations. The explanatory brief is available in the selected language.",
+        "downloadJson": "Download example JSON",
+        "downloadBrief": "Download review brief (Markdown)",
+        "field": "Field",
+        "value": "Value",
+        "question": "Question",
+        "answer": "Answer",
+        "unknown": "UNKNOWN",
+        "labels": {
+          "referenceLabel": "Fictional object",
+          "assessedVersion": "Scenario version",
+          "outcome": "Screening outcome",
+          "responseBasis": "Response basis",
+          "consequenceClass": "Consequence class",
+          "sectorContext": "Sector context",
+          "lifecycle": "Lifecycle",
+          "unknownCount": "Unknown answers",
+          "outOfScopeCount": "Out-of-scope answers",
+          "mapped": "Mapped records",
+          "open": "Open records",
+          "priorityOpen": "Priority-open records",
+          "status": "Brief status",
+          "coreBasisDate": "Core basis date",
+          "assessmentDate": "Synthetic assessment date",
+          "generatedAt": "Fixed export timestamp (generatedAt)",
+          "releaseId": "Pinned shared release",
+          "sharedSourceCommit": "Shared r2 source commit",
+          "manifestSha256": "Release manifest SHA-256",
+          "sharedRuntimeSha256": "Shared runtime SHA-256",
+          "coreVersion": "Screening core version",
+          "evidenceVersion": "Evidence workspace version",
+          "schema": "JSON schema"
+        },
+        "values": {
+          "outcome": {
+            "exploratory": "Exploratory run — no substantive result"
+          },
+          "responseBasis": {
+            "exploratory": "Exploratory / demonstration run"
+          },
+          "consequenceClass": {
+            "unknown": "UNKNOWN — unresolved"
+          },
+          "sectorContext": {
+            "general": "General / advisory"
+          },
+          "lifecycle": {
+            "concept": "Concept / research"
+          },
+          "status": {
+            "training-only": "Training-only snapshot"
+          }
+        },
+        "actions": {
+          "rerun-substantive": "Repeat the screening for one real object using identifiable records or a declared mixed basis.",
+          "resolve-priority-records": "Start with the priority open records; classify each source, add a controlled locator, and check currentness and conflicts.",
+          "complete-open-records": "Complete the remaining open mappings or explicitly justify their scope boundaries."
+        },
+        "context": {
+          "referenceLabel": "Fictional supplier-reply drafting assistant",
+          "assessedVersion": "synthetic-example-1",
+          "assessmentDate": "2026-10-22",
+          "contextLabel": "Training scenario only; drafts for human review; no real organisation, records or reviewed evidence."
+        }
+      },
+      "contextRows": [
+        {
+          "key": "referenceLabel",
+          "label": "Fictional object",
+          "value": "Fictional supplier-reply drafting assistant"
+        },
+        {
+          "key": "assessedVersion",
+          "label": "Scenario version",
+          "value": "synthetic-example-1"
+        },
+        {
+          "key": "consequenceClass",
+          "label": "Consequence class",
+          "value": "UNKNOWN — unresolved"
+        },
+        {
+          "key": "responseBasis",
+          "label": "Response basis",
+          "value": "Exploratory / demonstration run"
+        },
+        {
+          "key": "outcome",
+          "label": "Screening outcome",
+          "value": "Exploratory run — no substantive result"
+        },
+        {
+          "key": "sectorContext",
+          "label": "Sector context",
+          "value": "General / advisory"
+        },
+        {
+          "key": "lifecycle",
+          "label": "Lifecycle",
+          "value": "Concept / research"
+        }
+      ],
+      "metrics": [
+        {
+          "key": "unknownCount",
+          "label": "Unknown answers",
+          "value": 17
+        },
+        {
+          "key": "outOfScopeCount",
+          "label": "Out-of-scope answers",
+          "value": 0
+        },
+        {
+          "key": "mapped",
+          "label": "Mapped records",
+          "value": 0
+        },
+        {
+          "key": "open",
+          "label": "Open records",
+          "value": 17
+        },
+        {
+          "key": "priorityOpen",
+          "label": "Priority-open records",
+          "value": 11
+        }
+      ],
+      "statusLabel": "Training-only snapshot",
+      "priorityItems": [
+        {
+          "id": "scope_object",
+          "text": "Is the assessed object explicit, including its context, version and assessment date?"
+        },
+        {
+          "id": "applicability_basis",
+          "text": "Are the claimed use, applicability basis, exclusions and dependencies recorded?"
+        },
+        {
+          "id": "authority_effectiveness",
+          "text": "Can that authority intervene in time, with the information and means needed to change the outcome?"
+        }
+      ],
+      "nextActions": [
+        {
+          "id": "rerun-substantive",
+          "text": "Repeat the screening for one real object using identifiable records or a declared mixed basis."
+        },
+        {
+          "id": "resolve-priority-records",
+          "text": "Start with the priority open records; classify each source, add a controlled locator, and check currentness and conflicts."
+        },
+        {
+          "id": "complete-open-records",
+          "text": "Complete the remaining open mappings or explicitly justify their scope boundaries."
+        }
+      ],
+      "dateRows": [
+        {
+          "key": "coreBasisDate",
+          "label": "Core basis date",
+          "value": "2026-09-22"
+        },
+        {
+          "key": "assessmentDate",
+          "label": "Synthetic assessment date",
+          "value": "2026-10-22"
+        },
+        {
+          "key": "generatedAt",
+          "label": "Fixed export timestamp (generatedAt)",
+          "value": "2026-10-22T00:00:00.000Z"
+        }
+      ],
+      "provenanceRows": [
+        {
+          "key": "releaseId",
+          "label": "Pinned shared release",
+          "value": "gotocalm-screening-portable-20261022-v14-r2"
+        },
+        {
+          "key": "sharedSourceCommit",
+          "label": "Shared r2 source commit",
+          "value": "df4ea1292f6c356950f25e46e6025f68304c8ab8"
+        },
+        {
+          "key": "manifestSha256",
+          "label": "Release manifest SHA-256",
+          "value": "619492406980509341b4b99175c762ff116a595c25459722324bd6815763a53d"
+        },
+        {
+          "key": "sharedRuntimeSha256",
+          "label": "Shared runtime SHA-256",
+          "value": "ad98aae6d3a4abc089889f6ef1882225d45105f69190536c8cb32f2b84a0d911"
+        },
+        {
+          "key": "coreVersion",
+          "label": "Screening core version",
+          "value": "screening-core 0.3.0-alpha"
+        },
+        {
+          "key": "evidenceVersion",
+          "label": "Evidence workspace version",
+          "value": "evidence-readiness-workspace 0.5.0-alpha"
+        },
+        {
+          "key": "schema",
+          "label": "JSON schema",
+          "value": "goto-calm:evidence-readiness-workspace:0.4"
+        }
+      ],
+      "downloads": {
+        "json": "/assets/examples/screening-en.json",
+        "markdown": "/assets/examples/screening-en.md"
+      }
+    },
+    "ua": {
+      "copy": {
+        "title": "Як читати результат: навчальний приклад",
+        "badge": "Лише для навчання · ненормативний",
+        "scenario": "Уявіть помічника, який готує чернетки відповідей постачальникам для перегляду людиною. Приклад не представляє реальну організацію, постачальника, вихідний документ або систему в експлуатації.",
+        "interpretation": "Усі відповіді мають значення «НЕВІДОМО». Опис сценарію та позначення контексту є вигаданими передумовами, а не свідченнями існування або дієвості контролів. Приклад показує невизначені свідчення в ознайомлювальному записі.",
+        "boundary": "Жодних свідчень не перевірено незалежно. Це не оцінювання системи в експлуатації, не аудит і не висновок щодо безпеки, дотримання вимог або відповідності доктрині. Приклад не може дозволяти виконання, продовження чи відновлення.",
+        "mappingNote": "Відкриті записи потребують подальшої роботи зі свідченнями; вони не встановлюють відмову або рівень ризику. Навіть зіставлений запис не означав би незалежної перевірки.",
+        "interaction": "Перегляд або завантаження прикладу не змінює активного скринінгу, лічильника завершень чи згоди та не надсилає даних до публічного агрегату. Імпорт JSON є окремою ручною дією в робочому просторі зі звичайними запитами щодо заміни.",
+        "contextTitle": "Вигаданий контекст і результат",
+        "countsTitle": "Обчислений стан свідчень",
+        "briefTitle": "Стислий огляд",
+        "priorityTitle": "Пріоритетні питання, наведені в огляді",
+        "nextTitle": "Наступні дії в цьому огляді",
+        "inputsTitle": "Повний набір відповідей",
+        "provenanceTitle": "Дати та походження",
+        "dateNote": "Дата бази ядра визначає зафіксований набір правил. Дата оцінювання стосується лише цього вигаданого сценарію. generatedAt — фіксована часова позначка експорту для відтворення цих файлів, а не нова дата перевірки свідчень.",
+        "jsonLanguageNote": "JSON зберігає схему та стандартні англомовні статус і обмеження модуля. Пояснювальний огляд доступний обраною мовою.",
+        "downloadJson": "Завантажити приклад JSON",
+        "downloadBrief": "Завантажити стислий огляд (Markdown)",
+        "field": "Поле",
+        "value": "Значення",
+        "question": "Питання",
+        "answer": "Відповідь",
+        "unknown": "НЕВІДОМО",
+        "labels": {
+          "referenceLabel": "Вигаданий об’єкт",
+          "assessedVersion": "Версія сценарію",
+          "outcome": "Результат скринінгу",
+          "responseBasis": "Підстава відповідей",
+          "consequenceClass": "Клас наслідків",
+          "sectorContext": "Секторальний контекст",
+          "lifecycle": "Життєвий цикл",
+          "unknownCount": "Відповіді «Невідомо»",
+          "outOfScopeCount": "Відповіді поза обсягом",
+          "mapped": "Зіставлені записи",
+          "open": "Відкриті записи",
+          "priorityOpen": "Пріоритетні відкриті записи",
+          "status": "Статус огляду",
+          "coreBasisDate": "Дата бази ядра",
+          "assessmentDate": "Дата навчального оцінювання",
+          "generatedAt": "Фіксована часова позначка експорту (generatedAt)",
+          "releaseId": "Зафіксований спільний випуск",
+          "sharedSourceCommit": "Коміт спільного вихідного коду r2",
+          "manifestSha256": "SHA-256 маніфесту випуску",
+          "sharedRuntimeSha256": "SHA-256 спільного модуля виконання",
+          "coreVersion": "Версія ядра скринінгу",
+          "evidenceVersion": "Версія робочого простору свідчень",
+          "schema": "Схема JSON"
+        },
+        "values": {
+          "outcome": {
+            "exploratory": "Ознайомлювальний прохід — без змістовного результату"
+          },
+          "responseBasis": {
+            "exploratory": "Ознайомлювальний / демонстраційний прохід"
+          },
+          "consequenceClass": {
+            "unknown": "НЕВІДОМО (UNKNOWN) — не визначено"
+          },
+          "sectorContext": {
+            "general": "Загальний / дорадчий"
+          },
+          "lifecycle": {
+            "concept": "Концепція / дослідження"
+          },
+          "status": {
+            "training-only": "Навчальний знімок"
+          }
+        },
+        "actions": {
+          "rerun-substantive": "Повторіть скринінг для одного реального об’єкта на підставі записів, які можна визначити, або заявленої змішаної підстави.",
+          "resolve-priority-records": "Почніть із пріоритетних відкритих записів: класифікуйте кожне джерело, додайте контрольований локатор і перевірте актуальність та конфлікти.",
+          "complete-open-records": "Завершіть решту відкритих картувань або явно обґрунтуйте їхні межі обсягу."
+        },
+        "context": {
+          "referenceLabel": "Вигаданий помічник для підготовки відповідей постачальникам",
+          "assessedVersion": "synthetic-example-1",
+          "assessmentDate": "2026-10-22",
+          "contextLabel": "Лише навчальний сценарій; чернетки для перегляду людиною; без реальної організації, записів або перевірених свідчень."
+        }
+      },
+      "contextRows": [
+        {
+          "key": "referenceLabel",
+          "label": "Вигаданий об’єкт",
+          "value": "Вигаданий помічник для підготовки відповідей постачальникам"
+        },
+        {
+          "key": "assessedVersion",
+          "label": "Версія сценарію",
+          "value": "synthetic-example-1"
+        },
+        {
+          "key": "consequenceClass",
+          "label": "Клас наслідків",
+          "value": "НЕВІДОМО (UNKNOWN) — не визначено"
+        },
+        {
+          "key": "responseBasis",
+          "label": "Підстава відповідей",
+          "value": "Ознайомлювальний / демонстраційний прохід"
+        },
+        {
+          "key": "outcome",
+          "label": "Результат скринінгу",
+          "value": "Ознайомлювальний прохід — без змістовного результату"
+        },
+        {
+          "key": "sectorContext",
+          "label": "Секторальний контекст",
+          "value": "Загальний / дорадчий"
+        },
+        {
+          "key": "lifecycle",
+          "label": "Життєвий цикл",
+          "value": "Концепція / дослідження"
+        }
+      ],
+      "metrics": [
+        {
+          "key": "unknownCount",
+          "label": "Відповіді «Невідомо»",
+          "value": 17
+        },
+        {
+          "key": "outOfScopeCount",
+          "label": "Відповіді поза обсягом",
+          "value": 0
+        },
+        {
+          "key": "mapped",
+          "label": "Зіставлені записи",
+          "value": 0
+        },
+        {
+          "key": "open",
+          "label": "Відкриті записи",
+          "value": 17
+        },
+        {
+          "key": "priorityOpen",
+          "label": "Пріоритетні відкриті записи",
+          "value": 11
+        }
+      ],
+      "statusLabel": "Навчальний знімок",
+      "priorityItems": [
+        {
+          "id": "scope_object",
+          "text": "Чи визначено об’єкт оцінювання разом із контекстом, версією та датою оцінювання?"
+        },
+        {
+          "id": "applicability_basis",
+          "text": "Чи зафіксовано заявлене використання, підставу застосовності, виключення та залежності?"
+        },
+        {
+          "id": "authority_effectiveness",
+          "text": "Чи може цей носій повноважень вчасно втрутитися, маючи інформацію та засоби для зміни результату?"
+        }
+      ],
+      "nextActions": [
+        {
+          "id": "rerun-substantive",
+          "text": "Повторіть скринінг для одного реального об’єкта на підставі записів, які можна визначити, або заявленої змішаної підстави."
+        },
+        {
+          "id": "resolve-priority-records",
+          "text": "Почніть із пріоритетних відкритих записів: класифікуйте кожне джерело, додайте контрольований локатор і перевірте актуальність та конфлікти."
+        },
+        {
+          "id": "complete-open-records",
+          "text": "Завершіть решту відкритих картувань або явно обґрунтуйте їхні межі обсягу."
+        }
+      ],
+      "dateRows": [
+        {
+          "key": "coreBasisDate",
+          "label": "Дата бази ядра",
+          "value": "2026-09-22"
+        },
+        {
+          "key": "assessmentDate",
+          "label": "Дата навчального оцінювання",
+          "value": "2026-10-22"
+        },
+        {
+          "key": "generatedAt",
+          "label": "Фіксована часова позначка експорту (generatedAt)",
+          "value": "2026-10-22T00:00:00.000Z"
+        }
+      ],
+      "provenanceRows": [
+        {
+          "key": "releaseId",
+          "label": "Зафіксований спільний випуск",
+          "value": "gotocalm-screening-portable-20261022-v14-r2"
+        },
+        {
+          "key": "sharedSourceCommit",
+          "label": "Коміт спільного вихідного коду r2",
+          "value": "df4ea1292f6c356950f25e46e6025f68304c8ab8"
+        },
+        {
+          "key": "manifestSha256",
+          "label": "SHA-256 маніфесту випуску",
+          "value": "619492406980509341b4b99175c762ff116a595c25459722324bd6815763a53d"
+        },
+        {
+          "key": "sharedRuntimeSha256",
+          "label": "SHA-256 спільного модуля виконання",
+          "value": "ad98aae6d3a4abc089889f6ef1882225d45105f69190536c8cb32f2b84a0d911"
+        },
+        {
+          "key": "coreVersion",
+          "label": "Версія ядра скринінгу",
+          "value": "screening-core 0.3.0-alpha"
+        },
+        {
+          "key": "evidenceVersion",
+          "label": "Версія робочого простору свідчень",
+          "value": "evidence-readiness-workspace 0.5.0-alpha"
+        },
+        {
+          "key": "schema",
+          "label": "Схема JSON",
+          "value": "goto-calm:evidence-readiness-workspace:0.4"
+        }
+      ],
+      "downloads": {
+        "json": "/assets/examples/screening-ua.json",
+        "markdown": "/assets/examples/screening-ua.md"
+      }
+    }
+  },
+  "brief": {
+    "status": "training-only",
+    "exploratory": true,
+    "missingSectorPackage": false,
+    "contextGaps": [],
+    "summary": {
+      "mapped": 0,
+      "open": 17,
+      "excluded": 0,
+      "priorityOpen": 11
+    },
+    "priorityItems": [
+      {
+        "questionId": "scope_object",
+        "axis": "scope",
+        "priority": true,
+        "state": "open",
+        "actions": [
+          "identify-record-status",
+          "classify-evidence",
+          "add-record-locator",
+          "establish-currentness",
+          "check-for-conflict"
+        ],
+        "packageType": "core"
+      },
+      {
+        "questionId": "applicability_basis",
+        "axis": "scope",
+        "priority": true,
+        "state": "open",
+        "actions": [
+          "identify-record-status",
+          "classify-evidence",
+          "add-record-locator",
+          "establish-currentness",
+          "check-for-conflict"
+        ],
+        "packageType": "core"
+      },
+      {
+        "questionId": "authority_effectiveness",
+        "axis": "authority",
+        "priority": true,
+        "state": "open",
+        "actions": [
+          "identify-record-status",
+          "classify-evidence",
+          "add-record-locator",
+          "establish-currentness",
+          "check-for-conflict"
+        ],
+        "packageType": "core"
+      }
+    ],
+    "nextActions": [
+      "rerun-substantive",
+      "resolve-priority-records",
+      "complete-open-records"
+    ]
+  },
+  "summary": {
+    "mapped": 0,
+    "open": 17,
+    "excluded": 0,
+    "priorityOpen": 11
+  }
+}

@@ -1,0 +1,63 @@
+{% set example = screeningExample.languages[lang] %}
+<section id="screening-example" class="screening-example" aria-labelledby="screening-example-title" data-search-exclude>
+    <details class="screening-example-details">
+        <summary id="screening-example-title">
+            <h2 class="screening-example-title">{{ example.copy.title }}<span class="screening-example-badge">{{ example.copy.badge }}</span></h2>
+        </summary>
+        <div class="screening-example-body">
+            <p class="screening-example-scenario">{{ example.copy.scenario }}</p>
+            <p>{{ example.copy.interpretation }}</p>
+            <p class="screening-example-boundary">{{ example.copy.boundary }}</p>
+
+            <h3>{{ example.copy.contextTitle }}</h3>
+            <dl class="screening-example-facts">
+                {% for row in example.contextRows %}
+                <div><dt>{{ row.label }}</dt><dd>{{ row.value }}</dd></div>
+                {% endfor %}
+            </dl>
+
+            <h3>{{ example.copy.countsTitle }}</h3>
+            <dl class="screening-example-counts">
+                {% for metric in example.metrics %}
+                <div><dt>{{ metric.label }}</dt><dd>{{ metric.value }}</dd></div>
+                {% endfor %}
+            </dl>
+            <p>{{ example.copy.mappingNote }}</p>
+
+            <h3>{{ example.copy.briefTitle }}</h3>
+            <p><strong>{{ example.copy.labels.status }}: {{ example.statusLabel }}</strong></p>
+            <h4>{{ example.copy.priorityTitle }}</h4>
+            <ul>
+                {% for item in example.priorityItems %}
+                <li>{{ item.text }}</li>
+                {% endfor %}
+            </ul>
+            <h4>{{ example.copy.nextTitle }}</h4>
+            <ol>
+                {% for item in example.nextActions %}
+                <li>{{ item.text }}</li>
+                {% endfor %}
+            </ol>
+
+            <p class="screening-example-downloads">
+                <a href="{{ baseurl }}{{ example.downloads.json }}" download="screening-{{ lang }}.json" type="application/json">{{ example.copy.downloadJson }}</a>
+                <a href="{{ baseurl }}{{ example.downloads.markdown }}" download="screening-{{ lang }}.md" type="text/markdown">{{ example.copy.downloadBrief }}</a>
+            </p>
+            <p>{{ example.copy.jsonLanguageNote }}</p>
+            <p class="screening-example-interaction">{{ example.copy.interaction }}</p>
+
+            <details class="screening-example-provenance">
+                <summary>{{ example.copy.provenanceTitle }}</summary>
+                <dl class="screening-example-facts">
+                    {% for row in example.dateRows %}
+                    <div><dt>{{ row.label }}</dt><dd>{{ row.value }}</dd></div>
+                    {% endfor %}
+                    {% for row in example.provenanceRows %}
+                    <div><dt>{{ row.label }}</dt><dd><code>{{ row.value }}</code></dd></div>
+                    {% endfor %}
+                </dl>
+                <p>{{ example.copy.dateNote }}</p>
+            </details>
+        </div>
+    </details>
+</section>

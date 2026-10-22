@@ -41,6 +41,10 @@ jobs:
           python scripts/generate-citation-artifacts.py
       - name: Build with Eleventy
         run: npm run build
+      - name: Verify public search indexes and query behavior
+        run: npm run test:search
+      - name: Verify computed educational example and JSON roundtrip
+        run: npm run test:example
       - name: Run deterministic integrity audit
         run: python scripts/audit-routes.py _site
       - name: Verify selected bilingual screening runtime and assets
@@ -52,6 +56,8 @@ jobs:
             docs/publications-manifest.schema.json \
             scripts/audit-result.json \
             src/_data/pageMetadata.json \
+            src/_data/screeningExample.json \
+            src/assets/examples \
             src/assets/citation \
             src/assets/data/publications.json
 

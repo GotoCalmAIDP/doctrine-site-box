@@ -1,0 +1,351 @@
+{
+  "schema": "goto-calm:evidence-readiness-workspace:0.4",
+  "version": "evidence-readiness-workspace 0.5.0-alpha",
+  "generatedAt": "2026-10-22T00:00:00.000Z",
+  "language": "en",
+  "status": "self-reported local working record",
+  "context": {
+    "referenceLabel": "Fictional supplier-reply drafting assistant",
+    "assessedVersion": "synthetic-example-1",
+    "assessmentDate": "2026-10-22",
+    "contextLabel": "Training scenario only; drafts for human review; no real organisation, records or reviewed evidence."
+  },
+  "screening": {
+    "consequenceClass": "unknown",
+    "sectorContext": "general",
+    "lifecycle": "concept",
+    "responseBasis": "exploratory",
+    "outcome": "exploratory",
+    "screeningVersion": "screening-core 0.3.0-alpha",
+    "evidenceReviewed": false
+  },
+  "summary": {
+    "mapped": 0,
+    "open": 17,
+    "excluded": 0,
+    "priorityOpen": 11,
+    "core": {
+      "mapped": 0,
+      "open": 17,
+      "excluded": 0,
+      "priorityOpen": 11
+    },
+    "maritimeDp": null
+  },
+  "evidenceRecords": [
+    {
+      "questionId": "scope_object",
+      "axis": "scope",
+      "sourceAnswer": "unknown",
+      "evidenceStatus": "unknown",
+      "evidenceClass": "unclassified",
+      "recordLocator": "",
+      "freshness": "unknown",
+      "conflict": "unknown",
+      "mappingState": "open",
+      "openActions": [
+        "identify-record-status",
+        "classify-evidence",
+        "add-record-locator",
+        "establish-currentness",
+        "check-for-conflict"
+      ]
+    },
+    {
+      "questionId": "applicability_basis",
+      "axis": "scope",
+      "sourceAnswer": "unknown",
+      "evidenceStatus": "unknown",
+      "evidenceClass": "unclassified",
+      "recordLocator": "",
+      "freshness": "unknown",
+      "conflict": "unknown",
+      "mappingState": "open",
+      "openActions": [
+        "identify-record-status",
+        "classify-evidence",
+        "add-record-locator",
+        "establish-currentness",
+        "check-for-conflict"
+      ]
+    },
+    {
+      "questionId": "explanation_units",
+      "axis": "explanation",
+      "sourceAnswer": "unknown",
+      "evidenceStatus": "unknown",
+      "evidenceClass": "unclassified",
+      "recordLocator": "",
+      "freshness": "unknown",
+      "conflict": "unknown",
+      "mappingState": "open",
+      "openActions": [
+        "identify-record-status",
+        "classify-evidence",
+        "add-record-locator",
+        "establish-currentness",
+        "check-for-conflict"
+      ]
+    },
+    {
+      "questionId": "boundary_disclosure",
+      "axis": "explanation",
+      "sourceAnswer": "unknown",
+      "evidenceStatus": "unknown",
+      "evidenceClass": "unclassified",
+      "recordLocator": "",
+      "freshness": "unknown",
+      "conflict": "unknown",
+      "mappingState": "open",
+      "openActions": [
+        "identify-record-status",
+        "classify-evidence",
+        "add-record-locator",
+        "establish-currentness",
+        "check-for-conflict"
+      ]
+    },
+    {
+      "questionId": "authority_identity",
+      "axis": "authority",
+      "sourceAnswer": "unknown",
+      "evidenceStatus": "unknown",
+      "evidenceClass": "unclassified",
+      "recordLocator": "",
+      "freshness": "unknown",
+      "conflict": "unknown",
+      "mappingState": "open",
+      "openActions": [
+        "identify-record-status",
+        "classify-evidence",
+        "add-record-locator",
+        "establish-currentness",
+        "check-for-conflict"
+      ]
+    },
+    {
+      "questionId": "authority_effectiveness",
+      "axis": "authority",
+      "sourceAnswer": "unknown",
+      "evidenceStatus": "unknown",
+      "evidenceClass": "unclassified",
+      "recordLocator": "",
+      "freshness": "unknown",
+      "conflict": "unknown",
+      "mappingState": "open",
+      "openActions": [
+        "identify-record-status",
+        "classify-evidence",
+        "add-record-locator",
+        "establish-currentness",
+        "check-for-conflict"
+      ]
+    },
+    {
+      "questionId": "commit_preconditions",
+      "axis": "commit",
+      "sourceAnswer": "unknown",
+      "evidenceStatus": "unknown",
+      "evidenceClass": "unclassified",
+      "recordLocator": "",
+      "freshness": "unknown",
+      "conflict": "unknown",
+      "mappingState": "open",
+      "openActions": [
+        "identify-record-status",
+        "classify-evidence",
+        "add-record-locator",
+        "establish-currentness",
+        "check-for-conflict"
+      ]
+    },
+    {
+      "questionId": "revocation",
+      "axis": "commit",
+      "sourceAnswer": "unknown",
+      "evidenceStatus": "unknown",
+      "evidenceClass": "unclassified",
+      "recordLocator": "",
+      "freshness": "unknown",
+      "conflict": "unknown",
+      "mappingState": "open",
+      "openActions": [
+        "identify-record-status",
+        "classify-evidence",
+        "add-record-locator",
+        "establish-currentness",
+        "check-for-conflict"
+      ]
+    },
+    {
+      "questionId": "evidence_freshness",
+      "axis": "evidence",
+      "sourceAnswer": "unknown",
+      "evidenceStatus": "unknown",
+      "evidenceClass": "unclassified",
+      "recordLocator": "",
+      "freshness": "unknown",
+      "conflict": "unknown",
+      "mappingState": "open",
+      "openActions": [
+        "identify-record-status",
+        "classify-evidence",
+        "add-record-locator",
+        "establish-currentness",
+        "check-for-conflict"
+      ]
+    },
+    {
+      "questionId": "proof_reconstruction",
+      "axis": "evidence",
+      "sourceAnswer": "unknown",
+      "evidenceStatus": "unknown",
+      "evidenceClass": "unclassified",
+      "recordLocator": "",
+      "freshness": "unknown",
+      "conflict": "unknown",
+      "mappingState": "open",
+      "openActions": [
+        "identify-record-status",
+        "classify-evidence",
+        "add-record-locator",
+        "establish-currentness",
+        "check-for-conflict"
+      ]
+    },
+    {
+      "questionId": "consequence_classification",
+      "axis": "consequence",
+      "sourceAnswer": "unknown",
+      "evidenceStatus": "unknown",
+      "evidenceClass": "unclassified",
+      "recordLocator": "",
+      "freshness": "unknown",
+      "conflict": "unknown",
+      "mappingState": "open",
+      "openActions": [
+        "identify-record-status",
+        "classify-evidence",
+        "add-record-locator",
+        "establish-currentness",
+        "check-for-conflict"
+      ]
+    },
+    {
+      "questionId": "resource_posture",
+      "axis": "consequence",
+      "sourceAnswer": "unknown",
+      "evidenceStatus": "unknown",
+      "evidenceClass": "unclassified",
+      "recordLocator": "",
+      "freshness": "unknown",
+      "conflict": "unknown",
+      "mappingState": "open",
+      "openActions": [
+        "identify-record-status",
+        "classify-evidence",
+        "add-record-locator",
+        "establish-currentness",
+        "check-for-conflict"
+      ]
+    },
+    {
+      "questionId": "topology_enforcement",
+      "axis": "topology",
+      "sourceAnswer": "unknown",
+      "evidenceStatus": "unknown",
+      "evidenceClass": "unclassified",
+      "recordLocator": "",
+      "freshness": "unknown",
+      "conflict": "unknown",
+      "mappingState": "open",
+      "openActions": [
+        "identify-record-status",
+        "classify-evidence",
+        "add-record-locator",
+        "establish-currentness",
+        "check-for-conflict"
+      ]
+    },
+    {
+      "questionId": "systemic_stop",
+      "axis": "topology",
+      "sourceAnswer": "unknown",
+      "evidenceStatus": "unknown",
+      "evidenceClass": "unclassified",
+      "recordLocator": "",
+      "freshness": "unknown",
+      "conflict": "unknown",
+      "mappingState": "open",
+      "openActions": [
+        "identify-record-status",
+        "classify-evidence",
+        "add-record-locator",
+        "establish-currentness",
+        "check-for-conflict"
+      ]
+    },
+    {
+      "questionId": "change_reassessment",
+      "axis": "drift",
+      "sourceAnswer": "unknown",
+      "evidenceStatus": "unknown",
+      "evidenceClass": "unclassified",
+      "recordLocator": "",
+      "freshness": "unknown",
+      "conflict": "unknown",
+      "mappingState": "open",
+      "openActions": [
+        "identify-record-status",
+        "classify-evidence",
+        "add-record-locator",
+        "establish-currentness",
+        "check-for-conflict"
+      ]
+    },
+    {
+      "questionId": "standing_continuity",
+      "axis": "drift",
+      "sourceAnswer": "unknown",
+      "evidenceStatus": "unknown",
+      "evidenceClass": "unclassified",
+      "recordLocator": "",
+      "freshness": "unknown",
+      "conflict": "unknown",
+      "mappingState": "open",
+      "openActions": [
+        "identify-record-status",
+        "classify-evidence",
+        "add-record-locator",
+        "establish-currentness",
+        "check-for-conflict"
+      ]
+    },
+    {
+      "questionId": "runtime_integrity",
+      "axis": "runtime",
+      "sourceAnswer": "unknown",
+      "evidenceStatus": "unknown",
+      "evidenceClass": "unclassified",
+      "recordLocator": "",
+      "freshness": "unknown",
+      "conflict": "unknown",
+      "mappingState": "open",
+      "openActions": [
+        "identify-record-status",
+        "classify-evidence",
+        "add-record-locator",
+        "establish-currentness",
+        "check-for-conflict"
+      ]
+    }
+  ],
+  "sectorPackages": [],
+  "limitations": [
+    "This record is self-reported and no evidence was independently reviewed.",
+    "Mapped records are not proof of applicability, admissibility, safety, compliance or conformance.",
+    "This record cannot authorize execution, continuation, restoration or certification.",
+    "The export contains record locators and user-entered labels; it should not contain raw evidence or confidential data.",
+    "A Maritime / DP package is not a DP class, FMEA, proving-trials, ASOG, CAMO, TAM, flag, class, engineering or safety-case conclusion."
+  ]
+}

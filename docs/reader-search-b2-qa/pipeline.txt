@@ -1,0 +1,302 @@
+$ node --version
+v24.19.0
+$ python --version
+Python 3.12.14
+$ npm ci
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+npm warn deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+
+added 213 packages in 1s
+$ npm run test:screening
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> doctrine-site@1.0.0 test:screening
+> node scripts/test-screening-core.mjs && node scripts/test-public-activity.mjs && node scripts/test-document-intake.mjs && node scripts/test-rights.mjs && node scripts/test-screening-session-v14.mjs && node scripts/test-screening-app-v14.mjs && node tests/v14-intake-hardening.mjs
+
+(node:33) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/8a282cc5e14a/doctrine-site-box/src/assets/screening/screening-core.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/8a282cc5e14a/doctrine-site-box/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+screening, evidence-workspace and maritime bridge cores passed
+(node:41) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/8a282cc5e14a/doctrine-site-box/src/assets/screening/public-activity-core.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/8a282cc5e14a/doctrine-site-box/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Public activity tests passed: 8 assertions
+(node:49) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/8a282cc5e14a/doctrine-site-box/src/assets/screening/document-intake-core-v10.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/8a282cc5e14a/doctrine-site-box/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+document intake tests passed (portable fixture + 5 calibration DOCX files)
+(node:61) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/8a282cc5e14a/doctrine-site-box/src/assets/screening/rights-core-v13.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/8a282cc5e14a/doctrine-site-box/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Rights checks PASS: versioned local acceptance, stale consent, EN/UA attribution, export/import compatibility, no contribution opt-in coupling.
+UI/state simulation PASS: all four entry routes blocked before agreement; unchecking disables; legacy draft preserved and resumed; attribution present; no aggregate contribution.
+(node:73) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/8a282cc5e14a/doctrine-site-box/src/assets/screening/screening-core.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/8a282cc5e14a/doctrine-site-box/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+screening-session-v14: orientation, raw-text exclusion and tab completion oracles PASS
+(node:85) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/8a282cc5e14a/doctrine-site-box/src/assets/screening/screening-core.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/8a282cc5e14a/doctrine-site-box/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+screening-app-v14: completion/reload/import/reset race/file-read bounds/import-scan lifecycle/aggregate stale reply/detached-or-superseded controller/legacy/storage-offline controller oracles PASS
+(node:93) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/8a282cc5e14a/doctrine-site-box/src/assets/screening/document-intake-core-v14.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/8a282cc5e14a/doctrine-site-box/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+v14 intake hardening passed: CRC/limits/corruption/TXT/MD/metadata + 5 real DOCX calibrations
+$ python -c import yaml,jsonschema,PIL; print("Audit dependencies available")
+Audit dependencies available
+$ python scripts/generate-page-metadata.py
+Generated src/_data/pageMetadata.json with 116 entries
+$ python scripts/generate-citation-artifacts.py
+Generated citation utilities, manifest, schema, and citation anchors
+Records: 33 | Unique publication DOIs: 33
+$ npm run build
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> doctrine-site@1.0.0 build
+> node scripts/build-screening-example.mjs && eleventy && node scripts/build-search-index.mjs
+
+(node:121) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/8a282cc5e14a/doctrine-site-box/src/assets/screening/screening-core.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/8a282cc5e14a/doctrine-site-box/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Screening example: 5 deterministic files; 17 UNKNOWN; 0 mapped / 17 open; training-only.
+[11ty] Writing _site/index.html from ./src/index.njk
+[11ty] Writing _site/404.html from ./src/404.njk
+[11ty] Writing _site/robots.txt from ./src/robots.njk
+[11ty] Writing _site/sitemap.xml from ./src/sitemap.njk
+[11ty] Writing _site/en/about/index.html from ./src/en/about.md (njk)
+[11ty] Writing _site/en/annex-failure-archetypes/index.html from ./src/en/annex-failure-archetypes.md (njk)
+[11ty] Writing _site/en/applicability-boundary-context/index.html from ./src/en/applicability-boundary-context.md (njk)
+[11ty] Writing _site/en/applicability-architecture/index.html from ./src/en/applicability-architecture.md (njk)
+[11ty] Writing _site/en/applicability-boundary-definition/index.html from ./src/en/applicability-boundary-definition.md (njk)
+[11ty] Writing _site/en/applicability-failure-map/index.html from ./src/en/applicability-failure-map.md (njk)
+[11ty] Writing _site/en/applicability-incident-lens/index.html from ./src/en/applicability-incident-lens.md (njk)
+[11ty] Writing _site/en/architecture/index.html from ./src/en/architecture.md (njk)
+[11ty] Writing _site/en/architectural-questions/index.html from ./src/en/architectural-questions.md (njk)
+[11ty] Writing _site/en/boundary-note/index.html from ./src/en/boundary-note.md (njk)
+[11ty] Writing _site/en/case-001-mode-validity-drift/index.html from ./src/en/case-001-mode-validity-drift.md (njk)
+[11ty] Writing _site/en/boundaries/index.html from ./src/en/boundaries.md (njk)
+[11ty] Writing _site/en/case-002-authorization-delay-and-object-validity-drift/index.html from ./src/en/case-002-authorization-delay-and-object-validity-drift.md (njk)
+[11ty] Writing _site/en/case-003-observability-lag-in-route-execution/index.html from ./src/en/case-003-observability-lag-in-route-execution.md (njk)
+[11ty] Writing _site/en/case-004-alarm-suppression-and-safety-envelope-drift/index.html from ./src/en/case-004-alarm-suppression-and-safety-envelope-drift.md (njk)
+[11ty] Writing _site/en/case-studies/index.html from ./src/en/case-studies.md (njk)
+[11ty] Writing _site/en/cases-overview-note/index.html from ./src/en/cases-overview-note.md (njk)
+[11ty] Writing _site/en/cases/index.html from ./src/en/cases.md (njk)
+[11ty] Writing _site/en/case-template/index.html from ./src/en/case-template.md (njk)
+[11ty] Writing _site/en/change-log/index.html from ./src/en/change-log.md (njk)
+[11ty] Writing _site/en/citation/index.html from ./src/en/citation.md (njk)
+[11ty] Writing _site/en/concept-lineage/index.html from ./src/en/concept-lineage.md (njk)
+[11ty] Writing _site/en/contact/index.html from ./src/en/contact.md (njk)
+[11ty] Writing _site/en/cookies/index.html from ./src/en/cookies.md (njk)
+[11ty] Writing _site/en/definition/index.html from ./src/en/definition.md (njk)
+[11ty] Writing _site/en/disclaimer/index.html from ./src/en/disclaimer.md (njk)
+[11ty] Writing _site/en/doctrine-stability/index.html from ./src/en/doctrine-stability.md (njk)
+[11ty] Writing _site/en/doctrine-theorems/index.html from ./src/en/doctrine-theorems.md (njk)
+[11ty] Writing _site/en/doctrine/index.html from ./src/en/doctrine.md (njk)
+[11ty] Writing _site/en/evidence/index.html from ./src/en/evidence.md (njk)
+[11ty] Writing _site/en/evidence-note/index.html from ./src/en/evidence-note.md (njk)
+[11ty] Writing _site/en/for-architects/index.html from ./src/en/for-architects.md (njk)
+[11ty] Writing _site/en/for-auditors/index.html from ./src/en/for-auditors.md (njk)
+[11ty] Writing _site/en/external-evidence/index.html from ./src/en/external-evidence.md (njk)
+[11ty] Writing _site/en/for-engineers/index.html from ./src/en/for-engineers.md (njk)
+[11ty] Writing _site/en/for-investors/index.html from ./src/en/for-investors.md (njk)
+[11ty] Writing _site/en/for-operators/index.html from ./src/en/for-operators.md (njk)
+[11ty] Writing _site/en/for-regulators/index.html from ./src/en/for-regulators.md (njk)
+[11ty] Writing _site/en/framework-overview/index.html from ./src/en/framework-overview.md (njk)
+[11ty] Writing _site/en/glossary/index.html from ./src/en/glossary.md (njk)
+[11ty] Writing _site/en/index-note/index.html from ./src/en/index-note.md (njk)
+[11ty] Writing _site/en/index.html from ./src/en/index.md (njk)
+[11ty] Writing _site/en/method/index.html from ./src/en/method.md (njk)
+[11ty] Writing _site/en/notes-applicability/index.html from ./src/en/notes-applicability.md (njk)
+[11ty] Writing _site/en/privacy/index.html from ./src/en/privacy.md (njk)
+[11ty] Writing _site/en/reading-order-note/index.html from ./src/en/reading-order-note.md (njk)
+[11ty] Writing _site/en/for-insurers/index.html from ./src/en/for-insurers.md (njk)
+[11ty] Writing _site/en/terminology-applicability/index.html from ./src/en/terminology-applicability.md (njk)
+[11ty] Writing _site/en/scope-and-limitations/index.html from ./src/en/scope-and-limitations.md (njk)
+[11ty] Writing _site/en/terms/index.html from ./src/en/terms.md (njk)
+[11ty] Writing _site/en/terminology-authority/index.html from ./src/en/terminology-authority.md (njk)
+[11ty] Writing _site/en/scope/index.html from ./src/en/scope.md (njk)
+[11ty] Writing _site/ua/annex-failure-archetypes/index.html from ./src/ua/annex-failure-archetypes.md (njk)
+[11ty] Writing _site/ua/about/index.html from ./src/ua/about.md (njk)
+[11ty] Writing _site/ua/applicability-architecture/index.html from ./src/ua/applicability-architecture.md (njk)
+[11ty] Writing _site/ua/applicability-boundary-definition/index.html from ./src/ua/applicability-boundary-definition.md (njk)
+[11ty] Writing _site/ua/applicability-failure-map/index.html from ./src/ua/applicability-failure-map.md (njk)
+[11ty] Writing _site/ua/applicability-boundary-context/index.html from ./src/ua/applicability-boundary-context.md (njk)
+[11ty] Writing _site/ua/architectural-questions/index.html from ./src/ua/architectural-questions.md (njk)
+[11ty] Writing _site/ua/architecture/index.html from ./src/ua/architecture.md (njk)
+[11ty] Writing _site/ua/boundary-note/index.html from ./src/ua/boundary-note.md (njk)
+[11ty] Writing _site/ua/boundaries/index.html from ./src/ua/boundaries.md (njk)
+[11ty] Writing _site/ua/case-002-authorization-delay-and-object-validity-drift/index.html from ./src/ua/case-002-authorization-delay-and-object-validity-drift.md (njk)
+[11ty] Writing _site/ua/case-001-mode-validity-drift/index.html from ./src/ua/case-001-mode-validity-drift.md (njk)
+[11ty] Writing _site/ua/case-004-alarm-suppression-and-safety-envelope-drift/index.html from ./src/ua/case-004-alarm-suppression-and-safety-envelope-drift.md (njk)
+[11ty] Writing _site/ua/case-003-observability-lag-in-route-execution/index.html from ./src/ua/case-003-observability-lag-in-route-execution.md (njk)
+[11ty] Writing _site/ua/case-studies/index.html from ./src/ua/case-studies.md (njk)
+[11ty] Writing _site/ua/case-template/index.html from ./src/ua/case-template.md (njk)
+[11ty] Writing _site/ua/cases-overview-note/index.html from ./src/ua/cases-overview-note.md (njk)
+[11ty] Writing _site/ua/cases/index.html from ./src/ua/cases.md (njk)
+[11ty] Writing _site/en/scope-note/index.html from ./src/en/scope-note.md (njk)
+[11ty] Writing _site/ua/applicability-incident-lens/index.html from ./src/ua/applicability-incident-lens.md (njk)
+[11ty] Writing _site/ua/change-log/index.html from ./src/ua/change-log.md (njk)
+[11ty] Writing _site/ua/contact/index.html from ./src/ua/contact.md (njk)
+[11ty] Writing _site/ua/cookies/index.html from ./src/ua/cookies.md (njk)
+[11ty] Writing _site/ua/concept-lineage/index.html from ./src/ua/concept-lineage.md (njk)
+[11ty] Writing _site/ua/citation/index.html from ./src/ua/citation.md (njk)
+[11ty] Writing _site/ua/definition/index.html from ./src/ua/definition.md (njk)
+[11ty] Writing _site/ua/disclaimer/index.html from ./src/ua/disclaimer.md (njk)
+[11ty] Writing _site/ua/doctrine-theorems/index.html from ./src/ua/doctrine-theorems.md (njk)
+[11ty] Writing _site/ua/doctrine-stability/index.html from ./src/ua/doctrine-stability.md (njk)
+[11ty] Writing _site/ua/evidence-note/index.html from ./src/ua/evidence-note.md (njk)
+[11ty] Writing _site/ua/external-evidence/index.html from ./src/ua/external-evidence.md (njk)
+[11ty] Writing _site/ua/evidence/index.html from ./src/ua/evidence.md (njk)
+[11ty] Writing _site/ua/for-architects/index.html from ./src/ua/for-architects.md (njk)
+[11ty] Writing _site/ua/for-auditors/index.html from ./src/ua/for-auditors.md (njk)
+[11ty] Writing _site/ua/doctrine/index.html from ./src/ua/doctrine.md (njk)
+[11ty] Writing _site/ua/for-engineers/index.html from ./src/ua/for-engineers.md (njk)
+[11ty] Writing _site/en/screening/index.html from ./src/en/screening.md (njk)
+[11ty] Writing _site/ua/for-insurers/index.html from ./src/ua/for-insurers.md (njk)
+[11ty] Writing _site/ua/for-investors/index.html from ./src/ua/for-investors.md (njk)
+[11ty] Writing _site/ua/for-operators/index.html from ./src/ua/for-operators.md (njk)
+[11ty] Writing _site/ua/for-regulators/index.html from ./src/ua/for-regulators.md (njk)
+[11ty] Writing _site/ua/framework-overview/index.html from ./src/ua/framework-overview.md (njk)
+[11ty] Writing _site/ua/glossary/index.html from ./src/ua/glossary.md (njk)
+[11ty] Writing _site/ua/index.html from ./src/ua/index.md (njk)
+[11ty] Writing _site/ua/method/index.html from ./src/ua/method.md (njk)
+[11ty] Writing _site/ua/notes-applicability/index.html from ./src/ua/notes-applicability.md (njk)
+[11ty] Writing _site/ua/privacy/index.html from ./src/ua/privacy.md (njk)
+[11ty] Writing _site/ua/reading-order-note/index.html from ./src/ua/reading-order-note.md (njk)
+[11ty] Writing _site/ua/scope-and-limitations/index.html from ./src/ua/scope-and-limitations.md (njk)
+[11ty] Writing _site/ua/scope-note/index.html from ./src/ua/scope-note.md (njk)
+[11ty] Writing _site/ua/scope/index.html from ./src/ua/scope.md (njk)
+[11ty] Writing _site/ua/screening/index.html from ./src/ua/screening.md (njk)
+[11ty] Writing _site/ua/terminology-applicability/index.html from ./src/ua/terminology-applicability.md (njk)
+[11ty] Writing _site/ua/terminology-authority/index.html from ./src/ua/terminology-authority.md (njk)
+[11ty] Writing _site/ua/terms/index.html from ./src/ua/terms.md (njk)
+[11ty] Writing _site/en/cases/case-001/index.html from ./src/en/cases/case-001.md (njk)
+[11ty] Writing _site/en/cases/case-003/index.html from ./src/en/cases/case-003.md (njk)
+[11ty] Writing _site/en/cases/case-004/index.html from ./src/en/cases/case-004.md (njk)
+[11ty] Writing _site/ua/cases/case-001/index.html from ./src/ua/cases/case-001.md (njk)
+[11ty] Writing _site/ua/cases/case-004/index.html from ./src/ua/cases/case-004.md (njk)
+[11ty] Writing _site/ua/index-note/index.html from ./src/ua/index-note.md (njk)
+[11ty] Writing _site/ua/cases/case-003/index.html from ./src/ua/cases/case-003.md (njk)
+[11ty] Writing _site/en/cases/case-002/index.html from ./src/en/cases/case-002.md (njk)
+[11ty] Writing _site/ua/cases/case-002/index.html from ./src/ua/cases/case-002.md (njk)
+[11ty] Copied 52 files / Wrote 120 files in 0.35 seconds (2.9ms each, v2.0.1)
+Search indexes: 58 EN + 58 UA public articles.
+$ npm run test:search
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> doctrine-site@1.0.0 test:search
+> node scripts/test-site-search.mjs
+
+Search checks PASS: 58 EN + 58 UA allowlisted built articles; deterministic indexes; shell/script/search/TOC exclusions; public DOI coverage; bilingual literal queries, ranking, normalization and limits.
+$ npm run test:example
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> doctrine-site@1.0.0 test:example
+> node scripts/test-screening-example.mjs _site && node scripts/test-screening-example-controller.mjs
+
+(node:195) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/8a282cc5e14a/doctrine-site-box/src/assets/screening/screening-core.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/8a282cc5e14a/doctrine-site-box/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Screening example checks PASS: five deterministic generated files; both language exports roundtrip; 17 UNKNOWN; 0 mapped / 17 open / 11 priority-open; training-only; static collapsed downloads; built wrapper isolation and passthrough.
+(node:207) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/8a282cc5e14a/doctrine-site-box/src/assets/screening/screening-core.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/8a282cc5e14a/doctrine-site-box/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Screening example controller checks PASS: actual pinned file-import handler applied EN/UA JSON; training-only, UNKNOWN, 0 mapped / 17 open / 11 priority-open; fixed scenario date; completion count 0; prior synthetic rights unchanged; no consent events or network; declined replacement preserved state. Node mock evidence only, not browser acceptance or a real terms agreement.
+$ python scripts/audit-routes.py _site
+=== Doctrine Site P2 Deterministic Audit ===
+Build directory: /workspace/scratch/8a282cc5e14a/doctrine-site-box/_site
+PASS: EN routes = 58
+PASS: UA routes = 58
+PASS: EN/UA parity
+PASS: Complete generated pageMetadata map (58 EN + 58 UA)
+PASS: Broken internal links = 0
+PASS: Link-name clarity
+PASS: Orphan routes = []
+PASS: sitemap = 117 URLs; 404 excluded
+PASS: robots.txt
+PASS: Self-referencing canonical URLs
+PASS: Reciprocal hreflang en/uk
+PASS: lang="en" and lang="uk"
+PASS: Page-specific description, Open Graph, and Twitter metadata
+PASS: Unique rendered metadata titles (en)
+PASS: Unique rendered metadata titles (ua)
+PASS: EN/UA citation records (1–33), titles, DOI values, ordering, and groups
+PASS: CITATION.cff, BibTeX, RIS, and plain citation files
+PASS: Derived publication manifest schema and source agreement
+PASS: Citation download links, anchors, citation_* metadata, and JSON-LD
+PASS: Keyboard focus, responsive wrapping, and heading hierarchy
+PASS: First-party social image (1200x630)
+PASS: Canonical baseline SHA-256
+Artifact: scripts/audit-result.json
+AUDIT PASSED
+$ npm run audit:screening-assets
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> doctrine-site@1.0.0 audit:screening-assets
+> node scripts/audit-screening-assets.mjs _site
+
+{
+  "status": "PASS",
+  "selected": "v14",
+  "prefix": "/doctrine-site-box",
+  "assets": [
+    {
+      "path": "assets/screening/screening-v14.js",
+      "bytes": 226003,
+      "sha256": "ad98aae6d3a4abc089889f6ef1882225d45105f69190536c8cb32f2b84a0d911"
+    },
+    {
+      "path": "assets/screening/screening-core.js",
+      "bytes": 12397,
+      "sha256": "c73fc4fd098985af193f44f6922abd49d2ea1f061753f52e9cb7ef03bdb6eb17"
+    },
+    {
+      "path": "assets/screening/evidence-workspace-core-v08.js",
+      "bytes": 26916,
+      "sha256": "662d0d385e116a1e0e2a388aaa08bb04894d0810460104916df12074e0435409"
+    },
+    {
+      "path": "assets/screening/maritime-core.js",
+      "bytes": 9285,
+      "sha256": "88d6ad5a88dfb4061a00b3d3af919a9fa38d59c53937f30264151de8383cc813"
+    },
+    {
+      "path": "assets/screening/public-activity-core.js",
+      "bytes": 2796,
+      "sha256": "994f1718d884724e434faf9afc26fb1563f77f97613dfca77b27e5ba323fd280"
+    },
+    {
+      "path": "assets/screening/document-intake-core-v14.js",
+      "bytes": 29865,
+      "sha256": "d5d1234498ad6f0e35e28f1aaf34ed3c8f37117672174d6b6fa8d5ba7a2275d9"
+    },
+    {
+      "path": "assets/screening/rights-core-v13.js",
+      "bytes": 1738,
+      "sha256": "e451f09603b628a922484c5ab81ced372a69b4d963492ecd34441a2767eef606"
+    },
+    {
+      "path": "assets/screening/screening-session-v14.js",
+      "bytes": 6770,
+      "sha256": "696cac0d71ccf34a4fc78e82eb0f7f99b967f50b3714a34416c26b9d2c5a285a"
+    },
+    {
+      "path": "assets/screening/screening-v14.css",
+      "bytes": 43054,
+      "sha256": "08ec832ca242f6b0e1f62479be3728996bf577edea5761657a8520951097dbef"
+    }
+  ]
+}
+$ git diff --check

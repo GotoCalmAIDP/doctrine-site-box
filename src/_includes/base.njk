@@ -19,8 +19,14 @@
     <meta name="twitter:image" content="https://gotocalmaidp.github.io{{ baseurl }}/assets/applicability-boundary-social.png">
     <meta name="twitter:image:alt" content="{% if lang == 'en' %}Applicability Boundary Doctrine concept diagram{% else %}Концептуальна діаграма Доктрини межі застосовності{% endif %}">
     <link rel="stylesheet" href="{{ baseurl }}/css/style.css">
+    {% set isScreening = page.url == '/en/screening/' or page.url == '/ua/screening/' %}
+    {% set isIndexNote = page.url == '/en/index-note/' or page.url == '/ua/index-note/' %}
+    {% if isIndexNote %}
+    <link rel="stylesheet" href="{{ baseurl }}/assets/search/search.css">
+    {% endif %}
     {% if page.url == '/en/screening/' or page.url == '/ua/screening/' %}
     <link rel="stylesheet" href="{{ baseurl }}/assets/screening/screening-v14.css">
+    <link rel="stylesheet" href="{{ baseurl }}/assets/examples/example.css">
     {% endif %}
     <link rel="canonical" href="https://gotocalmaidp.github.io{{ baseurl }}{{ page.url }}">
     {% if lang == 'en' %}
@@ -60,40 +66,59 @@
     {% endif %}
 </head>
 <body>
+    <a class="skip-link" href="#main-content">{% if lang == 'en' %}Skip to content{% else %}Перейти до вмісту{% endif %}</a>
     <header class="site-header">
         <div class="header-container">
             <div class="site-brand">
-                <a href="{{ baseurl }}/{{ lang }}/">Doctrine</a>
+                <a href="{{ baseurl }}/{{ lang }}/">Doctrine<span class="brand-dot" aria-hidden="true">.</span></a>
+                <span class="site-description">{% if lang == 'en' %}Applicability Boundary{% else %}Межа застосовності{% endif %}</span>
             </div>
-            
-            <nav class="language-switcher">
+            <nav class="language-switcher" aria-label="{% if lang == 'en' %}Language{% else %}Мова{% endif %}">
                 {% if lang == "en" %}
-                <span class="lang-active">EN</span>
-                <span class="lang-separator">|</span>
-                <a href="{{ baseurl }}{{ page.url | langUrl(lang) }}" class="lang-link">UA</a>
+                <span class="lang-active" aria-current="true" lang="en">EN</span>
+                <a href="{{ baseurl }}{{ page.url | langUrl(lang) }}" class="lang-link" lang="uk" hreflang="uk" aria-label="Українською">UA</a>
                 {% else %}
-                <a href="{{ baseurl }}{{ page.url | langUrl(lang) }}" class="lang-link">EN</a>
-                <span class="lang-separator">|</span>
-                <span class="lang-active">UA</span>
+                <a href="{{ baseurl }}{{ page.url | langUrl(lang) }}" class="lang-link" lang="en" hreflang="en" aria-label="English">EN</a>
+                <span class="lang-active" aria-current="true" lang="uk">UA</span>
                 {% endif %}
             </nav>
         </div>
-        
-        <nav class="primary-nav">
-            <ul>
-                {% for item in navigation[lang] %}
-                <li{% if page.url == item.url %} class="active"{% endif %}>
-                    <a href="{{ item.url }}">{{ item.title }}</a>
-                </li>
-                {% endfor %}
-            </ul>
-        </nav>
+        <div class="navigation-container">
+            <nav class="primary-nav" aria-label="{% if lang == 'en' %}Main navigation{% else %}Основна навігація{% endif %}">
+                <ul>
+                    {% for item in readerNavigation[lang] %}
+                    <li><a href="{{ item.url }}"{% if item.url | isCurrentPage(page.url) %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+            <details class="document-catalog">
+                <summary>{% if lang == 'en' %}All documents{% else %}Усі документи{% endif %}</summary>
+                <nav class="catalog-groups" aria-label="{% if lang == 'en' %}Complete document catalog{% else %}Повний каталог документів{% endif %}">
+                    {% for group in collections.all | readerCatalog(lang) %}
+                    <section class="catalog-group">
+                        <p class="catalog-title">{{ group.title }}</p>
+                        <ul>
+                            {% for item in group.items %}
+                            <li><a href="{{ item.url }}"{% if item.url | isCurrentPage(page.url) %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </section>
+                    {% endfor %}
+                </nav>
+            </details>
+        </div>
     </header>
 
-    <main class="site-main">
-        <article class="content">
+    <main id="main-content" class="site-main{% if isScreening %} site-main--screening{% endif %}" tabindex="-1">
+        <article class="content {% if isScreening %}screening-document{% else %}reader-document{% endif %}">
             {{ content | safe }}
         </article>
+        {% if isScreening %}
+        {% include "screening-example.njk" %}
+        {% endif %}
+        {% if isIndexNote %}
+        {% include "site-search.njk" %}
+        {% endif %}
     </main>
 
     <footer class="site-footer">
@@ -172,6 +197,9 @@
     </footer>
     {% if page.url == '/en/screening/' or page.url == '/ua/screening/' %}
     <script type="module" src="{{ baseurl }}/assets/screening/screening-v14.js"></script>
+    {% endif %}
+    {% if isIndexNote %}
+    <script type="module" src="{{ baseurl }}/assets/search/search.js"></script>
     {% endif %}
 </body>
 </html>
