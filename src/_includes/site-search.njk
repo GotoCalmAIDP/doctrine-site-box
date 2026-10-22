@@ -1,0 +1,29 @@
+<section id="site-search" class="site-search" aria-labelledby="site-search-title" data-language="{{ lang }}" data-baseurl="{{ baseurl }}">
+    <p class="search-eyebrow">{% if lang == 'en' %}Explore the library{% else %}Досліджуйте бібліотеку{% endif %}</p>
+    <h2 id="site-search-title">{% if lang == 'en' %}Search public pages{% else %}Пошук публічними сторінками{% endif %}</h2>
+    <p id="search-help">{% if lang == 'en' %}Find a concept, heading or DOI. All words must match. Your query stays in this browser and is not saved.{% else %}Знайдіть поняття, заголовок або DOI. Мають збігатися всі слова. Запит залишається в цьому браузері й не зберігається.{% endif %}</p>
+    <form class="search-form" role="search" aria-labelledby="site-search-title">
+        <div class="search-fields">
+            <div class="search-query-field">
+                <label for="search-query">{% if lang == 'en' %}Words or DOI{% else %}Слова або DOI{% endif %}</label>
+                <input id="search-query" type="search" maxlength="240" autocomplete="off" spellcheck="false" aria-describedby="search-help search-limit" placeholder="{% if lang == 'en' %}e.g. authority, commit, A1{% else %}напр. повноваження, межі, A1{% endif %}" disabled>
+            </div>
+            <div class="search-language-field">
+                <label for="search-language">{% if lang == 'en' %}Search language{% else %}Мова пошуку{% endif %}</label>
+                <select id="search-language" disabled>
+                    <option value="en"{% if lang == 'en' %} selected{% endif %}>English</option>
+                    <option value="ua"{% if lang == 'ua' %} selected{% endif %}>Українська</option>
+                </select>
+            </div>
+        </div>
+        <div class="search-actions">
+            <button type="submit" class="search-submit" disabled>{% if lang == 'en' %}Search{% else %}Знайти{% endif %}</button>
+            <button type="button" class="search-clear" disabled>{% if lang == 'en' %}Clear{% else %}Очистити{% endif %}</button>
+            <span id="search-limit">{% if lang == 'en' %}Up to 240 characters{% else %}До 240 символів{% endif %}</span>
+        </div>
+    </form>
+    <p class="search-status" role="status" aria-live="polite" aria-atomic="true">{% if lang == 'en' %}Search needs JavaScript. You can also browse the full catalogue in the navigation.{% else %}Для пошуку потрібен JavaScript. Повний каталог доступний у навігації.{% endif %}</p>
+    <ol class="search-results" aria-label="{% if lang == 'en' %}Search results{% else %}Результати пошуку{% endif %}"></ol>
+    <button type="button" class="search-more" hidden>{% if lang == 'en' %}Show all results{% else %}Показати всі результати{% endif %}</button>
+    <noscript><p>{% if lang == 'en' %}The articles, full catalogue and Reading Order remain available without JavaScript.{% else %}Статті, повний каталог і Порядок читання доступні без JavaScript.{% endif %}</p></noscript>
+</section>
