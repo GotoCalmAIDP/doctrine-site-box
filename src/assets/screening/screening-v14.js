@@ -44,7 +44,8 @@ import {
   buildDocumentIntakeAssessment,
   buildRegulatoryReadiness,
   emptyRegulatoryProfile,
-  selectBestAxisSuggestions
+  selectBestAxisSuggestions,
+  validateDocumentFileDescriptor
 } from "./document-intake-core-v14.js";
 import { RIGHTS_VERSION, acceptTerms, buildRightsMetadata, hasCurrentTermsConsent, termsUrl } from "./rights-core-v13.js";
 
@@ -54,6 +55,10 @@ import { PORTABLE_UI_VERSION, PRELIMINARY_TEXT_LIMIT, analyzePreliminaryText, em
 const root = document.querySelector("#gc-screening");
 
 if (root) {
+  const controllerKey = Symbol.for("goto-calm:screening-controller");
+  const controllerOwner = {};
+  root[controllerKey] = controllerOwner;
+  const isCurrentController = () => root.isConnected !== false && root[controllerKey] === controllerOwner && document.querySelector("#gc-screening") === root;
   const language = root.dataset.language === "ua" ? "ua" : "en";
   const linkConfig = normalizeScreeningLinks(root.dataset, language);
   const rightsCopy = language === "ua" ? {
@@ -1195,6 +1200,7 @@ if (root) {
   }
 
   function persistSession() {
+    if (!isCurrentController()) return;
     try {
       if (!hasMeaningfulDraft()) {
         window.sessionStorage.removeItem(SESSION_KEY);
@@ -1208,6 +1214,7 @@ if (root) {
   }
 
   function clearPersistedSession() {
+    if (!isCurrentController()) return;
     try {
       window.sessionStorage.removeItem(SESSION_KEY);
       window.sessionStorage.removeItem(LEGACY_SESSION_KEY);
@@ -1299,6 +1306,9 @@ if (root) {
   }
 
   function beginRun() {
+    contributionConsent = false;
+    contributionStatus = "idle";
+    contributionToken = null;
     const id = globalThis.crypto?.randomUUID?.().replaceAll("-", "") || `${Date.now()}_${Math.random().toString(36).slice(2)}`;
     tabCompletions = beginTabRun(tabCompletions, id);
   }
@@ -1428,19 +1438,23 @@ if (root) {
   }
 
   async function loadPublicAggregate(force = false) {
-    if (!linkConfig.aggregateEnabled) return;
+    if (!isCurrentController() || !linkConfig.aggregateEnabled) return;
     if (!force && publicAggregate.status !== "idle") return;
     publicAggregate = { status: "loading", data: null };
     try {
       const response = await fetch(`${PUBLIC_AGGREGATE_ENDPOINT}/aggregate`, {
         headers: { accept: "application/json" }
       });
+      if (!isCurrentController()) return;
       if (!response.ok) throw new Error(`Aggregate request failed: ${response.status}`);
-      publicAggregate = { status: "ready", data: normalizePublicAggregate(await response.json()) };
+      const reply = await response.json();
+      if (!isCurrentController()) return;
+      publicAggregate = { status: "ready", data: normalizePublicAggregate(reply) };
     } catch {
+      if (!isCurrentController()) return;
       publicAggregate = { status: "error", data: null };
     }
-    if (state.phase === "intro") renderIntro();
+    if (isCurrentController() && state.phase === "intro") renderIntro();
   }
 
   function createContributionToken() {
@@ -1484,31 +1498,37 @@ if (root) {
   }
 
   async function submitContribution() {
-    if (!linkConfig.aggregateEnabled) return;
+    if (!isCurrentController() || !linkConfig.aggregateEnabled) return;
     if (!contributionConsent || contributionStatus === "sending") return;
     const result = evaluateScreening(state);
     if (result.responseBasis === "exploratory") return;
     contributionToken ||= createContributionToken();
+    const requestToken = contributionToken;
+    const isCurrentRequest = () => isCurrentController() && contributionToken === requestToken && contributionConsent && hasCurrentTermsConsent(rightsConsent);
     contributionStatus = "sending";
     render();
     try {
       const response = await fetch(`${PUBLIC_AGGREGATE_ENDPOINT}/submissions`, {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify(buildPublicSubmission(result, contributionToken))
+        body: JSON.stringify(buildPublicSubmission(result, requestToken))
       });
+      if (!isCurrentRequest()) return;
       const reply = await response.json();
+      if (!isCurrentRequest()) return;
       if (!response.ok || (!reply.accepted && !reply.duplicate)) throw new Error("Submission rejected");
       contributionStatus = reply.duplicate ? "duplicate" : "sent";
       publicAggregate = { status: "idle", data: null };
       void loadPublicAggregate();
     } catch {
+      if (!isCurrentRequest()) return;
       contributionStatus = "error";
     }
-    render();
+    if (isCurrentRequest()) render();
   }
 
   function renderIntro() {
+    if (!isCurrentController()) return;
     const termsAccepted = hasCurrentTermsConsent(rightsConsent);
     root.innerHTML = `
       <section class="gc-panel gc-intro" aria-labelledby="gc-intro-title">
@@ -1930,6 +1950,9 @@ if (root) {
 
   function loadNeutralExample() {
     fileGeneration += 1;
+    contributionConsent = false;
+    contributionStatus = "idle";
+    contributionToken = null;
     tabCompletions = { ...tabCompletions, activeRun: null, completedRun: null };
     state.consequenceClass = "unknown";
     state.sectorContext = "general";
@@ -1984,15 +2007,20 @@ if (root) {
   }
 
   async function importWorkspaceFile(file) {
-    if (!file) return;
-    const generation = ++fileGeneration;
+    if (!isCurrentController() || !file) return;
     if (file.size > 512 * 1024) {
       setWorkspaceNotice(t.workspace.importTooLarge);
       return;
     }
+    const generation = ++fileGeneration;
+    if (documentIntake.status === "analyzing") {
+      const reports = Array.isArray(documentIntake.reports) ? documentIntake.reports : [];
+      documentIntake = { ...documentIntake, status: reports.length ? "ready" : "empty", report: reports.at(-1) || null, reports, error: "" };
+      if (state.phase === "workspace") renderWorkspace();
+    }
     try {
       const text = await file.text();
-      if (generation !== fileGeneration) return;
+      if (!isCurrentController() || generation !== fileGeneration) return;
       const payload = JSON.parse(text);
       const maritimeOnly = payload.schema === MARITIME_BRIDGE_SCHEMA;
       const imported = maritimeOnly ? parseMaritimeBridgeImport(payload) : parseEvidenceWorkspaceImport(payload);
@@ -2021,6 +2049,9 @@ if (root) {
         }
       }
       workspace = nextWorkspace;
+      contributionConsent = false;
+      contributionStatus = "idle";
+      contributionToken = null;
       tabCompletions = { ...tabCompletions, activeRun: null, completedRun: null };
       documentIntake = emptyDocumentIntake();
       regulatoryProfile = emptyRegulatoryProfile();
@@ -2043,7 +2074,7 @@ if (root) {
       state.phase = "workspace";
       render();
     } catch (error) {
-      if (generation !== fileGeneration) return;
+      if (!isCurrentController() || generation !== fileGeneration) return;
       setWorkspaceNotice(`${t.workspace.importFailed}: ${error.message}`);
     }
   }
@@ -2100,8 +2131,8 @@ if (root) {
   }
 
   async function analyzeDocumentFile(file) {
-    if (!file || documentIntake.status === "analyzing") return;
-    const generation = fileGeneration;
+    if (!isCurrentController() || !file || documentIntake.status === "analyzing") return;
+    let generation = fileGeneration;
     const existingReports = Array.isArray(documentIntake.reports) ? documentIntake.reports : [];
     if (existingReports.length >= DOCUMENT_MAX_FILES) {
       documentIntake = { ...documentIntake, status: "ready", error: friendlyDocumentError(new Error("document-file-limit")) };
@@ -2118,15 +2149,18 @@ if (root) {
     renderWorkspace();
     let bytes;
     try {
+      // Reject unsupported, empty and oversized descriptors before reading bytes.
+      validateDocumentFileDescriptor(file);
+      generation = ++fileGeneration;
       bytes = await file.arrayBuffer();
-      if (generation !== fileGeneration) { bytes = null; return; }
+      if (!isCurrentController() || generation !== fileGeneration) { bytes = null; return; }
       const report = await analyzeDocxArrayBuffer({
         name: file.name,
         size: file.size,
         lastModified: file.lastModified
       }, bytes);
       bytes = null;
-      if (generation !== fileGeneration) return;
+      if (!isCurrentController() || generation !== fileGeneration) return;
       const reports = [...existingReports, report];
       documentIntake = { ...documentIntake, status: "ready", report, reports, error: "" };
       if (!workspace.context.referenceLabel.trim()) workspace.context.referenceLabel = report.suggestions.referenceLabel;
@@ -2146,7 +2180,7 @@ if (root) {
       }));
     } catch (error) {
       bytes = null;
-      if (generation !== fileGeneration) return;
+      if (!isCurrentController() || generation !== fileGeneration) return;
       documentIntake = {
         ...documentIntake,
         status: existingReports.length ? "ready" : "error",
@@ -2508,6 +2542,7 @@ if (root) {
   }
 
   function renderWorkspace() {
+    if (!isCurrentController()) return;
     const evaluation = evaluateCombinedEvidenceReadiness(workspace);
     const regulatoryReadiness = buildRegulatoryReadiness({
       profile: regulatoryProfile,
@@ -2811,6 +2846,7 @@ if (root) {
   }
 
   function render() {
+    if (!isCurrentController()) return;
     if (state.phase !== "intro" && !hasCurrentTermsConsent(rightsConsent)) {
       renderTermsGate();
       return;
@@ -2873,6 +2909,7 @@ if (root) {
   }
 
   root.addEventListener("click", (event) => {
+    if (!isCurrentController()) return;
     const action = event.target.closest("[data-action]")?.dataset.action;
     if (!action) return;
     if (action === "reset-tab") {
@@ -2985,6 +3022,7 @@ if (root) {
   });
 
   root.addEventListener("input", (event) => {
+    if (!isCurrentController()) return;
     if (event.target.matches("[data-orientation-text]")) {
       orientationText = event.target.value;
       orientationSummary = null;
@@ -3004,6 +3042,7 @@ if (root) {
   });
 
   root.addEventListener("focusout", (event) => {
+    if (!isCurrentController()) return;
     const rowId = event.target.dataset.workspaceRow;
     const field = event.target.dataset.workspaceField;
     if (!rowId || field !== "recordLocator") return;
@@ -3017,6 +3056,7 @@ if (root) {
   });
 
   root.addEventListener("change", async (event) => {
+    if (!isCurrentController()) return;
     if (event.target.matches("[data-terms-consent]")) {
       rightsConsent = event.target.checked ? acceptTerms() : null;
       root.querySelectorAll("[data-requires-terms]").forEach((button) => {
@@ -3098,6 +3138,7 @@ if (root) {
   });
 
   root.addEventListener("submit", (event) => {
+    if (!isCurrentController()) return;
     event.preventDefault();
     if (!hasCurrentTermsConsent(rightsConsent)) return;
     if (event.target.dataset.form === "orientation") {

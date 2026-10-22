@@ -1,5 +1,5 @@
 {
-  "release_id": "gotocalm-screening-portable-20261022-v14-r1",
+  "release_id": "gotocalm-screening-portable-20261022-v14-r2",
   "owner": "managing chat / root",
   "status": "READY_FOR_INTEGRATION_NOT_DEPLOYED",
   "public_baseline": {
@@ -37,8 +37,8 @@
   "assets": [
     {
       "path": "src/assets/screening/screening-v14.js",
-      "bytes": 223715,
-      "sha256": "e502106e34219c8692ab9d51724d06199756838d034d49f9b1a08ab4b08eb9bb"
+      "bytes": 226003,
+      "sha256": "ad98aae6d3a4abc089889f6ef1882225d45105f69190536c8cb32f2b84a0d911"
     },
     {
       "path": "src/assets/screening/screening-v14.css",
@@ -82,15 +82,21 @@
     }
   ],
   "checks": {
-    "fresh_existing_screening_tests": "PASS",
-    "v14_session_oracles": "PASS",
-    "v14_controller_oracles": "PASS",
-    "v14_intake_hardening": "PASS; 5 attached DOCX calibration oracles",
-    "eleventy_build": "PASS before integration; template still v13",
-    "browser_local_en": "PASS preliminary cues, Critical confirmation, DOCX DOMParser, record count once, reload, schema0.4 export/import no extra count",
-    "browser_ua_375px_frame": "PASS restore/Reset; root scrollWidth328=clientWidth328",
-    "actual_final_mobile_device": "NOT_TESTED",
+    "fresh_existing_screening_tests": "PASS r2",
+    "v14_session_oracles": "PASS r2",
+    "v14_controller_oracles": "PASS r2; file-read bounds, import/scan races, detached/superseded Reset, mocked aggregate lifecycle",
+    "v14_intake_hardening": "PASS r2; 5 attached calibration DOCX present locally, not distributed",
+    "independent_lifecycle_review": "PASS on controller SHA256 ad98aae6d3a4abc089889f6ef1882225d45105f69190536c8cb32f2b84a0d911; exact A detached repro, 12 mocked aggregate cases, 3 inverse import/scan cases",
+    "browser_r1_historical": "Recorded at r1 only; not counted as r2 final-wrapper acceptance",
+    "final_wrapper_browser_mobile": "REQUIRED per A/B integration; manager preview not deployment",
     "new_deployment": "NOT_DEPLOYED",
-    "aggregate_cors": "UNKNOWN edge1010; no POST test sent"
-  }
+    "aggregate_cors": "UNKNOWN; no live POST sent"
+  },
+  "supersedes_commit": "dac71a03978d5913fa9729800b0ccba0b80c13de",
+  "fixes": [
+    "Reject file descriptors before reading bytes",
+    "Latest accepted import/scan owns its async generation",
+    "Detached or superseded controllers cannot render or persist stale state",
+    "Late aggregate replies cannot restore reset/replaced session contribution state"
+  ]
 }

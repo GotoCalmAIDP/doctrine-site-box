@@ -64,7 +64,7 @@ for (const language of ["en", "ua"]) {
   for (const url of [...scripts, ...styles]) await visit(localAsset(url));
 }
 const manifest = JSON.parse(await readFile(resolve("docs/screening-shared-v14/RELEASE_MANIFEST.json"), "utf8"));
-assert.equal(manifest.release_id, "gotocalm-screening-portable-20261022-v14-r1");
+assert.equal(manifest.release_id, "gotocalm-screening-portable-20261022-v14-r2");
 assert.equal(selected, "v14", "Template does not consume the pinned release");
 assert.equal(closure.size, manifest.assets.length, "Runtime closure differs from release manifest");
 for (const asset of manifest.assets) {
