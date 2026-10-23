@@ -1,6 +1,8 @@
 # GotoCalm Limited Evaluation Licence
 Version 1.0 · Published 3 October 2026
 
+Editorial clarification: 23 October 2026. The v1.0 licence and Screening rights-notice version remain unchanged. These clarifications introduce no additional usage obligations or data-processing permissions.
+
 Copyright © 2026 Vadym Partasyuk. GotoCalm.
 All rights reserved except permissions expressly granted below.
 
@@ -20,7 +22,9 @@ Nothing in this notice withdraws or restricts rights previously validly granted,
 - A local, non-production evaluation copy of covered code solely to study or evaluate it, with these notices preserved.
 - Viewing and forking within GitHub to the extent permitted by GitHub's terms; this does not independently grant further deployment or redistribution rights.
 
-Evaluation is not operational deployment, a paid service for a third party, or permission to clone or embed the tool.
+Except for the local, non-production evaluation copy expressly permitted above, evaluation does not include public or production hosting, embedding, operational deployment or redistribution beyond the permissions expressly granted.
+
+Permitted sharing includes providing your own case’s output to an adviser who is paid to review that case. This does not separately authorise the adviser to operate, reproduce, embed or resell the covered tool or templates as a paid service.
 
 ## Separate written permission or licence required
 For covered materials and code not already permitted under an applicable earlier or third-party licence:
@@ -47,4 +51,3 @@ Canonical website terms: https://gotocalm.com/terms
 Doctrine and public screening: https://gotocalmaidp.github.io/doctrine-site-box/
 
 A signed agreement governs the uses it expressly covers. A specific item licence governs that item; third-party and valid earlier licences remain effective. This notice is not a retroactive change to a Zenodo deposit or an already licensed copy.
-
