@@ -1,126 +1,40 @@
-# Doctrine Site — Structural Shell
+# GotoCalm — Applicability Boundary Doctrine
 
-**Version:** 1.0  
-**Status:** Structural shell only — no content  
-**Languages:** English (EN), Ukrainian (UA)
+Public reference website in English (EN) and Ukrainian (UA), built with Eleventy and published through GitHub Pages.
 
----
+**Live site:** https://gotocalmaidp.github.io/doctrine-site-box/
 
-## Purpose
+## Contents
 
-This repository contains the structural foundation for a doctrine-based website. It is a **shell only** — no doctrine content, theory, or claims have been written.
+- Published doctrine, definitions, source references and illustrative cases.
+- Bilingual reading navigation, glossary, local site search and contents for long pages.
+- A browser-local public Screening and evidence-readiness workspace with portable exports.
+- A clearly fictional educational example and citation artifacts.
 
----
+The public Screening is a self-reported preparation aid, not an operational controller, evidence verification, certification or a complete implementation of the doctrine. The independently hosted commercial site is https://gotocalm.com/.
 
-## Live Site
+## Source and build
 
-**URL:** https://gotocalmaidp.github.io/doctrine-site-box/
-
----
-
-## Canonical Routes
-
-| Page | English | Ukrainian |
-|------|---------|-----------|
-| Home | `/en/` | `/ua/` |
-| About | `/en/about/` | `/ua/about/` |
-| Doctrine | `/en/doctrine/` | `/ua/doctrine/` |
-| Case Studies | `/en/cases/` | `/ua/cases/` |
-| Method | `/en/method/` | `/ua/method/` |
-| Boundaries | `/en/boundaries/` | `/ua/boundaries/` |
-| Contact | `/en/contact/` | `/ua/contact/` |
-
-> **Note:** The route `/case-studies/` is **not used**. Tests should follow `/cases/`.
-
----
-
-## Folder Structure
-
-```
-doctrine-site-box/
-├── README.md              ← You are here
-├── SITEMAP.md             ← Site navigation map
-├── .eleventy.js           ← Eleventy configuration
-├── package.json           ← Node.js dependencies
-├── src/                   ← Source content files
-│   ├── en/                ← English pages
-│   ├── ua/                ← Ukrainian pages
-│   └── _includes/         ← Templates
-├── css/                   ← Stylesheets
-├── _site/                 ← Compiled output (generated)
-├── _cases/                ← Future case studies (EMPTY)
-├── _doctrine/             ← Future doctrine texts (EMPTY)
-└── _assets/               ← Static resources
-```
-
----
-
-## What This Contains
-
-- **Page skeletons:** All 7 public pages in both languages with placeholder blocks
-- **Sitemap:** Navigation structure and URL patterns
-- **Build configuration:** Eleventy static site generator
-- **GitHub Actions:** Automated deployment to GitHub Pages
-
----
-
-## What This Does NOT Contain
-
-- ❌ Doctrine content, theory, or claims
-- ❌ Case study materials
-
----
-
-## How to Extend
-
-### Adding Content
-
-1. Navigate to `/src/en/` or `/src/ua/`
-2. Open the relevant `.md` file
-3. Replace `[PLACEHOLDER]` blocks with actual content
-4. Ensure both language versions are updated in parallel
-
-### Adding Doctrine Materials
-
-1. Place source documents in `/_doctrine/`
-2. Reference them when writing `doctrine.md` content
-
-### Adding Case Studies
-
-1. Place case materials in `/_cases/`
-2. Update the Case Index in `src/en/cases.md` and `src/ua/cases.md`
-
-### Building Locally
+EN and UA pages are in `src/en/` and `src/ua/`; shared layouts are in `src/_includes/`; public assets are in `src/assets/`. Eleventy generates `_site/`. The base path is `/doctrine-site-box`.
 
 ```bash
 npm ci
+python scripts/generate-page-metadata.py
+python scripts/generate-citation-artifacts.py
 npm run build
+python scripts/audit-routes.py _site
 ```
 
-Output will be generated in `/_site/`.
+The GitHub Actions workflow checks integrity before deploying accepted `main` changes to GitHub Pages. A branch head alone is not evidence of the served deployment. Preserve a verified previous revision when preparing a release.
 
----
+## Contribution boundaries
 
-## Deployment
+Keep EN/UA pages consistent. Preserve published source content, identifiers, attribution and existing routes unless a change expressly requires otherwise. Shared Screening releases use a pinned asset manifest; changes to that runtime must remain coordinated across the two sites.
 
-The site is automatically deployed to GitHub Pages via GitHub Actions when changes are pushed to the `main` branch.
+This is a public repository. Keep private documents, internal working discussions, client materials and credentials in a separate private workspace. Include only materials intended for public distribution in source and build artifacts.
 
----
+## Rights and contact
 
-## Constraints
+See [LICENSE.md](LICENSE.md), [NOTICE.md](NOTICE.md), and the website Terms and Privacy pages. This repository is source-available under a limited evaluation licence, not an open-source licence. Specific item licences, third-party licences and valid earlier grants remain effective.
 
-1. **No existing site modification:** This is a NEW, SEPARATE project
-2. **No doctrine assumptions:** Content must come from approved sources only
-3. **Bilingual parity:** All changes must be reflected in both languages
-
----
-
-## Version Status
-
-v1.4.3 is the canonical stable release and rollback reference.
-
----
-
-## Contact
-
-[CONTENT WILL BE ADDED LATER]
+Contact: admin@gotocalm.com

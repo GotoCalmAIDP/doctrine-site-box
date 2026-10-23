@@ -148,11 +148,13 @@ for (const route of Object.keys(metadata)) {
 }
 assert.ok(eligiblePages > 0, "The built corpus must exercise the TOC");
 
-// Full B3 search bytes on immutable main 2a5442c377c6f03a63b37e18ea7b4e253ede82d7.
-// Additive reader navigation must not change any public searchable content.
+// Approved 23 October 2026 Terms/Privacy clarification baseline.
+// Compared with B4 production 7bb85a1e4c2fc7f5ddcadab49e2cf377867a0878:
+// only EN/UA Terms and Privacy records changed; all other 112 records are identical.
+// Reader navigation must not introduce further searchable-content changes.
 const indexHashes = {
-  en: "2656641173a0d798142193b1b54be27dd77d10efc437d261673675f7cde40c38",
-  ua: "17704381bf7bda599a3b8a31d410e4a211d8a7d62d53b37af895736abcbdadbe"
+  en: "25210f36a669bbb0625ca9e95867f91fb61dec9348b6d76c603beee7dba03308",
+  ua: "0237a823fcd1931d2c953a5f2e3ff0a26ee508016e8c0010d6907bd9adb233e7"
 };
 for (const language of ["en", "ua"]) {
   const bytes = await readFile(resolve(siteDir, "assets/search", `${language}.json`));
